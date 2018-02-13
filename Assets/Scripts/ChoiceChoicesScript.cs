@@ -45,7 +45,7 @@ public class ChoiceChoicesScript : MonoBehaviour {
                 choiceNum++;
             }
         }
-        upperChoice.sprite = upperChoicePics[choiceNum];
-        lowerChoice.sprite = lowerChoicePics[choiceNum];
+        upperChoice.sprite = upperChoicePics[0];
+        lowerChoice.sprite = lowerChoicePics[0];
     }
 }

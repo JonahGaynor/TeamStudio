@@ -1,3 +1,4 @@
+
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -137,9 +138,8 @@ public class CharacterScript : MonoBehaviour {
         }
         if (collider.gameObject.tag == "ChoiceSection")
         {
-            if (Input.GetKeyDown(KeyCode.S))
+            if (Input.GetKey(KeyCode.S))
             {
-                Debug.Log("Kill Me");
                 jumpOverride = true;
                 canGetUp = false;
             }
@@ -148,6 +148,14 @@ public class CharacterScript : MonoBehaviour {
         if (collider.gameObject.tag == "ChoiceThreshold")
         {
             ChoiceChoicesScript.Instance.withinThreshold = true;
+        }
+        if (collider.gameObject.tag == "TopChoice")
+        {
+            GameController.Instance.topChoiceMade = true;
+        }
+        if (collider.gameObject.tag == "BottomChoice")
+        {
+            GameController.Instance.bottomChoiceMade = true;
         }
     }
 
