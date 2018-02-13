@@ -1,12 +1,11 @@
 fileFormatVersion: 2
-guid: 25df7e3a54504a94e984a045e7504138
-timeCreated: 1518553998
+guid: 42ddd17ad63b64747a62cde3b14cf14c
+timeCreated: 1518553302
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
-    21300000: Floor
-    21300002: IAmWood-01_0
-    21300004: IAmWood-01_1
+    21300000: Little Boy Slide-Better_0
+    21300002: Little Boy Slide-Better_1
   externalObjects: {}
   serializedVersion: 4
   mipmaps:
@@ -86,15 +85,6 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
-  - buildTarget: Android
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
   - buildTarget: WebGL
     maxTextureSize: 2048
     resizeAlgorithm: 0
@@ -108,27 +98,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Floor
+      name: Little Boy Slide-Better_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 534
-        height: 142
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: IAmWood-01_0
-      rect:
-        serializedVersion: 2
-        x: 280
-        y: 370
-        width: 163
-        height: 76
+        x: 294
+        y: 266
+        width: 240
+        height: 268
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -136,13 +112,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: IAmWood-01_1
+      name: Little Boy Slide-Better_1
       rect:
         serializedVersion: 2
         x: 0
-        y: 0
+        y: 55
         width: 534
-        height: 144
+        height: 362
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}

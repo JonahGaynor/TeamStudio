@@ -1,12 +1,10 @@
 fileFormatVersion: 2
-guid: 25df7e3a54504a94e984a045e7504138
-timeCreated: 1518553998
+guid: bf8a5a88c5995497db334be937b0338b
+timeCreated: 1518553323
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
-    21300000: Floor
-    21300002: IAmWood-01_0
-    21300004: IAmWood-01_1
+    21300000: Science Man Slide-01_0
   externalObjects: {}
   serializedVersion: 4
   mipmaps:
@@ -49,7 +47,7 @@ TextureImporter:
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 200
   alphaUsage: 1
   alphaIsTransparency: 1
   spriteTessellationDetail: -1
@@ -86,15 +84,6 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
-  - buildTarget: Android
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
   - buildTarget: WebGL
     maxTextureSize: 2048
     resizeAlgorithm: 0
@@ -108,41 +97,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Floor
+      name: Science Man Slide-01_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 534
-        height: 142
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: IAmWood-01_0
-      rect:
-        serializedVersion: 2
-        x: 280
-        y: 370
-        width: 163
-        height: 76
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: IAmWood-01_1
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 0
-        width: 534
-        height: 144
+        width: 1042
+        height: 688
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
