@@ -35,6 +35,7 @@ public class TextDecisionScript : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.Return))
         {
+            GameController.Instance.startQuestion = true ;
             drop = true;
             playerOffset = new Vector3(xoffset, -10f, 0f);
             
