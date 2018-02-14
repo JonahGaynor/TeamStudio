@@ -13,6 +13,8 @@ TagManager:
   - Funeral
   - ChoiceSection
   - ChoiceThreshold
+  - BottomChoice
+  - TopChoice
   layers:
   - Default
   - TransparentFX

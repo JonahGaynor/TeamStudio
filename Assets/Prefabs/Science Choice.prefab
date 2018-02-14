@@ -37,7 +37,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4776255772346228}
   m_Layer: 0
-  m_Name: Choice Floor
+  m_Name: Science Choice
   m_TagString: ChoiceSection
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -326,7 +326,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 5.34, y: 1.42}
+    oldSize: {x: 5.34, y: 1.41}
     newSize: {x: 11.52, y: 2.23}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -376,7 +376,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 5.34, y: 1.42}
+    oldSize: {x: 5.34, y: 1.41}
     newSize: {x: 11.52, y: 2.23}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -426,7 +426,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 5.34, y: 1.42}
+    oldSize: {x: 5.34, y: 1.41}
     newSize: {x: 11.52, y: 2.23}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -451,7 +451,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 5.34, y: 1.42}
+    oldSize: {x: 5.34, y: 1.41}
     newSize: {x: 11.52, y: 2.23}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -563,7 +563,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 25df7e3a54504a94e984a045e7504138, type: 3}
+  m_Sprite: {fileID: 21300000, guid: abe3fb56447a046578d690915ba26621, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -607,7 +607,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 25df7e3a54504a94e984a045e7504138, type: 3}
+  m_Sprite: {fileID: 21300000, guid: abe3fb56447a046578d690915ba26621, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -695,7 +695,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 25df7e3a54504a94e984a045e7504138, type: 3}
+  m_Sprite: {fileID: 21300000, guid: abe3fb56447a046578d690915ba26621, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -739,7 +739,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 25df7e3a54504a94e984a045e7504138, type: 3}
+  m_Sprite: {fileID: 21300000, guid: abe3fb56447a046578d690915ba26621, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
