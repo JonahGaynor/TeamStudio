@@ -19,6 +19,12 @@ public class GameController : MonoBehaviour {
     public bool bottomChoiceMade = false;
     public bool moveToNextLevel = false;
     public int levelsPast = 0;
+    public int questionsAnswered = 0;
+    public bool stopSpawning = false;
+    public float timeTillNextQuestion = 15f;
+    int currentQuestion=0;
+    public GameObject[] questionPrompt;
+    public GameObject player;
 	// Use this for initialization
 	void Start () {
         Instance = this;
@@ -35,6 +41,16 @@ public class GameController : MonoBehaviour {
                 escapeTime = true;
                 wallOfText.gameObject.SetActive(false);
             }
+        }
+        if (currentQuestion == questionsAnswered) { timeTillNextQuestion -= Time.deltaTime; }
+        if (timeTillNextQuestion < 0&& currentQuestion==questionsAnswered)
+        {
+            currentQuestion++;
+            GameObject prompt=Instantiate(questionPrompt[questionsAnswered]);
+            Vector3 temp = prompt.transform.position;
+            temp.x = player.transform.position.x + 20;
+            prompt.transform.position = temp;
+            timeTillNextQuestion = 15f;
         }
         if (atFuneral)
         {

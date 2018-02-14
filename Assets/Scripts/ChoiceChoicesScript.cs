@@ -16,8 +16,9 @@ public class ChoiceChoicesScript : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         Instance = this;
-        upperChoice.gameObject.SetActive(false);
+        
         lowerChoice.gameObject.SetActive(false);
+        upperChoice.gameObject.SetActive(false);
     }
 	
 	// Update is called once per frame
@@ -45,7 +46,8 @@ public class ChoiceChoicesScript : MonoBehaviour {
                 choiceNum++;
             }
         }
-        upperChoice.sprite = upperChoicePics[0];
+        
         lowerChoice.sprite = lowerChoicePics[0];
+        upperChoice.sprite = upperChoicePics[0];
     }
 }

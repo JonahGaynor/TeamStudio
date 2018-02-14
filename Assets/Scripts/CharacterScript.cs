@@ -166,6 +166,7 @@ public class CharacterScript : MonoBehaviour {
             jumpOverride = false;
             canGetUp = true;
             GetUpOneTime();
+            GameController.Instance.questionsAnswered++;
         }   
     }
     bool FixOneTime()

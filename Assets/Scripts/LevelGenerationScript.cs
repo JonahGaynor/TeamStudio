@@ -8,6 +8,7 @@ public class LevelGenerationScript : MonoBehaviour {
     public float timeToSpawn = 3f;
     float maxTime = 3f;
     bool hasSpawned=false;
+    public GameObject[] backgrounds;
 	// Use this for initialization
 	void Start () {
 		
@@ -24,6 +25,11 @@ public class LevelGenerationScript : MonoBehaviour {
             Vector3 temp = floor.transform.position;
             temp.x = this.transform.position.x;
             floor.transform.position = temp;
+            int choice = Random.Range(0, backgrounds.Length);
+           GameObject bg= Instantiate(backgrounds[choice]);
+            temp = bg.transform.position;
+            temp.x = this.transform.position.x;
+            bg.transform.position = temp;
         }
         if (shouldGenChoice&&!hasSpawned)
         {

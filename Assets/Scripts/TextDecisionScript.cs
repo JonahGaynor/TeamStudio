@@ -7,7 +7,7 @@ public class TextDecisionScript : MonoBehaviour
 {
 
     public float moveSpeed = .3f;
-    public Transform myTarget;
+    public GameObject myTarget;
     Vector3 playerOffset;
     bool readyToBounce = false;
     float originalY;
@@ -17,6 +17,7 @@ public class TextDecisionScript : MonoBehaviour
     // Use this for initialization
     void Start()
     {
+        myTarget = GameObject.FindGameObjectWithTag("Little Boy");
         playerOffset = new Vector3(0f, 0f, 0f);
         originalY = transform.position.y;
     }
@@ -24,12 +25,12 @@ public class TextDecisionScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.position = Vector3.MoveTowards(transform.position, myTarget.position + playerOffset, moveSpeed);
+        transform.position = Vector3.MoveTowards(transform.position, myTarget.transform.position + playerOffset, moveSpeed);
         if (playerOffset.y == 0f)
         {
             transform.position = new Vector3(transform.position.x, originalY, 0f);
         }
-        if ((transform.position.x <= myTarget.position.x + 2f)&&!drop)
+        if ((transform.position.x <= myTarget.transform.position.x + 2f)&&!drop)
         {
             playerOffset = new Vector3(xoffset, 0f, 0f);
         }
