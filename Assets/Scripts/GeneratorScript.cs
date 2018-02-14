@@ -11,6 +11,7 @@ public class GeneratorScript : MonoBehaviour {
     public int pick;
    public float timeToKill=4f;
     bool stopSpawning = false;
+    bool spawnOverride = false;
     // Use this for initialization
     void Start () {
 		
@@ -18,11 +19,12 @@ public class GeneratorScript : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+        spawnOverride = GameController.Instance.stopSpawning;
         timeLeft -= Time.deltaTime;
         Vector3 temp = this.transform.position;
         temp.x = player.transform.position.x + offset;
         this.transform.position = temp;
-        if (timeLeft <= 0&&!stopSpawning)
+        if (timeLeft <= 0&&!stopSpawning&&!spawnOverride)
         {
             pick = Random.Range(0, furniture.Length);
            GameObject pickedObject= Instantiate(furniture[pick]);
@@ -44,7 +46,6 @@ public class GeneratorScript : MonoBehaviour {
 
         if (GameController.Instance.startQuestion)
         {
-            Debug.Log("Reducing Time");
             timeToKill -= Time.deltaTime;
            if(timeToKill < 0)
             {
