@@ -1219,7 +1219,6 @@ Camera:
   m_TargetEye: 3
   m_HDR: 1
   m_AllowMSAA: 1
-  m_AllowDynamicResolution: 0
   m_ForceIntoRT: 0
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
@@ -8568,6 +8567,8 @@ MonoBehaviour:
   mySprite: {fileID: 0}
   myCollider: {fileID: 0}
   canJump: 1
+  canGetUp: 1
+  jumpOverride: 0
   lifeText: {fileID: 724430051}
 --- !u!1 &1101164509 stripped
 GameObject:
