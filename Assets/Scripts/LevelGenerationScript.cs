@@ -7,7 +7,8 @@ public class LevelGenerationScript : MonoBehaviour {
     public GameObject[] levels;
     public float timeToSpawn = 3f;
     float maxTime = 3f;
-    bool hasSpawned=false;
+    public bool hasSpawned=false;
+    bool hasSpawnedEnd = false;
     public GameObject[] backgrounds;
 	// Use this for initialization
 	void Start () {
@@ -16,6 +17,7 @@ public class LevelGenerationScript : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+
         shouldGenChoice = GameController.Instance.startQuestion;
         timeToSpawn -= Time.deltaTime;
         if (timeToSpawn < 0)
@@ -27,14 +29,25 @@ public class LevelGenerationScript : MonoBehaviour {
             floor.transform.position = temp;
             int choice = Random.Range(0, backgrounds.Length);
            GameObject bg= Instantiate(backgrounds[choice]);
+           
             temp = bg.transform.position;
             temp.x = this.transform.position.x;
             bg.transform.position = temp;
+          //  bg.transform.parent = this.gameObject.transform;
         }
-        if (shouldGenChoice&&!hasSpawned)
+        if (shouldGenChoice&&!hasSpawned&&GameController.Instance.questionsAnswered<4&&GameController.Instance.startQuestion)
         {
             hasSpawned = true;
            GameObject question= Instantiate(levels[1]);
+            Vector3 temp = question.transform.position;
+            temp.x = this.transform.position.x;
+            question.transform.position = temp;
+        }
+        if (GameController.Instance.spawnFadePrefab&&!hasSpawnedEnd)
+        {
+            hasSpawnedEnd = true;
+            GameObject question = Instantiate(levels[2]);
+            
             Vector3 temp = question.transform.position;
             temp.x = this.transform.position.x;
             question.transform.position = temp;

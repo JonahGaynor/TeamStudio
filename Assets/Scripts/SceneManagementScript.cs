@@ -24,6 +24,7 @@ public class SceneManagementScript : MonoBehaviour {
         {
             SceneManager.LoadScene("ScienceScene");
             GameController.Instance.levelsPast++;
+            GameController.Instance.moveToNextLevel = false;
         }
         if (GameController.Instance.moveToNextLevel && GameController.Instance.topChoiceMade && GameController.Instance.levelsPast == 1)
         {
