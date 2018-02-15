@@ -49,6 +49,7 @@ public class GeneratorScript : MonoBehaviour {
             timeToKill -= Time.deltaTime;
            if(timeToKill < 0)
             {
+                timeToKill = 4f;
                 stopSpawning = true;
                 GameObject[] obstacles = GameObject.FindGameObjectsWithTag("Furniture");
                 foreach (GameObject furniture in obstacles)

@@ -17,7 +17,8 @@ public class SceneManagementScript : MonoBehaviour {
     {
 
         if (Input.GetKey(KeyCode.R)) {
-            SceneManager.LoadScene("childhoodScene");
+            SceneManager.LoadScene("ChildhoodScene");
+            levelsPast = 1;
         }
         if (GameController.Instance.moveToNextLevel && GameController.Instance.topChoiceMade&&this.levelsPast==1)
         {
@@ -37,11 +38,13 @@ public class SceneManagementScript : MonoBehaviour {
         }
         if (GameController.Instance.moveToNextLevel && GameController.Instance.topChoiceMade && this.levelsPast == 2)
         {
+            levelsPast++;
             SceneManager.LoadScene("SadScene");
           //  GameController.Instance.levelsPast++;
         }
         if (GameController.Instance.moveToNextLevel && GameController.Instance.bottomChoiceMade && this.levelsPast == 2)
         {
+            levelsPast++;
             SceneManager.LoadScene("HappyEnding");
           //  GameController.Instance.levelsPast++;
         }

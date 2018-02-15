@@ -183,7 +183,7 @@ MonoBehaviour:
   jumpOverride: 0
   lifeText: {fileID: 964654739}
   choiceScript: {fileID: 1486462575}
-  obsGenerator: {fileID: 0}
+  obsGenerator: {fileID: 458213034}
 --- !u!50 &92985507
 Rigidbody2D:
   serializedVersion: 4
