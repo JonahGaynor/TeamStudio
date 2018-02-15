@@ -10,7 +10,7 @@ public class GeneratorScript : MonoBehaviour {
     public float timeLeft = 2f;
     public int pick;
    public float timeToKill=4f;
-    bool stopSpawning = false;
+   public bool stopSpawning = false;
     bool spawnOverride = false;
     // Use this for initialization
     void Start () {

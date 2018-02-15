@@ -19,6 +19,7 @@ public class CharacterScript : MonoBehaviour {
     public Text lifeText;
     bool hasFixed = false;
     public GameObject choiceScript;
+    public GameObject obsGenerator;
     // Use this for initialization
     void Start () {
         myRigidbody = this.GetComponent<Rigidbody2D>();
@@ -172,6 +173,8 @@ public class CharacterScript : MonoBehaviour {
             GameController.Instance.startQuestion = false;
             LevelGenerationScript levelGen =choiceScript.GetComponent<LevelGenerationScript>();
             levelGen.hasSpawned = false;
+            GeneratorScript generator = obsGenerator.GetComponent<GeneratorScript>();
+            generator.stopSpawning = false;
         }   
     }
     bool FixOneTime()

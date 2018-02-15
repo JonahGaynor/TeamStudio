@@ -38,7 +38,7 @@ public class TextDecisionScript : MonoBehaviour
         {
             GameController.Instance.startQuestion = true ;
             drop = true;
-            playerOffset = new Vector3(xoffset, -10f, 0f);
+            playerOffset = new Vector3(xoffset, -30f, 0f);
             
         }
     }
