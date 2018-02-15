@@ -18,6 +18,7 @@ public class CharacterScript : MonoBehaviour {
     //public int life = 5;
     public Text lifeText;
     bool hasFixed = false;
+    public GameObject choiceScript;
     // Use this for initialization
     void Start () {
         myRigidbody = this.GetComponent<Rigidbody2D>();
@@ -33,7 +34,7 @@ public class CharacterScript : MonoBehaviour {
            GameController.Instance.gameOver = true;
             mySprite.sprite = playerSprites[2];
         }
-       // lifeText.text = "" + GameController.Instance.life;
+       lifeText.text = "" + GameController.Instance.life;
         if (!GameController.Instance.gameOver&&(!GameController.Instance.hitText||GameController.Instance.escapeTime))
         {
             
@@ -83,10 +84,10 @@ public class CharacterScript : MonoBehaviour {
             {
                 mySprite.sprite = playerSprites[4];
             }
-            if (this.transform.position.x >= 877)
-            {
-                GameController.Instance.standardMoveSpeed = 0f;
-            }
+           // if (this.transform.position.x >= 877)
+           // {
+           //     GameController.Instance.standardMoveSpeed = 0f;
+          //  }
 
 
         }
@@ -149,11 +150,11 @@ public class CharacterScript : MonoBehaviour {
         {
             ChoiceChoicesScript.Instance.withinThreshold = true;
         }
-        if (collider.gameObject.tag == "TopChoice")
+        if (collider.gameObject.tag == "TopChoice"&&GameController.Instance.questionsAnswered==3)
         {
             GameController.Instance.topChoiceMade = true;
         }
-        if (collider.gameObject.tag == "BottomChoice")
+        if (collider.gameObject.tag == "BottomChoice" && GameController.Instance.questionsAnswered == 3)
         {
             GameController.Instance.bottomChoiceMade = true;
         }
@@ -167,6 +168,10 @@ public class CharacterScript : MonoBehaviour {
             canGetUp = true;
             GetUpOneTime();
             GameController.Instance.questionsAnswered++;
+            GameController.Instance.stopSpawning = false;
+            GameController.Instance.startQuestion = false;
+            LevelGenerationScript levelGen =choiceScript.GetComponent<LevelGenerationScript>();
+            levelGen.hasSpawned = false;
         }   
     }
     bool FixOneTime()

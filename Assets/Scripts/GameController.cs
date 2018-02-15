@@ -21,6 +21,7 @@ public class GameController : MonoBehaviour {
     public int levelsPast = 0;
     public int questionsAnswered = 0;
     public bool stopSpawning = false;
+    public bool spawnFadePrefab = false;
     public float timeTillNextQuestion = 15f;
     int currentQuestion=0;
     public GameObject[] questionPrompt;
@@ -33,6 +34,14 @@ public class GameController : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+        if (moveToNextLevel)
+        {
+            questionsAnswered = 0;
+        }
+        if (questionsAnswered == 4)
+        {
+            spawnFadePrefab = true;
+        }
         if (hitText)
         {
             timeToWait -= Time.deltaTime;
@@ -42,7 +51,7 @@ public class GameController : MonoBehaviour {
                 wallOfText.gameObject.SetActive(false);
             }
         }
-        if (currentQuestion == questionsAnswered) { timeTillNextQuestion -= Time.deltaTime; }
+        if (currentQuestion == questionsAnswered&&questionsAnswered<4) { timeTillNextQuestion -= Time.deltaTime; }
         if (timeTillNextQuestion < 0&& currentQuestion==questionsAnswered)
         {
             currentQuestion++;
@@ -50,7 +59,7 @@ public class GameController : MonoBehaviour {
             Vector3 temp = prompt.transform.position;
             temp.x = player.transform.position.x + 20;
             prompt.transform.position = temp;
-            timeTillNextQuestion = 15f;
+            timeTillNextQuestion = 5f;
         }
         if (atFuneral)
         {
