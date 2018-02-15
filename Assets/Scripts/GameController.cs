@@ -30,6 +30,7 @@ public class GameController : MonoBehaviour {
 	void Start () {
         Instance = this;
         standardMoveSpeed = 0.175f;
+       // standardMoveSpeed = 5;
     }
 	
 	// Update is called once per frame
@@ -63,7 +64,7 @@ public class GameController : MonoBehaviour {
         }
         if (atFuneral)
         {
-            
+            Debug.Log("Move Speed Decreased");
             standardMoveSpeed = Mathf.Lerp(standardMoveSpeed, 0, 0.0075f);
             life = 1;
             timeToEnd -= Time.deltaTime;
