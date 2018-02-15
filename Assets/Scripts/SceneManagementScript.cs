@@ -33,7 +33,7 @@ public class SceneManagementScript : MonoBehaviour {
         }
         if (GameController.Instance.moveToNextLevel && GameController.Instance.bottomChoiceMade && GameController.Instance.levelsPast == 1)
         {
-            SceneManager.LoadScene("HappyScene");
+            SceneManager.LoadScene("HappyEnding");
             GameController.Instance.levelsPast++;
         }
     }
