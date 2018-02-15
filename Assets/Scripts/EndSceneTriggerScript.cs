@@ -17,9 +17,11 @@ public class EndSceneTriggerScript : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+
 		getBlocker = GameObject.Find ("Blocker").GetComponent<SpriteRenderer>();
 		fadeToBlack = getBlocker.material;
         generator = GameObject.Find("Generator");
+
 	}
 	
 	// Update is called once per frame
@@ -29,19 +31,23 @@ public class EndSceneTriggerScript : MonoBehaviour {
 		if (readyToFade) {
 //			getBlocker.color.a = Mathf.Lerp(getBlocker.color.a, 255, .00001f);
 			opacity = Mathf.Lerp(opacity, 255, .00001f);
+
 		}
 		fadeToBlack.color = temp;
         Debug.Log(opacity);
 		if (opacity >= 0.95f) {
 			GameController.Instance.moveToNextLevel = true;
             Debug.Log("Move To Next Level");
+
 		}
 	}
 
 	void OnTriggerEnter2D (Collider2D otherCollider){
 		if (otherCollider.tag == "Little Boy") {
 			readyToFade = true;
+
 			GameController.Instance.stopSpawning = true;
+
 		}
 	}
 }

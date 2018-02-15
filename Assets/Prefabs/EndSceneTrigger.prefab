@@ -24,7 +24,9 @@ GameObject:
   - component: {fileID: 61640447736209928}
   m_Layer: 0
   m_Name: EndSceneTrigger
+
   m_TagString: MoveScenes
+
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -80,6 +82,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fadeToBlack: {fileID: 0}
   getBlocker: {fileID: 0}
+
   generator: {fileID: 0}
 --- !u!212 &212275505021216738
 SpriteRenderer:
