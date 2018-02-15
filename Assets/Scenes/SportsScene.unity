@@ -183,6 +183,7 @@ MonoBehaviour:
   jumpOverride: 0
   lifeText: {fileID: 964654739}
   choiceScript: {fileID: 1486462575}
+  obsGenerator: {fileID: 0}
 --- !u!50 &92985507
 Rigidbody2D:
   serializedVersion: 4
@@ -507,6 +508,7 @@ MonoBehaviour:
   timeLeft: 2
   pick: 0
   timeToKill: 4
+  stopSpawning: 0
 --- !u!4 &458213036
 Transform:
   m_ObjectHideFlags: 0
@@ -1375,7 +1377,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1775879352}
   - component: {fileID: 1775879351}
-  - component: {fileID: 1775879350}
   m_Layer: 0
   m_Name: GameController
   m_TagString: Untagged
@@ -1383,17 +1384,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1775879350
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1775879349}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3fde1564e2fb8494895d146b5acad26a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1775879351
 MonoBehaviour:
   m_ObjectHideFlags: 0

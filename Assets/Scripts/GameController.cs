@@ -60,7 +60,7 @@ public class GameController : MonoBehaviour {
             Vector3 temp = prompt.transform.position;
             temp.x = player.transform.position.x + 20;
             prompt.transform.position = temp;
-            timeTillNextQuestion = 5f;
+            timeTillNextQuestion = 15f;
         }
         if (atFuneral)
         {
