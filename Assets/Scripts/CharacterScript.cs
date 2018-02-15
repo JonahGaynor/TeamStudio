@@ -34,6 +34,7 @@ public class CharacterScript : MonoBehaviour {
            GameController.Instance.gameOver = true;
             mySprite.sprite = playerSprites[2];
         }
+        Debug.Log(runSpeed);
        lifeText.text = "" + GameController.Instance.life;
         if (!GameController.Instance.gameOver&&(!GameController.Instance.hitText||GameController.Instance.escapeTime))
         {
@@ -94,6 +95,7 @@ public class CharacterScript : MonoBehaviour {
 	}
     private void OnCollisionEnter2D(Collision2D collision)
     {
+        Debug.Log(collision.gameObject.name);
         if (collision.gameObject.tag == "Floor")
         {
             canJump = true;
