@@ -6,5 +6,14 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/runScene.unity
+    path: Assets/Scenes/runScene.unity
     guid: bb955c598f81f054ca82800005feb248
+  - enabled: 1
+    path: Assets/Scenes/HappyEnding.unity
+    guid: d0c4064afe7a64020b873a96c08b0d8e
+  - enabled: 1
+    path: Assets/SportsScene.unity
+    guid: d20edcae1b92af445a29f834aecdc4ff
+  - enabled: 1
+    path: Assets/Scenes/SadScene.unity
+    guid: 4f1aa0ad0012e459c80e98ea776bb024

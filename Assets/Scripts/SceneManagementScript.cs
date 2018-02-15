@@ -17,14 +17,19 @@ public class SceneManagementScript : MonoBehaviour {
         }
         if (GameController.Instance.moveToNextLevel && GameController.Instance.topChoiceMade&&GameController.Instance.levelsPast==0)
         {
-            SceneManager.LoadScene("SportsScene");
             GameController.Instance.levelsPast++;
+            GameController.Instance.moveToNextLevel = false;
+            GameController.Instance.topChoiceMade = false;
+            SceneManager.LoadScene("SportsScene");
+            
         }
         if (GameController.Instance.moveToNextLevel && GameController.Instance.bottomChoiceMade && GameController.Instance.levelsPast == 0)
         {
-            SceneManager.LoadScene("ScienceScene");
             GameController.Instance.levelsPast++;
             GameController.Instance.moveToNextLevel = false;
+            GameController.Instance.bottomChoiceMade = false;
+            SceneManager.LoadScene("ScienceScene");
+            
         }
         if (GameController.Instance.moveToNextLevel && GameController.Instance.topChoiceMade && GameController.Instance.levelsPast == 1)
         {
