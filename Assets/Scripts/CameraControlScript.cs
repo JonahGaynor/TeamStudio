@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Audio;
 
 public class CameraControlScript : MonoBehaviour {
 
@@ -23,6 +24,7 @@ public class CameraControlScript : MonoBehaviour {
     public GameObject funeralScene;
 	MomMovementScript mommaScript;
 
+
 	// Use this for initialization
 	void Start () {
         fadeToBlack = this.transform.GetChild(0).GetComponent<Renderer>().material;
@@ -38,7 +40,6 @@ public class CameraControlScript : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
-      
         Color temp = fadeToBlack.color;
         temp.a = opacity;
         fadeToBlack.color = temp;
