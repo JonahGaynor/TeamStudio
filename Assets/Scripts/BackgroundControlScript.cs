@@ -26,8 +26,8 @@ public class BackgroundControlScript : MonoBehaviour {
         }
 		//transform.Translate (howFastToMove * Time.deltaTime, 0f, 0f);
 
-		if (transform.position.x >= 875) {
-			Destroy (this.gameObject);
-		}
+	//	if (transform.position.x >= 875) {
+		//	Destroy (this.gameObject);
+		//}
 	}
 }

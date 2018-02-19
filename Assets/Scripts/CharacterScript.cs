@@ -19,6 +19,7 @@ public class CharacterScript : MonoBehaviour {
     public Text lifeText;
     bool hasFixed = false;
     public GameObject choiceScript;
+    public GameObject obsGenerator;
     // Use this for initialization
     void Start () {
         myRigidbody = this.GetComponent<Rigidbody2D>();
@@ -34,7 +35,6 @@ public class CharacterScript : MonoBehaviour {
            GameController.Instance.gameOver = true;
             mySprite.sprite = playerSprites[2];
         }
-        Debug.Log(runSpeed);
        lifeText.text = "" + GameController.Instance.life;
         if (!GameController.Instance.gameOver&&(!GameController.Instance.hitText||GameController.Instance.escapeTime))
         {
@@ -44,7 +44,7 @@ public class CharacterScript : MonoBehaviour {
             Vector3 temp = this.transform.position;
             temp.x += runSpeed;
             this.transform.position = temp;
-            if (Input.GetKeyDown(KeyCode.Space))
+            if (Input.GetKeyDown(KeyCode.W)|| Input.GetKeyDown(KeyCode.UpArrow))
             {
                 if (canJump)
                 {
@@ -58,7 +58,7 @@ public class CharacterScript : MonoBehaviour {
                 }
 
             }
-            if (Input.GetKeyDown(KeyCode.S)&&canJump)
+            if ((Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.DownArrow)) && canJump)
             {
                 mySprite.sprite = playerSprites[1];
                 Vector2 newOffset = new Vector2(0, -0.8f);
@@ -66,7 +66,7 @@ public class CharacterScript : MonoBehaviour {
                 Vector2 newSize = new Vector2(4.88f, 2f);
                 myCollider.size = newSize;
             }
-             if (Input.GetKeyUp(KeyCode.S))
+             if ((Input.GetKeyUp(KeyCode.S) || Input.GetKeyUp(KeyCode.DownArrow)))
             {
                 if (canGetUp)
                 {
@@ -95,11 +95,10 @@ public class CharacterScript : MonoBehaviour {
 	}
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        Debug.Log(collision.gameObject.name);
         if (collision.gameObject.tag == "Floor")
         {
             canJump = true;
-            if (Input.GetKey(KeyCode.S))
+            if (Input.GetKey(KeyCode.S)|| Input.GetKey(KeyCode.DownArrow))
             {
                 mySprite.sprite = playerSprites[1];
                 Vector2 newOffset = new Vector2(0, -0.8f);
@@ -174,6 +173,8 @@ public class CharacterScript : MonoBehaviour {
             GameController.Instance.startQuestion = false;
             LevelGenerationScript levelGen =choiceScript.GetComponent<LevelGenerationScript>();
             levelGen.hasSpawned = false;
+            GeneratorScript generator = obsGenerator.GetComponent<GeneratorScript>();
+            generator.stopSpawning = false;
         }   
     }
     bool FixOneTime()

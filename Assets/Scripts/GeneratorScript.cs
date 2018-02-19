@@ -10,7 +10,7 @@ public class GeneratorScript : MonoBehaviour {
     public float timeLeft = 2f;
     public int pick;
    public float timeToKill=4f;
-    bool stopSpawning = false;
+   public bool stopSpawning = false;
     bool spawnOverride = false;
     // Use this for initialization
     void Start () {
@@ -49,6 +49,7 @@ public class GeneratorScript : MonoBehaviour {
             timeToKill -= Time.deltaTime;
            if(timeToKill < 0)
             {
+                timeToKill = 4f;
                 stopSpawning = true;
                 GameObject[] obstacles = GameObject.FindGameObjectsWithTag("Furniture");
                 foreach (GameObject furniture in obstacles)
