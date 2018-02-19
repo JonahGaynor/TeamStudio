@@ -44,7 +44,7 @@ public class CharacterScript : MonoBehaviour {
             Vector3 temp = this.transform.position;
             temp.x += runSpeed;
             this.transform.position = temp;
-            if (Input.GetKeyDown(KeyCode.Space))
+            if (Input.GetKeyDown(KeyCode.W)|| Input.GetKeyDown(KeyCode.UpArrow))
             {
                 if (canJump)
                 {
@@ -58,7 +58,7 @@ public class CharacterScript : MonoBehaviour {
                 }
 
             }
-            if (Input.GetKeyDown(KeyCode.S)&&canJump)
+            if ((Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.DownArrow)) && canJump)
             {
                 mySprite.sprite = playerSprites[1];
                 Vector2 newOffset = new Vector2(0, -0.8f);
@@ -66,7 +66,7 @@ public class CharacterScript : MonoBehaviour {
                 Vector2 newSize = new Vector2(4.88f, 2f);
                 myCollider.size = newSize;
             }
-             if (Input.GetKeyUp(KeyCode.S))
+             if ((Input.GetKeyUp(KeyCode.S) || Input.GetKeyUp(KeyCode.DownArrow)))
             {
                 if (canGetUp)
                 {
@@ -98,7 +98,7 @@ public class CharacterScript : MonoBehaviour {
         if (collision.gameObject.tag == "Floor")
         {
             canJump = true;
-            if (Input.GetKey(KeyCode.S))
+            if (Input.GetKey(KeyCode.S)|| Input.GetKey(KeyCode.DownArrow))
             {
                 mySprite.sprite = playerSprites[1];
                 Vector2 newOffset = new Vector2(0, -0.8f);
