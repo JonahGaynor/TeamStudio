@@ -40,6 +40,7 @@ public class EndSceneTriggerScript : MonoBehaviour {
             Debug.Log("Move To Next Level");
 
 		}
+		transform.position = new Vector3 (transform.position.x - 5f, transform.position.y, 0f);
 	}
 
 	void OnTriggerEnter2D (Collider2D otherCollider){
