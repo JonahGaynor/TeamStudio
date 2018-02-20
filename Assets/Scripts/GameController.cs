@@ -29,7 +29,7 @@ public class GameController : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         Instance = this;
-        standardMoveSpeed = 0.175f;
+        standardMoveSpeed = 0.05f;
        // standardMoveSpeed = 5;
     }
 	
