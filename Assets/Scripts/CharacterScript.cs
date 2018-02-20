@@ -20,8 +20,12 @@ public class CharacterScript : MonoBehaviour {
     bool hasFixed = false;
     public GameObject choiceScript;
     public GameObject obsGenerator;
-    // Use this for initialization
+	public AudioClip getHit;
+	AudioSource myAudio;
+    
+	// Use this for initialization
     void Start () {
+		myAudio = GetComponent<AudioSource> ();
         myRigidbody = this.GetComponent<Rigidbody2D>();
         mySprite = this.GetComponent<SpriteRenderer>();
         myCollider = this.GetComponent<BoxCollider2D>();
@@ -30,6 +34,7 @@ public class CharacterScript : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+
         if (GameController.Instance.life == 0)
         {
            GameController.Instance.gameOver = true;
@@ -133,6 +138,7 @@ public class CharacterScript : MonoBehaviour {
         if (collider.gameObject.tag == "Furniture" && GameController.Instance.life>0)
         {
            GameController.Instance.life--;
+			StartCoroutine (TakeDamage ());
         }
         if (collider.gameObject.tag == "Funeral")
         {
@@ -203,5 +209,15 @@ public class CharacterScript : MonoBehaviour {
         Vector2 newSize = new Vector2(4.88f, 5f);
         myCollider.size = newSize;
     }
+	IEnumerator TakeDamage (){
+		myAudio.PlayOneShot (getHit, 0.7f);
+		mySprite.enabled = false;
+		yield return new WaitForSeconds (0.5f);
+		mySprite.enabled = true;
+		yield return new WaitForSeconds (0.5f);
+		mySprite.enabled = false;
+		yield return new WaitForSeconds (0.5f);
+		mySprite.enabled = true;
+	}
 
 }
