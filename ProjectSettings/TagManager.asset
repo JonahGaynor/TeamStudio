@@ -17,6 +17,7 @@ TagManager:
   - TopChoice
   - Generator
   - MoveScenes
+  - Example Lane
   layers:
   - Default
   - TransparentFX
