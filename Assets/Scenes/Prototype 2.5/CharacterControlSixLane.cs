@@ -36,6 +36,7 @@ public class CharacterControlSixLane : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+    
         myRigidbody.gravityScale = gravity;
         if (SixLaneGameController.Instance.life == 0)
         {
@@ -57,12 +58,11 @@ public class CharacterControlSixLane : MonoBehaviour
                 {
                     if (!jumpOverride)
                     {
-                        if (myRigidbody.velocity.y == 0)
-                        {
+                        
                             canJump = false;
 
                             myRigidbody.AddForce(transform.up * jump);
-                        }
+                        
                     }
                 }
 
@@ -86,9 +86,11 @@ public class CharacterControlSixLane : MonoBehaviour
         }
         if (collision.gameObject.tag == "Platform")
         {
-            gravity = staticGravity;
-            canJump = true;
-            
+            if (this.transform.position.y>collision.transform.position.y)
+            {
+                gravity = staticGravity;
+                canJump = true;
+            }
         }
 
 
@@ -97,8 +99,7 @@ public class CharacterControlSixLane : MonoBehaviour
     {
         if (collision.gameObject.tag == "Platform")
         {
-            gravity = staticGravity;
-            canJump = true;
+            
             if ((Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.DownArrow)))
             {
                 BoxCollider2D platformCollider = collision.gameObject.GetComponent<BoxCollider2D>();
