@@ -4452,10 +4452,8 @@ MonoBehaviour:
   myRenderer: {fileID: 0}
   allSprites:
   - {fileID: 21300000, guid: f1a938e3b17e7d948a6d7df531bbe0a1, type: 3}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 21300000, guid: 52d8937aa8f53d041b6f9b5b70e7e5e1, type: 3}
+  - {fileID: 21300000, guid: 31b3194b967e35442821cb15c4ef62f1, type: 3}
 --- !u!1 &1504208933
 GameObject:
   m_ObjectHideFlags: 0

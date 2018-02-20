@@ -12,6 +12,7 @@ public class MoneyFallingScript : MonoBehaviour {
 	void Start () {
 		rotationRandomizer = Random.Range (-20f, 20f);
 		positionRandomizer = Random.Range (0f, 5f);
+		transform.position = new Vector3 (transform.position.x, transform.position.y + 5f, 0f);
 	}
 	
 	// Update is called once per frame
