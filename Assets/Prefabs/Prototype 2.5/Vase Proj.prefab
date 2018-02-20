@@ -22,7 +22,7 @@ GameObject:
   - component: {fileID: 212416084500606152}
   - component: {fileID: 61924077675973390}
   m_Layer: 0
-  m_Name: flowerVase 1
+  m_Name: Vase Proj
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
