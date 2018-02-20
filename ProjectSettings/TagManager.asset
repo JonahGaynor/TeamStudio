@@ -18,6 +18,8 @@ TagManager:
   - Generator
   - MoveScenes
   - Example Lane
+  - Heart
+  - Platform
   layers:
   - Default
   - TransparentFX
