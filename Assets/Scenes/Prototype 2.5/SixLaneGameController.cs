@@ -7,7 +7,7 @@ public class SixLaneGameController : MonoBehaviour {
 
 
     public static SixLaneGameController Instance = new SixLaneGameController();
-    public int life = 50;
+    public int life = 10;
     public bool startQuestion = false;
     public float standardMoveSpeed = 0.175f;
     public bool gameOver = false;
@@ -28,7 +28,8 @@ public class SixLaneGameController : MonoBehaviour {
     // Use this for initialization
     void Start()
     {
-        Instance = this;
+           life = 10;
+    Instance = this;
         standardMoveSpeed = 0.075f;
         // standardMoveSpeed = 5;
     }
