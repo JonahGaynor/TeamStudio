@@ -8,12 +8,15 @@ public class SixLaneGenerator : MonoBehaviour {
     int offset = 25;
     public GameObject platform;
     public GameObject platformParent;
+    public GameObject obstacle;
     GameObject exampleLane;
-    public float[] lanes = { -2.5f,-0.5f, 1.5f, 3.5f,5.5f, 7.5f };
+    public float[] lanes = { 0,0,0,0,0,0 };
+    public float[] projectileLanes = { 0, 0, 0, 0, 0, 0 };
     public float timeToSpawn = 1f;
     public float timeLeft = 1f;
+    
     bool sameLanePicked = true;
-    public int closePick, previousPick=-1, randomPick;
+    public int closePick, previousPick=-1, randomPick,ticksToProjectile;
     // Use this for initialization
     void Start()
     {
@@ -23,6 +26,7 @@ public class SixLaneGenerator : MonoBehaviour {
             string stringToLookFor = "Platform " +( i + 1);
              exampleLane = GameObject.Find(stringToLookFor);
             lanes[i] = exampleLane.transform.position.y;
+            projectileLanes[i] = lanes[i] + 0.7f;
         }
     }
 
@@ -34,6 +38,7 @@ public class SixLaneGenerator : MonoBehaviour {
         Vector3 temp = this.transform.position;
         temp.x = player.transform.position.x + offset;
         this.transform.position = temp;
+        //Spawn a Platform
         if (timeLeft <= 0)
         {
             if (previousPick == -1) { previousPick = Random.Range(0, lanes.Length); }
@@ -56,7 +61,7 @@ public class SixLaneGenerator : MonoBehaviour {
             while (sameLanePicked)
             {
                 randomPick = Random.Range(0, lanes.Length);
-                if (randomPick != closePick) { sameLanePicked = false; }
+                if (randomPick != closePick&& randomPick != closePick+1 && randomPick != closePick - 1) { sameLanePicked = false; }
             }
 
             GameObject randomPlatform = Instantiate(platform);
@@ -66,7 +71,18 @@ public class SixLaneGenerator : MonoBehaviour {
             randomPlatform.transform.position = temp;
             randomPlatform.transform.parent = platformParent.transform;
             timeLeft = timeToSpawn;
+            ticksToProjectile++;
 
+        }
+        if (ticksToProjectile == 3)
+        {
+            int pick = Random.Range(0, projectileLanes.Length);
+            GameObject currentObstacle = Instantiate(obstacle);
+             temp = currentObstacle.transform.position;
+            temp.y = projectileLanes[pick];
+            temp.x = this.transform.position.x;
+            currentObstacle.transform.position = temp;
+            ticksToProjectile = 0;
         }
 
     }
