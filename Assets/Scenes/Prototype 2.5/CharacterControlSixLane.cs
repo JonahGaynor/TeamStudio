@@ -57,10 +57,12 @@ public class CharacterControlSixLane : MonoBehaviour
                 {
                     if (!jumpOverride)
                     {
-                        canJump = false;
-                    
-                        myRigidbody.AddForce(transform.up * jump);
+                        if (myRigidbody.velocity.y == 0)
+                        {
+                            canJump = false;
 
+                            myRigidbody.AddForce(transform.up * jump);
+                        }
                     }
                 }
 
@@ -82,8 +84,27 @@ public class CharacterControlSixLane : MonoBehaviour
             canJump = true;
             
         }
+        if (collision.gameObject.tag == "Platform")
+        {
+            gravity = staticGravity;
+            canJump = true;
+            
+        }
 
 
+    }
+    public void OnCollisionStay2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "Platform")
+        {
+            gravity = staticGravity;
+            canJump = true;
+            if ((Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.DownArrow)))
+            {
+                BoxCollider2D platformCollider = collision.gameObject.GetComponent<BoxCollider2D>();
+                platformCollider.enabled=false;
+            }
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collider)
