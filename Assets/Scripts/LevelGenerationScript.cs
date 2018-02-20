@@ -10,6 +10,8 @@ public class LevelGenerationScript : MonoBehaviour {
     public bool hasSpawned=false;
     bool hasSpawnedEnd = false;
     public GameObject[] backgrounds;
+    public GameObject floorParent;
+    public GameObject bgParent;
 	// Use this for initialization
 	void Start () {
 		
@@ -27,12 +29,14 @@ public class LevelGenerationScript : MonoBehaviour {
             Vector3 temp = floor.transform.position;
             temp.x = this.transform.position.x;
             floor.transform.position = temp;
+            floor.transform.parent = floorParent.transform;
             int choice = Random.Range(0, backgrounds.Length);
            GameObject bg= Instantiate(backgrounds[choice]);
            
             temp = bg.transform.position;
             temp.x = this.transform.position.x;
             bg.transform.position = temp;
+            bg.transform.parent = bgParent.transform;
           //  bg.transform.parent = this.gameObject.transform;
         }
         if (shouldGenChoice&&!hasSpawned&&GameController.Instance.questionsAnswered<4&&GameController.Instance.startQuestion)
