@@ -9,6 +9,7 @@ public class SpriteSwitchScript : MonoBehaviour {
 	public Sprite[] allSprites;
 	Scene thisScene;
 	string sceneName;
+	public GameObject moneySpawn;
 
 	// Use this for initialization
 	void Start () {
@@ -24,22 +25,21 @@ public class SpriteSwitchScript : MonoBehaviour {
 
 	void OnTriggerEnter2D(Collider2D col){
 		if (sceneName == "ChildhoodScene") {
-			if (col.gameObject.name == "Outside") {
+			if (col.gameObject.name == "TV") {
 				myRenderer.sprite = allSprites [1];
 			}
-			if (col.gameObject.name == "Inside") {
-				myRenderer.sprite = allSprites [2];
-			}
-			if (col.gameObject.name == "TV") {
-				myRenderer.sprite = allSprites [3];
-			}
 			if (col.gameObject.name == "Bed") {
-				myRenderer.sprite = allSprites [4];
+				myRenderer.sprite = allSprites [2];
 			}
 		}
 		if (sceneName == "ChildChoiceScene") {
 			if (col.gameObject.name == "Mutate") {
 				myRenderer.sprite = allSprites [1];
+			}
+			if (col.gameObject.name == "Grant") {
+				for (int i = 0; i < 10; i++){
+					Instantiate (moneySpawn, gameObject.transform);
+				}
 			}
 		}
 		if (sceneName == "SportsScene") {
