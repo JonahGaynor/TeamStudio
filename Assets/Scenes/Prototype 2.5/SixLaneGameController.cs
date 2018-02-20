@@ -25,6 +25,7 @@ public class SixLaneGameController : MonoBehaviour {
     int currentQuestion = 0;
     public GameObject[] questionPrompt;
     public GameObject player;
+
     // Use this for initialization
     void Start()
     {
@@ -37,6 +38,7 @@ public class SixLaneGameController : MonoBehaviour {
     // Update is called once per frame
     void Update()
     {
+        timeTillNextQuestion -= Time.deltaTime;
         if (moveToNextLevel)
         {
             questionsAnswered = 0;
@@ -46,11 +48,11 @@ public class SixLaneGameController : MonoBehaviour {
             spawnFadePrefab = true;
         }
         
-        if (currentQuestion == questionsAnswered && questionsAnswered < 4) { timeTillNextQuestion -= Time.deltaTime; }
+       
         if (timeTillNextQuestion < 0 && currentQuestion == questionsAnswered)
         {
             currentQuestion++;
-           
+            startQuestion = true;
             timeTillNextQuestion = 15f;
         }
       
