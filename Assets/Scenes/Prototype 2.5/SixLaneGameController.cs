@@ -38,15 +38,18 @@ public class SixLaneGameController : MonoBehaviour {
     // Update is called once per frame
     void Update()
     {
-        timeTillNextQuestion -= Time.deltaTime;
+        if (!startQuestion)
+        {
+            timeTillNextQuestion -= Time.deltaTime;
+        }
         if (moveToNextLevel)
         {
             questionsAnswered = 0;
         }
-        if (questionsAnswered == 4)
-        {
-            spawnFadePrefab = true;
-        }
+       // if (questionsAnswered == 3)
+        //{
+       //     spawnFadePrefab = true;
+      //  }
         
        
         if (timeTillNextQuestion < 0 && currentQuestion == questionsAnswered)
@@ -55,10 +58,8 @@ public class SixLaneGameController : MonoBehaviour {
             startQuestion = true;
             timeTillNextQuestion = 15f;
         }
-        if (moveToNextLevel)
-        {
-            spawnFadePrefab = true;
-        }
+      
+        
       
     }
 }
