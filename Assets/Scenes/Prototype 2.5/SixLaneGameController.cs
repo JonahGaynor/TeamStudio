@@ -55,6 +55,10 @@ public class SixLaneGameController : MonoBehaviour {
             startQuestion = true;
             timeTillNextQuestion = 15f;
         }
+        if (moveToNextLevel)
+        {
+            spawnFadePrefab = true;
+        }
       
     }
 }

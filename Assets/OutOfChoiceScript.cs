@@ -17,6 +17,7 @@ public class OutOfChoiceScript : MonoBehaviour {
     { if(collider.tag=="Little Boy")
         {
             SixLaneGameController.Instance.startQuestion = false;
+            SixLaneGameController.Instance.questionsAnswered++;
         }
     }
 }
