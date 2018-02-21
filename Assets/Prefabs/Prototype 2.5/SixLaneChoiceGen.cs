@@ -8,6 +8,7 @@ public class SixLaneChoiceGen : MonoBehaviour {
     public float timeToSpawn = 3f;
     float maxTime = 3f;
     public bool hasSpawned=false;
+    public bool spawnEnd = false;
     bool hasSpawnedEnd = false;
     public GameObject[] backgrounds;
     public GameObject floorParent;
