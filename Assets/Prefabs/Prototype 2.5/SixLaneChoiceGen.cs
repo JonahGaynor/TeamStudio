@@ -31,8 +31,8 @@ public class SixLaneChoiceGen : MonoBehaviour {
             temp.x = this.transform.position.x;
             floor.transform.position = temp;
             floor.transform.parent = floorParent.transform;
-            int choice = Random.Range(0, backgrounds.Length);
-           GameObject bg= Instantiate(backgrounds[choice]);
+           
+           GameObject bg= Instantiate(backgrounds[0]);
            
             temp = bg.transform.position;
             temp.x = this.transform.position.x;
@@ -40,10 +40,15 @@ public class SixLaneChoiceGen : MonoBehaviour {
             bg.transform.parent = bgParent.transform;
 
         }
-        if (shouldGenChoice&&!hasSpawned&& SixLaneGameController.Instance.questionsAnswered<4)
+        if (shouldGenChoice&&!hasSpawned)
         {
             hasSpawned = true;
-           GameObject question= Instantiate(levels[1]);
+          
+            if (SixLaneGameController.Instance.questionsAnswered > 4)
+            {
+                SixLaneGameController.Instance.questionsAnswered = 4;
+            }
+            GameObject question = Instantiate(levels[2 + SixLaneGameController.Instance.questionsAnswered]);
             Vector3 temp = question.transform.position;
             temp.x = this.transform.position.x;
             question.transform.position = temp;
@@ -51,7 +56,7 @@ public class SixLaneChoiceGen : MonoBehaviour {
         if (SixLaneGameController.Instance.spawnFadePrefab&&!hasSpawnedEnd)
         {
             hasSpawnedEnd = true;
-            GameObject question = Instantiate(levels[2]);
+            GameObject question = Instantiate(levels[1]);
             
             Vector3 temp = question.transform.position;
             temp.x = this.transform.position.x;

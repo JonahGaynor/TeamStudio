@@ -41,7 +41,7 @@ public class CharacterControlSixLane : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-    
+        Debug.Log(1.0f / Time.deltaTime);
         myRigidbody.gravityScale = gravity;
         if (SixLaneGameController.Instance.life == 0)
         {
@@ -136,11 +136,11 @@ public class CharacterControlSixLane : MonoBehaviour
 	IEnumerator TakeDamage (){
 		myAudio.Play();
 		mySprite.enabled = false;
-		yield return new WaitForSeconds (0.5f);
+		yield return new WaitForSeconds (0.2f);
 		mySprite.enabled = true;
-		yield return new WaitForSeconds (0.5f);
+		yield return new WaitForSeconds (0.2f);
 		mySprite.enabled = false;
-		yield return new WaitForSeconds (0.5f);
+		yield return new WaitForSeconds (0.2f);
 		mySprite.enabled = true;
 		inCoroutine = false;
 	}
