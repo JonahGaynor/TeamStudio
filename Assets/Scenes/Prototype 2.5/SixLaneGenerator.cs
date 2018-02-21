@@ -39,7 +39,7 @@ public class SixLaneGenerator : MonoBehaviour {
         temp.x = player.transform.position.x + offset;
         this.transform.position = temp;
         //Spawn a Platform
-        if (timeLeft <= 0)
+        if (timeLeft <= 0&&!SixLaneGameController.Instance.startQuestion)
         {
             if (previousPick == -1) { previousPick = Random.Range(0, lanes.Length); }
 
@@ -49,7 +49,7 @@ public class SixLaneGenerator : MonoBehaviour {
             if (tempNum > 0.5f) { closePick = previousPick - 1; }
 
             if (tempNum <= 0.5f) { closePick = previousPick + 1; }
-            Debug.Log(tempNum);
+
             GameObject currentPlatform = Instantiate(platform);
             temp = currentPlatform.transform.position;
             temp.x = this.transform.position.x;

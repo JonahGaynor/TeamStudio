@@ -9,9 +9,12 @@ public class SpriteSwitchScript : MonoBehaviour {
 	public Sprite[] allSprites;
 	Scene thisScene;
 	string sceneName;
+	public GameObject moneySpawn;
+    public GameObject outsideBG;
 
 	// Use this for initialization
 	void Start () {
+        myRenderer = this.gameObject.GetComponent<SpriteRenderer>();
 		thisScene = SceneManager.GetActiveScene();
 		sceneName = thisScene.name;
 	}
@@ -23,40 +26,84 @@ public class SpriteSwitchScript : MonoBehaviour {
 	}
 
 	void OnTriggerEnter2D(Collider2D col){
-		if (sceneName == "ChildhoodScene") {
-			if (col.gameObject.name == "Outside") {
+		if (sceneName == "ChildhoodScene"||sceneName== "Prototype2.5TestScene") {
+
+            if (col.gameObject.name == "TV") {
+              
 				myRenderer.sprite = allSprites [1];
 			}
-			if (col.gameObject.name == "Inside") {
-				myRenderer.sprite = allSprites [2];
-			}
-			if (col.gameObject.name == "TV") {
-				myRenderer.sprite = allSprites [3];
-			}
 			if (col.gameObject.name == "Bed") {
-				myRenderer.sprite = allSprites [4];
+				myRenderer.sprite = allSprites [2];
+               
+            }
+            if (col.gameObject.name == "Outside")
+            {
+                Debug.Log("Hit1");
+                GameObject choiceGen = GameObject.Find("Choice Generator");
+                SixLaneChoiceGen myScript = choiceGen.GetComponent<SixLaneChoiceGen>();
+                myScript.backgrounds[0] = outsideBG;
+              
+            }
+           
+            if (col.gameObject.name == "Science") {
+				SixLaneGameController.Instance.spawnFadePrefab = true;
+				SixLaneGameController.Instance.bottomChoiceMade = true;
+			}
+			if (col.gameObject.name == "Sports") {
+				SixLaneGameController.Instance.spawnFadePrefab = true;
+				SixLaneGameController.Instance.topChoiceMade = true;
 			}
 		}
-		if (sceneName == "ChildChoiceScene") {
+		if (sceneName == "ChildChoiceScene" || sceneName == "ScienceScene") {
 			if (col.gameObject.name == "Mutate") {
 				myRenderer.sprite = allSprites [1];
 			}
+			if (col.gameObject.name == "Grant") {
+				for (int i = 0; i < 20; i++){
+					Instantiate (moneySpawn, this.gameObject.transform);
+				}
+			}
+			if (col.gameObject.name == "Career") {
+				SixLaneGameController.Instance.spawnFadePrefab = true;
+				SixLaneGameController.Instance.topChoiceMade = true;
+			}
+			if (col.gameObject.name == "Family") {
+				SixLaneGameController.Instance.spawnFadePrefab = true;
+				SixLaneGameController.Instance.bottomChoiceMade = true;
+			}
 		}
 		if (sceneName == "SportsScene") {
-			if (col.gameObject.name == "Steroids") {
+            Debug.Log("In Scene");
+            if (col.gameObject.name == "Steroids") {
 				myRenderer.sprite = allSprites [1];
+                Debug.Log("Steriods");
 			}
 			if (col.gameObject.name == "NewTeam") {
 				myRenderer.sprite = allSprites [2];
 			}
-			if (col.gameObject.name == "Retire1") {
+			if (col.gameObject.name == "KeepPlaying1") {
 				myRenderer.sprite = allSprites [3];
 			}
-			if (col.gameObject.name == "Retire2") {
+			if (col.gameObject.name == "KeepPlaying2") {
 				myRenderer.sprite = allSprites [4];
 			}
-			if (col.gameObject.name == "Retire3") {
+			if (col.gameObject.name == "KeepPlaying3") {
 				myRenderer.sprite = allSprites [5];
+
+			}
+            if (col.gameObject.name == "KeepPlaying3"&& myRenderer.sprite == allSprites[5])
+            {
+                SixLaneGameController.Instance.topChoiceMade = true;
+                SixLaneGameController.Instance.spawnFadePrefab = true;
+            }
+            if (col.gameObject.name == "Retire") {
+				if (myRenderer.sprite == allSprites [5]) {
+					SixLaneGameController.Instance.topChoiceMade = true;
+					SixLaneGameController.Instance.spawnFadePrefab = true;
+				} else {
+					SixLaneGameController.Instance.bottomChoiceMade = true;
+					SixLaneGameController.Instance.spawnFadePrefab = true;
+				}
 			}
 		}
 	}
