@@ -6,21 +6,28 @@ public class MoneyFallingScript : MonoBehaviour {
 
 	float rotationRandomizer;
 	float positionRandomizer;
-	public float fallSpeed = .000000001f;
+	float fallSpeed = .1f;
+	float myRotation;
+	float myPosition;
 
 	// Use this for initialization
 	void Start () {
-		rotationRandomizer = Random.Range (-20f, 20f);
-		positionRandomizer = Random.Range (0f, 5f);
+		rotationRandomizer = Random.Range (-5f, 5f);
+		positionRandomizer = Random.Range (-0.5f, 0.5f);
 		transform.position = new Vector3 (transform.position.x, transform.position.y + 5f, 0f);
+		myRotation = transform.rotation.z;
+		myPosition = transform.position.x;
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		transform.position = new Vector3 (GameObject.Find ("Little Boy").transform.position.x + positionRandomizer, GameObject.Find ("Little Boy").transform.position.y + 5f - fallSpeed, 0f);
-		fallSpeed += .000000001f;
+		transform.position = new Vector3 (GameObject.Find ("Little Boy").transform.position.x + myPosition, GameObject.Find ("Little Boy").transform.position.y + 8f - fallSpeed, 0f);
+		fallSpeed += .1f;
 //		transform.position.x = GameObject.Find ("Little Boy").transform.position.x + positionRandomizer;
 //		transform.position.y -= fallSpeed;
-		transform.rotation = Quaternion.Euler (0f, 0f, transform.rotation.z + rotationRandomizer);
+		myRotation += rotationRandomizer;
+		myPosition += positionRandomizer;
+		transform.rotation = Quaternion.Euler (0f, 0f, myRotation);
+
 	}
 }
