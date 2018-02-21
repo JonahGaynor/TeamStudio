@@ -2052,7 +2052,7 @@ MonoBehaviour:
   allSprites:
   - {fileID: 21300000, guid: aadd56c4785ea496da78dc03ea0d9af4, type: 3}
   - {fileID: 21300000, guid: cb46ac720d23ad7429f2ff47f8b1f729, type: 3}
-  moneySpawn: {fileID: 0}
+  moneySpawn: {fileID: 1212470055471812, guid: dac415b316c2b4f4c9d88b24b974e8a3, type: 2}
   outsideBG: {fileID: 1784043868738686, guid: fa67c6861f47d7844945ee9881ccb457, type: 2}
 --- !u!114 &760032429
 MonoBehaviour:
