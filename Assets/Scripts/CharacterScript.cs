@@ -210,7 +210,7 @@ public class CharacterScript : MonoBehaviour {
         myCollider.size = newSize;
     }
 	IEnumerator TakeDamage (){
-		myAudio.PlayOneShot (getHit, 0.7f);
+		myAudio.Play();
 		mySprite.enabled = false;
 		yield return new WaitForSeconds (0.5f);
 		mySprite.enabled = true;

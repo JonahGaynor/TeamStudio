@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 4262157704284842}
   - component: {fileID: 212208642925655686}
   - component: {fileID: 61782178330013552}
-  - component: {fileID: 251847954719514714}
+  - component: {fileID: 251927409186437958}
   m_Layer: 0
   m_Name: Platform
   m_TagString: Platform
@@ -111,14 +111,14 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
---- !u!251 &251847954719514714
+--- !u!251 &251927409186437958
 PlatformEffector2D:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1284900746970406}
   m_Enabled: 1
-  m_UseColliderMask: 0
+  m_UseColliderMask: 1
   m_ColliderMask:
     serializedVersion: 2
     m_Bits: 4294967295

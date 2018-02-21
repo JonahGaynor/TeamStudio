@@ -1610,6 +1610,8 @@ GameObject:
   - component: {fileID: 932326529}
   - component: {fileID: 932326527}
   - component: {fileID: 932326528}
+  - component: {fileID: 932326533}
+  - component: {fileID: 932326532}
   m_Layer: 9
   m_Name: Little Boy
   m_TagString: Little Boy
@@ -1668,6 +1670,7 @@ MonoBehaviour:
   obsGenerator: {fileID: 827663047}
   gravity: 0
   staticGravity: 0
+  getHit: {fileID: 8300000, guid: e8886173dd9654e3fa7c4c36b91bf143, type: 3}
 --- !u!50 &932326529
 Rigidbody2D:
   serializedVersion: 4
@@ -2034,7 +2037,6 @@ Camera:
   m_TargetEye: 3
   m_HDR: 1
   m_AllowMSAA: 1
-  m_AllowDynamicResolution: 0
   m_ForceIntoRT: 0
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
