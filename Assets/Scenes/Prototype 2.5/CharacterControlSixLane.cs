@@ -48,7 +48,7 @@ public class CharacterControlSixLane : MonoBehaviour
             SixLaneGameController.Instance.gameOver = true;
             mySprite.sprite = playerSprites[2];
         }
-        lifeText.text = "" + SixLaneGameController.Instance.life;
+       // lifeText.text = "" + SixLaneGameController.Instance.life;
         if (!SixLaneGameController.Instance.gameOver)
         {
 
