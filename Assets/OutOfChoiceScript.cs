@@ -17,6 +17,10 @@ public class OutOfChoiceScript : MonoBehaviour {
     { if(collider.tag=="Little Boy")
         {
             SixLaneGameController.Instance.startQuestion = false;
+            SixLaneGameController.Instance.questionsAnswered++;
+            GameObject choiceGenerator = GameObject.Find("Choice Generator");
+            SixLaneChoiceGen myScript = choiceGenerator.GetComponent<SixLaneChoiceGen>();
+            myScript.hasSpawned = false;
         }
     }
 }

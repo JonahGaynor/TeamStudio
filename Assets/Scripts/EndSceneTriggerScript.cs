@@ -36,11 +36,11 @@ public class EndSceneTriggerScript : MonoBehaviour {
 		fadeToBlack.color = temp;
         Debug.Log(opacity);
 		if (opacity >= 0.95f) {
-			GameController.Instance.moveToNextLevel = true;
+            SixLaneGameController.Instance.moveToNextLevel = true;
             Debug.Log("Move To Next Level");
 
 		}
-		transform.position = new Vector3 (transform.position.x - 5f, transform.position.y, 0f);
+		transform.position = new Vector3 (transform.position.x - .5f, transform.position.y, 0f);
 	}
 
 	void OnTriggerEnter2D (Collider2D otherCollider){
