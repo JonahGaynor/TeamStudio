@@ -11,7 +11,7 @@ public class SixLaneGenerator : MonoBehaviour {
     public GameObject obstacle;
     GameObject exampleLane;
     public float[] lanes = { 0,0,0,0,0,0 };
-    public float[] projectileLanes = { 0, 0, 0, 0, 0, 0 };
+     float[] projectileLanes = { 0, 0, 0, 0, 0, 0 ,0};
     public float timeToSpawn = 1f;
     public float timeLeft = 1f;
     
@@ -28,6 +28,7 @@ public class SixLaneGenerator : MonoBehaviour {
             lanes[i] = exampleLane.transform.position.y;
             projectileLanes[i] = lanes[i] + 0.7f;
         }
+        projectileLanes[6] =-3.82f;
     }
 
     // Update is called once per frame
@@ -74,9 +75,11 @@ public class SixLaneGenerator : MonoBehaviour {
             ticksToProjectile++;
 
         }
-        if (ticksToProjectile == 3)
+        if (ticksToProjectile == 1)
         {
+            
             int pick = Random.Range(0, projectileLanes.Length);
+           // Debug.Log(pick);
             GameObject currentObstacle = Instantiate(obstacle);
              temp = currentObstacle.transform.position;
             temp.y = projectileLanes[pick];

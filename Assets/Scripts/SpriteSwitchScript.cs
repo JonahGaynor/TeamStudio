@@ -11,9 +11,10 @@ public class SpriteSwitchScript : MonoBehaviour {
 	string sceneName;
 	public GameObject moneySpawn;
     public GameObject outsideBG;
+    public GameObject bgWithPics;
 
-	// Use this for initialization
-	void Start () {
+    // Use this for initialization
+    void Start () {
         myRenderer = this.gameObject.GetComponent<SpriteRenderer>();
 		thisScene = SceneManager.GetActiveScene();
 		sceneName = thisScene.name;
@@ -38,20 +39,26 @@ public class SpriteSwitchScript : MonoBehaviour {
             }
             if (col.gameObject.name == "Outside")
             {
-                Debug.Log("Hit1");
                 GameObject choiceGen = GameObject.Find("Choice Generator");
                 SixLaneChoiceGen myScript = choiceGen.GetComponent<SixLaneChoiceGen>();
                 myScript.backgrounds[0] = outsideBG;
               
             }
-           
+            if (col.gameObject.name == "Inside")
+            {
+                GameObject choiceGen = GameObject.Find("Choice Generator");
+                SixLaneChoiceGen myScript = choiceGen.GetComponent<SixLaneChoiceGen>();
+                myScript.backgrounds[0] = bgWithPics;
+
+            }
+
             if (col.gameObject.name == "Science") {
 				SixLaneGameController.Instance.spawnFadePrefab = true;
-				SixLaneGameController.Instance.bottomChoiceMade = true;
+				SixLaneGameController.Instance.topChoiceMade = true;
 			}
 			if (col.gameObject.name == "Sports") {
 				SixLaneGameController.Instance.spawnFadePrefab = true;
-				SixLaneGameController.Instance.topChoiceMade = true;
+				SixLaneGameController.Instance.bottomChoiceMade = true;
 			}
 		}
 		if (sceneName == "ChildChoiceScene" || sceneName == "ScienceScene") {

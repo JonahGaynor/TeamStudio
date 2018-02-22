@@ -490,7 +490,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 103474029}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a817fe863e1c2624d84dfbd3dfa84551, type: 3}
   m_Name: 
@@ -1299,7 +1299,7 @@ MonoBehaviour:
   topChoiceMade: 0
   bottomChoiceMade: 0
   moveToNextLevel: 0
-  levelsPast: 0
+  levelsPast: 1
   questionsAnswered: 0
   stopSpawning: 0
   spawnFadePrefab: 0
@@ -1500,13 +1500,6 @@ MonoBehaviour:
   - 3.5
   - 5.5
   - 7.5
-  projectileLanes:
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
   timeToSpawn: 1
   timeLeft: 1
   closePick: 0
@@ -1696,6 +1689,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 31b3194b967e35442821cb15c4ef62f1, type: 3}
   moneySpawn: {fileID: 0}
   outsideBG: {fileID: 1784043868738686, guid: fa67c6861f47d7844945ee9881ccb457, type: 2}
+  bgWithPics: {fileID: 1188063521880056, guid: 6803bf6d02f38cc49ad400666c1dcb32, type: 2}
 --- !u!82 &932326533
 AudioSource:
   m_ObjectHideFlags: 0
