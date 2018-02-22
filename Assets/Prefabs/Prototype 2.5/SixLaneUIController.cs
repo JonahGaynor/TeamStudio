@@ -14,7 +14,7 @@ public class SixLaneUIController : MonoBehaviour {
 	void Start () {
         health = SixLaneGameController.Instance.life;
         myCanvas = GameObject.Find("Canvas");
-        /*for (int i = 0; i < health; i++)
+        for (int i = 0; i < health; i++)
         {
             GameObject temp = Instantiate(heartImage);
             Vector3 tempPos = temp.transform.position;
@@ -22,7 +22,7 @@ public class SixLaneUIController : MonoBehaviour {
             tempPos.y = startingY;
             temp.transform.position = tempPos;
             temp.transform.parent = myCanvas.transform;
-        }*/
+        }
 	}
 	
 	// Update is called once per frame
@@ -30,17 +30,18 @@ public class SixLaneUIController : MonoBehaviour {
         GameObject[] hearts = GameObject.FindGameObjectsWithTag("Heart");
         foreach (GameObject heart in hearts)
         {
-            Destroy(heart.gameObject);
+            heart.SetActive(false);
         }
         health = SixLaneGameController.Instance.life;
         for (int i = 0; i < health; i++)
         {
-            GameObject temp = Instantiate(heartImage);
+            /*GameObject temp = Instantiate(heartImage);
             Vector3 tempPos = temp.transform.position;
             tempPos.x = startingX +20 * i;
             tempPos.y = startingY;
             temp.transform.position = tempPos;
-            temp.transform.parent = myCanvas.transform;
+            temp.transform.parent = myCanvas.transform;*/
+            hearts[i].gameObject.SetActive(true);
         }
         
     }

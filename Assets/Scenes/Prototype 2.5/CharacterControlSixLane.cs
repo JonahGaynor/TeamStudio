@@ -22,9 +22,14 @@ public class CharacterControlSixLane : MonoBehaviour
     public GameObject choiceScript;
     public GameObject obsGenerator;
     public float gravity,staticGravity;
+	public AudioClip getHit;
+	AudioSource myAudio;
+	bool inCoroutine = false;
+
     // Use this for initialization
     void Start()
     {
+		myAudio = GetComponent<AudioSource> ();
         myRigidbody = this.GetComponent<Rigidbody2D>();
         mySprite = this.GetComponent<SpriteRenderer>();
         myCollider = this.GetComponent<BoxCollider2D>();
@@ -36,6 +41,7 @@ public class CharacterControlSixLane : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        Debug.Log(1.0f / Time.deltaTime);
         myRigidbody.gravityScale = gravity;
         if (SixLaneGameController.Instance.life == 0)
         {
@@ -57,12 +63,11 @@ public class CharacterControlSixLane : MonoBehaviour
                 {
                     if (!jumpOverride)
                     {
-                        if (myRigidbody.velocity.y == 0)
-                        {
+                        
                             canJump = false;
 
                             myRigidbody.AddForce(transform.up * jump);
-                        }
+                        
                     }
                 }
 
@@ -86,9 +91,11 @@ public class CharacterControlSixLane : MonoBehaviour
         }
         if (collision.gameObject.tag == "Platform")
         {
-            gravity = staticGravity;
-            canJump = true;
-            
+            if (this.transform.position.y>collision.transform.position.y)
+            {
+                gravity = staticGravity;
+                canJump = true;
+            }
         }
 
 
@@ -97,8 +104,7 @@ public class CharacterControlSixLane : MonoBehaviour
     {
         if (collision.gameObject.tag == "Platform")
         {
-            gravity = staticGravity;
-            canJump = true;
+            
             if ((Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.DownArrow)))
             {
                 BoxCollider2D platformCollider = collision.gameObject.GetComponent<BoxCollider2D>();
@@ -109,9 +115,11 @@ public class CharacterControlSixLane : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collider)
     {
-        if (collider.gameObject.tag == "Furniture" && SixLaneGameController.Instance.life > 0)
+		if (collider.gameObject.tag == "Furniture" && SixLaneGameController.Instance.life > 0 && inCoroutine == false)
         {
             SixLaneGameController.Instance.life--;
+			inCoroutine = true;
+			StartCoroutine (TakeDamage ());
         }
        
         
@@ -125,7 +133,17 @@ public class CharacterControlSixLane : MonoBehaviour
             SixLaneGameController.Instance.bottomChoiceMade = true;
         }
     }
-    
+	IEnumerator TakeDamage (){
+		myAudio.Play();
+		mySprite.enabled = false;
+		yield return new WaitForSeconds (0.2f);
+		mySprite.enabled = true;
+		yield return new WaitForSeconds (0.2f);
+		mySprite.enabled = false;
+		yield return new WaitForSeconds (0.2f);
+		mySprite.enabled = true;
+		inCoroutine = false;
+	}
 
 }
 

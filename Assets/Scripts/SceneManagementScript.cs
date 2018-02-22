@@ -20,32 +20,33 @@ public class SceneManagementScript : MonoBehaviour {
 
     void Update()
     {
-
+		thisScene = SceneManager.GetActiveScene();
+		sceneName = thisScene.name;
         if (Input.GetKey(KeyCode.R)) {
             SceneManager.LoadScene("ChildhoodScene");
             levelsPast = 1;
 			thisScene = SceneManager.GetActiveScene();
 			sceneName = thisScene.name;
         }
-        if (GameController.Instance.moveToNextLevel && GameController.Instance.topChoiceMade&&this.levelsPast==1)
+        if (SixLaneGameController.Instance.moveToNextLevel && SixLaneGameController.Instance.topChoiceMade&&this.levelsPast==1)
         {
             levelsPast++;
-            GameController.Instance.moveToNextLevel = false;
-            GameController.Instance.topChoiceMade = false;
+            SixLaneGameController.Instance.moveToNextLevel = false;
+            SixLaneGameController.Instance.topChoiceMade = false;
             SceneManager.LoadScene("SportsScene");
 			thisScene = SceneManager.GetActiveScene();
 			sceneName = thisScene.name;
         }
-        if (GameController.Instance.moveToNextLevel && GameController.Instance.bottomChoiceMade && this.levelsPast == 1)
+        if (SixLaneGameController.Instance.moveToNextLevel && SixLaneGameController.Instance.bottomChoiceMade && this.levelsPast == 1)
         {
             levelsPast++;
-            GameController.Instance.moveToNextLevel = false;
-            GameController.Instance.bottomChoiceMade = false;
-            SceneManager.LoadScene("ChildChoiceScene");
+            SixLaneGameController.Instance.moveToNextLevel = false;
+            SixLaneGameController.Instance.bottomChoiceMade = false;
+            SceneManager.LoadScene("ScienceScene");
 			thisScene = SceneManager.GetActiveScene();
 			sceneName = thisScene.name;
         }
-		if (GameController.Instance.moveToNextLevel && GameController.Instance.topChoiceMade && this.levelsPast == 2 && sceneName == "SportsScene")
+		if (SixLaneGameController.Instance.moveToNextLevel && SixLaneGameController.Instance.topChoiceMade && this.levelsPast == 2 && sceneName == "SportsScene")
         {
             levelsPast++;
             SceneManager.LoadScene("SadSportsScene");
@@ -53,7 +54,7 @@ public class SceneManagementScript : MonoBehaviour {
 			sceneName = thisScene.name;
           //  GameController.Instance.levelsPast++;
         }
-		if (GameController.Instance.moveToNextLevel && GameController.Instance.bottomChoiceMade && this.levelsPast == 2 && sceneName == "SportsScene")
+		if (SixLaneGameController.Instance.moveToNextLevel && SixLaneGameController.Instance.bottomChoiceMade && this.levelsPast == 2 && sceneName == "SportsScene")
 		{
 			levelsPast++;
 			SceneManager.LoadScene("HappySportsEnding");
@@ -61,7 +62,7 @@ public class SceneManagementScript : MonoBehaviour {
 			sceneName = thisScene.name;
 			//  GameController.Instance.levelsPast++;
 		}
-		if (GameController.Instance.moveToNextLevel && GameController.Instance.topChoiceMade && this.levelsPast == 2 && sceneName == "ChildChoiceScene")
+		if (SixLaneGameController.Instance.moveToNextLevel && SixLaneGameController.Instance.topChoiceMade && this.levelsPast == 2 && sceneName == "ScienceScene")
 		{
 			levelsPast++;
 			SceneManager.LoadScene("SadScene");
@@ -69,7 +70,7 @@ public class SceneManagementScript : MonoBehaviour {
 			sceneName = thisScene.name;
 			//  GameController.Instance.levelsPast++;
 		}
-		if (GameController.Instance.moveToNextLevel && GameController.Instance.bottomChoiceMade && this.levelsPast == 2 && sceneName == "ChildChoiceScene")
+		if (SixLaneGameController.Instance.moveToNextLevel && SixLaneGameController.Instance.bottomChoiceMade && this.levelsPast == 2 && sceneName == "ScienceScene")
         {
             levelsPast++;
             SceneManager.LoadScene("HappyEnding");
