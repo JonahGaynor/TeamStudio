@@ -1299,7 +1299,7 @@ MonoBehaviour:
   topChoiceMade: 0
   bottomChoiceMade: 0
   moveToNextLevel: 0
-  levelsPast: 0
+  levelsPast: 1
   questionsAnswered: 0
   stopSpawning: 0
   spawnFadePrefab: 0
@@ -2063,7 +2063,6 @@ Camera:
   m_TargetEye: 3
   m_HDR: 1
   m_AllowMSAA: 1
-  m_AllowDynamicResolution: 0
   m_ForceIntoRT: 0
   m_OcclusionCulling: 1
   m_StereoConvergence: 10

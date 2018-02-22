@@ -20,7 +20,8 @@ public class SceneManagementScript : MonoBehaviour {
 
     void Update()
     {
-        levelsPast = 2;
+		thisScene = SceneManager.GetActiveScene();
+		sceneName = thisScene.name;
         if (Input.GetKey(KeyCode.R)) {
             SceneManager.LoadScene("ChildhoodScene");
             levelsPast = 1;
@@ -41,7 +42,7 @@ public class SceneManagementScript : MonoBehaviour {
             levelsPast++;
             SixLaneGameController.Instance.moveToNextLevel = false;
             SixLaneGameController.Instance.bottomChoiceMade = false;
-            SceneManager.LoadScene("ChildChoiceScene");
+            SceneManager.LoadScene("ScienceScene");
 			thisScene = SceneManager.GetActiveScene();
 			sceneName = thisScene.name;
         }

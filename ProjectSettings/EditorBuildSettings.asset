@@ -9,20 +9,29 @@ EditorBuildSettings:
     path: Assets/Scenes/runScene.unity
     guid: bb955c598f81f054ca82800005feb248
   - enabled: 0
-    path: Assets/Scenes/Prototype 2/HappyEnding.unity
-    guid: d0c4064afe7a64020b873a96c08b0d8e
-  - enabled: 0
     path: Assets/Scenes/Prototype 2/SportsScene.unity
     guid: d20edcae1b92af445a29f834aecdc4ff
-  - enabled: 0
-    path: Assets/Scenes/Prototype 2/SadScene.unity
-    guid: 4f1aa0ad0012e459c80e98ea776bb024
   - enabled: 0
     path: Assets/Scenes/Prototype 2/ChildChoiceScene.unity
     guid: 2932877612d159f4781753997cdea0ef
   - enabled: 1
+    path: Assets/Scenes/Prototype 2.5/Prototype2.5TestScene.unity
+    guid: c9a454f83161a684589d936528f78f79
+  - enabled: 1
     path: Assets/Scenes/Prototype 2.5/SportsScene.unity
     guid: 89f6f8ab2ddfddd4f8e0e778e9ccc132
   - enabled: 1
-    path: Assets/Scenes/Prototype 2.5/Prototype2.5TestScene.unity
-    guid: c9a454f83161a684589d936528f78f79
+    path: Assets/Scenes/Prototype 2.5/ScienceScene.unity
+    guid: f70cb55e6f49be949a9adc0da07dc44f
+  - enabled: 1
+    path: Assets/Scenes/Prototype 2.5/HappySportsEnding.unity
+    guid: 37e6761d660dd412095a521b072346b3
+  - enabled: 1
+    path: Assets/Scenes/Prototype 2/HappyEnding.unity
+    guid: d0c4064afe7a64020b873a96c08b0d8e
+  - enabled: 1
+    path: Assets/Scenes/Prototype 2.5/SadSportsScene.unity
+    guid: fab13adb8bb7a492e8dfb9d9b478798a
+  - enabled: 1
+    path: Assets/Scenes/Prototype 2/SadScene.unity
+    guid: 4f1aa0ad0012e459c80e98ea776bb024
