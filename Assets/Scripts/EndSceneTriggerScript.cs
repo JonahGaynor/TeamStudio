@@ -34,7 +34,6 @@ public class EndSceneTriggerScript : MonoBehaviour {
 
 		}
 		fadeToBlack.color = temp;
-        Debug.Log(opacity);
 		if (opacity >= 0.95f) {
             SixLaneGameController.Instance.moveToNextLevel = true;
             Debug.Log("Move To Next Level");
