@@ -2549,13 +2549,6 @@ MonoBehaviour:
   - 3.5
   - 5.5
   - 7.5
-  projectileLanes:
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
   timeToSpawn: 1
   timeLeft: 1
   closePick: 0
@@ -3582,48 +3575,6 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
---- !u!1001 &1798053751
-Prefab:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 4163556628142830, guid: faeaaa437edc916408b68490b02e66db, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: 17.47
-      objectReference: {fileID: 0}
-    - target: {fileID: 4163556628142830, guid: faeaaa437edc916408b68490b02e66db, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: 0.24485837
-      objectReference: {fileID: 0}
-    - target: {fileID: 4163556628142830, guid: faeaaa437edc916408b68490b02e66db, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: 15.064453
-      objectReference: {fileID: 0}
-    - target: {fileID: 4163556628142830, guid: faeaaa437edc916408b68490b02e66db, type: 2}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4163556628142830, guid: faeaaa437edc916408b68490b02e66db, type: 2}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4163556628142830, guid: faeaaa437edc916408b68490b02e66db, type: 2}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4163556628142830, guid: faeaaa437edc916408b68490b02e66db, type: 2}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4163556628142830, guid: faeaaa437edc916408b68490b02e66db, type: 2}
-      propertyPath: m_RootOrder
-      value: 12
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_ParentPrefab: {fileID: 100100000, guid: faeaaa437edc916408b68490b02e66db, type: 2}
-  m_IsPrefabParent: 0
 --- !u!1 &1844331831
 GameObject:
   m_ObjectHideFlags: 0
@@ -4335,6 +4286,7 @@ Camera:
   m_TargetEye: 3
   m_HDR: 1
   m_AllowMSAA: 1
+  m_AllowDynamicResolution: 0
   m_ForceIntoRT: 0
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
