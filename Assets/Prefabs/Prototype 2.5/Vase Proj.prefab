@@ -22,7 +22,7 @@ GameObject:
   - component: {fileID: 212416084500606152}
   - component: {fileID: 61924077675973390}
   - component: {fileID: 114763532358674054}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Vase Proj
   m_TagString: Furniture
   m_Icon: {fileID: 0}
