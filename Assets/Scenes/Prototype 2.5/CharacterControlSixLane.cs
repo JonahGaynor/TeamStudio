@@ -115,6 +115,7 @@ public class CharacterControlSixLane : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collider)
     {
+		Debug.Log (collider.gameObject.tag);
 		if (collider.gameObject.tag == "Furniture" && SixLaneGameController.Instance.life > 0 && inCoroutine == false)
         {
             SixLaneGameController.Instance.life--;

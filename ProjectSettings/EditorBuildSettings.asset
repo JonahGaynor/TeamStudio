@@ -35,3 +35,18 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Prototype 2/SadScene.unity
     guid: 4f1aa0ad0012e459c80e98ea776bb024
+  - enabled: 1
+    path: Assets/Scenes/Prototype 3/StartScene.unity
+    guid: 2127df8ecbdc2304e9b28f792bfae7e9
+  - enabled: 1
+    path: Assets/Scenes/Prototype 3/FlashlightScene.unity
+    guid: eb755672045bf43d7ba91c64d9d8cac1
+  - enabled: 1
+    path: Assets/Scenes/Prototype 3/LoseScene.unity
+    guid: 3c648e94567394204a5e215132abaf97
+  - enabled: 1
+    path: Assets/Scenes/Prototype 3/LoveScene.unity
+    guid: fcc4a592aa79a4ad9ad8b1ab692ed672
+  - enabled: 1
+    path: Assets/Scenes/Prototype 3/WinScene.unity
+    guid: 2d9f2e4b9df2b472481256f108235c9a

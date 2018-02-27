@@ -24,6 +24,12 @@ public class SpriteMaskScript : MonoBehaviour {
     // Update is called once per frame
     void Update () {
         mouseObject.transform.position = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        if (mouseObject.transform.position.y > 3f)
+        {
+            Vector3 temppos = mouseObject.transform.position;
+            temppos.y = 3f;
+            mouseObject.transform.position = temppos;
+        }
     }
     void FixedUpdate()
     {    
@@ -34,15 +40,25 @@ public class SpriteMaskScript : MonoBehaviour {
         raycastObject.transform.position = temp2pos;
         SpriteRenderer raycastSprite = raycastObject.AddComponent<SpriteRenderer>();
         raycastSprite.sortingOrder = 2000;
-       // raycastSprite.sprite = circle;
+       raycastSprite.sprite = circle;
         if (raycastObject.transform.position.y > mouseObject.transform.position.y){direction = -1;}
         if (raycastObject.transform.position.y < mouseObject.transform.position.y){direction = 1;}
         distance = Mathf.Abs(raycastObject.transform.position.y - mouseObject.transform.position.y);
         speed = distance/5;
-       // Debug.DrawLine(this.transform.parent.position, transform.right* (mouseObject.transform.position.x - this.transform.parent.position.x));
-       
-            transform.RotateAround(this.transform.parent.position, zAxis, speed*direction);
-        
+        Debug.Log(this.transform.eulerAngles.z);
+        // Debug.DrawLine(this.transform.parent.position, transform.right* (mouseObject.transform.position.x - this.transform.parent.position.x));
+        if (this.transform.eulerAngles.z < 49||this.transform.eulerAngles.z>325)
+        {
+            transform.RotateAround(this.transform.parent.position, zAxis, speed * direction);
+        }
+        if (this.transform.eulerAngles.z > 49&& this.transform.eulerAngles.z < 100)
+        {
+            transform.RotateAround(this.transform.parent.position, zAxis, -speed * direction);
+        }
+        if (this.transform.eulerAngles.z > 100 && this.transform.eulerAngles.z < 325)
+        {
+            transform.RotateAround(this.transform.parent.position, zAxis, -speed * direction);
+        }
     }
 
 }
