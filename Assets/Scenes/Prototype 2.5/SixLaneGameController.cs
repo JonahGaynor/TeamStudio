@@ -32,7 +32,7 @@ public class SixLaneGameController : MonoBehaviour {
     {
         life = 10;
    		Instance = this;
-        standardMoveSpeed = 0.150f;
+        standardMoveSpeed = 0.10f;
 		questionsAnswered = 2;
 		timeTillNextQuestion = 5f;
 
