@@ -9,7 +9,7 @@ public class SixLaneGameController : MonoBehaviour {
     public static SixLaneGameController Instance = new SixLaneGameController();
     public int life = 10;
     public bool startQuestion = false;
-    public float standardMoveSpeed = 0.175f;
+    public float standardMoveSpeed = 0.350f;
     public bool gameOver = false;
     public float timeToWait = 2;
     public bool fadeToEnd = false;
@@ -18,7 +18,7 @@ public class SixLaneGameController : MonoBehaviour {
     public bool bottomChoiceMade = false;
     public bool moveToNextLevel = false;
     public int levelsPast = 0;
-    public int questionsAnswered = 0;
+    public int questionsAnswered;
     public bool stopSpawning = false;
     public bool spawnFadePrefab = false;
 	public bool weWon = false;
@@ -30,9 +30,11 @@ public class SixLaneGameController : MonoBehaviour {
     // Use this for initialization
     void Start()
     {
-           life = 10;
-    Instance = this;
-        standardMoveSpeed = 0.075f;
+        life = 10;
+   		Instance = this;
+        standardMoveSpeed = 0.150f;
+		questionsAnswered = 3;
+
         // standardMoveSpeed = 5;
     }
 

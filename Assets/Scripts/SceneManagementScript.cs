@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 public class SceneManagementScript : MonoBehaviour {
-   public int levelsPast=0;
+   public int levelsPast=1;
 	Scene thisScene;
 	string sceneName;
 
