@@ -22,8 +22,8 @@ public class SixLaneGameController : MonoBehaviour {
     public bool stopSpawning = false;
     public bool spawnFadePrefab = false;
 	public bool weWon = false;
-    public float timeTillNextQuestion = 15f;
-    int currentQuestion = 0;
+    public float timeTillNextQuestion;
+    int currentQuestion = 3;
     public GameObject[] questionPrompt;
     public GameObject player;
 
@@ -33,7 +33,8 @@ public class SixLaneGameController : MonoBehaviour {
         life = 10;
    		Instance = this;
         standardMoveSpeed = 0.150f;
-		questionsAnswered = 3;
+		questionsAnswered = 2;
+		timeTillNextQuestion = 5f;
 
         // standardMoveSpeed = 5;
     }
@@ -49,10 +50,10 @@ public class SixLaneGameController : MonoBehaviour {
         {
             questionsAnswered = 0;
         }
-       // if (questionsAnswered == 3)
-        //{
-       //     spawnFadePrefab = true;
-      //  }
+        if (questionsAnswered == 3)
+        {
+            spawnFadePrefab = true;
+        }
         
        
         if (timeTillNextQuestion < 0 && currentQuestion == questionsAnswered)
