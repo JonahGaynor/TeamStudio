@@ -198,7 +198,7 @@ GameObject:
   - component: {fileID: 61975365813532344}
   m_Layer: 0
   m_Name: Inside
-  m_TagString: Untagged
+  m_TagString: BottomChoice
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -384,7 +384,7 @@ GameObject:
   - component: {fileID: 61084858830680260}
   m_Layer: 0
   m_Name: Outside
-  m_TagString: Untagged
+  m_TagString: TopChoice
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -497,7 +497,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1524405210057372}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 10.743704, y: 0.26, z: 15.064453}
+  m_LocalPosition: {x: 7.2159534, y: 0.31631482, z: 15.064453}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4836402725659080}
