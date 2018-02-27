@@ -41,14 +41,14 @@ public class CharacterControlSixLane : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log(1.0f / Time.deltaTime);
+       // Debug.Log(1.0f / Time.deltaTime);
         myRigidbody.gravityScale = gravity;
         if (SixLaneGameController.Instance.life == 0)
         {
             SixLaneGameController.Instance.gameOver = true;
             mySprite.sprite = playerSprites[2];
         }
-        lifeText.text = "" + SixLaneGameController.Instance.life;
+       // lifeText.text = "" + SixLaneGameController.Instance.life;
         if (!SixLaneGameController.Instance.gameOver)
         {
 
@@ -64,9 +64,9 @@ public class CharacterControlSixLane : MonoBehaviour
                     if (!jumpOverride)
                     {
                         
-                            canJump = false;
+//                            canJump = false;
 
-                            myRigidbody.AddForce(transform.up * jump);
+//                            myRigidbody.AddForce(transform.up * jump);
                         
                     }
                 }

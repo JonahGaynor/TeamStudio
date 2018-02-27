@@ -21,6 +21,7 @@ public class SixLaneGameController : MonoBehaviour {
     public int questionsAnswered = 0;
     public bool stopSpawning = false;
     public bool spawnFadePrefab = false;
+	public bool weWon = false;
     public float timeTillNextQuestion = 15f;
     int currentQuestion = 0;
     public GameObject[] questionPrompt;
