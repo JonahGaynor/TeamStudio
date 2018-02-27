@@ -2853,7 +2853,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4186106536126822, guid: 8b33af8cd7d2ff945b610062578f2c11, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 23.683008
+      value: 44.8
       objectReference: {fileID: 0}
     - target: {fileID: 4186106536126822, guid: 8b33af8cd7d2ff945b610062578f2c11, type: 2}
       propertyPath: m_LocalPosition.y
@@ -3353,7 +3353,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 411448843}
-  platform: {fileID: 1284900746970406, guid: 049ab793655269446bb75c3892f225ad, type: 2}
+  platform: {fileID: 0}
   platformParent: {fileID: 894883412}
   obstacle: {fileID: 0}
   lanes:
