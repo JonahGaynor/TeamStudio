@@ -23,7 +23,7 @@ public class SceneManagementScript : MonoBehaviour {
 		thisScene = SceneManager.GetActiveScene();
 		sceneName = thisScene.name;
         if (Input.GetKey(KeyCode.R)) {
-            SceneManager.LoadScene("ChildhoodScene");
+            SceneManager.LoadScene("StartScene");
             levelsPast = 1;
 			thisScene = SceneManager.GetActiveScene();
 			sceneName = thisScene.name;
@@ -33,7 +33,7 @@ public class SceneManagementScript : MonoBehaviour {
             levelsPast++;
             SixLaneGameController.Instance.moveToNextLevel = false;
             SixLaneGameController.Instance.topChoiceMade = false;
-            SceneManager.LoadScene("SportsScene");
+            SceneManager.LoadScene("LoveScene");
 			thisScene = SceneManager.GetActiveScene();
 			sceneName = thisScene.name;
         }
@@ -42,7 +42,7 @@ public class SceneManagementScript : MonoBehaviour {
             levelsPast++;
             SixLaneGameController.Instance.moveToNextLevel = false;
             SixLaneGameController.Instance.bottomChoiceMade = false;
-            SceneManager.LoadScene("ScienceScene");
+            SceneManager.LoadScene("FlashlightScene");
 			thisScene = SceneManager.GetActiveScene();
 			sceneName = thisScene.name;
         }
@@ -78,6 +78,18 @@ public class SceneManagementScript : MonoBehaviour {
 			sceneName = thisScene.name;
           //  GameController.Instance.levelsPast++;
         }
+		if (SixLaneGameController.Instance.gameOver) {
+			SceneManager.LoadScene ("LoseScene");
+		}
+		if (SixLaneGameController.Instance.weWon) {
+			SceneManager.LoadScene ("WinScene");
+		}
+		if (thisScene.name == "LoseScene" && Input.GetKey(KeyCode.Space)) {
+			SceneManager.LoadScene ("StartScene");
+		}
+		if (thisScene.name == "WinScene" && Input.GetKey(KeyCode.Space)) {
+			SceneManager.LoadScene ("StartScene");
+		}
     }
 
 }
