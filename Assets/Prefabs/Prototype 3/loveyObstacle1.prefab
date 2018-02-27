@@ -22,8 +22,8 @@ GameObject:
   - component: {fileID: 212416084500606152}
   - component: {fileID: 61924077675973390}
   - component: {fileID: 114763532358674054}
-  m_Layer: 2
-  m_Name: Vase Proj
+  m_Layer: 0
+  m_Name: loveyObstacle1
   m_TagString: Furniture
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -35,13 +35,13 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1612046425511768}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.24932374, y: 0.27133393, z: 0.24932355}
+  m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
+  m_LocalPosition: {x: 8.536743, y: 3.02, z: 0}
+  m_LocalScale: {x: 2.0029614, y: 0.23250052, z: 0.21364027}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
 --- !u!61 &61924077675973390
 BoxCollider2D:
   m_ObjectHideFlags: 1
@@ -54,18 +54,18 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.069005966, y: -0.04891056}
+  m_Offset: {x: 0.020534039, y: 0.054014683}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 5, y: 5}
+    oldSize: {x: 2.67, y: 2.67}
     newSize: {x: 5.09, y: 7.97}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 3.5718918, y: 2.2188234}
+  m_Size: {x: 3.0871716, y: 2.0366888}
   m_EdgeRadius: 0
 --- !u!114 &114763532358674054
 MonoBehaviour:
@@ -73,7 +73,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1612046425511768}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ad23d42be7a710b42bc79a6c61eb1b83, type: 3}
   m_Name: 
@@ -112,9 +112,9 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 1ccd8a62065b44a478f09aaabba6f3ff, type: 3}
+  m_Sprite: {fileID: 21300000, guid: b2d6f0fd306412d479b3f5ac7b841723, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 1
+  m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
   m_Size: {x: 5.09, y: 7.97}
