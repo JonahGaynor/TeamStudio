@@ -64,9 +64,9 @@ public class CharacterControlSixLane : MonoBehaviour
                     if (!jumpOverride)
                     {
                         
-//                            canJump = false;
+                           canJump = false;
 
-//                            myRigidbody.AddForce(transform.up * jump);
+                            myRigidbody.AddForce(transform.up * jump);
                         
                     }
                 }
