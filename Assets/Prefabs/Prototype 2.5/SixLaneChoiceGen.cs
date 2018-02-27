@@ -26,13 +26,13 @@ public class SixLaneChoiceGen : MonoBehaviour {
         if (timeToSpawn < 0)
         {
             timeToSpawn = maxTime;
-           GameObject floor= Instantiate(levels[0]);
+            GameObject floor= Instantiate(levels[0]);
             Vector3 temp = floor.transform.position;
             temp.x = this.transform.position.x;
             floor.transform.position = temp;
             floor.transform.parent = floorParent.transform;
            
-           GameObject bg= Instantiate(backgrounds[0]);
+            GameObject bg= Instantiate(backgrounds[0]);
            
             temp = bg.transform.position;
             temp.x = this.transform.position.x;
