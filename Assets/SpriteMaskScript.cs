@@ -40,7 +40,7 @@ public class SpriteMaskScript : MonoBehaviour {
         raycastObject.transform.position = temp2pos;
         SpriteRenderer raycastSprite = raycastObject.AddComponent<SpriteRenderer>();
         raycastSprite.sortingOrder = 2000;
-       raycastSprite.sprite = circle;
+      // raycastSprite.sprite = circle;
         if (raycastObject.transform.position.y > mouseObject.transform.position.y){direction = -1;}
         if (raycastObject.transform.position.y < mouseObject.transform.position.y){direction = 1;}
         distance = Mathf.Abs(raycastObject.transform.position.y - mouseObject.transform.position.y);
