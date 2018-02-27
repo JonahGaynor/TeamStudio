@@ -11,7 +11,7 @@ public class LoveMovement : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		rb = this.GetComponent<Rigidbody2D> ();
-		jumpForce = 2f;
+		jumpForce = 500f;
 	}
 	
 	// Update is called once per frame
