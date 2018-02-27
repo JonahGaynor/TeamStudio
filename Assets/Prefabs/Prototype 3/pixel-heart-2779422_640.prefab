@@ -21,6 +21,7 @@ GameObject:
   - component: {fileID: 4704533655090544}
   - component: {fileID: 212232200025802994}
   - component: {fileID: 61750640017954374}
+  - component: {fileID: 114016983429674836}
   m_Layer: 0
   m_Name: pixel-heart-2779422_640
   m_TagString: Untagged
@@ -50,7 +51,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0.03528595, y: -0.03528452}
@@ -66,6 +67,17 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 5.2708683, y: 4.7768745}
   m_EdgeRadius: 0
+--- !u!114 &114016983429674836
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1055479875424630}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: be2876707b4aadc46a32e7c1889ad3a2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!212 &212232200025802994
 SpriteRenderer:
   m_ObjectHideFlags: 1
