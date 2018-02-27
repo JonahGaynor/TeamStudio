@@ -20,8 +20,6 @@ public class GirlScript : MonoBehaviour {
 			myOffset = 6f;
 		} else if (SixLaneGameController.Instance.life == 1) {
 			myOffset = 8f;
-		} else {
-			Debug.Log (SixLaneGameController.Instance.life);
-		}
+		} 
 	}
-}
+}	
