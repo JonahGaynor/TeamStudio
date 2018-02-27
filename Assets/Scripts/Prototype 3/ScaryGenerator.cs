@@ -21,7 +21,7 @@ public class ScaryGenerator : MonoBehaviour {
     // Use this for initialization
     void Start()
     {
-        timeToSpawn = 1f;
+        timeToSpawn = 0.5f;
         for (int i=0; i<lanes.Length; i++)
         {
             string stringToLookFor = "Platform " +( i + 1);
