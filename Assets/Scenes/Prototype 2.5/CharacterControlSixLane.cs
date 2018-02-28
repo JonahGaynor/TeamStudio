@@ -134,6 +134,9 @@ public class CharacterControlSixLane : MonoBehaviour
             SixLaneGameController.Instance.bottomChoiceMade = true;
         }
     }
+
+
+
 	IEnumerator TakeDamage (){
 		myAudio.Play();
 		mySprite.enabled = false;
