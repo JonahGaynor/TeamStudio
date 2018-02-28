@@ -78,7 +78,7 @@ public class ScaryGenerator : MonoBehaviour {
             tickToPowerUp++;
 
         }
-        if (ticksToProjectile == 3)
+        if (ticksToProjectile == 2)
         {
             
             int pick = Random.Range(0, projectileLanes.Length);
@@ -91,7 +91,7 @@ public class ScaryGenerator : MonoBehaviour {
             currentObstacle.transform.position = temp;
             ticksToProjectile = 0;
         }
-        if (tickToPowerUp == 3)
+        if (tickToPowerUp == 4)
         {
 
             int pick = Random.Range(0, projectileLanes.Length);
