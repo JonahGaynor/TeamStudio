@@ -55,7 +55,18 @@ public class LoveMovement : MonoBehaviour {
 			SixLaneGameController.Instance.bottomChoiceMade = true;
 		}
 	}
-	IEnumerator TakeDamage (){
+
+    private void OnCollisionEnter2D(Collision2D collider)
+    {
+        if (collider.gameObject.tag == "Furniture" && SixLaneGameController.Instance.life > 0 && inCoroutine == false)
+        {
+            SixLaneGameController.Instance.life--;
+            inCoroutine = true;
+            StartCoroutine(TakeDamage());
+        }
+    }
+
+        IEnumerator TakeDamage (){
 		myAudio.Play();
 		mySprite.enabled = false;
 		yield return new WaitForSeconds (0.2f);
