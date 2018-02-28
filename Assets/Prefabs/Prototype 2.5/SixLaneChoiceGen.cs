@@ -13,7 +13,7 @@ public class SixLaneChoiceGen : MonoBehaviour {
     public GameObject[] backgrounds;
     public GameObject floorParent;
     public GameObject bgParent;
-    int currentLayer = -101;
+    int currentLayer = -100;
 	// Use this for initialization
 	void Start () {
 		
