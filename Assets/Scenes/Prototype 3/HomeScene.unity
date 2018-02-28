@@ -276,10 +276,10 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 40
+    m_FontSize: 20
     m_FontStyle: 0
     m_BestFit: 0
-    m_MinSize: 4
+    m_MinSize: 2
     m_MaxSize: 48
     m_Alignment: 0
     m_AlignByGeometry: 0
@@ -287,19 +287,11 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Instructions
-
-
-    - Pick which path you want to go down
-
-
-    - W/UpArrow to jump/float
-
-
-    - S/DownArrow to drop through platforms or drop quickly
-
-
-    ENTER TO START'
+  m_Text: "Instructions\n\n\t- Pick which path you want to go down\n\nTop Path Instructions:\n\n\t-
+    W/UpArrow  = Float upwards\n\n\tGet your prom date to dance by collecting boxes
+    of chocolates!\n\nBottom Path Instructions:\n\n\t- W/UpArrow = Jump\n\n\t- S/DownArrow
+    = Fall through platforms/fall quickly\n\n\tSurvive as long as you can!\n\nENTER
+    TO START"
 --- !u!222 &424303654
 CanvasRenderer:
   m_ObjectHideFlags: 0
