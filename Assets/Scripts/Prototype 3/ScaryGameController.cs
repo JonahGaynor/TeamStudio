@@ -36,7 +36,9 @@ public class ScaryGameController : MonoBehaviour {
             life++;
                 prevPickups = numPickups;
         }
-      
+		if (life <= 0) {
+			gameOver = true;
+		}
       
         
       
