@@ -83,15 +83,17 @@ public class SceneManagementScript : MonoBehaviour {
 				SceneManager.LoadScene ("LoseScene");
 			}
 		}
-		if (GameObject.Find ("LittleGirl").GetComponent<GirlScript> ().myOffset <= 0.5f) {
+		if (thisScene.name == "LoveScene" && SixLaneGameController.Instance.weWon) {
 			SceneManager.LoadScene ("WinScene");
 		}
+
 		if (thisScene.name == "LoseScene" && Input.GetKey(KeyCode.Return)) {
 			SceneManager.LoadScene ("StartScene");
 		}
 		if (thisScene.name == "WinScene" && Input.GetKey(KeyCode.Return)) {
 			SceneManager.LoadScene ("StartScene");
 		}
+
     }
 
 }
