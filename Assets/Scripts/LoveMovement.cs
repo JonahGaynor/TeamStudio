@@ -49,7 +49,9 @@ public class LoveMovement : MonoBehaviour {
             }
         }
 
-
+		if (collider.gameObject.name == "Little Girl") {
+			SixLaneGameController.Instance.weWon = true;
+		}
 
 		if (collider.gameObject.tag == "TopChoice" && SixLaneGameController.Instance.questionsAnswered == 3)
 		{
