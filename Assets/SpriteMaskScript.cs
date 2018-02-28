@@ -45,7 +45,7 @@ public class SpriteMaskScript : MonoBehaviour {
         if (raycastObject.transform.position.y < mouseObject.transform.position.y){direction = 1;}
         distance = Mathf.Abs(raycastObject.transform.position.y - mouseObject.transform.position.y);
         speed = distance/5;
-        Debug.Log(this.transform.eulerAngles.z);
+       // Debug.Log(this.transform.eulerAngles.z);
         // Debug.DrawLine(this.transform.parent.position, transform.right* (mouseObject.transform.position.x - this.transform.parent.position.x));
         if (this.transform.eulerAngles.z < 49||this.transform.eulerAngles.z>325)
         {
