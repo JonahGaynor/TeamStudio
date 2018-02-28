@@ -79,9 +79,11 @@ public class SceneManagementScript : MonoBehaviour {
           //  GameController.Instance.levelsPast++;
         }
 		if (ScaryGameController.Instance.gameOver || SixLaneGameController.Instance.gameOver) {
-			SceneManager.LoadScene ("LoseScene");
+			if (sceneName != "LoseScene") {
+				SceneManager.LoadScene ("LoseScene");
+			}
 		}
-		if (SixLaneGameController.Instance.weWon) {
+		if (GameObject.Find ("LittleGirl").GetComponent<GirlScript> ().myOffset <= 0.5f) {
 			SceneManager.LoadScene ("WinScene");
 		}
 		if (thisScene.name == "LoseScene" && Input.GetKey(KeyCode.Return)) {
