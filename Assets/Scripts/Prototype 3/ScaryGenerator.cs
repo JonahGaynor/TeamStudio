@@ -8,7 +8,7 @@ public class ScaryGenerator : MonoBehaviour {
     int offset = 25;
     public GameObject platform;
     public GameObject platformParent;
-    public GameObject obstacle;
+    public GameObject[] obstacle;
     GameObject exampleLane;
     public GameObject batteryPickup;
      float[] lanes = { 0,0,0,0,0};
@@ -78,19 +78,20 @@ public class ScaryGenerator : MonoBehaviour {
             tickToPowerUp++;
 
         }
-        if (ticksToProjectile == 3)
+        if (ticksToProjectile == 2)
         {
             
             int pick = Random.Range(0, projectileLanes.Length);
+            int obsPick = Random.Range(0, obstacle.Length);
            // Debug.Log(pick);
-            GameObject currentObstacle = Instantiate(obstacle);
+            GameObject currentObstacle = Instantiate(obstacle[obsPick]);
              temp = currentObstacle.transform.position;
             temp.y = projectileLanes[pick];
             temp.x = this.transform.position.x;
             currentObstacle.transform.position = temp;
             ticksToProjectile = 0;
         }
-        if (tickToPowerUp == 3)
+        if (tickToPowerUp == 4)
         {
 
             int pick = Random.Range(0, projectileLanes.Length);

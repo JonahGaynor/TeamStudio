@@ -23,7 +23,7 @@ public class SceneManagementScript : MonoBehaviour {
 		thisScene = SceneManager.GetActiveScene();
 		sceneName = thisScene.name;
         if (Input.GetKey(KeyCode.R)) {
-            SceneManager.LoadScene("StartScene");
+            SceneManager.LoadScene("HomeScene");
             levelsPast = 1;
 			thisScene = SceneManager.GetActiveScene();
 			sceneName = thisScene.name;
@@ -78,16 +78,18 @@ public class SceneManagementScript : MonoBehaviour {
 			sceneName = thisScene.name;
           //  GameController.Instance.levelsPast++;
         }
-		if (SixLaneGameController.Instance.gameOver) {
-			SceneManager.LoadScene ("LoseScene");
+		if (ScaryGameController.Instance.gameOver || SixLaneGameController.Instance.gameOver) {
+			if (sceneName != "LoseScene") {
+				SceneManager.LoadScene ("LoseScene");
+			}
 		}
-		if (SixLaneGameController.Instance.weWon) {
+		if (GameObject.Find ("LittleGirl").GetComponent<GirlScript> ().myOffset <= 0.5f) {
 			SceneManager.LoadScene ("WinScene");
 		}
-		if (thisScene.name == "LoseScene" && Input.GetKey(KeyCode.Space)) {
+		if (thisScene.name == "LoseScene" && Input.GetKey(KeyCode.Return)) {
 			SceneManager.LoadScene ("StartScene");
 		}
-		if (thisScene.name == "WinScene" && Input.GetKey(KeyCode.Space)) {
+		if (thisScene.name == "WinScene" && Input.GetKey(KeyCode.Return)) {
 			SceneManager.LoadScene ("StartScene");
 		}
     }

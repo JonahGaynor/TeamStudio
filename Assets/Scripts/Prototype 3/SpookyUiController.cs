@@ -3,17 +3,19 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class SixLaneUIController : MonoBehaviour {
+public class SpookyUiController : MonoBehaviour {
+
     public Sprite heart;
     public GameObject heartImage;
     public int health;
     public GameObject myCanvas;
-    int startingX=50;
-    int startingY=380;
+    int startingX = 50;
+    int startingY = 380;
     GameObject[] hearts;
     // Use this for initialization
-    void Start () {
-        health = SixLaneGameController.Instance.life;
+    void Start()
+    {
+        health = ScaryGameController.Instance.life;
         myCanvas = GameObject.Find("Canvas");
         for (int i = 0; i < health+50; i++)
         {
@@ -26,17 +28,18 @@ public class SixLaneUIController : MonoBehaviour {
             temp.transform.position = tempPos;
             temp.transform.parent = myCanvas.transform;
         }
-        hearts = GameObject.FindGameObjectsWithTag("Heart");
+       hearts = GameObject.FindGameObjectsWithTag("Heart");
     }
-	
-	// Update is called once per frame
-	void Update () {
-       
+
+    // Update is called once per frame
+    void Update()
+    {
+      
         foreach (GameObject heart in hearts)
         {
             heart.SetActive(false);
         }
-        health = SixLaneGameController.Instance.life;
+        health = ScaryGameController.Instance.life;
         for (int i = 0; i < health; i++)
         {
             /*GameObject temp = Instantiate(heartImage);
@@ -45,9 +48,11 @@ public class SixLaneUIController : MonoBehaviour {
             tempPos.y = startingY;
             temp.transform.position = tempPos;
             temp.transform.parent = myCanvas.transform;*/
+            Debug.Log(i);
             hearts[i].gameObject.SetActive(true);
         }
 
-        
     }
 }
+
+

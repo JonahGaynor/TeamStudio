@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class CharacterControlSixLane : MonoBehaviour
+public class SpookyCharacterController : MonoBehaviour
 {
     public float runSpeed = 0.2f;
     public float jump = 10f;
@@ -36,6 +36,7 @@ public class CharacterControlSixLane : MonoBehaviour
         mySprite.sprite = playerSprites[0];
         staticGravity = myRigidbody.gravityScale;
         gravity = staticGravity;
+        jump = 500f;
     }
 
     // Update is called once per frame
@@ -43,17 +44,13 @@ public class CharacterControlSixLane : MonoBehaviour
     {
        // Debug.Log(1.0f / Time.deltaTime);
         myRigidbody.gravityScale = gravity;
-        if (SixLaneGameController.Instance.life == 0)
-        {
-            SixLaneGameController.Instance.gameOver = true;
-            mySprite.sprite = playerSprites[2];
-        }
+        
        // lifeText.text = "" + SixLaneGameController.Instance.life;
         if (!SixLaneGameController.Instance.gameOver)
         {
 
             mySprite.flipX = false;
-            runSpeed = SixLaneGameController.Instance.standardMoveSpeed;
+            runSpeed = ScaryGameController.Instance.standardMoveSpeed;
             Vector3 temp = this.transform.position;
             temp.x += runSpeed;
             this.transform.position = temp;
@@ -118,25 +115,12 @@ public class CharacterControlSixLane : MonoBehaviour
 		Debug.Log (collider.gameObject.tag);
 		if (collider.gameObject.tag == "Furniture" && SixLaneGameController.Instance.life > 0 && inCoroutine == false)
         {
-            SixLaneGameController.Instance.life--;
+            ScaryGameController.Instance.life--;
 			inCoroutine = true;
 			StartCoroutine (TakeDamage ());
-        }
+        }        
        
-        
-       
-        if (collider.gameObject.tag == "TopChoice" && SixLaneGameController.Instance.questionsAnswered == 3)
-        {
-            SixLaneGameController.Instance.topChoiceMade = true;
-        }
-        if (collider.gameObject.tag == "BottomChoice" && SixLaneGameController.Instance.questionsAnswered == 3)
-        {
-            SixLaneGameController.Instance.bottomChoiceMade = true;
-        }
     }
-
-
-
 	IEnumerator TakeDamage (){
 		myAudio.Play();
 		mySprite.enabled = false;

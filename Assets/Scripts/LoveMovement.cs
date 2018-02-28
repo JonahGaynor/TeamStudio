@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class LoveMovement : MonoBehaviour {
-
+    public float invincibilityTime = 3f;
 	float jumpForce;
 	public Rigidbody2D rb;
-	float runSpeed = 0.4f;
+	public float runSpeed = 0.4f;
 	public AudioClip getHit;
 	AudioSource myAudio;
 	bool inCoroutine = false;
@@ -14,7 +14,8 @@ public class LoveMovement : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		rb = this.GetComponent<Rigidbody2D> ();
+         invincibilityTime = 3f;
+        rb = this.GetComponent<Rigidbody2D> ();
 		jumpForce = 40f;
 		myAudio = GetComponent<AudioSource> ();
 		mySprite = this.GetComponent<SpriteRenderer>();
@@ -23,6 +24,7 @@ public class LoveMovement : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+        invincibilityTime -= Time.deltaTime;
 		if (Input.GetKey (KeyCode.W) || Input.GetKey (KeyCode.UpArrow)) {
 			rb.AddForce (transform.up * jumpForce);
 			jumpForce += 10f * Time.deltaTime;
@@ -37,12 +39,15 @@ public class LoveMovement : MonoBehaviour {
 	}
 	private void OnTriggerEnter2D(Collider2D collider)
 	{
-		if (collider.gameObject.tag == "Furniture" && SixLaneGameController.Instance.life > 0 && inCoroutine == false)
-		{
-			SixLaneGameController.Instance.life--;
-			inCoroutine = true;
-			StartCoroutine (TakeDamage ());
-		}
+        if (collider.gameObject.tag == "Furniture" && SixLaneGameController.Instance.life > 0 && inCoroutine == false)
+        {
+            if (invincibilityTime <= 0)
+            {
+                SixLaneGameController.Instance.life--;
+                inCoroutine = true;
+                StartCoroutine(TakeDamage());
+            }
+        }
 
 
 
@@ -55,7 +60,21 @@ public class LoveMovement : MonoBehaviour {
 			SixLaneGameController.Instance.bottomChoiceMade = true;
 		}
 	}
-	IEnumerator TakeDamage (){
+
+    private void OnCollisionEnter2D(Collision2D collider)
+    {
+        if (collider.gameObject.tag == "Furniture" && SixLaneGameController.Instance.life > 0 && inCoroutine == false)
+        {
+            if (invincibilityTime <= 0)
+            {
+                SixLaneGameController.Instance.life--;
+                inCoroutine = true;
+                StartCoroutine(TakeDamage());
+            }
+        }
+    }
+
+        IEnumerator TakeDamage (){
 		myAudio.Play();
 		mySprite.enabled = false;
 		yield return new WaitForSeconds (0.2f);
