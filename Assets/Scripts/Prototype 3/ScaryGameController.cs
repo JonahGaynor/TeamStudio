@@ -41,6 +41,10 @@ public class ScaryGameController : MonoBehaviour {
         
       
     }
+    void AddPickup()
+    {
+        numPickups++;
+    }
 }
 
 

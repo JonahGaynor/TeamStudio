@@ -8,7 +8,9 @@ public class PickupScript : MonoBehaviour {
     {
         if(collider.tag=="Little Boy")
         {
-            ScaryGameController.Instance.numPickups++;
+            GameObject controller = GameObject.Find("GameController");
+            controller.SendMessage("AddPickup");
+          //  ScaryGameController.Instance.numPickups++;
             Destroy(this.gameObject);
         }
 

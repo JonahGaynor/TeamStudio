@@ -26,6 +26,8 @@ public class SixLaneGameController : MonoBehaviour {
     int currentQuestion = 3;
     public GameObject[] questionPrompt;
     public GameObject player;
+    int prevPickups;
+    public int numPickups = 0;
 
     // Use this for initialization
     void Start()
@@ -42,6 +44,12 @@ public class SixLaneGameController : MonoBehaviour {
     // Update is called once per frame
     void Update()
     {
+        if (prevPickups != numPickups)
+        {
+            life++;
+            prevPickups = numPickups;
+        }
+
         if (!startQuestion)
         {
             timeTillNextQuestion -= Time.deltaTime;
@@ -65,6 +73,10 @@ public class SixLaneGameController : MonoBehaviour {
       
         
       
+    }
+    void AddPickup()
+    {
+        numPickups++;
     }
 }
 
