@@ -32,7 +32,7 @@ public class SixLaneGameController : MonoBehaviour {
     // Use this for initialization
     void Start()
     {
-        life = 10;
+        life = 3;
    		Instance = this;
         standardMoveSpeed = 0.10f;
 		questionsAnswered = 2;
@@ -44,6 +44,10 @@ public class SixLaneGameController : MonoBehaviour {
     // Update is called once per frame
     void Update()
     {
+        if (life == 0)
+        {
+            gameOver = true;
+        }
         if (prevPickups != numPickups)
         {
             life++;
