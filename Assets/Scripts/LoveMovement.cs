@@ -63,6 +63,9 @@ public class LoveMovement : MonoBehaviour {
             SixLaneGameController.Instance.life--;
             inCoroutine = true;
             StartCoroutine(TakeDamage());
+			if (SixLaneGameController.Instance.life < 1) {
+				SixLaneGameController.Instance.gameOver = true;
+			}
         }
     }
 
