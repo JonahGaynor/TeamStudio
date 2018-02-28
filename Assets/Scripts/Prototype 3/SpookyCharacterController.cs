@@ -118,7 +118,9 @@ public class SpookyCharacterController : MonoBehaviour
             ScaryGameController.Instance.life--;
 			inCoroutine = true;
 			StartCoroutine (TakeDamage ());
-        }        
+
+        }    
+
        
     }
 	IEnumerator TakeDamage (){

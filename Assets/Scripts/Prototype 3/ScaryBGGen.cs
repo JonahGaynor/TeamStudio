@@ -13,6 +13,7 @@ public class ScaryBGGen : MonoBehaviour {
     public GameObject[] backgrounds;
     public GameObject floorParent;
     public GameObject bgParent;
+    int currentLayer = -100;
 	// Use this for initialization
 	void Start () {
 		
@@ -24,6 +25,7 @@ public class ScaryBGGen : MonoBehaviour {
         timeToSpawn -= Time.deltaTime;
         if (timeToSpawn < 0)
         {
+            currentLayer--;
             timeToSpawn = maxTime;
             GameObject floor= Instantiate(levels[0]);
             Vector3 temp = floor.transform.position;
@@ -32,11 +34,20 @@ public class ScaryBGGen : MonoBehaviour {
             floor.transform.parent = floorParent.transform;
            
             GameObject bg= Instantiate(backgrounds[0]);
+            bg.transform.parent = bgParent.transform;
+            int childCount = 0;
+            int maxChild = bg.transform.childCount;
+            while (childCount<maxChild)
+            {
+                SpriteRenderer bgSprite = bg.transform.GetChild(childCount).GetComponent<SpriteRenderer>();
+                bgSprite.sortingOrder = currentLayer;
+                childCount++;
+            }
            
             temp = bg.transform.position;
             temp.x = this.transform.position.x;
             bg.transform.position = temp;
-            bg.transform.parent = bgParent.transform;
+          
 
         }
        

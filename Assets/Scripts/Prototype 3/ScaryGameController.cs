@@ -7,7 +7,7 @@ public class ScaryGameController : MonoBehaviour {
 
 
     public static ScaryGameController Instance = new ScaryGameController();
-    public int life = 10;
+    public int life = 3;
     int prevPickups;
     public int numPickups=0;
     public float standardMoveSpeed = 0.175f;
@@ -36,7 +36,9 @@ public class ScaryGameController : MonoBehaviour {
             life++;
                 prevPickups = numPickups;
         }
-      
+		if (life <= 0) {
+			gameOver = true;
+		}
       
         
       
