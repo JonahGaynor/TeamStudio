@@ -8,7 +8,7 @@ public class ScaryGenerator : MonoBehaviour {
     int offset = 25;
     public GameObject platform;
     public GameObject platformParent;
-    public GameObject obstacle;
+    public GameObject[] obstacle;
     GameObject exampleLane;
     public GameObject batteryPickup;
      float[] lanes = { 0,0,0,0,0};
@@ -21,7 +21,7 @@ public class ScaryGenerator : MonoBehaviour {
     // Use this for initialization
     void Start()
     {
-        timeToSpawn = 1f;
+        timeToSpawn = 0.5f;
         for (int i=0; i<lanes.Length; i++)
         {
             string stringToLookFor = "Platform " +( i + 1);
@@ -78,19 +78,20 @@ public class ScaryGenerator : MonoBehaviour {
             tickToPowerUp++;
 
         }
-        if (ticksToProjectile == 3)
+        if (ticksToProjectile == 1)
         {
             
             int pick = Random.Range(0, projectileLanes.Length);
+            int obsPick = Random.Range(0, obstacle.Length);
            // Debug.Log(pick);
-            GameObject currentObstacle = Instantiate(obstacle);
+            GameObject currentObstacle = Instantiate(obstacle[obsPick]);
              temp = currentObstacle.transform.position;
             temp.y = projectileLanes[pick];
             temp.x = this.transform.position.x;
             currentObstacle.transform.position = temp;
             ticksToProjectile = 0;
         }
-        if (tickToPowerUp == 3)
+        if (tickToPowerUp == 5)
         {
 
             int pick = Random.Range(0, projectileLanes.Length);

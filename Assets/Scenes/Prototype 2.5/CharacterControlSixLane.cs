@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class CharacterControlSixLane : MonoBehaviour
 {
-    float runSpeed = 0.2f;
+    public float runSpeed = 0.2f;
     public float jump = 10f;
     public Rigidbody2D myRigidbody;
     public Sprite[] playerSprites;
@@ -134,6 +134,9 @@ public class CharacterControlSixLane : MonoBehaviour
             SixLaneGameController.Instance.bottomChoiceMade = true;
         }
     }
+
+
+
 	IEnumerator TakeDamage (){
 		myAudio.Play();
 		mySprite.enabled = false;
