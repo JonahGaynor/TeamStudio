@@ -44,11 +44,7 @@ public class SpookyCharacterController : MonoBehaviour
     {
        // Debug.Log(1.0f / Time.deltaTime);
         myRigidbody.gravityScale = gravity;
-        if (ScaryGameController.Instance.life == 0)
-        {
-            ScaryGameController.Instance.gameOver = true;
-            mySprite.sprite = playerSprites[2];
-        }
+        
        // lifeText.text = "" + SixLaneGameController.Instance.life;
         if (!SixLaneGameController.Instance.gameOver)
         {
