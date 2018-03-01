@@ -19,7 +19,7 @@ public class ScaryGameController : MonoBehaviour {
     // Use this for initialization
     void Start()
     {
-           life = 10;
+           life = 3;
         prevPickups = numPickups;
     Instance = this;
         standardMoveSpeed = 0.1f;
