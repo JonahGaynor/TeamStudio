@@ -78,10 +78,13 @@ public class SceneManagementScript : MonoBehaviour {
 			sceneName = thisScene.name;
           //  GameController.Instance.levelsPast++;
         }
-		if (ScaryGameController.Instance.gameOver || SixLaneGameController.Instance.gameOver) {
+		if (SixLaneGameController.Instance.gameOver) {
 			if (sceneName != "LoseScene") {
 				SceneManager.LoadScene ("LoseScene");
 			}
+		}
+		if (ScaryGameController.Instance.gameOver && sceneName != "ScaryLoseScene") {
+			SceneManager.LoadScene ("ScaryLoseScene");
 		}
 		if (thisScene.name == "LoveScene" && SixLaneGameController.Instance.weWon) {
 			SceneManager.LoadScene ("WinScene");
@@ -93,7 +96,9 @@ public class SceneManagementScript : MonoBehaviour {
 		if (thisScene.name == "WinScene" && Input.GetKey(KeyCode.Return)) {
 			SceneManager.LoadScene ("StartScene");
 		}
-
+		if (thisScene.name == "ScaryLoseScene" && Input.GetKey(KeyCode.Return)) {
+			SceneManager.LoadScene ("StartScene");
+		}
     }
 
 }
