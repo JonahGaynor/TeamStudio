@@ -333,7 +333,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: You Lose! Press Enter
+  m_Text: You Lose!
 --- !u!222 &1116795006
 CanvasRenderer:
   m_ObjectHideFlags: 0
