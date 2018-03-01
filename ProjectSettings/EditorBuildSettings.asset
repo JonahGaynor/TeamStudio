@@ -50,3 +50,6 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Prototype 3/WinScene.unity
     guid: 2d9f2e4b9df2b472481256f108235c9a
+  - enabled: 1
+    path: Assets/Scenes/Prototype 3/ScaryLoseScene.unity
+    guid: 54dd55a45fc7f48428f17cce38df4c0f
