@@ -7,7 +7,10 @@ using UnityEngine.UI;
 public class TestJump : MonoBehaviour
 {
     public float runSpeed = 0.2f;
-    public float jump = 10f;
+     float jump = 250f;
+     float smallJump = 25f;
+    bool canFloat;
+    float floatTime = 0;
     public Rigidbody2D myRigidbody;
     public Sprite[] playerSprites;
     public SpriteRenderer mySprite;
@@ -36,6 +39,7 @@ public class TestJump : MonoBehaviour
         mySprite.sprite = playerSprites[0];
         staticGravity = myRigidbody.gravityScale;
         gravity = staticGravity;
+        canFloat = true;
     }
 
     // Update is called once per frame
@@ -57,21 +61,39 @@ public class TestJump : MonoBehaviour
             Vector3 temp = this.transform.position;
             temp.x += runSpeed;
             this.transform.position = temp;
-            Debug.Log(myRigidbody.velocity.y);
+            //Debug.Log(canFloat);
             if (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow))
             {
                 if (canJump)
                 {
-                    if (!jumpOverride)
-                    {
-
+                    canFloat = true;
+                   // Debug.Log(myRigidbody.velocity);
+                    myRigidbody.velocity = Vector2.zero;
                         canJump = false;
 
                         myRigidbody.AddForce(transform.up * jump);
 
-                    }
+                    
                 }
 
+            }
+            if (Input.GetKeyUp(KeyCode.W) || Input.GetKeyUp(KeyCode.UpArrow))
+            {
+                canFloat = false;
+            }
+            if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow))
+            {
+                if (canFloat)
+                {
+                    floatTime++;
+                        myRigidbody.AddForce(transform.up * smallJump);    
+                }
+
+            }
+            if (floatTime > 15)
+            {
+                floatTime = 0;
+                canFloat = false;
             }
             if (myRigidbody.velocity.y < -0.1f&&!canJump)
             {
@@ -92,6 +114,8 @@ public class TestJump : MonoBehaviour
         {
             gravity = staticGravity;
             canJump = true;
+            floatTime = 0;
+            canFloat = false;
 
         }
         if (collision.gameObject.tag == "Platform")
@@ -100,6 +124,8 @@ public class TestJump : MonoBehaviour
             {
                 gravity = staticGravity;
                 canJump = true;
+                floatTime = 0;
+                canFloat = false;
             }
         }
 

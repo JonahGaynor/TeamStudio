@@ -3295,7 +3295,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 1590307622}
-  - component: {fileID: 1590307621}
+  - component: {fileID: 1590307623}
   m_Layer: 0
   m_Name: Generator
   m_TagString: Untagged
@@ -3303,36 +3303,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1590307621
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1590307620}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a458dd89e85c98445a0e58be786f471c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  player: {fileID: 2143324649}
-  spawnObs: 0
-  spawnPlat: 1
-  platform: {fileID: 1284900746970406, guid: 049ab793655269446bb75c3892f225ad, type: 2}
-  platformParent: {fileID: 212947864}
-  obstacle: {fileID: 1612046425511768, guid: 6eaa1feff6ed0a1439d8107900e9f108, type: 2}
-  lanes:
-  - -2.5
-  - -0.5
-  - 1.5
-  - 3.5
-  - 5.5
-  - 7.5
-  timeToSpawn: 1
-  timeLeft: 1
-  closePick: 0
-  previousPick: -1
-  randomPick: 0
-  ticksToProjectile: 0
 --- !u!4 &1590307622
 Transform:
   m_ObjectHideFlags: 0
@@ -3346,6 +3316,36 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1590307623
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1590307620}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 34ec437809c65494c875e921ce2db7ae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 2143324649}
+  spawnObs: 1
+  spawnPlat: 1
+  platform: {fileID: 1284900746970406, guid: 049ab793655269446bb75c3892f225ad, type: 2}
+  platformParent: {fileID: 212947864}
+  obstacle: {fileID: 1612046425511768, guid: 6eaa1feff6ed0a1439d8107900e9f108, type: 2}
+  lanes:
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  timeToSpawn: 1
+  timeLeft: 1
+  closePick: 0
+  previousPick: -1
+  randomPick: 0
+  ticksToProjectile: 0
 --- !u!1 &1590945161
 GameObject:
   m_ObjectHideFlags: 0
@@ -4247,7 +4247,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   runSpeed: 0.2
-  jump: 50
   myRigidbody: {fileID: 0}
   playerSprites:
   - {fileID: 21300000, guid: f1a938e3b17e7d948a6d7df531bbe0a1, type: 3}
