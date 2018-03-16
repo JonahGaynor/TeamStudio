@@ -5,6 +5,8 @@ using UnityEngine;
 public class SixLaneGenerator : MonoBehaviour {
 
     public GameObject player;
+    public bool spawnObs=true;
+    public bool spawnPlat=true;
     int offset = 25;
     public GameObject platform;
     public GameObject platformParent;
@@ -40,7 +42,7 @@ public class SixLaneGenerator : MonoBehaviour {
         temp.x = player.transform.position.x + offset;
         this.transform.position = temp;
         //Spawn a Platform
-        if (timeLeft <= 0&&!SixLaneGameController.Instance.startQuestion)
+        if (timeLeft <= 0&&!SixLaneGameController.Instance.startQuestion&&spawnPlat)
         {
             if (previousPick == -1) { previousPick = Random.Range(0, lanes.Length); }
 
@@ -75,7 +77,7 @@ public class SixLaneGenerator : MonoBehaviour {
             ticksToProjectile++;
 
         }
-        if (ticksToProjectile == 1)
+        if (ticksToProjectile == 1&&spawnObs)
         {
             
             int pick = Random.Range(0, projectileLanes.Length);
