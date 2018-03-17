@@ -7,8 +7,8 @@ using UnityEngine.UI;
 public class TestJump : MonoBehaviour
 {
     public float runSpeed = 0.2f;
-     float jump = 250f;
-     float smallJump = 25f;
+     float jump = 350f;
+     float smallJump = 15f;
     bool canFloat;
     float floatTime = 0;
     public Rigidbody2D myRigidbody;
@@ -90,14 +90,14 @@ public class TestJump : MonoBehaviour
                 }
 
             }
-            if (floatTime > 15)
+            if (floatTime > 14)
             {
                 floatTime = 0;
                 canFloat = false;
             }
             if (myRigidbody.velocity.y < -0.1f&&!canJump)
             {
-                gravity = 6;
+                gravity = 12;
             }
            /* if ((Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.DownArrow)))
             {
