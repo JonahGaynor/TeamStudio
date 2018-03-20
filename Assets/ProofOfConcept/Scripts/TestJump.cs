@@ -28,6 +28,7 @@ public class TestJump : MonoBehaviour
     public AudioClip getHit;
     AudioSource myAudio;
     bool inCoroutine = false;
+    int speedOverride = 1;
 
     // Use this for initialization
     void Start()
@@ -47,24 +48,20 @@ public class TestJump : MonoBehaviour
     {
         // Debug.Log(1.0f / Time.deltaTime);
         myRigidbody.gravityScale = gravity;
-        if (SixLaneGameController.Instance.life == 0)
-        {
-            SixLaneGameController.Instance.gameOver = true;
-            mySprite.sprite = playerSprites[2];
-        }
+      
         // lifeText.text = "" + SixLaneGameController.Instance.life;
         if (!SixLaneGameController.Instance.gameOver)
         {
 
-            mySprite.flipX = false;
+            //mySprite.flipX = false;
             runSpeed = SixLaneGameController.Instance.standardMoveSpeed;
             Vector3 temp = this.transform.position;
-            temp.x += runSpeed;
+            temp.x += (runSpeed*speedOverride);
             this.transform.position = temp;
             //Debug.Log(canFloat);
             if (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow))
             {
-                if (canJump)
+                if (canJump&&!jumpOverride)
                 {
                     canFloat = true;
                    // Debug.Log(myRigidbody.velocity);
@@ -154,7 +151,15 @@ public class TestJump : MonoBehaviour
             StartCoroutine(TakeDamage());
         }
 
-
+        if (collider.tag == "Text")
+        {
+            speedOverride = 0;
+            mySprite.sprite = playerSprites[1];
+            mySprite.flipX=true;
+            jumpOverride = true;
+            canFloat = false;
+            MakeBoxSmall();
+        }
 
         if (collider.gameObject.tag == "TopChoice" && SixLaneGameController.Instance.questionsAnswered == 3)
         {
@@ -179,6 +184,12 @@ public class TestJump : MonoBehaviour
         yield return new WaitForSeconds(0.2f);
         mySprite.enabled = true;
         inCoroutine = false;
+    }
+
+    void MakeBoxSmall()
+    {
+        myCollider.size =new Vector2(4.88f, 2.5f);
+        //myCollider.offset = new Vector2(0, -1.25f);
     }
 
 }
