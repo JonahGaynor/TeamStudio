@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class TruckScript : MonoBehaviour {
-    float speed = 0.01f;
+    float speed = 0.20f;
 	// Use this for initialization
 	void Start () {
 		
