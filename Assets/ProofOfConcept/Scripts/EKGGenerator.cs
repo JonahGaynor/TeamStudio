@@ -9,27 +9,17 @@ public class EKGGenerator : MonoBehaviour
     float maxTime = 4f;  
     public GameObject floorParent;
     Vector3 convert;
-
     void Update()
-    {
-
-        
+    {       
         timeToSpawn -= Time.deltaTime;
         if (timeToSpawn < 0)
         {
             timeToSpawn = maxTime;
             GameObject floor = Instantiate(floorPrefab);
             Vector3 temp = floor.transform.position;
-           
-            temp.x = this.transform.position.x+135;
-            Debug.Log(this.transform.position.x);
-            Debug.Log(temp.x);
+            temp.x = this.transform.position.x+135;        
             floor.transform.position = temp;
             floor.transform.parent = floorParent.transform;
-          
-
-
-        }
-       
+        }       
     }
 }
