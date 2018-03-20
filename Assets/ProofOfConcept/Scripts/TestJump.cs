@@ -29,6 +29,7 @@ public class TestJump : MonoBehaviour
     AudioSource myAudio;
     bool inCoroutine = false;
     int speedOverride = 1;
+	int hitCounter = 0;
 
     // Use this for initialization
     void Start()
@@ -50,11 +51,11 @@ public class TestJump : MonoBehaviour
         myRigidbody.gravityScale = gravity;
       
         // lifeText.text = "" + SixLaneGameController.Instance.life;
-        if (!SixLaneGameController.Instance.gameOver)
+		if (!ProofGameController.Instance.gameOver)
         {
 
             //mySprite.flipX = false;
-            runSpeed = SixLaneGameController.Instance.standardMoveSpeed;
+			runSpeed = ProofGameController.Instance.standardMoveSpeed;
             Vector3 temp = this.transform.position;
             temp.x += (runSpeed*speedOverride);
             this.transform.position = temp;
@@ -143,25 +144,25 @@ public class TestJump : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collider)
     {
-        Debug.Log(collider.gameObject.tag);
-        if (collider.gameObject.tag == "Furniture" && SixLaneGameController.Instance.life > 0 && inCoroutine == false)
+		if (collider.gameObject.tag == "Furniture" && ProofGameController.Instance.life > 0 && inCoroutine == false)
         {
-            SixLaneGameController.Instance.life--;
+			ProofGameController.Instance.life--;
             inCoroutine = true;
             StartCoroutine(TakeDamage());
         }
 
         if (collider.tag == "Text")
         {
-            speedOverride = 0;
-            mySprite.sprite = playerSprites[1];
-            mySprite.flipX=true;
-            jumpOverride = true;
-            canFloat = false;
-            MakeBoxSmall();
+				speedOverride = 0;
+				mySprite.sprite = playerSprites [1];
+				mySprite.flipX = true;
+				jumpOverride = true;
+				canFloat = false;
+				MakeBoxSmall ();
+
         }
 
-        if (collider.gameObject.tag == "TopChoice" && SixLaneGameController.Instance.questionsAnswered == 3)
+		if (collider.gameObject.tag == "TopChoice" && ProofGameController.Instance.questionsAnswered == 3)
         {
             SixLaneGameController.Instance.topChoiceMade = true;
         }
