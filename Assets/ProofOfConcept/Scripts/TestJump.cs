@@ -36,6 +36,8 @@ public class TestJump : MonoBehaviour
     int speedOverride = 1;
 	int hitCounter = 0;
 	float dropCounter = 0f;
+	bool jumpOnHit = false;
+	float keyDownCounter = 0f;
 
     // Use this for initialization
     void Start()
@@ -69,15 +71,20 @@ public class TestJump : MonoBehaviour
 
             if (Input.GetKeyUp(KeyCode.W) || Input.GetKeyUp(KeyCode.UpArrow))
             {
+				if (keyDownCounter <= 0.05f) {
+					myRigidbody.velocity = new Vector2 (myRigidbody.velocity.x, myRigidbody.velocity.y/2);
+				}
+				keyDownCounter = 0f;
                 canFloat = false;
 				floatTime = 0;
             }
 
-            if (floatTime > 15)
+            if (floatTime > 14)
             {
                 floatTime = 0;
                 canFloat = false;
             }
+
 
            /* if ((Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.DownArrow)))
             {
@@ -91,10 +98,10 @@ public class TestJump : MonoBehaviour
     }
 
 	void FixedUpdate(){
-
 		if (myRigidbody.velocity.y < -1f&&!canJump)
 		{
 			gravity = 4;
+			dropCounter += Time.deltaTime;
 		}
 		if (myRigidbody.velocity.y < -8f && !canJump) {
 			gravity = 8;
@@ -102,8 +109,24 @@ public class TestJump : MonoBehaviour
 		if (myRigidbody.velocity.y < -10f) {
 			myRigidbody.velocity = new Vector2 (myRigidbody.velocity.x, -10f);
 		}
+		if (dropCounter >= 0.3f) {
+			gravity = 8.2f;
+		}
+		if (dropCounter >= 0.4f) {
+			gravity = 8.3f;
+		}
+		if (dropCounter >= 0.5f) {
+			gravity = 8.4f;
+		}
+		if (dropCounter >= 0.6f) {
+			gravity = 8.5f;
+		}
+
 		if (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow))
-		{
+		{ 
+			if (transform.position.y <= -3.7f && transform.position.y >= -3.83f) {
+				jumpOnHit = true;
+			}
 			if (canJump&&!jumpOverride)
 			{
 				canFloat = true;
@@ -124,13 +147,14 @@ public class TestJump : MonoBehaviour
 				floatTime++;
 				myRigidbody.AddForce(transform.up * smallJump);    
 			}
-
+			keyDownCounter += Time.deltaTime;
 		}
 
 	}
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
+		dropCounter = 0f;
         if (collision.gameObject.tag == "Floor")
         {
             gravity = staticGravity;
@@ -149,7 +173,10 @@ public class TestJump : MonoBehaviour
                 canFloat = false;
             }
         }
-
+		if (jumpOnHit && collision.gameObject.tag == "Floor") {
+			myRigidbody.AddForce(transform.up * jump);
+			jumpOnHit = false;
+		}
 
     }
     public void OnCollisionStay2D(Collision2D collision)
