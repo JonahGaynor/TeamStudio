@@ -6,9 +6,14 @@ using UnityEngine.UI;
 
 public class TestJump : MonoBehaviour
 {
+	//longest jump: 7.2
+	//shortest jump: 4.8
+	//middle jump: 6
+
+
     public float runSpeed = 0.2f;
-     float jump = 250f;
-     float smallJump = 25f;
+     float jump = 350f;
+     float smallJump = 15f;
     bool canFloat;
     float floatTime = 0;
     public Rigidbody2D myRigidbody;
@@ -28,6 +33,9 @@ public class TestJump : MonoBehaviour
     public AudioClip getHit;
     AudioSource myAudio;
     bool inCoroutine = false;
+    int speedOverride = 1;
+	int hitCounter = 0;
+	float dropCounter = 0f;
 
     // Use this for initialization
     void Start()
@@ -47,58 +55,30 @@ public class TestJump : MonoBehaviour
     {
         // Debug.Log(1.0f / Time.deltaTime);
         myRigidbody.gravityScale = gravity;
-        if (SixLaneGameController.Instance.life == 0)
-        {
-            SixLaneGameController.Instance.gameOver = true;
-            mySprite.sprite = playerSprites[2];
-        }
+      
         // lifeText.text = "" + SixLaneGameController.Instance.life;
-        if (!SixLaneGameController.Instance.gameOver)
+		if (!ProofGameController.Instance.gameOver)
         {
 
-            mySprite.flipX = false;
-            runSpeed = SixLaneGameController.Instance.standardMoveSpeed;
+            //mySprite.flipX = false;
+			runSpeed = ProofGameController.Instance.standardMoveSpeed;
             Vector3 temp = this.transform.position;
-            temp.x += runSpeed;
+            temp.x += (runSpeed*speedOverride);
             this.transform.position = temp;
             //Debug.Log(canFloat);
-            if (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow))
-            {
-                if (canJump)
-                {
-                    canFloat = true;
-                   // Debug.Log(myRigidbody.velocity);
-                    myRigidbody.velocity = Vector2.zero;
-                        canJump = false;
 
-                        myRigidbody.AddForce(transform.up * jump);
-
-                    
-                }
-
-            }
             if (Input.GetKeyUp(KeyCode.W) || Input.GetKeyUp(KeyCode.UpArrow))
             {
                 canFloat = false;
+				floatTime = 0;
             }
-            if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow))
-            {
-                if (canFloat)
-                {
-                    floatTime++;
-                        myRigidbody.AddForce(transform.up * smallJump);    
-                }
 
-            }
             if (floatTime > 15)
             {
                 floatTime = 0;
                 canFloat = false;
             }
-            if (myRigidbody.velocity.y < -0.1f&&!canJump)
-            {
-                gravity = 6;
-            }
+
            /* if ((Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.DownArrow)))
             {
                 gravity = staticGravity + 25f;
@@ -106,8 +86,49 @@ public class TestJump : MonoBehaviour
 
             }*/
 
+
         }
     }
+
+	void FixedUpdate(){
+
+		if (myRigidbody.velocity.y < -1f&&!canJump)
+		{
+			gravity = 4;
+		}
+		if (myRigidbody.velocity.y < -8f && !canJump) {
+			gravity = 8;
+		}
+		if (myRigidbody.velocity.y < -10f) {
+			myRigidbody.velocity = new Vector2 (myRigidbody.velocity.x, -10f);
+		}
+		if (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow))
+		{
+			if (canJump&&!jumpOverride)
+			{
+				canFloat = true;
+				// Debug.Log(myRigidbody.velocity);
+				myRigidbody.velocity = Vector2.zero;
+				canJump = false;
+
+				myRigidbody.AddForce(transform.up * jump);
+
+
+			}
+
+		}
+		if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow))
+		{
+			if (canFloat)
+			{
+				floatTime++;
+				myRigidbody.AddForce(transform.up * smallJump);    
+			}
+
+		}
+
+	}
+
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.tag == "Floor")
@@ -146,17 +167,25 @@ public class TestJump : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collider)
     {
-        Debug.Log(collider.gameObject.tag);
-        if (collider.gameObject.tag == "Furniture" && SixLaneGameController.Instance.life > 0 && inCoroutine == false)
+		if (collider.gameObject.tag == "Furniture" && ProofGameController.Instance.life > 0 && inCoroutine == false)
         {
-            SixLaneGameController.Instance.life--;
+			ProofGameController.Instance.life--;
             inCoroutine = true;
             StartCoroutine(TakeDamage());
         }
 
+        if (collider.tag == "Text")
+        {
+				speedOverride = 0;
+				mySprite.sprite = playerSprites [1];
+				mySprite.flipX = true;
+				jumpOverride = true;
+				canFloat = false;
+				MakeBoxSmall ();
 
+        }
 
-        if (collider.gameObject.tag == "TopChoice" && SixLaneGameController.Instance.questionsAnswered == 3)
+		if (collider.gameObject.tag == "TopChoice" && ProofGameController.Instance.questionsAnswered == 3)
         {
             SixLaneGameController.Instance.topChoiceMade = true;
         }
@@ -179,6 +208,13 @@ public class TestJump : MonoBehaviour
         yield return new WaitForSeconds(0.2f);
         mySprite.enabled = true;
         inCoroutine = false;
+    }
+
+
+    void MakeBoxSmall()
+    {
+        myCollider.size =new Vector2(4.88f, 2.5f);
+        //myCollider.offset = new Vector2(0, -1.25f);
     }
 
 }
