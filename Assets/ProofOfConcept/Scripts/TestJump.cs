@@ -39,6 +39,7 @@ public class TestJump : MonoBehaviour
 	bool jumpOnHit = false;
 	float keyDownCounter = 0f;
 
+
     // Use this for initialization
     void Start()
     {
@@ -53,8 +54,8 @@ public class TestJump : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
-    {
+    void Update() 
+    { 
         // Debug.Log(1.0f / Time.deltaTime);
         myRigidbody.gravityScale = gravity;
       
@@ -71,7 +72,8 @@ public class TestJump : MonoBehaviour
 
             if (Input.GetKeyUp(KeyCode.W) || Input.GetKeyUp(KeyCode.UpArrow))
             {
-				if (keyDownCounter <= 0.05f) {
+               // Debug.Log("Releasing W in Regular Update");
+                if (keyDownCounter <= 0.05f) {
 					myRigidbody.velocity = new Vector2 (myRigidbody.velocity.x, myRigidbody.velocity.y/2);
 				}
 				keyDownCounter = 0f;
@@ -86,12 +88,33 @@ public class TestJump : MonoBehaviour
             }
 
 
-           /* if ((Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.DownArrow)))
+            if (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow))
             {
-                gravity = staticGravity + 25f;
+
+                //Debug.Log("Hitting W in Fixed Update");
+                if (transform.position.y <= -3.7f && transform.position.y >= -3.83f)
+                {
+                    jumpOnHit = true;
+                }
+                if (canJump && !jumpOverride)
+                {
+                    canFloat = true;
+                    // Debug.Log(myRigidbody.velocity);
+                    myRigidbody.velocity = Vector2.zero;
+                    canJump = false;
+
+                    myRigidbody.AddForce(transform.up * jump);
 
 
-            }*/
+                }
+
+            }
+            /* if ((Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.DownArrow)))
+             {
+                 gravity = staticGravity + 25f;
+
+
+             }*/
 
 
         }
@@ -122,24 +145,7 @@ public class TestJump : MonoBehaviour
 			gravity = 8.5f;
 		}
 
-		if (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow))
-		{ 
-			if (transform.position.y <= -3.7f && transform.position.y >= -3.83f) {
-				jumpOnHit = true;
-			}
-			if (canJump&&!jumpOverride)
-			{
-				canFloat = true;
-				// Debug.Log(myRigidbody.velocity);
-				myRigidbody.velocity = Vector2.zero;
-				canJump = false;
-
-				myRigidbody.AddForce(transform.up * jump);
-
-
-			}
-
-		}
+		
 		if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow))
 		{
 			if (canFloat)
