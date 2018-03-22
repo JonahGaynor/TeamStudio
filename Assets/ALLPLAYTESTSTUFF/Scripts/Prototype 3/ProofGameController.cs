@@ -9,7 +9,7 @@ public class ProofGameController : MonoBehaviour {
 	public static ProofGameController Instance = new ProofGameController();
     public int life = 10;
     public bool startQuestion = false;
-    public float standardMoveSpeed = .2f;
+    public float standardMoveSpeed = .18f;
     public bool gameOver = false;
     public float timeToWait = 2;
     public bool fadeToEnd = false;

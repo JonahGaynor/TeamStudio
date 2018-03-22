@@ -6,6 +6,11 @@ using UnityEngine.UI;
 
 public class TestJump : MonoBehaviour
 {
+	//longest jump: 7.2
+	//shortest jump: 4.8
+	//middle jump: 6
+
+
     public float runSpeed = 0.2f;
      float jump = 350f;
      float smallJump = 15f;
@@ -30,6 +35,7 @@ public class TestJump : MonoBehaviour
     bool inCoroutine = false;
     int speedOverride = 1;
 	int hitCounter = 0;
+	float dropCounter = 0f;
 
     // Use this for initialization
     void Start()
@@ -60,43 +66,19 @@ public class TestJump : MonoBehaviour
             temp.x += (runSpeed*speedOverride);
             this.transform.position = temp;
             //Debug.Log(canFloat);
-            if (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow))
-            {
-                if (canJump&&!jumpOverride)
-                {
-                    canFloat = true;
-                   // Debug.Log(myRigidbody.velocity);
-                    myRigidbody.velocity = Vector2.zero;
-                        canJump = false;
 
-                        myRigidbody.AddForce(transform.up * jump);
-
-                    
-                }
-
-            }
             if (Input.GetKeyUp(KeyCode.W) || Input.GetKeyUp(KeyCode.UpArrow))
             {
                 canFloat = false;
+				floatTime = 0;
             }
-            if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow))
-            {
-                if (canFloat)
-                {
-                    floatTime++;
-                        myRigidbody.AddForce(transform.up * smallJump);    
-                }
 
-            }
-            if (floatTime > 14)
+            if (floatTime > 15)
             {
                 floatTime = 0;
                 canFloat = false;
             }
-            if (myRigidbody.velocity.y < -0.1f&&!canJump)
-            {
-                gravity = 12;
-            }
+
            /* if ((Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.DownArrow)))
             {
                 gravity = staticGravity + 25f;
@@ -104,8 +86,49 @@ public class TestJump : MonoBehaviour
 
             }*/
 
+
         }
     }
+
+	void FixedUpdate(){
+
+		if (myRigidbody.velocity.y < -1f&&!canJump)
+		{
+			gravity = 4;
+		}
+		if (myRigidbody.velocity.y < -8f && !canJump) {
+			gravity = 8;
+		}
+		if (myRigidbody.velocity.y < -10f) {
+			myRigidbody.velocity = new Vector2 (myRigidbody.velocity.x, -10f);
+		}
+		if (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow))
+		{
+			if (canJump&&!jumpOverride)
+			{
+				canFloat = true;
+				// Debug.Log(myRigidbody.velocity);
+				myRigidbody.velocity = Vector2.zero;
+				canJump = false;
+
+				myRigidbody.AddForce(transform.up * jump);
+
+
+			}
+
+		}
+		if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow))
+		{
+			if (canFloat)
+			{
+				floatTime++;
+				myRigidbody.AddForce(transform.up * smallJump);    
+			}
+
+		}
+
+	}
+
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.tag == "Floor")
@@ -186,6 +209,7 @@ public class TestJump : MonoBehaviour
         mySprite.enabled = true;
         inCoroutine = false;
     }
+
 
     void MakeBoxSmall()
     {
