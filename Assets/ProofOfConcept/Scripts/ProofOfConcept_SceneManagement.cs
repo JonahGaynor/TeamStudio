@@ -35,5 +35,8 @@ public class ProofOfConcept_SceneManagement : MonoBehaviour {
 			}
 
 		}
+		if (Input.GetKeyUp (KeyCode.R)) {
+			SceneManager.LoadScene ("ProofStartScene");
+		}
 	}
 }

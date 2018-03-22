@@ -3,10 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class TruckScript : MonoBehaviour {
-    float speed = 0.01f;
+    
+	public float speed;
+	int timesHit = 0;
+
 	// Use this for initialization
 	void Start () {
-		
+		speed = 0f;
 	}
 	
 	// Update is called once per frame
@@ -17,9 +20,8 @@ public class TruckScript : MonoBehaviour {
 	}
     void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.tag == "Little Boy")
-        {
-            speed = 0;
-        }
+		if (collision.gameObject.tag == "Little Boy") {
+			speed = 0f;
+		}
     }
 }
