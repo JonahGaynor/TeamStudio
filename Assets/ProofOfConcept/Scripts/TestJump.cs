@@ -59,6 +59,8 @@ public class TestJump : MonoBehaviour
     // Update is called once per frame
     void Update() 
     { 
+
+			
         // Debug.Log(1.0f / Time.deltaTime);
         myRigidbody.gravityScale = gravity;
       
@@ -217,13 +219,14 @@ public class TestJump : MonoBehaviour
 
         if (collider.tag == "Text")
         {
-				speedOverride = 0;
-				mySprite.sprite = playerSprites [1];
-				//mySprite.flipX = true;
-				jumpOverride = true;
-				canFloat = false;
-				MakeBoxSmall ();
-            myAnimator.SetTrigger("Death");
+			speedOverride = 0;
+			mySprite.sprite = playerSprites [1];
+			//mySprite.flipX = true;
+			jumpOverride = true;
+			canFloat = false;
+			MakeBoxSmall ();
+           	myAnimator.SetTrigger("Death");
+			StartCoroutine (ReadyToDie ());
            // myAnimator.SetBool("ShouldRun", false);
             
 
@@ -253,6 +256,11 @@ public class TestJump : MonoBehaviour
         mySprite.enabled = true;
         inCoroutine = false;
     }
+
+	IEnumerator ReadyToDie(){
+		yield return new WaitForSeconds (0.8f);
+		SixLaneGameController.Instance.moveToNextLevel = true;
+	}
 
 
     void MakeBoxSmall()
