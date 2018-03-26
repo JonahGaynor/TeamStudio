@@ -46,7 +46,7 @@ public class SixLaneGameController : MonoBehaviour {
     {
         if (life == 0)
         {
-            gameOver = true;
+			StartCoroutine (ReadyToDie ());
         }
         if (prevPickups != numPickups)
         {
@@ -82,6 +82,11 @@ public class SixLaneGameController : MonoBehaviour {
     {
         numPickups++;
     }
+
+	IEnumerator ReadyToDie(){
+		yield return  new WaitForSeconds (0.8f);
+		gameOver = true;
+	}
 }
 
 

@@ -21,4 +21,11 @@ public class CollectibleScript : MonoBehaviour {
 			Destroy (this.gameObject);
 		}
 	}
+    void OnTriggerEnter2D(Collider2D col)
+    {
+        if (col.gameObject.name == "Little Boy")
+        {
+            Destroy(this.gameObject);
+        }
+    }
 }
