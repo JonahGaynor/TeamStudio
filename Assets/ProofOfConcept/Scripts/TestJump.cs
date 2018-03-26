@@ -12,6 +12,7 @@ public class TestJump : MonoBehaviour
 
 
     public float runSpeed = 0.2f;
+    public Sprite jumpingSprite;
      float jump = 350f;
      float smallJump = 15f;
     bool canFloat;
@@ -38,10 +39,13 @@ public class TestJump : MonoBehaviour
 	float dropCounter = 0f;
 	bool jumpOnHit = false;
 	float keyDownCounter = 0f;
-
+   public SpriteRenderer myRenderer;
+    Animator myAnimator;
     // Use this for initialization
     void Start()
     {
+        myAnimator = this.GetComponent<Animator>();
+        myRenderer = this.GetComponent<SpriteRenderer>();
         myAudio = GetComponent<AudioSource>();
         myRigidbody = this.GetComponent<Rigidbody2D>();
         mySprite = this.GetComponent<SpriteRenderer>();
@@ -53,8 +57,8 @@ public class TestJump : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
-    {
+    void Update() 
+    { 
         // Debug.Log(1.0f / Time.deltaTime);
         myRigidbody.gravityScale = gravity;
       
@@ -71,7 +75,8 @@ public class TestJump : MonoBehaviour
 
             if (Input.GetKeyUp(KeyCode.W) || Input.GetKeyUp(KeyCode.UpArrow))
             {
-				if (keyDownCounter <= 0.05f) {
+               // Debug.Log("Releasing W in Regular Update");
+                if (keyDownCounter <= 0.05f) {
 					myRigidbody.velocity = new Vector2 (myRigidbody.velocity.x, myRigidbody.velocity.y/2);
 				}
 				keyDownCounter = 0f;
@@ -86,12 +91,36 @@ public class TestJump : MonoBehaviour
             }
 
 
-           /* if ((Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.DownArrow)))
+            if (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow))
             {
-                gravity = staticGravity + 25f;
+
+                //Debug.Log("Hitting W in Fixed Update");
+                if (transform.position.y <= -3.7f && transform.position.y >= -3.83f)
+                {
+                    jumpOnHit = true;
+                }
+                if (canJump && !jumpOverride)
+                {
+                    canFloat = true;
+                    // Debug.Log(myRigidbody.velocity);
+                    myRigidbody.velocity = Vector2.zero;
+                    canJump = false;
+                    
+                    Debug.Log("JumpingSprite");
+                    myAnimator.SetBool("ShouldRun", false);
+                    myRenderer.sprite = jumpingSprite;
+                    myRigidbody.AddForce(transform.up * jump);
 
 
-            }*/
+                }
+
+            }
+            /* if ((Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.DownArrow)))
+             {
+                 gravity = staticGravity + 25f;
+
+
+             }*/
 
 
         }
@@ -100,6 +129,7 @@ public class TestJump : MonoBehaviour
 	void FixedUpdate(){
 		if (myRigidbody.velocity.y < -1f&&!canJump)
 		{
+          
 			gravity = 4;
 			dropCounter += Time.deltaTime;
 		}
@@ -122,24 +152,7 @@ public class TestJump : MonoBehaviour
 			gravity = 8.5f;
 		}
 
-		if (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow))
-		{ 
-			if (transform.position.y <= -3.7f && transform.position.y >= -3.83f) {
-				jumpOnHit = true;
-			}
-			if (canJump&&!jumpOverride)
-			{
-				canFloat = true;
-				// Debug.Log(myRigidbody.velocity);
-				myRigidbody.velocity = Vector2.zero;
-				canJump = false;
-
-				myRigidbody.AddForce(transform.up * jump);
-
-
-			}
-
-		}
+		
 		if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow))
 		{
 			if (canFloat)
@@ -154,7 +167,8 @@ public class TestJump : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-		dropCounter = 0f;
+         myAnimator.SetBool("ShouldRun", true);
+        dropCounter = 0f;
         if (collision.gameObject.tag == "Floor")
         {
             gravity = staticGravity;
@@ -205,10 +219,13 @@ public class TestJump : MonoBehaviour
         {
 				speedOverride = 0;
 				mySprite.sprite = playerSprites [1];
-				mySprite.flipX = true;
+				//mySprite.flipX = true;
 				jumpOverride = true;
 				canFloat = false;
 				MakeBoxSmall ();
+            myAnimator.SetTrigger("Death");
+           // myAnimator.SetBool("ShouldRun", false);
+            
 
         }
 
@@ -240,7 +257,7 @@ public class TestJump : MonoBehaviour
 
     void MakeBoxSmall()
     {
-        myCollider.size =new Vector2(4.88f, 2.5f);
+       // myCollider.size =new Vector2(4.88f, 2.5f);
         //myCollider.offset = new Vector2(0, -1.25f);
     }
 
