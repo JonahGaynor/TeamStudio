@@ -10,7 +10,7 @@ public class EKGGenerator : MonoBehaviour
     public float timeToSpawn = 2f;
     float maxTime = 4f;
    public float timeTillBlip = 1.5f;
-    float maxBlipTimer = 1.75f;
+     public float maxBlipTimer = 1.75f;
     public GameObject floorParent;
     public GameObject bgParent;
     Vector3 convert;

@@ -70,6 +70,7 @@ public class TestJump : MonoBehaviour
 
             //mySprite.flipX = false;
 			runSpeed = ProofGameController.Instance.standardMoveSpeed;
+            Debug.Log(runSpeed);
             Vector3 temp = this.transform.position;
             temp.x += (runSpeed*speedOverride);
             this.transform.position = temp;
@@ -108,7 +109,7 @@ public class TestJump : MonoBehaviour
                     myRigidbody.velocity = Vector2.zero;
                     canJump = false;
                     
-                    Debug.Log("JumpingSprite");
+
                     myAnimator.SetBool("ShouldRun", false);
                     myRenderer.sprite = jumpingSprite;
                     myRigidbody.AddForce(transform.up * jump);
