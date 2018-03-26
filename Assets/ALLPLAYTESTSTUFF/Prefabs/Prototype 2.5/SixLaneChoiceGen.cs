@@ -32,8 +32,8 @@ public class SixLaneChoiceGen : MonoBehaviour {
             temp.x = this.transform.position.x;
             floor.transform.position = temp;
             floor.transform.parent = floorParent.transform;
-           
-            GameObject bg= Instantiate(backgrounds[0]);
+            int choice = Random.Range(0, backgrounds.Length);
+            GameObject bg= Instantiate(backgrounds[choice]);
             bg.transform.parent = bgParent.transform;
             int childCount = 0;
             int maxChild = bg.transform.childCount;
