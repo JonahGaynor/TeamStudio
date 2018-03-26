@@ -27,6 +27,7 @@ public class ProofOfConcept_SceneManagement : MonoBehaviour {
 
 		if (SixLaneGameController.Instance.moveToNextLevel) {
 			if (sceneName == "ProofStartScene") {
+				Debug.Log ("gotta blast!");
 				SceneManager.LoadScene ("ProofEKG");
 			} else if (sceneName == "ProofEKG") {
 				SceneManager.LoadScene ("ProofChildhood");
