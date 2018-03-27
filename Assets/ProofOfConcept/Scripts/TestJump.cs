@@ -70,7 +70,7 @@ public class TestJump : MonoBehaviour
 
             //mySprite.flipX = false;
 			runSpeed = ProofGameController.Instance.standardMoveSpeed;
-            Debug.Log(runSpeed);
+//            Debug.Log(runSpeed);
             Vector3 temp = this.transform.position;
             temp.x += (runSpeed*speedOverride);
             this.transform.position = temp;
@@ -227,6 +227,7 @@ public class TestJump : MonoBehaviour
 
         if (collider.tag == "Text")
         {
+			ProofGameController.Instance.fadeToEnd = true;
 			speedOverride = 0;
 			mySprite.sprite = playerSprites [1];
 			//mySprite.flipX = true;
@@ -266,7 +267,9 @@ public class TestJump : MonoBehaviour
     }
 
 	IEnumerator ReadyToDie(){
-		yield return new WaitForSeconds (0.8f);
+		yield return new WaitForSeconds (1.5f);
+//		GetComponent<CameraControl> ().fadeToWhite = true;
+		yield return new WaitForSeconds (1.5f);
 		SixLaneGameController.Instance.moveToNextLevel = true;
 	}
 
