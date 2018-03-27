@@ -20,7 +20,6 @@ public class ProofOfConcept_SceneManagement : MonoBehaviour {
 
 		thisScene = SceneManager.GetActiveScene();
 		sceneName = thisScene.name;
-        Debug.Log(sceneName);
 		if (Input.GetKeyUp (KeyCode.U)) {
 			SceneManager.LoadScene ("ProofStartScene");
 		}
