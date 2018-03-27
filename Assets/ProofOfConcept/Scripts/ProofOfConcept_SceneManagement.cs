@@ -20,19 +20,21 @@ public class ProofOfConcept_SceneManagement : MonoBehaviour {
 
 		thisScene = SceneManager.GetActiveScene();
 		sceneName = thisScene.name;
-
-		if (Input.GetKey (KeyCode.R)) {
+        Debug.Log(sceneName);
+		if (Input.GetKeyUp (KeyCode.U)) {
 			SceneManager.LoadScene ("ProofStartScene");
 		}
 
 		if (SixLaneGameController.Instance.moveToNextLevel) {
 			if (sceneName == "ProofStartScene") {
-				Debug.Log ("gotta blast!");
 				SceneManager.LoadScene ("ProofEKG");
+				sceneName = thisScene.name;
 			} else if (sceneName == "ProofEKG") {
 				SceneManager.LoadScene ("ProofChildhood");
+				sceneName = thisScene.name;
 			} else {
 				SceneManager.LoadScene ("ProofStartScene");
+				sceneName = thisScene.name;
 			}
 
 		}

@@ -4,11 +4,14 @@ using UnityEngine;
 
 public class CollectibleScript : MonoBehaviour {
 
-	//TODO: make it play a boing sound effect
+	public SpriteRenderer sr;
+	public AudioClip baDING;
+	AudioSource myAudio;
 
 	// Use this for initialization
 	void Start () {
-		
+		sr = this.GetComponent<SpriteRenderer> ();
+		myAudio = this.GetComponent<AudioSource> ();
 	}
 	
 	// Update is called once per frame
@@ -18,14 +21,17 @@ public class CollectibleScript : MonoBehaviour {
 
 	void OnCollisionEnter2D (Collision2D col){
 		if (col.gameObject.name == "Little Boy") {
-			Destroy (this.gameObject);
+			sr.enabled = false;
+			myAudio.PlayOneShot (baDING, 1f);
 		}
 	}
     void OnTriggerEnter2D(Collider2D col)
     {
         if (col.gameObject.name == "Little Boy")
         {
-            Destroy(this.gameObject);
+			sr.enabled = false;
+			myAudio.PlayOneShot (baDING, 1f);
+
         }
     }
 }

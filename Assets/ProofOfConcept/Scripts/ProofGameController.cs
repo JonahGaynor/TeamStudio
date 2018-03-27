@@ -34,7 +34,7 @@ public class ProofGameController : MonoBehaviour {
     {
         life = 3;
    		Instance = this;
-        standardMoveSpeed = 0.10f;
+        //standardMoveSpeed = 0.0005f;
 		questionsAnswered = 2;
 		timeTillNextQuestion = 5f;
 

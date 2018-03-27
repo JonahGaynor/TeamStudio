@@ -70,6 +70,7 @@ public class TestJump : MonoBehaviour
 
             //mySprite.flipX = false;
 			runSpeed = ProofGameController.Instance.standardMoveSpeed;
+//            Debug.Log(runSpeed);
             Vector3 temp = this.transform.position;
             temp.x += (runSpeed*speedOverride);
             this.transform.position = temp;
@@ -99,7 +100,7 @@ public class TestJump : MonoBehaviour
                 //Debug.Log("Hitting W in Fixed Update");
                 if (transform.position.y <= -3.7f && transform.position.y >= -3.83f)
                 {
-                    jumpOnHit = true;
+                    jumpOnHit = false;
                 }
                 if (canJump && !jumpOverride)
                 {
@@ -108,7 +109,7 @@ public class TestJump : MonoBehaviour
                     myRigidbody.velocity = Vector2.zero;
                     canJump = false;
                     
-                    Debug.Log("JumpingSprite");
+
                     myAnimator.SetBool("ShouldRun", false);
                     myRenderer.sprite = jumpingSprite;
                     myRigidbody.AddForce(transform.up * jump);
@@ -214,11 +215,21 @@ public class TestJump : MonoBehaviour
         {
 			ProofGameController.Instance.life--;
             inCoroutine = true;
-            StartCoroutine(TakeDamage());
+            jumpOverride = true;
+            canFloat = false;
+            MakeBoxSmall();
+           // StartCoroutine(TakeDamage());
+            myAnimator.SetTrigger("Death");
+            StartCoroutine(ReadyToDie());
+            speedOverride = 0;
+
+            ProofGameController.Instance.fadeToEnd = true;
         }
+
 
         if (collider.tag == "Text")
         {
+			ProofGameController.Instance.fadeToEnd = true;
 			speedOverride = 0;
 			mySprite.sprite = playerSprites [1];
 			//mySprite.flipX = true;
@@ -258,7 +269,9 @@ public class TestJump : MonoBehaviour
     }
 
 	IEnumerator ReadyToDie(){
-		yield return new WaitForSeconds (0.8f);
+		yield return new WaitForSeconds (1.5f);
+//		GetComponent<CameraControl> ().fadeToWhite = true;
+		yield return new WaitForSeconds (1.5f);
 		SixLaneGameController.Instance.moveToNextLevel = true;
 	}
 

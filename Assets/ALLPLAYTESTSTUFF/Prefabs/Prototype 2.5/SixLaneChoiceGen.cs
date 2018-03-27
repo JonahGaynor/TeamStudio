@@ -5,8 +5,8 @@ using UnityEngine;
 public class SixLaneChoiceGen : MonoBehaviour {
     bool shouldGenChoice = false;
     public GameObject[] levels;
-    public float timeToSpawn = 3f;
-    float maxTime = 3f;
+	public float timeToSpawn = 1.8f;
+    float maxTime = 1f;
     public bool hasSpawned=false;
     public bool spawnEnd = false;
     bool hasSpawnedEnd = false;
@@ -32,8 +32,8 @@ public class SixLaneChoiceGen : MonoBehaviour {
             temp.x = this.transform.position.x;
             floor.transform.position = temp;
             floor.transform.parent = floorParent.transform;
-           
-            GameObject bg= Instantiate(backgrounds[0]);
+            int choice = Random.Range(0, backgrounds.Length);
+            GameObject bg= Instantiate(backgrounds[choice]);
             bg.transform.parent = bgParent.transform;
             int childCount = 0;
             int maxChild = bg.transform.childCount;
