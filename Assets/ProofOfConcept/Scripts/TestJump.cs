@@ -100,7 +100,7 @@ public class TestJump : MonoBehaviour
                 //Debug.Log("Hitting W in Fixed Update");
                 if (transform.position.y <= -3.7f && transform.position.y >= -3.83f)
                 {
-                    jumpOnHit = true;
+                    jumpOnHit = false;
                 }
                 if (canJump && !jumpOverride)
                 {
@@ -222,6 +222,8 @@ public class TestJump : MonoBehaviour
             myAnimator.SetTrigger("Death");
             StartCoroutine(ReadyToDie());
             speedOverride = 0;
+
+            ProofGameController.Instance.fadeToEnd = true;
         }
 
 
