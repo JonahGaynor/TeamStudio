@@ -28,10 +28,11 @@ public class ProofGameController : MonoBehaviour {
     public GameObject player;
     int prevPickups;
     public int numPickups = 0;
-
+    AudioSource deathSound;
     // Use this for initialization
     void Start()
     {
+        deathSound = this.GetComponent<AudioSource>();
         life = 3;
    		Instance = this;
         //standardMoveSpeed = 0.0005f;
@@ -74,8 +75,12 @@ public class ProofGameController : MonoBehaviour {
             startQuestion = true;
             timeTillNextQuestion = 15f;
         }
-      
-        
+
+        if (fadeToEnd)
+        {
+            AudioClip myClip = deathSound.clip;
+            deathSound.PlayOneShot(myClip);
+        }
       
     }
     void AddPickup()
