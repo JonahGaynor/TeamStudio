@@ -5,7 +5,7 @@ using UnityEngine;
 public class SixLaneChoiceGen : MonoBehaviour {
     bool shouldGenChoice = false;
     public GameObject[] levels;
-	public float timeToSpawn = 1.8f;
+	public float timeToSpawn = 100f;
     float maxTime = 1f;
     public bool hasSpawned=false;
     public bool spawnEnd = false;
@@ -33,19 +33,19 @@ public class SixLaneChoiceGen : MonoBehaviour {
             floor.transform.position = temp;
             floor.transform.parent = floorParent.transform;
             int choice = Random.Range(0, backgrounds.Length);
-            GameObject bg= Instantiate(backgrounds[choice]);
-            bg.transform.parent = bgParent.transform;
+//            GameObject bg= Instantiate(backgrounds[choice]);
+//            bg.transform.parent = bgParent.transform;
             int childCount = 0;
-            int maxChild = bg.transform.childCount;
-            while (childCount < maxChild)
-            {
-                SpriteRenderer bgSprite = bg.transform.GetChild(childCount).GetComponent<SpriteRenderer>();
-                bgSprite.sortingOrder = currentLayer;
-                childCount++;
-            }
-            temp = bg.transform.position;
-            temp.x = this.transform.position.x;
-            bg.transform.position = temp;
+//            int maxChild = bg.transform.childCount;
+//            while (childCount < maxChild)
+//            {
+//                SpriteRenderer bgSprite = bg.transform.GetChild(childCount).GetComponent<SpriteRenderer>();
+//                bgSprite.sortingOrder = currentLayer;
+//                childCount++;
+//            }
+//            temp = bg.transform.position;
+//            temp.x = this.transform.position.x;
+//            bg.transform.position = temp;
            
 
         }
