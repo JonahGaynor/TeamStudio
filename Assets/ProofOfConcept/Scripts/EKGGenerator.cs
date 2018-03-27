@@ -38,7 +38,7 @@ public class EKGGenerator : MonoBehaviour
         }
         if (timeTillBlip < 0)
         {
-            timeTillBlip = Random.Range(0.75f, maxBlipTimer);
+            timeTillBlip = Random.Range(1.25f, maxBlipTimer);
             GameObject blip = Instantiate(blipsToSpawn[Random.Range(0,blipsToSpawn.Length)]);
             Vector3 temp = blip.transform.position;
             temp.x = this.transform.position.x;

@@ -215,8 +215,15 @@ public class TestJump : MonoBehaviour
         {
 			ProofGameController.Instance.life--;
             inCoroutine = true;
-            StartCoroutine(TakeDamage());
+            jumpOverride = true;
+            canFloat = false;
+            MakeBoxSmall();
+           // StartCoroutine(TakeDamage());
+            myAnimator.SetTrigger("Death");
+            StartCoroutine(ReadyToDie());
+            speedOverride = 0;
         }
+
 
         if (collider.tag == "Text")
         {
