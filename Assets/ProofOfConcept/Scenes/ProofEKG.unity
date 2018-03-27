@@ -486,7 +486,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   runSpeed: 0.2
-  jumpingSprite: {fileID: 0}
+  jumpingSprite: {fileID: 21300000, guid: 4de12e83d22c77a49b8509d0bd9433b0, type: 3}
   myRigidbody: {fileID: 0}
   playerSprites:
   - {fileID: 21300000, guid: f1a938e3b17e7d948a6d7df531bbe0a1, type: 3}
@@ -661,7 +661,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 50
-  m_Sprite: {fileID: 21300000, guid: f8809b8ccb7c56c4db530b043542a10c, type: 3}
+  m_Sprite: {fileID: 21300000, guid: ed330b718c28a0247b3960b33d56e1b8, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -696,7 +696,7 @@ Animator:
   m_GameObject: {fileID: 630897512}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 2bca69d26c0fc6d488c988912a9abbe5, type: 2}
+  m_Controller: {fileID: 9100000, guid: ca663661257daea47bc0f1587b217bd2, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
