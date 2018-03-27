@@ -5,8 +5,8 @@ using UnityEngine;
 public class SixLaneChoiceGen : MonoBehaviour {
     bool shouldGenChoice = false;
     public GameObject[] levels;
-    public float timeToSpawn = 3f;
-    float maxTime = 3f;
+	public float timeToSpawn = 1f;
+    float maxTime = 1f;
     public bool hasSpawned=false;
     public bool spawnEnd = false;
     bool hasSpawnedEnd = false;
