@@ -10,7 +10,7 @@ public class EKGGenerator : MonoBehaviour
     public float timeToSpawn = 2f;
     float maxTime = 4f;
    public float timeTillBlip = 1.5f;
-    float maxBlipTimer = 1.75f;
+     public float maxBlipTimer = 1.75f;
     public GameObject floorParent;
     public GameObject bgParent;
     Vector3 convert;
@@ -38,7 +38,7 @@ public class EKGGenerator : MonoBehaviour
         }
         if (timeTillBlip < 0)
         {
-            timeTillBlip = Random.Range(0.75f, maxBlipTimer);
+            timeTillBlip = Random.Range(1.25f, maxBlipTimer);
             GameObject blip = Instantiate(blipsToSpawn[Random.Range(0,blipsToSpawn.Length)]);
             Vector3 temp = blip.transform.position;
             temp.x = this.transform.position.x;
