@@ -1247,7 +1247,7 @@ SpriteRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: 78894bc25271cb74ba76d10fd4cee8cf, type: 2}
+  - {fileID: 2100000, guid: 19bbfb000a5563f40a305fb4f90adfb0, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1267,7 +1267,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 50
-  m_Sprite: {fileID: 21300000, guid: 4938d1031abc10544be4d48b041918c3, type: 3}
+  m_Sprite: {fileID: 21300000, guid: f3940eeab020d334db7bfde39974a2ee, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
