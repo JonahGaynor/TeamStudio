@@ -54,4 +54,9 @@ public class CameraControl : MonoBehaviour {
 		fadeToBlack.color = Color.white;
 	}
 
+    public void startFade()
+    {
+        opacity = Mathf.Lerp(opacity, 255, .00003f);
+    }
+
 }
