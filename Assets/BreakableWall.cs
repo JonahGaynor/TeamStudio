@@ -19,7 +19,7 @@ public class BreakableWall : MonoBehaviour {
 	}
 
 	void OnCollisionEnter2D(Collision2D col){
-		if (col.gameObject.tag == "Little Boy") {
+		if (col.gameObject.tag == "Little Boy" && GetComponent<DashScript>().dashing) {
 			die ();
 		}
 	}
