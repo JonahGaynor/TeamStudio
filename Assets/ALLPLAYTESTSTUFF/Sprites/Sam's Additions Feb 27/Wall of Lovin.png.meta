@@ -3,7 +3,10 @@ guid: 4df3b9c7218764f4abec40ddb204dcb8
 timeCreated: 1519762980
 licenseType: Free
 TextureImporter:
-  fileIDToRecycleName: {}
+  fileIDToRecycleName:
+    21300000: Wall of Lovin_0
+    21300002: Wall of Lovin_1
+    21300004: Wall of Lovin_2
   externalObjects: {}
   serializedVersion: 4
   mipmaps:
@@ -40,7 +43,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -108,7 +111,49 @@ TextureImporter:
     androidETC2FallbackOverride: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: Wall of Lovin_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1712
+        width: 871
+        height: 800
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Wall of Lovin_1
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 1032
+        width: 869
+        height: 691
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Wall of Lovin_2
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 871
+        height: 1038
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
     outline: []
     physicsShape: []
   spritePackingTag: 
