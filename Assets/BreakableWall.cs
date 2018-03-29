@@ -6,25 +6,36 @@ public class BreakableWall : MonoBehaviour {
 
 	public GameObject brokenWall;
 
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
 	// Update is called once per frame
 	void Update () {
 		if (Input.GetKey(KeyCode.K)){
 			die ();
 		}
-	}
 
-	void OnCollisionEnter2D(Collision2D col){
-		if (col.gameObject.tag == "Little Boy" && GetComponent<DashScript>().dashing) {
+        if (GameObject.Find("Little Boy").GetComponent<DashScript>().dashing)
+        {
+            this.tag = "Untagged";
+        }
+        if (!GameObject.Find("Little Boy").GetComponent<DashScript>().dashing)
+        {
+            this.tag = "Furniture";
+        }
+
+    }
+
+   
+
+	void OnTriggerEnter2D(Collider2D col){
+		if (col.gameObject.tag == "Little Boy" && col.transform.gameObject.GetComponent<DashScript>().dashing) {
 			die ();
 		}
 	}
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        OnTriggerEnter2D(collision);
+    }
 
-	public void die (){
+    public void die (){
 		Vector2 wallPos1 = new Vector2 (transform.position.x, transform.position.y + 1.5f);
 		Vector2 wallPos2 = new Vector2 (transform.position.x, transform.position.y + 0.5f);
 		Vector2 wallPos3 = new Vector2 (transform.position.x, transform.position.y - 0.5f);
