@@ -32,7 +32,14 @@ public class DashScript : MonoBehaviour {
 	void Update () {
        // Debug.Log(dashing);
         if (!dashing) {
-            myJumpScript.gravityOverride = false;
+
+          /*  if (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow))
+            {
+                cameraOffset = OGCameraOffset;
+                myCameraScript.offset = cameraOffset;
+            }*/
+
+                myJumpScript.gravityOverride = false;
             cameraOffestTimer -= Time.deltaTime;
 
             if (cameraOffestTimer<0)
