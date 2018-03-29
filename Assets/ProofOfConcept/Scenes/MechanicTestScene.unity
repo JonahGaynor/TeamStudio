@@ -3929,7 +3929,7 @@ SpriteRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 19bbfb000a5563f40a305fb4f90adfb0, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -4427,5 +4427,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dashLength: 1
+  dashing: 0
   dashCooldown: 2
-  dashImage: {fileID: 1578512390}
+  dashImageSprite: {fileID: 2061886080}
+  dashImage: {r: 0, g: 0, b: 0, a: 0}

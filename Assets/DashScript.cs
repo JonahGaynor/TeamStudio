@@ -8,7 +8,7 @@ public class DashScript : MonoBehaviour {
     public float dashLength = 0.5f;
     TestJump myJumpScript;
     float beforeGravity;
-    bool dashing = false;
+    public bool dashing = false;
     CameraControl myCameraScript;
     float cameraOffset;
     float OGCameraOffset;
@@ -78,8 +78,9 @@ public class DashScript : MonoBehaviour {
         if (!canDash)
         {
             Color tempColor = dashImage;
-            tempColor.a = 100;
+            tempColor.a = 0;
             dashImage = tempColor;
+            dashImageSprite.GetComponent<SpriteRenderer>().color = dashImage;
             Debug.Log(dashImage.a);
             dashCooldown -= Time.deltaTime;
             if (dashCooldown < 0)
@@ -94,6 +95,7 @@ public class DashScript : MonoBehaviour {
             Color temporary = dashImage;
             temporary.a = 255;
             dashImage = temporary;
+            dashImageSprite.GetComponent<SpriteRenderer>().color = dashImage;
             Debug.Log(dashImage.a);
         }
 	}
