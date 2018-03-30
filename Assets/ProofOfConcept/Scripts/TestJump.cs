@@ -41,6 +41,8 @@ public class TestJump : MonoBehaviour
 	float keyDownCounter = 0f;
    public SpriteRenderer myRenderer;
     Animator myAnimator;
+    public bool gravityOverride = false;
+    public bool canGetHit;
     // Use this for initialization
     void Start()
     {
@@ -58,11 +60,14 @@ public class TestJump : MonoBehaviour
 
     // Update is called once per frame
     void Update() 
-    { 
+    {
 
-			
+
         // Debug.Log(1.0f / Time.deltaTime);
-        myRigidbody.gravityScale = gravity;
+        if (!gravityOverride)
+        {
+            myRigidbody.gravityScale = gravity;
+        }
       
         // lifeText.text = "" + SixLaneGameController.Instance.life;
 		if (!ProofGameController.Instance.gameOver)
@@ -211,7 +216,7 @@ public class TestJump : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collider)
     {
-		if (collider.gameObject.tag == "Furniture" && ProofGameController.Instance.life > 0 && inCoroutine == false)
+		if (collider.gameObject.tag == "Furniture" && ProofGameController.Instance.life > 0 && inCoroutine == false&&canGetHit)
         {
 			ProofGameController.Instance.life--;
             inCoroutine = true;

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class CameraControl : MonoBehaviour {
     public GameObject player;
-    public int offset = -4;
+    public float offset = -4;
 	public Material fadeToBlack;
 	public float opacity = 0f;
 	Color temporary;
@@ -54,9 +54,6 @@ public class CameraControl : MonoBehaviour {
 		fadeToBlack.color = Color.white;
 	}
 
-    public void startFade()
-    {
-        opacity = Mathf.Lerp(opacity, 255, .00003f);
-    }
+   
 
 }

@@ -78,8 +78,8 @@ public class ProofGameController : MonoBehaviour {
 
         if (fadeToEnd)
         {
-            AudioClip myClip = deathSound.clip;
-            deathSound.PlayOneShot(myClip);
+//            AudioClip myClip = deathSound.clip;
+//            deathSound.PlayOneShot(myClip);
         }
       
     }

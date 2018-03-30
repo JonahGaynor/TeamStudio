@@ -88,7 +88,7 @@ GameObject:
   - component: {fileID: 61230093016344630}
   - component: {fileID: 61323905848631260}
   m_Layer: 0
-  m_Name: Jagged4
+  m_Name: KidPit4
   m_TagString: Furniture
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -178,7 +178,7 @@ Transform:
   m_GameObject: {fileID: 1251578163076906}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -37.39, y: -5.3524, z: 0}
-  m_LocalScale: {x: 0.6303095, y: 0.32730374, z: 1}
+  m_LocalScale: {x: 0.6559319, y: 0.32730374, z: 1}
   m_Children:
   - {fileID: 4463815434720708}
   - {fileID: 4676075766086770}
