@@ -27,18 +27,8 @@ public class DashScript : MonoBehaviour {
         OGCameraOffset = myCameraScript.offset;
         cameraOffset = OGCameraOffset;
 	}
-	
-	// Update is called once per frame
 	void Update () {
-       // Debug.Log(dashing);
         if (!dashing) {
-
-          /*  if (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow))
-            {
-                cameraOffset = OGCameraOffset;
-                myCameraScript.offset = cameraOffset;
-            }*/
-
                 myJumpScript.gravityOverride = false;
             cameraOffestTimer -= Time.deltaTime;
 
@@ -49,8 +39,6 @@ public class DashScript : MonoBehaviour {
                 cameraOffset = Mathf.Lerp(cameraOffset, OGCameraOffset, t);
                 t += 0.1f * Time.deltaTime;
             }
-           
-            //Debug.Log(cameraOffset);
         }
         if (dashing)
         {
@@ -58,7 +46,6 @@ public class DashScript : MonoBehaviour {
             myCameraScript.offset = cameraOffset;
             cameraOffset = Mathf.Lerp(cameraOffset, -OGCameraOffset/2,  t);
             t += 0.1f * Time.deltaTime;
-            //Debug.Log(cameraOffset);
             dashLength -= Time.deltaTime;
             if (dashLength < 0)
             {
@@ -79,8 +66,6 @@ public class DashScript : MonoBehaviour {
             float XVel = myRigidbody.velocity.x;
             myRigidbody.velocity = new Vector2(XVel, 0);
             myRigidbody.AddForce(new Vector2(750, 0));
-
-
         }
         if (!canDash)
         {
@@ -88,7 +73,6 @@ public class DashScript : MonoBehaviour {
             tempColor.a = 0;
             dashImage = tempColor;
             dashImageSprite.GetComponent<SpriteRenderer>().color = dashImage;
-            Debug.Log(dashImage.a);
             dashCooldown -= Time.deltaTime;
             if (dashCooldown < 0)
             {
@@ -103,7 +87,6 @@ public class DashScript : MonoBehaviour {
             temporary.a = 255;
             dashImage = temporary;
             dashImageSprite.GetComponent<SpriteRenderer>().color = dashImage;
-            Debug.Log(dashImage.a);
         }
 	}
 }
