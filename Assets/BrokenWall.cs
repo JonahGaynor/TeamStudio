@@ -52,7 +52,7 @@ public class BrokenWall : MonoBehaviour {
 	}
 
 	void OnCollisionEnter2D (Collision2D col){
-		if (col.gameObject.tag == "Little Boy" && GetComponent<DashScript>().dashing) {
+		if (col.gameObject.tag == "Little Boy" && col.transform.gameObject.GetComponent<DashScript>().dashing) {
 			rb.velocity = new Vector2 (15f, rb.velocity.y);
 		}
 
