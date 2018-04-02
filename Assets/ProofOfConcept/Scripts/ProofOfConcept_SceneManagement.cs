@@ -28,7 +28,7 @@ public class ProofOfConcept_SceneManagement : MonoBehaviour {
 			SceneManager.LoadScene ("ProofStartScene");
 		}
 
-		if (SixLaneGameController.Instance.moveToNextLevel) {
+		if (SixLaneGameController.Instance.moveToNextLevel || ProofGameController.Instance.moveToNextLevel) {
 			if (sceneName == "ProofStartScene") {
 				SceneManager.LoadScene ("ProofEKG");
 				sceneName = thisScene.name;
@@ -42,7 +42,7 @@ public class ProofOfConcept_SceneManagement : MonoBehaviour {
 
 		}
 
-		if (SixLaneGameController.Instance.gameOver) {
+		if (SixLaneGameController.Instance.gameOver || ProofGameController.Instance.gameOver) {
 			SceneManager.LoadScene ("ProofDeathScene");
 			sceneName = thisScene.name;
 		}
