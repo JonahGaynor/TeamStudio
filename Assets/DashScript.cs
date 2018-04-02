@@ -18,8 +18,10 @@ public class DashScript : MonoBehaviour {
     bool canDash=true;
     public GameObject dashImageSprite;
     public Color dashImage;
+     Animator myAnimator;
 	// Use this for initialization
 	void Start () {
+        myAnimator = this.GetComponent<Animator>();
         dashImage = dashImageSprite.GetComponent<Image>().color;
         myRigidbody = this.GetComponent<Rigidbody2D>();
         myJumpScript = this.GetComponent<TestJump>();
@@ -29,11 +31,13 @@ public class DashScript : MonoBehaviour {
 	}
 	void Update () {
         if (!dashing) {
-                myJumpScript.gravityOverride = false;
+            
+            myJumpScript.gravityOverride = false;
             cameraOffestTimer -= Time.deltaTime;
 
             if (cameraOffestTimer<0)
             {
+                myAnimator.SetBool("HasDashed", false);
                 myCameraScript.offset = cameraOffset;
                 myRigidbody.drag = 0;
                 cameraOffset = Mathf.Lerp(cameraOffset, OGCameraOffset, t);
@@ -42,6 +46,7 @@ public class DashScript : MonoBehaviour {
         }
         if (dashing)
         {
+            myAnimator.SetBool("HasDashed", true);
             cameraOffestTimer = 0.25f;
             myCameraScript.offset = cameraOffset;
             cameraOffset = Mathf.Lerp(cameraOffset, -OGCameraOffset/2,  t);
