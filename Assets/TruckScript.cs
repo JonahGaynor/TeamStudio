@@ -21,7 +21,7 @@ public class TruckScript : MonoBehaviour {
     void OnTriggerEnter2D(Collider2D collision)
     {
 		if (collision.gameObject.tag == "Little Boy") {
-			speed = 0f;
+			speed = 0.3f;
 		}
     }
 }
