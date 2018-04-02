@@ -18,10 +18,13 @@ public class EKGGameController : MonoBehaviour {
         if (timeSinceLevelBegan > timeForLevel&&!levelEnded)
         {
            // camera.GetComponent<CameraControl>().SendMessage("GetFaded");
+			ProofGameController.Instance.fadeToEnd = true;
+			GameObject.Find ("Little Boy").GetComponent<TestJump> ().canGetHit = false;
             levelEnded = true;
-            Debug.Log("Should End Level");
-            ProofGameController.Instance.fadeToEnd = true;
 
         }
+		if (GameObject.Find ("Blocker").GetComponent<SpriteRenderer> ().material.color.a >= 0.9f && levelEnded && timeSinceLevelBegan > timeForLevel) {
+			ProofGameController.Instance.moveToNextLevel = true;
+		}
 	}
 }
