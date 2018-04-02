@@ -24,6 +24,10 @@ public class ProofOfConcept_SceneManagement : MonoBehaviour {
 			SceneManager.LoadScene ("ProofStartScene");
 		}
 
+		if (Input.GetKeyUp (KeyCode.Return) && sceneName == "ProofTitle") {
+			SceneManager.LoadScene ("ProofStartScene");
+		}
+
 		if (SixLaneGameController.Instance.moveToNextLevel) {
 			if (sceneName == "ProofStartScene") {
 				SceneManager.LoadScene ("ProofEKG");
