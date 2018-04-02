@@ -2,12 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DebugGenerator : MonoBehaviour
+public class ChildSceneGenerator : MonoBehaviour
 {
 
     public GameObject player;
     public bool spawnObs = true;
     public bool spawnPlat = true;
+    public bool spawnWall = true;
     int offset = 25;
     public GameObject platform;
     public GameObject platformParent;
@@ -17,10 +18,11 @@ public class DebugGenerator : MonoBehaviour
     float[] projectileLanes = { 0, 0, 0, 0, 0, 0, 0 };
     public float timeToSpawn = 1f;
     public float timeLeft = 1f;
-
+    public float timeTillWall = 1f;
     bool sameLanePicked = true;
     public int closePick, previousPick = -1, randomPick;
-        public float ticksToProjectile=1;
+    public float ticksToProjectile = 1;
+    public GameObject wallPrefab;
     // Use this for initialization
     void Start()
     {
@@ -40,7 +42,7 @@ public class DebugGenerator : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.P))
         {
-           
+
             if (!spawnPlat)
             {
                 spawnPlat = true;
@@ -55,7 +57,7 @@ public class DebugGenerator : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.O))
         {
-           
+
             if (!spawnObs)
             {
                 spawnObs = true;
@@ -76,7 +78,7 @@ public class DebugGenerator : MonoBehaviour
 
         ticksToProjectile -= Time.deltaTime;
 
-        if (timeLeft <= 0 && !SixLaneGameController.Instance.startQuestion && spawnPlat)
+        if (timeLeft <= 0 && spawnPlat)
         {
             if (previousPick == -1) { previousPick = Random.Range(0, lanes.Length); }
 
@@ -108,10 +110,10 @@ public class DebugGenerator : MonoBehaviour
             randomPlatform.transform.position = temp;
             randomPlatform.transform.parent = platformParent.transform;
             timeLeft = timeToSpawn;
-           // ticksToProjectile++;
+            // ticksToProjectile++;
 
         }
-        if (ticksToProjectile <0 && spawnObs)
+        if (ticksToProjectile < 0 && spawnObs)
         {
             ticksToProjectile = 1;
             int pick = Random.Range(0, projectileLanes.Length);
@@ -121,7 +123,18 @@ public class DebugGenerator : MonoBehaviour
             temp.y = projectileLanes[pick];
             temp.x = this.transform.position.x;
             currentObstacle.transform.position = temp;
-          
+
+        }
+        if (timeTillWall < 0 && spawnWall)
+        {
+            timeTillWall = 1;
+           
+            GameObject currentObstacle = Instantiate(wallPrefab);
+            temp = currentObstacle.transform.position;
+            temp.y = wallPrefab.transform.position.y;
+            temp.x = this.transform.position.x;
+            currentObstacle.transform.position = temp;
+
         }
 
     }
