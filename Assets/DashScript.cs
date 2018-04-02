@@ -20,7 +20,7 @@ public class DashScript : MonoBehaviour {
     public Color dashImage;
 	// Use this for initialization
 	void Start () {
-        dashImage = dashImageSprite.GetComponent<SpriteRenderer>().color;
+        dashImage = dashImageSprite.GetComponent<Image>().color;
         myRigidbody = this.GetComponent<Rigidbody2D>();
         myJumpScript = this.GetComponent<TestJump>();
         myCameraScript = GameObject.Find("Main Camera").GetComponent<CameraControl>();
@@ -72,7 +72,7 @@ public class DashScript : MonoBehaviour {
             Color tempColor = dashImage;
             tempColor.a = 0;
             dashImage = tempColor;
-            dashImageSprite.GetComponent<SpriteRenderer>().color = dashImage;
+            dashImageSprite.GetComponent<Image>().color = dashImage;
             dashCooldown -= Time.deltaTime;
             if (dashCooldown < 0)
             {
@@ -86,7 +86,7 @@ public class DashScript : MonoBehaviour {
             Color temporary = dashImage;
             temporary.a = 255;
             dashImage = temporary;
-            dashImageSprite.GetComponent<SpriteRenderer>().color = dashImage;
+            dashImageSprite.GetComponent<Image>().color = dashImage;
         }
 	}
 }
