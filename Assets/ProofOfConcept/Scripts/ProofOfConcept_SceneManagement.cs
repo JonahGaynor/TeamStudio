@@ -36,13 +36,25 @@ public class ProofOfConcept_SceneManagement : MonoBehaviour {
 				SceneManager.LoadScene ("ProofChildhood");
 				sceneName = thisScene.name;
 			} else {
-				SceneManager.LoadScene ("ProofStartScene");
+				SceneManager.LoadScene ("ProofVictoryScene");
 				sceneName = thisScene.name;
 			}
 
 		}
+
+		if (SixLaneGameController.Instance.gameOver) {
+			SceneManager.LoadScene ("ProofDeathScene");
+			sceneName = thisScene.name;
+		}
+
 		if (Input.GetKeyUp (KeyCode.R)) {
 			SceneManager.LoadScene (sceneName);
+			sceneName = thisScene.name;
+		}
+
+		if (Input.anyKey && sceneName == "ProofVictoryScene") {
+			SceneManager.LoadScene ("ProofTitle");
+			sceneName = thisScene.name;
 		}
 	}
 }
