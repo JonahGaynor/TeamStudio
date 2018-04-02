@@ -43,7 +43,6 @@ public class CameraControl : MonoBehaviour {
                 waitTime += Time.deltaTime;
                 if (waitTime > 0.3f)
                 {
-                    Debug.Log("Trying White");
                     opacityWhite = Mathf.Lerp(opacityWhite, 255, .00003f);
                 }
             }
