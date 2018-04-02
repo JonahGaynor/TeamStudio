@@ -13,12 +13,17 @@ public class ChildSceneGenerator : MonoBehaviour
     public GameObject platform;
     public GameObject platformParent;
     public GameObject obstacle;
+    public GameObject floorPrefab;
+    public GameObject floorParent;
+    public GameObject bg;
+    public GameObject bgParent;
     GameObject exampleLane;
     public float[] lanes = { 0, 0, 0, 0, 0, 0 };
     float[] projectileLanes = { 0, 0, 0, 0, 0, 0, 0 };
     public float timeToSpawn = 1f;
     public float timeLeft = 1f;
     public float timeTillWall = 1f;
+    public float timeToSpawnGround = 1f;
     bool sameLanePicked = true;
     public int closePick, previousPick = -1, randomPick;
     public float ticksToProjectile = 1;
@@ -136,6 +141,31 @@ public class ChildSceneGenerator : MonoBehaviour
             currentObstacle.transform.position = temp;
 
         }
+
+
+        timeToSpawnGround -= Time.deltaTime;
+        
+        if (timeToSpawnGround < 0)
+        {
+            timeToSpawnGround = 1f;
+
+            //Spawn Floor
+            GameObject floor = Instantiate(floorPrefab);
+            Vector3 tempFloor = floor.transform.position;
+            tempFloor.x = this.transform.position.x;
+            floor.transform.position = tempFloor;
+            floor.transform.parent = floorParent.transform;
+            Debug.Log("Spawned Floor");
+            //Spawn BG
+            GameObject background = Instantiate(bg);
+            Vector3 temp1 = background.transform.position;
+            temp1.x = this.transform.position.x;
+            background.transform.position = temp1;
+            background.transform.parent = bgParent.transform;
+        }
+
+
+
 
     }
 }
