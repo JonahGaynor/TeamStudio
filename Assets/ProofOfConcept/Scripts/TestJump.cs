@@ -61,7 +61,9 @@ public class TestJump : MonoBehaviour
     // Update is called once per frame
     void Update() 
     {
-
+		if (GameObject.Find ("Blocker").GetComponent<SpriteRenderer> ().material.color.a >= 0.9f) {
+			ProofGameController.Instance.moveToNextLevel = true;
+		}
 
         // Debug.Log(1.0f / Time.deltaTime);
         if (!gravityOverride)
@@ -242,7 +244,7 @@ public class TestJump : MonoBehaviour
 			canFloat = false;
 			MakeBoxSmall ();
            	myAnimator.SetTrigger("Death");
-			StartCoroutine (ReadyToDie ());
+//			StartCoroutine (ReadyToDie ());
            // myAnimator.SetBool("ShouldRun", false);
             
 
@@ -277,7 +279,9 @@ public class TestJump : MonoBehaviour
 		yield return new WaitForSeconds (1.5f);
 //		GetComponent<CameraControl> ().fadeToWhite = true;
 		yield return new WaitForSeconds (1.5f);
-		SixLaneGameController.Instance.moveToNextLevel = true;
+
+		ProofGameController.Instance.gameOver = true;
+		
 	}
 
 

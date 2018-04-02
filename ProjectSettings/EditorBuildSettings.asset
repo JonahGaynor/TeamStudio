@@ -65,3 +65,12 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/ProofOfConcept/Scenes/ProofChildhood.unity
     guid: b0d32df6cc4a8448d98bc61e717e25aa
+  - enabled: 1
+    path: Assets/ProofOfConcept/Scenes/ProofDeadChild.unity
+    guid: 92ef1ac60cfba49daa990bb5f36e4d88
+  - enabled: 1
+    path: Assets/ProofOfConcept/Scenes/ProofDeathScene.unity
+    guid: fae01a2cb18bf43a4984a8847d7f2675
+  - enabled: 1
+    path: Assets/ProofOfConcept/Scenes/ProofVictoryScene.unity
+    guid: d8c58a5f3229c45c3b23db4ae92d6f23

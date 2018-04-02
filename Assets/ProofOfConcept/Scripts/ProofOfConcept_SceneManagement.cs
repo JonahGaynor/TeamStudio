@@ -19,7 +19,7 @@ public class ProofOfConcept_SceneManagement : MonoBehaviour {
 	void Update () {
 
 		thisScene = SceneManager.GetActiveScene();
-		if (thisScene.name != "ProofDeathScene") {
+		if (thisScene.name != "ProofDeathScene" && thisScene.name != "ProofDeadChild") {
 			sceneName = thisScene.name;
 		}
 		if (Input.GetKeyUp (KeyCode.U)) {
@@ -30,7 +30,7 @@ public class ProofOfConcept_SceneManagement : MonoBehaviour {
 //			SceneManager.LoadScene ("ProofStartScene");
 //		}
 
-		if (SixLaneGameController.Instance.moveToNextLevel || ProofGameController.Instance.moveToNextLevel) {
+		if (ProofGameController.Instance.moveToNextLevel) {
 			if (sceneName == "ProofStartScene") {
 				SceneManager.LoadScene ("ProofEKG");
 				sceneName = thisScene.name;
@@ -47,8 +47,14 @@ public class ProofOfConcept_SceneManagement : MonoBehaviour {
 
 		}
 
-		if (SixLaneGameController.Instance.gameOver || ProofGameController.Instance.gameOver) {
-			SceneManager.LoadScene ("ProofDeathScene");
+		if (ProofGameController.Instance.gameOver) {
+			if (thisScene.name == "ProofEKG") {
+				SceneManager.LoadScene ("ProofDeathScene");
+				ProofGameController.Instance.gameOver = false;
+			} else {
+				SceneManager.LoadScene ("ProofDeadChild");
+				ProofGameController.Instance.gameOver = false;
+			}
 //			sceneName = thisScene.name;
 		}
 
