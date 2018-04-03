@@ -35,7 +35,7 @@ public class ChildSceneGenerator : MonoBehaviour
     bool sameLanePicked = true;
     public int closePick, previousPick = -1, randomPick;
     public float ticksToProjectile = 1;
-    
+    public bool spawnBG = true;
 	string bgCheck;
     int prevOrder = -50;
     // Use this for initialization
@@ -183,7 +183,7 @@ public class ChildSceneGenerator : MonoBehaviour
             //Spawn BG
 			
         }
-        if (timeTillBG < 0)
+        if (timeTillBG < 0 &&spawnBG)
         {
             timeTillBG = 1f;
 
