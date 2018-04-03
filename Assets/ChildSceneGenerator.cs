@@ -16,7 +16,11 @@ public class ChildSceneGenerator : MonoBehaviour
     public GameObject floorPrefab;
     public GameObject floorParent;
     public GameObject bg;
+	public GameObject bg2;
+	public GameObject bg3;
+	public GameObject bg4;
     public GameObject bgParent;
+	GameObject background;
     GameObject exampleLane;
     public float[] lanes = { 0, 0, 0, 0, 0, 0 };
     float[] projectileLanes = { 0, 0, 0, 0, 0, 0, 0 };
@@ -147,7 +151,7 @@ public class ChildSceneGenerator : MonoBehaviour
         
         if (timeToSpawnGround < 0)
         {
-            timeToSpawnGround = 1f;
+            timeToSpawnGround = 1.5f;
 
             //Spawn Floor
             GameObject floor = Instantiate(floorPrefab);
@@ -157,7 +161,16 @@ public class ChildSceneGenerator : MonoBehaviour
             floor.transform.parent = floorParent.transform;
             Debug.Log("Spawned Floor");
             //Spawn BG
-            GameObject background = Instantiate(bg);
+			float myRand = Random.value;
+			if (myRand <= 0.5f) {
+				background = Instantiate (bg);
+			} else if (myRand <= 0.65f) {
+				background = Instantiate (bg2);
+			} else if (myRand <= 0.8f) {
+				background = Instantiate (bg3);
+			} else {
+				background = Instantiate (bg4);
+			}
             Vector3 temp1 = background.transform.position;
             temp1.x = this.transform.position.x;
             background.transform.position = temp1;
