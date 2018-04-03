@@ -21,6 +21,7 @@ public class ChildSceneGenerator : MonoBehaviour
 	public GameObject bg4;
     public GameObject bgParent;
     public GameObject wallPrefab;
+    public GameObject pitPrefab;
     GameObject background;
     GameObject exampleLane;
     public float[] lanes = { 0, 0, 0, 0};
@@ -30,6 +31,7 @@ public class ChildSceneGenerator : MonoBehaviour
     public float timeTillWall = 5f;
     public float timeTillBG = 1f;
     public float timeToSpawnGround = 1f;
+    public float timeToPit = 10f;
     bool sameLanePicked = true;
     public int closePick, previousPick = -1, randomPick;
     public float ticksToProjectile = 1;
@@ -39,7 +41,7 @@ public class ChildSceneGenerator : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        timeToSpawn = 0.75f;
+        timeToSpawn = 1.15f;
         for (int i = 0; i < lanes.Length; i++)
         {
             string stringToLookFor = "Platform " + (i + 1);
@@ -130,7 +132,7 @@ public class ChildSceneGenerator : MonoBehaviour
         {
            
             
-            ticksToProjectile =3;
+            ticksToProjectile =2.25f;
             int pick = Random.Range(0, projectileLanes.Length);
             // Debug.Log(pick);
             GameObject currentObstacle = Instantiate(obstacle);
@@ -154,7 +156,7 @@ public class ChildSceneGenerator : MonoBehaviour
         }
         if (timeTillWall < 0 && spawnWall)
         {
-            timeTillWall = 5;
+            timeTillWall = 7;
             float wallPlacement=Random.Range(-5.44f, 0);
             GameObject currentObstacle = Instantiate(wallPrefab);
             temp = currentObstacle.transform.position;
@@ -217,8 +219,18 @@ public class ChildSceneGenerator : MonoBehaviour
 
             prevOrder--;
         }
+        timeToPit -= Time.deltaTime;
+        if (timeToPit < 0)
+        {
+            timeToPit = 8;
+          
+            GameObject currentObstacle = Instantiate(pitPrefab);
+            temp = currentObstacle.transform.position;
+            temp.y = currentObstacle.transform.position.y;
+            temp.x = this.transform.position.x;
+            currentObstacle.transform.position = temp;
 
-
+        }
 
 
     }

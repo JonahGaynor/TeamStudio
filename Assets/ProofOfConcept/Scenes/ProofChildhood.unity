@@ -207,6 +207,80 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!1 &65193539
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 65193540}
+  - component: {fileID: 65193542}
+  - component: {fileID: 65193541}
+  m_Layer: 5
+  m_Name: Text
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &65193540
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 65193539}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.670812, y: 0.67081195, z: 0.67081195}
+  m_Children: []
+  m_Father: {fileID: 737050229}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 163.90295, y: -1.949173}
+  m_SizeDelta: {x: 248.67, y: 98.95}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &65193541
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 65193539}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_FontData:
+    m_Font: {fileID: 12800000, guid: efcbd9ea0dc9bab449db85c846ed81de, type: 3}
+    m_FontSize: 96
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 0
+    m_MaxSize: 96
+    m_Alignment: 0
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: "D/\u2192"
+--- !u!222 &65193542
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 65193539}
 --- !u!4 &74322572 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4797123964863332, guid: 3e9ff001b133140d796793ec17af35c9,
@@ -372,7 +446,7 @@ Transform:
   m_GameObject: {fileID: 537704904}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -199.3, y: 23.1, z: -4.384135}
-  m_LocalScale: {x: 2.6141798, y: 5.604147, z: 2.6141798}
+  m_LocalScale: {x: 2.6141798, y: 8.756484, z: 2.6141798}
   m_Children: []
   m_Father: {fileID: 578459497}
   m_RootOrder: 1
@@ -464,7 +538,7 @@ MonoBehaviour:
   spawnObs: 1
   spawnPlat: 1
   spawnWall: 1
-  platform: {fileID: 1284900746970406, guid: 049ab793655269446bb75c3892f225ad, type: 2}
+  platform: {fileID: 1182315386548124, guid: d7038300ad27461428b28b1cd1fce0bf, type: 2}
   platformParent: {fileID: 1651056252}
   obstacle: {fileID: 1612046425511768, guid: 4ef37f59a223c4281b97a9397a338eb6, type: 2}
   floorPrefab: {fileID: 1444349168013922, guid: a7e37ed81adfb284392ddfc2a6a60f89,
@@ -476,6 +550,7 @@ MonoBehaviour:
   bg4: {fileID: 1380902971892596, guid: 3e9ff001b133140d796793ec17af35c9, type: 2}
   bgParent: {fileID: 1554118082}
   wallPrefab: {fileID: 1671683373943838, guid: ba4998fbfc7e80146a1b75af34c4f303, type: 2}
+  pitPrefab: {fileID: 1690803466541358, guid: bf14bd1583dc09440aedaa259a89d06c, type: 2}
   lanes:
   - 0
   - 0
@@ -487,15 +562,16 @@ MonoBehaviour:
   - 0
   - 0
   - 0
-  timeToSpawn: 1
-  timeLeft: 1
-  timeTillWall: 1
+  timeToSpawn: 2
+  timeLeft: 2
+  timeTillWall: 2
   timeTillBG: 1
   timeToSpawnGround: 1
+  timeToPit: 7
   closePick: 0
   previousPick: -1
   randomPick: 0
-  ticksToProjectile: 3
+  ticksToProjectile: 2.25
 --- !u!4 &555937216
 Transform:
   m_ObjectHideFlags: 0
@@ -544,9 +620,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dashLength: 0.5
   dashing: 0
-  dashCooldown: 2
+  dashCooldown: 1.5
   dashImageSprite: {fileID: 737050228}
   dashImage: {r: 0, g: 0, b: 0, a: 0}
+  timeSinceLevelBegan: 0
+  timeForLevel: 60
 --- !u!95 &578459491
 Animator:
   serializedVersion: 3
@@ -593,7 +671,7 @@ MonoBehaviour:
   getHit: {fileID: 8300000, guid: e8886173dd9654e3fa7c4c36b91bf143, type: 3}
   myRenderer: {fileID: 0}
   gravityOverride: 0
-  canGetHit: 0
+  canGetHit: 1
 --- !u!82 &578459493
 AudioSource:
   m_ObjectHideFlags: 0
@@ -871,7 +949,8 @@ RectTransform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.4104259, y: 0.4104259, z: 0.4104259}
-  m_Children: []
+  m_Children:
+  - {fileID: 65193540}
   m_Father: {fileID: 31882238}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
