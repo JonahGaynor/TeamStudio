@@ -32,6 +32,7 @@ public class ChildSceneGenerator : MonoBehaviour
     public int closePick, previousPick = -1, randomPick;
     public float ticksToProjectile = 1;
     public GameObject wallPrefab;
+    int prevOrder = -50;
     // Use this for initialization
     void Start()
     {
@@ -175,6 +176,8 @@ public class ChildSceneGenerator : MonoBehaviour
             temp1.x = this.transform.position.x;
             background.transform.position = temp1;
             background.transform.parent = bgParent.transform;
+            background.GetComponent<SpriteRenderer>().sortingOrder = prevOrder;
+            prevOrder--;
         }
 
 
