@@ -33,7 +33,7 @@ public class DashScript : MonoBehaviour {
 	}
 	void Update () {
 		timeSinceLevelBegan += Time.deltaTime;
-        Debug.Log(myAnimator.GetBool("ShouldRun"));
+        //Debug.Log(myAnimator.GetBool("ShouldRun"));
 		if (timeSinceLevelBegan >= timeForLevel) {
 			ProofGameController.Instance.moveToNextLevel = true;
 		}
@@ -88,6 +88,7 @@ public class DashScript : MonoBehaviour {
             dashImage = tempColor;
             dashImageSprite.GetComponent<Image>().color = dashImage;
             dashCooldown -= Time.deltaTime;
+            dashImageSprite.transform.GetChild(0).gameObject.SetActive(false);
             if (dashCooldown < 0)
             {
                
@@ -100,6 +101,7 @@ public class DashScript : MonoBehaviour {
             Color temporary = dashImage;
             temporary.a = 255;
             dashImage = temporary;
+            dashImageSprite.transform.GetChild(0).gameObject.SetActive(true);
             dashImageSprite.GetComponent<Image>().color = dashImage;
         }
 	}

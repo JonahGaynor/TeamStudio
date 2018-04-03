@@ -10,6 +10,12 @@ public class ProofOfConcept_SceneManagement : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+      GameObject alreadyHere= GameObject.Find("SceneManager");
+        if (alreadyHere != null&&alreadyHere!=this.gameObject)
+        {
+
+            Destroy(this.gameObject);
+        }
 		DontDestroyOnLoad (this.gameObject);
 		thisScene = SceneManager.GetActiveScene();
 		sceneName = thisScene.name;
@@ -23,7 +29,7 @@ public class ProofOfConcept_SceneManagement : MonoBehaviour {
 			sceneName = thisScene.name;
 		}
 		if (Input.GetKeyUp (KeyCode.U)) {
-			SceneManager.LoadScene ("ProofStartScene");
+			SceneManager.LoadScene ("ProofTitle");
 		}
 
         //		if (Input.GetKeyUp (KeyCode.Return) && sceneName == "ProofTitle") {
