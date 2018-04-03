@@ -19,6 +19,8 @@ public class DashScript : MonoBehaviour {
     public GameObject dashImageSprite;
     public Color dashImage;
      Animator myAnimator;
+	public float timeSinceLevelBegan = 0f;
+	public float timeForLevel = 60f;
 	// Use this for initialization
 	void Start () {
         myAnimator = this.GetComponent<Animator>();
@@ -30,7 +32,11 @@ public class DashScript : MonoBehaviour {
         cameraOffset = OGCameraOffset;
 	}
 	void Update () {
+		timeSinceLevelBegan += Time.deltaTime;
         Debug.Log(myAnimator.GetBool("ShouldRun"));
+		if (timeSinceLevelBegan >= timeForLevel) {
+			ProofGameController.Instance.moveToNextLevel = true;
+		}
         if (!dashing) {
             
             myJumpScript.gravityOverride = false;
