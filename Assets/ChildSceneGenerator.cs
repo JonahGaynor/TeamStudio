@@ -188,16 +188,16 @@ public class ChildSceneGenerator : MonoBehaviour
             timeTillBG = 1f;
 
             float myRand = Random.value;
-            if (myRand <= 0.15f && bgCheck != "Swings")
+            if (myRand <= 0.15f && bgCheck != "Swings" && bgCheck != "Playground")
             {
                 background = Instantiate(bg);
                 background.GetComponent<SpriteRenderer>().sortingOrder = -50;
                 bgCheck = "Swings";
             }
-            else if (myRand <= 0.65f)
+            else if (myRand <= 0.65f && bgCheck!="Playground"&&bgCheck!="Swings")
             {
                 background = Instantiate(bg2);
-                bgCheck = "";
+                bgCheck = "Playground";
                 background.GetComponent<SpriteRenderer>().sortingOrder = prevOrder;
             }
             else if (myRand <= 0.8f)
