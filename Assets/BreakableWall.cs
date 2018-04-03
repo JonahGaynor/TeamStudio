@@ -5,6 +5,9 @@ using UnityEngine;
 public class BreakableWall : MonoBehaviour {
 
 	public GameObject brokenWall;
+	public GameObject brokenWall2;
+	public GameObject brokenWall3;
+	public GameObject brokenWall4;
 
 	// Update is called once per frame
 	void Update () {
@@ -42,9 +45,9 @@ public class BreakableWall : MonoBehaviour {
 		Vector2 wallPos4 = new Vector2 (transform.position.x, transform.position.y - 1.5f);
 
 		GameObject wall1 = Instantiate (brokenWall, wallPos1, Quaternion.identity);
-		GameObject wall2 = Instantiate (brokenWall, wallPos2, Quaternion.identity);
-		GameObject wall3 = Instantiate (brokenWall, wallPos3, Quaternion.identity);
-		GameObject wall4 = Instantiate (brokenWall, wallPos4, Quaternion.identity);
+		GameObject wall2 = Instantiate (brokenWall2, wallPos2, Quaternion.identity);
+		GameObject wall3 = Instantiate (brokenWall3, wallPos3, Quaternion.identity);
+		GameObject wall4 = Instantiate (brokenWall4, wallPos4, Quaternion.identity);
 
 		wall1.transform.name = "wall1";
 		wall2.transform.name = "wall2";
