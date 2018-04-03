@@ -18,47 +18,47 @@ public class DashScript : MonoBehaviour {
     bool canDash=true;
     public GameObject dashImageSprite;
     public Color dashImage;
+     Animator myAnimator;
+	//public float timeSinceLevelBegan = 0f;
+	//public float timeForLevel = 10f;
 	// Use this for initialization
 	void Start () {
-        dashImage = dashImageSprite.GetComponent<SpriteRenderer>().color;
-        myRigidbody = this.GetComponent<Rigidbody2D>();
-        myJumpScript = this.GetComponent<TestJump>();
+        myAnimator = this.gameObject.GetComponent<Animator>();
+        dashImage = dashImageSprite.GetComponent<Image>().color;
+        myRigidbody = this.gameObject.GetComponent<Rigidbody2D>();
+        myJumpScript = this.gameObject.GetComponent<TestJump>();
         myCameraScript = GameObject.Find("Main Camera").GetComponent<CameraControl>();
         OGCameraOffset = myCameraScript.offset;
         cameraOffset = OGCameraOffset;
 	}
-	
-	// Update is called once per frame
 	void Update () {
-       // Debug.Log(dashing);
+		/*timeSinceLevelBegan += Time.deltaTime;
+        //Debug.Log(myAnimator.GetBool("ShouldRun"));
+		if (timeSinceLevelBegan >= timeForLevel) {
+			ProofGameController.Instance.moveToNextLevel = true;
+		}*/
         if (!dashing) {
-
-          /*  if (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow))
-            {
-                cameraOffset = OGCameraOffset;
-                myCameraScript.offset = cameraOffset;
-            }*/
-
-                myJumpScript.gravityOverride = false;
+            
+            myJumpScript.gravityOverride = false;
             cameraOffestTimer -= Time.deltaTime;
 
             if (cameraOffestTimer<0)
             {
+                myAnimator.SetBool("HasDashed", false);
                 myCameraScript.offset = cameraOffset;
                 myRigidbody.drag = 0;
                 cameraOffset = Mathf.Lerp(cameraOffset, OGCameraOffset, t);
                 t += 0.1f * Time.deltaTime;
             }
-           
-            //Debug.Log(cameraOffset);
         }
         if (dashing)
         {
+            myAnimator.SetBool("HasDashed", true);
+            //myAnimator.SetBool("ShouldRun", false);
             cameraOffestTimer = 0.25f;
             myCameraScript.offset = cameraOffset;
-            cameraOffset = Mathf.Lerp(cameraOffset, -OGCameraOffset/2,  t);
-            t += 0.1f * Time.deltaTime;
-            //Debug.Log(cameraOffset);
+            cameraOffset = Mathf.Lerp(cameraOffset, -OGCameraOffset/100,  0.08f);
+//            t += 0.1f * Time.deltaTime;
             dashLength -= Time.deltaTime;
             if (dashLength < 0)
             {
@@ -69,6 +69,7 @@ public class DashScript : MonoBehaviour {
         }
 		if((Input.GetKeyDown(KeyCode.D)|| Input.GetKeyDown(KeyCode.RightArrow))&&canDash)
         {
+           // myAnimator.SetBool("ShouldRun", false);
             canDash = false;
             dashCooldown = 2f;
             myRigidbody.drag = 6;
@@ -79,17 +80,15 @@ public class DashScript : MonoBehaviour {
             float XVel = myRigidbody.velocity.x;
             myRigidbody.velocity = new Vector2(XVel, 0);
             myRigidbody.AddForce(new Vector2(750, 0));
-
-
         }
         if (!canDash)
         {
             Color tempColor = dashImage;
             tempColor.a = 0;
             dashImage = tempColor;
-            dashImageSprite.GetComponent<SpriteRenderer>().color = dashImage;
-            Debug.Log(dashImage.a);
+            dashImageSprite.GetComponent<Image>().color = dashImage;
             dashCooldown -= Time.deltaTime;
+            dashImageSprite.transform.GetChild(0).gameObject.SetActive(false);
             if (dashCooldown < 0)
             {
                
@@ -102,8 +101,8 @@ public class DashScript : MonoBehaviour {
             Color temporary = dashImage;
             temporary.a = 255;
             dashImage = temporary;
-            dashImageSprite.GetComponent<SpriteRenderer>().color = dashImage;
-            Debug.Log(dashImage.a);
+            dashImageSprite.transform.GetChild(0).gameObject.SetActive(true);
+            dashImageSprite.GetComponent<Image>().color = dashImage;
         }
 	}
 }

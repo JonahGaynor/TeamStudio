@@ -10,6 +10,12 @@ public class ProofOfConcept_SceneManagement : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+      GameObject alreadyHere= GameObject.Find("SceneManager");
+        if (alreadyHere != null&&alreadyHere!=this.gameObject)
+        {
+
+            Destroy(this.gameObject);
+        }
 		DontDestroyOnLoad (this.gameObject);
 		thisScene = SceneManager.GetActiveScene();
 		sceneName = thisScene.name;
@@ -19,26 +25,65 @@ public class ProofOfConcept_SceneManagement : MonoBehaviour {
 	void Update () {
 
 		thisScene = SceneManager.GetActiveScene();
-		sceneName = thisScene.name;
+		if (thisScene.name != "ProofDeathScene" && thisScene.name != "ProofDeadChild") {
+			sceneName = thisScene.name;
+		}
 		if (Input.GetKeyUp (KeyCode.U)) {
-			SceneManager.LoadScene ("ProofStartScene");
+			SceneManager.LoadScene ("ProofTitle");
 		}
 
-		if (SixLaneGameController.Instance.moveToNextLevel) {
+        //		if (Input.GetKeyUp (KeyCode.Return) && sceneName == "ProofTitle") {
+        //			SceneManager.LoadScene ("ProofStartScene");
+        //		}
+        bool hasSwitched = false;
+		if (ProofGameController.Instance.moveToNextLevel&&!hasSwitched) {
+
 			if (sceneName == "ProofStartScene") {
-				SceneManager.LoadScene ("ProofEKG");
+                ProofGameController.Instance.moveToNextLevel = false;
+                SceneManager.LoadScene ("ProofEKG");
 				sceneName = thisScene.name;
-			} else if (sceneName == "ProofEKG") {
+                hasSwitched = true;
+                ProofGameController.Instance.moveToNextLevel = false;
+			} else if (sceneName == "ProofEKG"&&!hasSwitched) {
 				SceneManager.LoadScene ("ProofChildhood");
 				sceneName = thisScene.name;
-			} else {
+                hasSwitched = true;
+                ProofGameController.Instance.moveToNextLevel = false;
+            }
+            else if (sceneName == "ProofTitle" && !hasSwitched) {
 				SceneManager.LoadScene ("ProofStartScene");
 				sceneName = thisScene.name;
-			}
+                hasSwitched = true;
+                ProofGameController.Instance.moveToNextLevel = false;
+            }
+            else if (sceneName == "ProofChildhood" && !hasSwitched) {
+				SceneManager.LoadScene ("ProofVictoryScene");
+				sceneName = thisScene.name;
+                hasSwitched = true;
+                ProofGameController.Instance.moveToNextLevel = false;
+            }
 
+        }
+
+		if (ProofGameController.Instance.gameOver) {
+			if (thisScene.name == "ProofEKG") {
+				SceneManager.LoadScene ("ProofDeathScene");
+				ProofGameController.Instance.gameOver = false;
+			} else {
+				SceneManager.LoadScene ("ProofDeadChild");
+				ProofGameController.Instance.gameOver = false;
+			}
+//			sceneName = thisScene.name;
 		}
+
 		if (Input.GetKeyUp (KeyCode.R)) {
 			SceneManager.LoadScene (sceneName);
+			sceneName = thisScene.name;
+		}
+
+		if (Input.anyKey && sceneName == "ProofVictoryScene") {
+			SceneManager.LoadScene ("ProofTitle");
+			sceneName = thisScene.name;
 		}
 	}
 }

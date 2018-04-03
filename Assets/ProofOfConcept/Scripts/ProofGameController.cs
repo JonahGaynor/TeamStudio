@@ -30,8 +30,13 @@ public class ProofGameController : MonoBehaviour {
     public int numPickups = 0;
     AudioSource deathSound;
     // Use this for initialization
+    private void Awake()
+    {
+        moveToNextLevel = false;
+    }
     void Start()
     {
+        moveToNextLevel = false;
         deathSound = this.GetComponent<AudioSource>();
         life = 3;
    		Instance = this;

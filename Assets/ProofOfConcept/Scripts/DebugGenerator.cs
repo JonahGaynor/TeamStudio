@@ -19,7 +19,8 @@ public class DebugGenerator : MonoBehaviour
     public float timeLeft = 1f;
 
     bool sameLanePicked = true;
-    public int closePick, previousPick = -1, randomPick, ticksToProjectile;
+    public int closePick, previousPick = -1, randomPick;
+        public float ticksToProjectile=1;
     // Use this for initialization
     void Start()
     {
@@ -72,6 +73,9 @@ public class DebugGenerator : MonoBehaviour
         temp.x = player.transform.position.x + offset;
         this.transform.position = temp;
         //Spawn a Platform
+
+        ticksToProjectile -= Time.deltaTime;
+
         if (timeLeft <= 0 && !SixLaneGameController.Instance.startQuestion && spawnPlat)
         {
             if (previousPick == -1) { previousPick = Random.Range(0, lanes.Length); }
@@ -104,12 +108,12 @@ public class DebugGenerator : MonoBehaviour
             randomPlatform.transform.position = temp;
             randomPlatform.transform.parent = platformParent.transform;
             timeLeft = timeToSpawn;
-            ticksToProjectile++;
+           // ticksToProjectile++;
 
         }
-        if (ticksToProjectile >= 1 && spawnObs)
+        if (ticksToProjectile <0 && spawnObs)
         {
-
+            ticksToProjectile = 1;
             int pick = Random.Range(0, projectileLanes.Length);
             // Debug.Log(pick);
             GameObject currentObstacle = Instantiate(obstacle);
@@ -117,7 +121,7 @@ public class DebugGenerator : MonoBehaviour
             temp.y = projectileLanes[pick];
             temp.x = this.transform.position.x;
             currentObstacle.transform.position = temp;
-            ticksToProjectile = 0;
+          
         }
 
     }
