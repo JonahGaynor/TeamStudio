@@ -26,26 +26,38 @@ public class ProofOfConcept_SceneManagement : MonoBehaviour {
 			SceneManager.LoadScene ("ProofStartScene");
 		}
 
-//		if (Input.GetKeyUp (KeyCode.Return) && sceneName == "ProofTitle") {
-//			SceneManager.LoadScene ("ProofStartScene");
-//		}
+        //		if (Input.GetKeyUp (KeyCode.Return) && sceneName == "ProofTitle") {
+        //			SceneManager.LoadScene ("ProofStartScene");
+        //		}
+        bool hasSwitched = false;
+		if (ProofGameController.Instance.moveToNextLevel&&!hasSwitched) {
 
-		if (ProofGameController.Instance.moveToNextLevel) {
 			if (sceneName == "ProofStartScene") {
-				SceneManager.LoadScene ("ProofEKG");
+                ProofGameController.Instance.moveToNextLevel = false;
+                SceneManager.LoadScene ("ProofEKG");
 				sceneName = thisScene.name;
-			} else if (sceneName == "ProofEKG") {
+                hasSwitched = true;
+                ProofGameController.Instance.moveToNextLevel = false;
+			} else if (sceneName == "ProofEKG"&&!hasSwitched) {
 				SceneManager.LoadScene ("ProofChildhood");
 				sceneName = thisScene.name;
-			} else if (sceneName == "ProofTitle") {
+                hasSwitched = true;
+                ProofGameController.Instance.moveToNextLevel = false;
+            }
+            else if (sceneName == "ProofTitle" && !hasSwitched) {
 				SceneManager.LoadScene ("ProofStartScene");
 				sceneName = thisScene.name;
-			} else {
+                hasSwitched = true;
+                ProofGameController.Instance.moveToNextLevel = false;
+            }
+            else if (sceneName == "ProofChildhood" && !hasSwitched) {
 				SceneManager.LoadScene ("ProofVictoryScene");
 				sceneName = thisScene.name;
-			}
+                hasSwitched = true;
+                ProofGameController.Instance.moveToNextLevel = false;
+            }
 
-		}
+        }
 
 		if (ProofGameController.Instance.gameOver) {
 			if (thisScene.name == "ProofEKG") {
