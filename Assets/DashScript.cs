@@ -51,8 +51,8 @@ public class DashScript : MonoBehaviour {
             //myAnimator.SetBool("ShouldRun", false);
             cameraOffestTimer = 0.25f;
             myCameraScript.offset = cameraOffset;
-            cameraOffset = Mathf.Lerp(cameraOffset, -OGCameraOffset/2,  t);
-            t += 0.1f * Time.deltaTime;
+            cameraOffset = Mathf.Lerp(cameraOffset, -OGCameraOffset/100,  0.08f);
+//            t += 0.1f * Time.deltaTime;
             dashLength -= Time.deltaTime;
             if (dashLength < 0)
             {
