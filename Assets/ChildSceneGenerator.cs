@@ -198,7 +198,7 @@ public class ChildSceneGenerator : MonoBehaviour
             {
                 background = Instantiate(bg2);
                 bgCheck = "Playground";
-                background.GetComponent<SpriteRenderer>().sortingOrder = prevOrder;
+                background.GetComponent<SpriteRenderer>().sortingOrder = -50;
             }
             else if (myRand <= 0.8f)
             {
