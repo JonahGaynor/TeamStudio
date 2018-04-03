@@ -23,10 +23,10 @@ public class DashScript : MonoBehaviour {
 	public float timeForLevel = 60f;
 	// Use this for initialization
 	void Start () {
-        myAnimator = this.GetComponent<Animator>();
+        myAnimator = this.gameObject.GetComponent<Animator>();
         dashImage = dashImageSprite.GetComponent<Image>().color;
-        myRigidbody = this.GetComponent<Rigidbody2D>();
-        myJumpScript = this.GetComponent<TestJump>();
+        myRigidbody = this.gameObject.GetComponent<Rigidbody2D>();
+        myJumpScript = this.gameObject.GetComponent<TestJump>();
         myCameraScript = GameObject.Find("Main Camera").GetComponent<CameraControl>();
         OGCameraOffset = myCameraScript.offset;
         cameraOffset = OGCameraOffset;
