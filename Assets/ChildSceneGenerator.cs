@@ -32,6 +32,7 @@ public class ChildSceneGenerator : MonoBehaviour
     public int closePick, previousPick = -1, randomPick;
     public float ticksToProjectile = 1;
     public GameObject wallPrefab;
+	string bgCheck;
     int prevOrder = -50;
     // Use this for initialization
     void Start()
@@ -163,14 +164,18 @@ public class ChildSceneGenerator : MonoBehaviour
             Debug.Log("Spawned Floor");
             //Spawn BG
 			float myRand = Random.value;
-			if (myRand <= 0.5f) {
+			if (myRand <= 0.15f && bgCheck != "Swings") {
 				background = Instantiate (bg);
-			} else if (myRand <= 0.65f) {
+				bgCheck = "Swings";
+			} else if (myRand <= 0.3f) {
 				background = Instantiate (bg2);
+				bgCheck = "";
 			} else if (myRand <= 0.8f) {
 				background = Instantiate (bg3);
+				bgCheck = "";
 			} else {
 				background = Instantiate (bg4);
+				bgCheck = "";
 			}
             Vector3 temp1 = background.transform.position;
             temp1.x = this.transform.position.x;
