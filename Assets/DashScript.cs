@@ -30,6 +30,7 @@ public class DashScript : MonoBehaviour {
         cameraOffset = OGCameraOffset;
 	}
 	void Update () {
+        Debug.Log(myAnimator.GetBool("ShouldRun"));
         if (!dashing) {
             
             myJumpScript.gravityOverride = false;
@@ -47,6 +48,7 @@ public class DashScript : MonoBehaviour {
         if (dashing)
         {
             myAnimator.SetBool("HasDashed", true);
+            //myAnimator.SetBool("ShouldRun", false);
             cameraOffestTimer = 0.25f;
             myCameraScript.offset = cameraOffset;
             cameraOffset = Mathf.Lerp(cameraOffset, -OGCameraOffset/2,  t);
@@ -61,6 +63,7 @@ public class DashScript : MonoBehaviour {
         }
 		if((Input.GetKeyDown(KeyCode.D)|| Input.GetKeyDown(KeyCode.RightArrow))&&canDash)
         {
+           // myAnimator.SetBool("ShouldRun", false);
             canDash = false;
             dashCooldown = 2f;
             myRigidbody.drag = 6;

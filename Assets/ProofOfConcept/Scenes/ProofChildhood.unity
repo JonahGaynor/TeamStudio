@@ -580,7 +580,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 578459489}
-  spawnObs: 1
+  spawnObs: 0
   spawnPlat: 1
   spawnWall: 1
   platform: {fileID: 1284900746970406, guid: 049ab793655269446bb75c3892f225ad, type: 2}
