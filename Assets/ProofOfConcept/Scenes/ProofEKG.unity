@@ -1447,7 +1447,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timeSinceLevelBegan: 0
-  timeForLevel: 15
+  timeForLevel: 30
   levelEnded: 0
   camera: {fileID: 0}
 --- !u!4 &1879040679
