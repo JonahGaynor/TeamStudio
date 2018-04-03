@@ -153,7 +153,7 @@ public class ChildSceneGenerator : MonoBehaviour
         
         if (timeToSpawnGround < 0)
         {
-            timeToSpawnGround = 1.5f;
+            timeToSpawnGround = 1f;
 
             //Spawn Floor
             GameObject floor = Instantiate(floorPrefab);

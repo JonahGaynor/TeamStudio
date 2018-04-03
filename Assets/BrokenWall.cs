@@ -37,17 +37,17 @@ public class BrokenWall : MonoBehaviour {
 
 	void Update (){
 		myTime += Time.deltaTime;
-		if (myTime >= 1.5f) {
+		if (myTime >= 0.5f) {
 			Destroy (gameObject);
 		}
 		if (this.gameObject.name == "wall1") {
-			transform.Rotate (0f, 0f, 10);
+			transform.Rotate (0f, 0f, 5f);
 		} else if (this.gameObject.name == "wall2") {
-			transform.Rotate (0f, 0f, 5);
+			transform.Rotate (0f, 0f, 2.5f);
 		} else if (this.gameObject.name == "wall3") {
-			transform.Rotate (0f, 0f, -5);
+			transform.Rotate (0f, 0f, -2.5f);
 		} else {
-			transform.Rotate (0f, 0f, -10);
+			transform.Rotate (0f, 0f, -5f);
 		}
 	}
 
