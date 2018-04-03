@@ -474,6 +474,7 @@ Camera:
   m_TargetEye: 3
   m_HDR: 1
   m_AllowMSAA: 1
+  m_AllowDynamicResolution: 0
   m_ForceIntoRT: 0
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
@@ -3165,7 +3166,7 @@ MonoBehaviour:
   m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 2100000, guid: 19bbfb000a5563f40a305fb4f90adfb0, type: 2}
+  m_Material: {fileID: 2100000, guid: 563de4175c579274e841d47a8d70cf72, type: 2}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
@@ -4104,8 +4105,8 @@ GameObject:
   - component: {fileID: 2143324653}
   - component: {fileID: 2143324650}
   - component: {fileID: 2143324651}
-  - component: {fileID: 2143324652}
   - component: {fileID: 2143324657}
+  - component: {fileID: 2143324652}
   m_Layer: 9
   m_Name: Little Boy
   m_TagString: Little Boy

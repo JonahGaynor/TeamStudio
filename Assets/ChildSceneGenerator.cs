@@ -20,18 +20,20 @@ public class ChildSceneGenerator : MonoBehaviour
 	public GameObject bg3;
 	public GameObject bg4;
     public GameObject bgParent;
-	GameObject background;
+    public GameObject wallPrefab;
+    GameObject background;
     GameObject exampleLane;
-    public float[] lanes = { 0, 0, 0, 0, 0, 0 };
-    float[] projectileLanes = { 0, 0, 0, 0, 0, 0, 0 };
+    public float[] lanes = { 0, 0, 0, 0};
+    public float[] projectileLanes = { 0, 0, 0, 0,0};
     public float timeToSpawn = 1f;
     public float timeLeft = 1f;
-    public float timeTillWall = 1f;
+    public float timeTillWall = 5f;
+    public float timeTillBG = 1f;
     public float timeToSpawnGround = 1f;
     bool sameLanePicked = true;
     public int closePick, previousPick = -1, randomPick;
     public float ticksToProjectile = 1;
-    public GameObject wallPrefab;
+    
 	string bgCheck;
     int prevOrder = -50;
     // Use this for initialization
@@ -43,9 +45,9 @@ public class ChildSceneGenerator : MonoBehaviour
             string stringToLookFor = "Platform " + (i + 1);
             exampleLane = GameObject.Find(stringToLookFor);
             lanes[i] = exampleLane.transform.position.y;
-            projectileLanes[i] = lanes[i] + 0.7f;
+            projectileLanes[i] = lanes[i] + 1;
         }
-        projectileLanes[6] = -3.82f;
+        projectileLanes[4] = -6.8f;
     }
 
     // Update is called once per frame
@@ -126,7 +128,9 @@ public class ChildSceneGenerator : MonoBehaviour
         }
         if (ticksToProjectile < 0 && spawnObs)
         {
-            ticksToProjectile = 1;
+           
+            
+            ticksToProjectile =3;
             int pick = Random.Range(0, projectileLanes.Length);
             // Debug.Log(pick);
             GameObject currentObstacle = Instantiate(obstacle);
@@ -134,26 +138,38 @@ public class ChildSceneGenerator : MonoBehaviour
             temp.y = projectileLanes[pick];
             temp.x = this.transform.position.x;
             currentObstacle.transform.position = temp;
-
+            if (pick != 0)
+            {
+                float additionalProjectileChance = Random.Range(0f, 1f);
+                if (additionalProjectileChance > 0.3)
+                {
+                   
+                    GameObject botObstacle = Instantiate(obstacle);
+                    temp = botObstacle.transform.position;
+                    temp.y = projectileLanes[4];
+                    temp.x = this.transform.position.x;
+                    botObstacle.transform.position = temp;
+                }
+            }
         }
         if (timeTillWall < 0 && spawnWall)
         {
-            timeTillWall = 1;
-           
+            timeTillWall = 5;
+            float wallPlacement=Random.Range(-5.44f, 0);
             GameObject currentObstacle = Instantiate(wallPrefab);
             temp = currentObstacle.transform.position;
-            temp.y = wallPrefab.transform.position.y;
+            temp.y = wallPlacement;
             temp.x = this.transform.position.x;
             currentObstacle.transform.position = temp;
 
         }
 
-
+        timeTillBG -= Time.deltaTime;
         timeToSpawnGround -= Time.deltaTime;
-        
+        timeTillWall -= Time.deltaTime;
         if (timeToSpawnGround < 0)
         {
-            timeToSpawnGround = 1f;
+            timeToSpawnGround = 2f;
 
             //Spawn Floor
             GameObject floor = Instantiate(floorPrefab);
@@ -161,27 +177,44 @@ public class ChildSceneGenerator : MonoBehaviour
             tempFloor.x = this.transform.position.x;
             floor.transform.position = tempFloor;
             floor.transform.parent = floorParent.transform;
-            Debug.Log("Spawned Floor");
+          //  Debug.Log("Spawned Floor");
             //Spawn BG
-			float myRand = Random.value;
-			if (myRand <= 0.15f && bgCheck != "Swings") {
-				background = Instantiate (bg);
-				bgCheck = "Swings";
-			} else if (myRand <= 0.3f) {
-				background = Instantiate (bg2);
-				bgCheck = "";
-			} else if (myRand <= 0.8f) {
-				background = Instantiate (bg3);
-				bgCheck = "";
-			} else {
-				background = Instantiate (bg4);
-				bgCheck = "";
-			}
+			
+        }
+        if (timeTillBG < 0)
+        {
+            timeTillBG = 1f;
+
+            float myRand = Random.value;
+            if (myRand <= 0.15f && bgCheck != "Swings")
+            {
+                background = Instantiate(bg);
+                background.GetComponent<SpriteRenderer>().sortingOrder = -50;
+                bgCheck = "Swings";
+            }
+            else if (myRand <= 0.65f)
+            {
+                background = Instantiate(bg2);
+                bgCheck = "";
+                background.GetComponent<SpriteRenderer>().sortingOrder = prevOrder;
+            }
+            else if (myRand <= 0.8f)
+            {
+                background = Instantiate(bg3);
+                bgCheck = "";
+                background.GetComponent<SpriteRenderer>().sortingOrder = prevOrder;
+            }
+            else
+            {
+                background = Instantiate(bg4);
+                bgCheck = "";
+                background.GetComponent<SpriteRenderer>().sortingOrder = prevOrder;
+            }
             Vector3 temp1 = background.transform.position;
             temp1.x = this.transform.position.x;
             background.transform.position = temp1;
             background.transform.parent = bgParent.transform;
-            background.GetComponent<SpriteRenderer>().sortingOrder = prevOrder;
+
             prevOrder--;
         }
 
