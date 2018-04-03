@@ -623,8 +623,6 @@ MonoBehaviour:
   dashCooldown: 1.5
   dashImageSprite: {fileID: 737050228}
   dashImage: {r: 0, g: 0, b: 0, a: 0}
-  timeSinceLevelBegan: 0
-  timeForLevel: 60
 --- !u!95 &578459491
 Animator:
   serializedVersion: 3
