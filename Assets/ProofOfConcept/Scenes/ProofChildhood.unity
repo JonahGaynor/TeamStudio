@@ -545,7 +545,7 @@ MonoBehaviour:
     type: 2}
   floorParent: {fileID: 357376379}
   bg: {fileID: 1380902971892596, guid: 6cee920b75370441dbcd7a5209f86b72, type: 2}
-  bg2: {fileID: 1380902971892596, guid: 3e9ff001b133140d796793ec17af35c9, type: 2}
+  bg2: {fileID: 1380902971892596, guid: f16c0ef6a120e824b93af768607c054b, type: 2}
   bg3: {fileID: 1380902971892596, guid: 3e9ff001b133140d796793ec17af35c9, type: 2}
   bg4: {fileID: 1380902971892596, guid: 3e9ff001b133140d796793ec17af35c9, type: 2}
   bgParent: {fileID: 1554118082}
