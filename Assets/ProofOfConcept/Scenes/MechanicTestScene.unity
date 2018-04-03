@@ -469,7 +469,6 @@ Camera:
   m_TargetEye: 3
   m_HDR: 1
   m_AllowMSAA: 1
-  m_AllowDynamicResolution: 0
   m_ForceIntoRT: 0
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
@@ -3151,7 +3150,7 @@ MonoBehaviour:
   player: {fileID: 2143324649}
   spawnObs: 0
   spawnPlat: 0
-  spawnWall: 1
+  spawnWall: 0
   platform: {fileID: 1284900746970406, guid: 049ab793655269446bb75c3892f225ad, type: 2}
   platformParent: {fileID: 212947864}
   obstacle: {fileID: 1612046425511768, guid: 6eaa1feff6ed0a1439d8107900e9f108, type: 2}
@@ -3171,9 +3170,6 @@ MonoBehaviour:
   - 0
   - 0
   projectileLanes:
-  - 0
-  - 0
-  - 0
   - 0
   - 0
   timeToSpawn: 1
