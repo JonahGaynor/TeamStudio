@@ -412,6 +412,22 @@ Prefab:
       propertyPath: m_TagString
       value: Example Lane
       objectReference: {fileID: 0}
+    - target: {fileID: 212208642925655686, guid: 049ab793655269446bb75c3892f225ad,
+        type: 2}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: b9e882924bf5d1f46b56a874b9c5bd14,
+        type: 3}
+    - target: {fileID: 61782178330013552, guid: 049ab793655269446bb75c3892f225ad,
+        type: 2}
+      propertyPath: m_SpriteTilingProperty.oldSize.x
+      value: 5.04
+      objectReference: {fileID: 0}
+    - target: {fileID: 61782178330013552, guid: 049ab793655269446bb75c3892f225ad,
+        type: 2}
+      propertyPath: m_SpriteTilingProperty.oldSize.y
+      value: 2.23
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 049ab793655269446bb75c3892f225ad, type: 2}
   m_IsPrefabParent: 0
@@ -449,7 +465,7 @@ Transform:
   m_LocalScale: {x: 2.6141798, y: 8.756484, z: 2.6141798}
   m_Children: []
   m_Father: {fileID: 578459497}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!50 &537704906
 Rigidbody2D:
@@ -535,9 +551,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 578459489}
-  spawnObs: 1
-  spawnPlat: 1
-  spawnWall: 1
+  spawnObs: 0
+  spawnPlat: 0
+  spawnWall: 0
   platform: {fileID: 1182315386548124, guid: d7038300ad27461428b28b1cd1fce0bf, type: 2}
   platformParent: {fileID: 1651056252}
   obstacle: {fileID: 1612046425511768, guid: 4ef37f59a223c4281b97a9397a338eb6, type: 2}
@@ -585,7 +601,7 @@ Transform:
   m_LocalScale: {x: 6.438993, y: 6.438995, z: 6.438995}
   m_Children: []
   m_Father: {fileID: 578459497}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &578459489
 GameObject:
@@ -851,6 +867,7 @@ Transform:
   m_LocalPosition: {x: -5, y: -3.2, z: 0}
   m_LocalScale: {x: 0.15530379, y: 0.15530375, z: 0.15530375}
   m_Children:
+  - {fileID: 1666478981}
   - {fileID: 555937216}
   - {fileID: 537704905}
   m_Father: {fileID: 0}
@@ -914,6 +931,22 @@ Prefab:
     - target: {fileID: 1284900746970406, guid: 049ab793655269446bb75c3892f225ad, type: 2}
       propertyPath: m_TagString
       value: Example Lane
+      objectReference: {fileID: 0}
+    - target: {fileID: 212208642925655686, guid: 049ab793655269446bb75c3892f225ad,
+        type: 2}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: b9e882924bf5d1f46b56a874b9c5bd14,
+        type: 3}
+    - target: {fileID: 61782178330013552, guid: 049ab793655269446bb75c3892f225ad,
+        type: 2}
+      propertyPath: m_SpriteTilingProperty.oldSize.x
+      value: 5.04
+      objectReference: {fileID: 0}
+    - target: {fileID: 61782178330013552, guid: 049ab793655269446bb75c3892f225ad,
+        type: 2}
+      propertyPath: m_SpriteTilingProperty.oldSize.y
+      value: 2.23
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 049ab793655269446bb75c3892f225ad, type: 2}
@@ -1056,6 +1089,22 @@ Prefab:
       propertyPath: m_TagString
       value: Example Lane
       objectReference: {fileID: 0}
+    - target: {fileID: 212208642925655686, guid: 049ab793655269446bb75c3892f225ad,
+        type: 2}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: b9e882924bf5d1f46b56a874b9c5bd14,
+        type: 3}
+    - target: {fileID: 61782178330013552, guid: 049ab793655269446bb75c3892f225ad,
+        type: 2}
+      propertyPath: m_SpriteTilingProperty.oldSize.x
+      value: 5.04
+      objectReference: {fileID: 0}
+    - target: {fileID: 61782178330013552, guid: 049ab793655269446bb75c3892f225ad,
+        type: 2}
+      propertyPath: m_SpriteTilingProperty.oldSize.y
+      value: 2.23
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 049ab793655269446bb75c3892f225ad, type: 2}
   m_IsPrefabParent: 0
@@ -1164,6 +1213,22 @@ Prefab:
     - target: {fileID: 1284900746970406, guid: 049ab793655269446bb75c3892f225ad, type: 2}
       propertyPath: m_TagString
       value: Example Lane
+      objectReference: {fileID: 0}
+    - target: {fileID: 212208642925655686, guid: 049ab793655269446bb75c3892f225ad,
+        type: 2}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: b9e882924bf5d1f46b56a874b9c5bd14,
+        type: 3}
+    - target: {fileID: 61782178330013552, guid: 049ab793655269446bb75c3892f225ad,
+        type: 2}
+      propertyPath: m_SpriteTilingProperty.oldSize.x
+      value: 5.04
+      objectReference: {fileID: 0}
+    - target: {fileID: 61782178330013552, guid: 049ab793655269446bb75c3892f225ad,
+        type: 2}
+      propertyPath: m_SpriteTilingProperty.oldSize.y
+      value: 2.23
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 049ab793655269446bb75c3892f225ad, type: 2}
@@ -1621,6 +1686,63 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 3e9ff001b133140d796793ec17af35c9, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &1666478980
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1666478981}
+  - component: {fileID: 1666478982}
+  m_Layer: 0
+  m_Name: Generic Section Spawner
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1666478981
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1666478980}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 85.2, y: -0.6, z: 10.362759}
+  m_LocalScale: {x: 6.438993, y: 6.438995, z: 6.438995}
+  m_Children: []
+  m_Father: {fileID: 578459497}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1666478982
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1666478980}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4cb833c209221ec45ba8e58262f5539e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  easySectionPrefabs:
+  - {fileID: 1924978613162390, guid: 463351c2e1f600f4e8c7a461d34a0491, type: 2}
+  - {fileID: 1602724930588680, guid: b1da9c2dd8f987d4da8f73ffb4b4fb0d, type: 2}
+  - {fileID: 1753279149686002, guid: 880fc6472176e984babc5f7a2276c007, type: 2}
+  mediumSectionPrefabs:
+  - {fileID: 1455144960479442, guid: ff78843d77f20cf45b759cd11202cbd4, type: 2}
+  - {fileID: 1032964379272206, guid: 4c19be12850de204282b8413e0f941a5, type: 2}
+  - {fileID: 1958337966212754, guid: e0acfa06dc642af4a9b4a9065ef9af41, type: 2}
+  - {fileID: 1136518253159082, guid: c8c836ff5802a034fb533a96eebc81a6, type: 2}
+  hardSectionPrefabs:
+  - {fileID: 1191576346044426, guid: 786c5a06e206703488b00fa88efda433, type: 2}
+  - {fileID: 1157825162509710, guid: ebdbecf8bfc58f4419c08ef12441bd09, type: 2}
+  - {fileID: 1007906080387530, guid: 86d546c9822b23047b8135e4ee3642a0, type: 2}
+  - {fileID: 1202735506336796, guid: 37c511d2a5bc1d54993cc3322bf8a493, type: 2}
+  sectionsSpawned: 0
+  spawnNextSection: 1
+  difficultyIncreaseMultiplier: 1
 --- !u!1001 &1807576580
 Prefab:
   m_ObjectHideFlags: 0
