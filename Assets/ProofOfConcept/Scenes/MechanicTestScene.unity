@@ -532,7 +532,6 @@ Camera:
   m_TargetEye: 3
   m_HDR: 1
   m_AllowMSAA: 1
-  m_AllowDynamicResolution: 0
   m_ForceIntoRT: 0
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
@@ -4778,7 +4777,7 @@ MonoBehaviour:
   getHit: {fileID: 8300000, guid: e8886173dd9654e3fa7c4c36b91bf143, type: 3}
   myRenderer: {fileID: 0}
   gravityOverride: 0
-  canGetHit: 0
+  canGetHit: 1
 --- !u!95 &2143324652
 Animator:
   serializedVersion: 3
