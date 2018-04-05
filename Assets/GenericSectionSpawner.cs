@@ -25,25 +25,25 @@ public class GenericSectionSpawner : MonoBehaviour {
             {
                 choice = Random.Range(0, easySectionPrefabs.Length);
                 sectionToSpawn = easySectionPrefabs[choice];
-                sectionsSpawned++;
+
             }
             if (sectionsSpawned >= (easySectionPrefabs.Length * difficultyIncreaseMultiplier) && sectionsSpawned < ((easySectionPrefabs.Length* difficultyIncreaseMultiplier) +(mediumSectionPrefabs.Length * difficultyIncreaseMultiplier)))
             {
                 choice = Random.Range(0, mediumSectionPrefabs.Length);
                 sectionToSpawn = mediumSectionPrefabs[choice];
-                sectionsSpawned++;
+
             }
             if (sectionsSpawned >= ((easySectionPrefabs.Length * difficultyIncreaseMultiplier) + (mediumSectionPrefabs.Length * difficultyIncreaseMultiplier)))
             {
                 choice = Random.Range(0, hardSectionPrefabs.Length);
                 sectionToSpawn = hardSectionPrefabs[choice];
-                sectionsSpawned++;
+                
             }
             GameObject placeSection = Instantiate(sectionToSpawn);
             Vector3 temp = placeSection.transform.position;
             temp.x = this.transform.position.x;
             placeSection.transform.position = temp;
-
+            sectionsSpawned++;
 
 
             spawnNextSection = false;
