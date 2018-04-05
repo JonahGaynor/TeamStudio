@@ -36,6 +36,7 @@ public class ChildSceneGenerator : MonoBehaviour
     public int closePick, previousPick = -1, randomPick;
     public float ticksToProjectile = 1;
     public bool spawnBG = true;
+    public bool spawnPit = false;
 	string bgCheck;
     int prevOrder = -50;
     // Use this for initialization
@@ -220,7 +221,7 @@ public class ChildSceneGenerator : MonoBehaviour
             prevOrder--;
         }
         timeToPit -= Time.deltaTime;
-        if (timeToPit < 0)
+        if (timeToPit < 0 && spawnPit)
         {
             timeToPit = 8;
           
