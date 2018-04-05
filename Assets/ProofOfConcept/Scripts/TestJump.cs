@@ -65,7 +65,7 @@ public class TestJump : MonoBehaviour
 			ProofGameController.Instance.moveToNextLevel = true;
 		}
 
-        // Debug.Log(1.0f / Time.deltaTime);
+//         Debug.Log(1.0f / Time.deltaTime);
         if (!gravityOverride)
         {
             myRigidbody.gravityScale = gravity;
