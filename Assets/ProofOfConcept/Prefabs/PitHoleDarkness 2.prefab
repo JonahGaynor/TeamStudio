@@ -39,7 +39,7 @@ GameObject:
   - component: {fileID: 212471265969269130}
   - component: {fileID: 61164526075713132}
   m_Layer: 0
-  m_Name: PitHoleDarkness
+  m_Name: PitHoleDarkness 2
   m_TagString: Furniture
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -142,7 +142,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 49
-  m_Sprite: {fileID: 21300000, guid: 14e9c162d8869df40a1b0ebd666eef21, type: 3}
+  m_Sprite: {fileID: 21300000, guid: b73c076998ea64d4ab8663b23cd80d01, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
