@@ -179,7 +179,7 @@ public class ChildSceneGenerator : MonoBehaviour
             tempFloor.x = this.transform.position.x;
             floor.transform.position = tempFloor;
             floor.transform.parent = floorParent.transform;
-          //  Debug.Log("Spawned Floor");
+            Debug.Log("Spawned Floor");
             //Spawn BG
 			
         }
