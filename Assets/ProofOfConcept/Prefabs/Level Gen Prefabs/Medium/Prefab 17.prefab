@@ -270,7 +270,7 @@ Transform:
   m_GameObject: {fileID: 1765362547760652}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 16.480001, y: 5.399169, z: -2.1015625}
-  m_LocalScale: {x: 0.582947, y: 0.17396107, z: 0}
+  m_LocalScale: {x: 0.582947, y: 0.37, z: 0}
   m_Children: []
   m_Father: {fileID: 4955664443703388}
   m_RootOrder: 9
@@ -309,7 +309,7 @@ Transform:
   m_GameObject: {fileID: 1304622851559788}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 6.83, y: 0.9991687, z: -2.1015625}
-  m_LocalScale: {x: 0.582947, y: 0.17396107, z: 0}
+  m_LocalScale: {x: 0.582947, y: 0.37, z: 0}
   m_Children: []
   m_Father: {fileID: 4955664443703388}
   m_RootOrder: 7
@@ -322,7 +322,7 @@ Transform:
   m_GameObject: {fileID: 1199349238843892}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 1.8599987, y: -0.98083115, z: -2.1015625}
-  m_LocalScale: {x: 0.582947, y: 0.17396107, z: 0}
+  m_LocalScale: {x: 0.582947, y: 0.37, z: 0}
   m_Children: []
   m_Father: {fileID: 4955664443703388}
   m_RootOrder: 6
@@ -335,7 +335,7 @@ Transform:
   m_GameObject: {fileID: 1728771080560190}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 11.460001, y: 3.0291686, z: -2.1015625}
-  m_LocalScale: {x: 0.582947, y: 0.17396107, z: 0}
+  m_LocalScale: {x: 0.582947, y: 0.37, z: 0}
   m_Children: []
   m_Father: {fileID: 4955664443703388}
   m_RootOrder: 8
@@ -373,7 +373,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1958337966212754}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -1.6591687, z: 2.1015625}
+  m_LocalPosition: {x: 0, y: -4.52, z: 2.1015625}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4168445364887356}
@@ -431,7 +431,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 5.34, y: 1.42}
+    oldSize: {x: 5.04, y: 2.23}
     newSize: {x: 11.52, y: 2.23}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -456,7 +456,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 5.34, y: 1.42}
+    oldSize: {x: 5.04, y: 2.23}
     newSize: {x: 11.52, y: 2.23}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -481,7 +481,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 5.34, y: 1.42}
+    oldSize: {x: 5.04, y: 2.23}
     newSize: {x: 11.52, y: 2.23}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -631,7 +631,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 5.34, y: 1.42}
+    oldSize: {x: 5.04, y: 2.23}
     newSize: {x: 11.52, y: 2.23}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -865,7 +865,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: 21300000, guid: 25df7e3a54504a94e984a045e7504138, type: 3}
+  m_Sprite: {fileID: 21300000, guid: b9e882924bf5d1f46b56a874b9c5bd14, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -997,7 +997,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: 21300000, guid: 25df7e3a54504a94e984a045e7504138, type: 3}
+  m_Sprite: {fileID: 21300000, guid: b9e882924bf5d1f46b56a874b9c5bd14, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -1041,7 +1041,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: 21300000, guid: 25df7e3a54504a94e984a045e7504138, type: 3}
+  m_Sprite: {fileID: 21300000, guid: b9e882924bf5d1f46b56a874b9c5bd14, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -1173,7 +1173,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: 21300000, guid: 25df7e3a54504a94e984a045e7504138, type: 3}
+  m_Sprite: {fileID: 21300000, guid: b9e882924bf5d1f46b56a874b9c5bd14, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
