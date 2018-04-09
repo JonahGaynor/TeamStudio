@@ -177,10 +177,11 @@ public class TestJump : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-         myAnimator.SetBool("ShouldRun", true);
-        dropCounter = 0f;
-        if (collision.gameObject.tag == "Floor")
+
+		if (collision.gameObject.tag == "Floor" && myRigidbody.velocity.y <= 0)
         {
+			myAnimator.SetBool("ShouldRun", true);
+			dropCounter = 0f;
             gravity = staticGravity;
             canJump = true;
             floatTime = 0;
@@ -189,6 +190,8 @@ public class TestJump : MonoBehaviour
         }
         if (collision.gameObject.tag == "Platform")
         {
+			myAnimator.SetBool("ShouldRun", true);
+			dropCounter = 0f;
             if (this.transform.position.y > collision.transform.position.y)
             {
                 gravity = staticGravity;
