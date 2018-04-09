@@ -16,17 +16,25 @@ public class EKGGeneratorController : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
         timeToSwitch += Time.deltaTime;
-        if (timeToSwitch > 60 * minutesToSwitch&&bumpyGen.activeInHierarchy==true)
+        if (!ProofGameController.Instance.fadeToEnd)
+        {
+            if (timeToSwitch > 60 * minutesToSwitch && bumpyGen.activeInHierarchy == true)
+            {
+                bumpyGen.SetActive(false);
+                dippyGen.SetActive(true);
+                timeToSwitch = 0;
+            }
+            if (timeToSwitch > 60 * minutesToSwitch && bumpyGen.activeInHierarchy == false)
+            {
+                bumpyGen.SetActive(true);
+                dippyGen.SetActive(false);
+                timeToSwitch = 0;
+            }
+        }
+        if (ProofGameController.Instance.fadeToEnd)
         {
             bumpyGen.SetActive(false);
-            dippyGen.SetActive(true);
-            timeToSwitch = 0;
-        }
-        if (timeToSwitch > 60 * minutesToSwitch && bumpyGen.activeInHierarchy == false)
-        {
-            bumpyGen.SetActive(true);
             dippyGen.SetActive(false);
-            timeToSwitch = 0;
         }
 
 
