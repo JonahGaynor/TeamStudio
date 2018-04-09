@@ -1728,18 +1728,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   easySectionPrefabs:
   - {fileID: 1924978613162390, guid: 463351c2e1f600f4e8c7a461d34a0491, type: 2}
-  - {fileID: 1602724930588680, guid: b1da9c2dd8f987d4da8f73ffb4b4fb0d, type: 2}
   - {fileID: 1753279149686002, guid: 880fc6472176e984babc5f7a2276c007, type: 2}
-  mediumSectionPrefabs:
-  - {fileID: 1455144960479442, guid: ff78843d77f20cf45b759cd11202cbd4, type: 2}
-  - {fileID: 1032964379272206, guid: 4c19be12850de204282b8413e0f941a5, type: 2}
   - {fileID: 1958337966212754, guid: e0acfa06dc642af4a9b4a9065ef9af41, type: 2}
+  - {fileID: 1202735506336796, guid: 37c511d2a5bc1d54993cc3322bf8a493, type: 2}
+  mediumSectionPrefabs:
+  - {fileID: 1602724930588680, guid: b1da9c2dd8f987d4da8f73ffb4b4fb0d, type: 2}
   - {fileID: 1136518253159082, guid: c8c836ff5802a034fb533a96eebc81a6, type: 2}
   hardSectionPrefabs:
   - {fileID: 1191576346044426, guid: 786c5a06e206703488b00fa88efda433, type: 2}
   - {fileID: 1157825162509710, guid: ebdbecf8bfc58f4419c08ef12441bd09, type: 2}
+  - {fileID: 1032964379272206, guid: 4c19be12850de204282b8413e0f941a5, type: 2}
   - {fileID: 1007906080387530, guid: 86d546c9822b23047b8135e4ee3642a0, type: 2}
-  - {fileID: 1202735506336796, guid: 37c511d2a5bc1d54993cc3322bf8a493, type: 2}
   sectionsSpawned: 0
   spawnNextSection: 1
   difficultyIncreaseMultiplier: 1
