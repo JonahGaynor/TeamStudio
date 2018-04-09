@@ -36,11 +36,12 @@ public class DashScript : MonoBehaviour {
         
 	}
 	void Update () {
-		/*timeSinceLevelBegan += Time.deltaTime;
+        /*timeSinceLevelBegan += Time.deltaTime;
         //Debug.Log(myAnimator.GetBool("ShouldRun"));
 		if (timeSinceLevelBegan >= timeForLevel) {
 			ProofGameController.Instance.moveToNextLevel = true;
 		}*/
+       
         if (!dashing) {
             
             myJumpScript.gravityOverride = false;
@@ -72,7 +73,11 @@ public class DashScript : MonoBehaviour {
                 dashLength = 0.5f;
             }
         }
-		if((Input.GetKeyDown(KeyCode.D)|| Input.GetKeyDown(KeyCode.RightArrow))&&canDash)
+        if (ProofGameController.Instance.fadeToEnd)
+        {
+            canDash = false;
+        }
+        if ((Input.GetKeyDown(KeyCode.D)|| Input.GetKeyDown(KeyCode.RightArrow))&&canDash)
         {
             SetDashCollider();
            // myAnimator.SetBool("ShouldRun", false);
