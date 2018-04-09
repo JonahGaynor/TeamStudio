@@ -86,7 +86,7 @@ public class TestJump : MonoBehaviour
             if (Input.GetKeyUp(KeyCode.W) || Input.GetKeyUp(KeyCode.UpArrow))
             {
                // Debug.Log("Releasing W in Regular Update");
-                if (keyDownCounter <= 0.05f) {
+                if (keyDownCounter <= 0.1f) {
 					myRigidbody.velocity = new Vector2 (myRigidbody.velocity.x, myRigidbody.velocity.y/2);
 				}
 				keyDownCounter = 0f;
