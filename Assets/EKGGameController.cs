@@ -21,6 +21,11 @@ public class EKGGameController : MonoBehaviour {
 			ProofGameController.Instance.fadeToEnd = true;
 			GameObject.Find ("Little Boy").GetComponent<TestJump> ().canGetHit = false;
             levelEnded = true;
+            GameObject[] shitToDelete = GameObject.FindGameObjectsWithTag("Furniture");
+            foreach(GameObject blip in shitToDelete)
+            {
+                Destroy(blip.gameObject);
+            }
 
         }
 		if (GameObject.Find ("Blocker").GetComponent<SpriteRenderer> ().material.color.a >= 0.9f && levelEnded && timeSinceLevelBegan > timeForLevel) {
