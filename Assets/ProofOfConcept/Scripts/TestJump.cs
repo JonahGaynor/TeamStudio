@@ -139,13 +139,15 @@ public class TestJump : MonoBehaviour
 	void FixedUpdate(){
 		if (myRigidbody.velocity.y < -1f&&!canJump)
 		{
-          
+            myAnimator.SetBool("FallJump", true);
+            Debug.Log("Falling");
 			gravity = 4;
 			dropCounter += Time.deltaTime;
 		}
 		if (myRigidbody.velocity.y < -8f && !canJump) {
 			gravity = 8;
-		}
+            
+        }
 		if (myRigidbody.velocity.y < -10f) {
 			myRigidbody.velocity = new Vector2 (myRigidbody.velocity.x, -10f);
 		}
@@ -180,7 +182,8 @@ public class TestJump : MonoBehaviour
 
 		if (collision.gameObject.tag == "Floor" && myRigidbody.velocity.y <= 0)
         {
-			myAnimator.SetBool("ShouldRun", true);
+            myAnimator.SetBool("FallJump", false);
+            myAnimator.SetBool("ShouldRun", true);
 			dropCounter = 0f;
             gravity = staticGravity;
             canJump = true;
