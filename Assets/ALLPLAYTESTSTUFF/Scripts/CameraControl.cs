@@ -6,7 +6,7 @@ public class CameraControl : MonoBehaviour {
     public GameObject player;
     public float offset = -4;
 	public Material fadeToBlack;
-	public float opacityBlack = 0f;
+	public float opacityBlack=0f;
     public float opacityWhite = 0f;
     Color temporary;
 	//public bool fadeToWhite = false;
@@ -17,6 +17,7 @@ public class CameraControl : MonoBehaviour {
 	void Start () {
 		fadeToBlack = this.transform.GetChild(0).GetComponent<Renderer>().material;
         fadeToWhite = this.transform.GetChild(1).GetComponent<Renderer>().material;
+      
     }
 	
 	// Update is called once per frame
@@ -26,14 +27,16 @@ public class CameraControl : MonoBehaviour {
         this.transform.position = temp;
 
 
-		temporary = fadeToBlack.color;
-		temporary.a = opacityBlack;
-		 fadeToBlack.color = temporary;
-        Color tempWhite = fadeToWhite.color;
-        tempWhite.a = opacityWhite;
-        fadeToWhite.color = tempWhite;
+		
 
 		if (ProofGameController.Instance.fadeToEnd) {
+            Debug.Log("Changing Shit");
+            temporary = fadeToBlack.color;
+            temporary.a = opacityBlack;
+            fadeToBlack.color = temporary;
+            Color tempWhite = fadeToWhite.color;
+            tempWhite.a = opacityWhite;
+            fadeToWhite.color = tempWhite;
             //			StartCoroutine (GetFaded ());
             //  Debug.Log("Fading");
             opacityBlack = Mathf.Lerp (opacityBlack, 255, .00003f);
