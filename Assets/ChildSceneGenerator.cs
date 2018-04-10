@@ -35,7 +35,8 @@ public class ChildSceneGenerator : MonoBehaviour
     bool sameLanePicked = true;
     public int closePick, previousPick = -1, randomPick;
     public float ticksToProjectile = 1;
-    
+    public bool spawnBG = true;
+    public bool spawnPit = false;
 	string bgCheck;
     int prevOrder = -50;
     // Use this for initialization
@@ -179,11 +180,11 @@ public class ChildSceneGenerator : MonoBehaviour
             tempFloor.x = this.transform.position.x;
             floor.transform.position = tempFloor;
             floor.transform.parent = floorParent.transform;
-          //  Debug.Log("Spawned Floor");
+            Debug.Log("Spawned Floor");
             //Spawn BG
 			
         }
-        if (timeTillBG < 0)
+        if (timeTillBG < 0 &&spawnBG)
         {
             timeTillBG = 1f;
 
@@ -220,7 +221,7 @@ public class ChildSceneGenerator : MonoBehaviour
             prevOrder--;
         }
         timeToPit -= Time.deltaTime;
-        if (timeToPit < 0)
+        if (timeToPit < 0 && spawnPit)
         {
             timeToPit = 8;
           

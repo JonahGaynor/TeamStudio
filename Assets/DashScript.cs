@@ -19,10 +19,13 @@ public class DashScript : MonoBehaviour {
     public GameObject dashImageSprite;
     public Color dashImage;
      Animator myAnimator;
+    BoxCollider2D myCollider;
 	//public float timeSinceLevelBegan = 0f;
 	//public float timeForLevel = 10f;
 	// Use this for initialization
 	void Start () {
+        myCollider = this.gameObject.GetComponent<BoxCollider2D>();
+        ResetCollider();
         myAnimator = this.gameObject.GetComponent<Animator>();
         dashImage = dashImageSprite.GetComponent<Image>().color;
         myRigidbody = this.gameObject.GetComponent<Rigidbody2D>();
@@ -30,13 +33,15 @@ public class DashScript : MonoBehaviour {
         myCameraScript = GameObject.Find("Main Camera").GetComponent<CameraControl>();
         OGCameraOffset = myCameraScript.offset;
         cameraOffset = OGCameraOffset;
+        
 	}
 	void Update () {
-		/*timeSinceLevelBegan += Time.deltaTime;
+        /*timeSinceLevelBegan += Time.deltaTime;
         //Debug.Log(myAnimator.GetBool("ShouldRun"));
 		if (timeSinceLevelBegan >= timeForLevel) {
 			ProofGameController.Instance.moveToNextLevel = true;
 		}*/
+       
         if (!dashing) {
             
             myJumpScript.gravityOverride = false;
@@ -44,6 +49,7 @@ public class DashScript : MonoBehaviour {
 
             if (cameraOffestTimer<0)
             {
+                ResetCollider();
                 myAnimator.SetBool("HasDashed", false);
                 myCameraScript.offset = cameraOffset;
                 myRigidbody.drag = 0;
@@ -67,8 +73,13 @@ public class DashScript : MonoBehaviour {
                 dashLength = 0.5f;
             }
         }
-		if((Input.GetKeyDown(KeyCode.D)|| Input.GetKeyDown(KeyCode.RightArrow))&&canDash)
+        if (ProofGameController.Instance.fadeToEnd)
         {
+            canDash = false;
+        }
+        if ((Input.GetKeyDown(KeyCode.D)|| Input.GetKeyDown(KeyCode.RightArrow))&&canDash)
+        {
+            SetDashCollider();
            // myAnimator.SetBool("ShouldRun", false);
             canDash = false;
             dashCooldown = 2f;
@@ -104,5 +115,31 @@ public class DashScript : MonoBehaviour {
             dashImageSprite.transform.GetChild(0).gameObject.SetActive(true);
             dashImageSprite.GetComponent<Image>().color = dashImage;
         }
+
 	}
+    public void SetDashCollider()
+    {
+        Vector2 temp = myCollider.size;
+        temp.x = 4.962863f;
+        temp.y = 3.264728f;
+        myCollider.size = temp;
+        temp = myCollider.offset;
+        temp.x = -0.05196369f;
+        temp.y = 0.6172091f;
+        myCollider.offset = temp;
+        return;
+    }
+
+    public void ResetCollider()
+    {
+        Vector2 temp = myCollider.size;
+        temp.x = 4.339115f;
+        temp.y = 5.834111f;
+        myCollider.size = temp;
+        temp = myCollider.offset;
+        temp.x = -0.3638377f;
+        temp.y = 0.07755256f;
+        myCollider.offset = temp;
+        return;
+    }
 }
