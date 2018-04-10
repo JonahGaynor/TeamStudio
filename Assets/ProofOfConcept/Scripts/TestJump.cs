@@ -43,6 +43,7 @@ public class TestJump : MonoBehaviour
     Animator myAnimator;
     public bool gravityOverride = false;
     public bool canGetHit;
+    public bool readyToMoveOn = false;
     // Use this for initialization
     void Start()
     {
@@ -132,7 +133,13 @@ public class TestJump : MonoBehaviour
 
              }*/
 
-
+            if (readyToMoveOn)
+            {
+                if (Input.GetKeyDown(KeyCode.Return))
+                {
+                    ProofGameController.Instance.fadeToEnd = true;
+                }
+            }
         }
     }
 
@@ -242,7 +249,8 @@ public class TestJump : MonoBehaviour
 
         if (collider.tag == "Text")
         {
-			ProofGameController.Instance.fadeToEnd = true;
+            readyToMoveOn = true;
+			//ProofGameController.Instance.fadeToEnd = true;
 			speedOverride = 0;
 			mySprite.sprite = playerSprites [1];
 			//mySprite.flipX = true;
