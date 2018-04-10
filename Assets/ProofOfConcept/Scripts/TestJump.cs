@@ -140,7 +140,7 @@ public class TestJump : MonoBehaviour
 		if (myRigidbody.velocity.y < -1f&&!canJump)
 		{
             myAnimator.SetBool("FallJump", true);
-            Debug.Log("Falling");
+//            Debug.Log("Falling");
 			gravity = 4;
 			dropCounter += Time.deltaTime;
 		}
