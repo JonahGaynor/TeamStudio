@@ -1,6 +1,11 @@
 fileFormatVersion: 2
+<<<<<<< Updated upstream
 guid: e92cf90fa06f94eb0a9bca3d6a6c3892
 timeCreated: 1522935407
+=======
+guid: 3ffe076bf5774fe478a559a48b422361
+timeCreated: 1522787716
+>>>>>>> Stashed changes
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName: {}
@@ -65,6 +70,10 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+<<<<<<< Updated upstream
+=======
+    androidETC2FallbackOverride: 0
+>>>>>>> Stashed changes
   spriteSheet:
     serializedVersion: 2
     sprites: []
