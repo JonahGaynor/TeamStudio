@@ -466,7 +466,7 @@ Transform:
   m_LocalScale: {x: 2.6141798, y: 8.756484, z: 2.6141798}
   m_Children: []
   m_Father: {fileID: 578459497}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!50 &537704906
 Rigidbody2D:
@@ -524,86 +524,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 2, y: 13.45178}
   m_EdgeRadius: 0
---- !u!1 &555937214
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 5
-  m_Component:
-  - component: {fileID: 555937216}
-  - component: {fileID: 555937215}
-  m_Layer: 0
-  m_Name: Generator
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &555937215
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 555937214}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b16a6538adc5a734d8a4efff1e000504, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  player: {fileID: 578459489}
-  spawnObs: 0
-  spawnPlat: 0
-  spawnWall: 0
-  platform: {fileID: 1182315386548124, guid: d7038300ad27461428b28b1cd1fce0bf, type: 2}
-  platformParent: {fileID: 1651056252}
-  obstacle: {fileID: 1612046425511768, guid: 4ef37f59a223c4281b97a9397a338eb6, type: 2}
-  floorPrefab: {fileID: 1444349168013922, guid: a7e37ed81adfb284392ddfc2a6a60f89,
-    type: 2}
-  floorParent: {fileID: 357376379}
-  bg: {fileID: 1380902971892596, guid: 6cee920b75370441dbcd7a5209f86b72, type: 2}
-  bg2: {fileID: 1380902971892596, guid: f16c0ef6a120e824b93af768607c054b, type: 2}
-  bg3: {fileID: 1380902971892596, guid: 3e9ff001b133140d796793ec17af35c9, type: 2}
-  bg4: {fileID: 1380902971892596, guid: 3e9ff001b133140d796793ec17af35c9, type: 2}
-  bgParent: {fileID: 1554118082}
-  wallPrefab: {fileID: 1671683373943838, guid: ba4998fbfc7e80146a1b75af34c4f303, type: 2}
-  pitPrefab: {fileID: 1690803466541358, guid: bf14bd1583dc09440aedaa259a89d06c, type: 2}
-  lanes:
-  - 0
-  - 0
-  - 0
-  - 0
-  projectileLanes:
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  timeToSpawn: 2
-  timeLeft: 2
-  timeTillWall: 2
-  timeTillBG: 1
-  timeToSpawnGround: 1
-  timeToPit: 7
-  closePick: 0
-  previousPick: -1
-  randomPick: 0
-  ticksToProjectile: 2.25
-  spawnBG: 1
-  spawnPit: 0
---- !u!4 &555937216
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 555937214}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 7.9555635, y: 4.6642222, z: -0.43473172}
-  m_LocalScale: {x: 6.438993, y: 6.438995, z: 6.438995}
-  m_Children: []
-  m_Father: {fileID: 578459497}
-  m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &578459489
 GameObject:
   m_ObjectHideFlags: 0
@@ -870,7 +790,6 @@ Transform:
   m_LocalScale: {x: 0.15530379, y: 0.15530375, z: 0.15530375}
   m_Children:
   - {fileID: 1666478981}
-  - {fileID: 555937216}
   - {fileID: 537704905}
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -1760,6 +1679,23 @@ MonoBehaviour:
   sectionsSpawned: 0
   spawnNextSection: 1
   difficultyIncreaseMultiplier: 1
+  clouds:
+  - {fileID: 1499022057245398, guid: f0fa4f8858907984c824dd6aff6d6b31, type: 2}
+  - {fileID: 1128639289141978, guid: 2b5b6feefc7c84d4cac6011d21dd8087, type: 2}
+  - {fileID: 1360278494962012, guid: ca95dbaed245c854c8ae7205e086937e, type: 2}
+  bg: {fileID: 1380902971892596, guid: 6cee920b75370441dbcd7a5209f86b72, type: 2}
+  bg2: {fileID: 1380902971892596, guid: f16c0ef6a120e824b93af768607c054b, type: 2}
+  bg3: {fileID: 1380902971892596, guid: 3e9ff001b133140d796793ec17af35c9, type: 2}
+  bg4: {fileID: 1380902971892596, guid: 3e9ff001b133140d796793ec17af35c9, type: 2}
+  bgParent: {fileID: 1554118082}
+  floorPrefab: {fileID: 1444349168013922, guid: a7e37ed81adfb284392ddfc2a6a60f89,
+    type: 2}
+  floorParent: {fileID: 357376379}
+  timeToSpawnGround: 1
+  timeTillCloud: 2.5
+  timeTillBG: 1
+  spawnBG: 1
+  canMakeSpecialBG: 1
 --- !u!1001 &1807576580
 Prefab:
   m_ObjectHideFlags: 0
