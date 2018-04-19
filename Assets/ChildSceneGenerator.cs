@@ -38,6 +38,7 @@ public class ChildSceneGenerator : MonoBehaviour
     public bool spawnBG = true;
     public bool spawnPit = false;
 	string bgCheck;
+    bool canMakeSpecialBG = true;
     int prevOrder = -50;
     // Use this for initialization
     void Start()
@@ -180,45 +181,47 @@ public class ChildSceneGenerator : MonoBehaviour
             tempFloor.x = this.transform.position.x;
             floor.transform.position = tempFloor;
             floor.transform.parent = floorParent.transform;
-            Debug.Log("Spawned Floor");
+           // Debug.Log("Spawned Floor");
             //Spawn BG
 			
         }
         if (timeTillBG < 0 &&spawnBG)
         {
             timeTillBG = 1f;
-
+            float shouldSpawnForeground=Random.Range(0,1f);
             float myRand = Random.value;
-            if (myRand <= 0.15f && bgCheck != "Swings" && bgCheck != "Playground")
+            GameObject foreground = null;
+            if (shouldSpawnForeground <= 0.15f && canMakeSpecialBG)
             {
-                background = Instantiate(bg);
-                background.GetComponent<SpriteRenderer>().sortingOrder = -50;
-                bgCheck = "Swings";
+                foreground = Instantiate(bg);
+                foreground.GetComponent<SpriteRenderer>().sortingOrder = prevOrder + 1;
+                canMakeSpecialBG = false;
             }
-            else if (myRand <= 0.65f && bgCheck!="Playground"&&bgCheck!="Swings")
+            else if (shouldSpawnForeground <= 0.3f && canMakeSpecialBG)
             {
-                background = Instantiate(bg2);
-                bgCheck = "Playground";
-                background.GetComponent<SpriteRenderer>().sortingOrder = -50;
-            }
-            else if (myRand <= 0.8f)
-            {
-                background = Instantiate(bg3);
-                bgCheck = "";
-                background.GetComponent<SpriteRenderer>().sortingOrder = prevOrder;
+                Debug.Log("Spawn Playground");
+                foreground = Instantiate(bg2);
+                canMakeSpecialBG = false;
+                foreground.GetComponent<SpriteRenderer>().sortingOrder = prevOrder + 1;
             }
             else
             {
-                background = Instantiate(bg4);
-                bgCheck = "";
-                background.GetComponent<SpriteRenderer>().sortingOrder = prevOrder;
+                canMakeSpecialBG = true;
             }
-            Vector3 temp1 = background.transform.position;
+            GameObject boringBackground = Instantiate(bg4);
+            boringBackground.GetComponent<SpriteRenderer>().sortingOrder = prevOrder- 1;
+            Vector3 temp1 = boringBackground.transform.position;
             temp1.x = this.transform.position.x;
-            background.transform.position = temp1;
-            background.transform.parent = bgParent.transform;
+            boringBackground.transform.position = temp1;
+            boringBackground.transform.parent = bgParent.transform;
+            if (foreground != null)
+            {
+                temp1 = foreground.transform.position;
+                temp1.x = this.transform.position.x;
+                foreground.transform.position = temp1;
+                foreground.transform.parent = bgParent.transform;
+            }
 
-            prevOrder--;
         }
         timeToPit -= Time.deltaTime;
         if (timeToPit < 0 && spawnPit)
