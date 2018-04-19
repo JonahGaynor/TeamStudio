@@ -20,6 +20,7 @@ TagManager:
   - Example Lane
   - Heart
   - Platform
+  - Flipper
   layers:
   - Default
   - TransparentFX

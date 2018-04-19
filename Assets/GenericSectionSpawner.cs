@@ -9,14 +9,32 @@ public class GenericSectionSpawner : MonoBehaviour {
     public int sectionsSpawned = 0;
     public bool spawnNextSection=true;
     public float difficultyIncreaseMultiplier = 2;
-	// Use this for initialization
-	void Start () {
+    public GameObject[] clouds;
+    public GameObject bg;
+    public GameObject bg2;
+    public GameObject bg3;
+    public GameObject bg4;
+    public GameObject bgParent;
+    public GameObject floorPrefab;
+    public GameObject floorParent;
+    public float timeToSpawnGround = 1f;
+    public bool spawnCloud = false;
+    public float timeTillBG = 1f;
+    public bool spawnBG = true;
+    public bool canMakeSpecialBG = true;
+    public bool inDebugMode = false;
+    int prevOrder = -50;
+    // Use this for initialization
+    void Start () {
 		
 	}
 	
 	// Update is called once per frame
 	void Update () {
-        if (spawnNextSection)
+        timeTillBG -= Time.deltaTime;
+        timeToSpawnGround -= Time.deltaTime;
+       
+        if (spawnNextSection&&!inDebugMode)
         {
            
             int choice;
@@ -48,5 +66,73 @@ public class GenericSectionSpawner : MonoBehaviour {
 
             spawnNextSection = false;
         }
-	}
+
+        if (timeTillBG < 0 && spawnBG && !inDebugMode)
+        {
+            timeTillBG = 1f;
+            float shouldSpawnForeground = Random.Range(0, 1f);
+            float myRand = Random.value;
+            GameObject foreground = null;
+            if (shouldSpawnForeground <= 0.15f && canMakeSpecialBG)
+            {
+                foreground = Instantiate(bg);
+                foreground.GetComponent<SpriteRenderer>().sortingOrder = prevOrder + 1;
+                canMakeSpecialBG = false;
+            }
+            else if (shouldSpawnForeground <= 0.3f && canMakeSpecialBG)
+            {
+                foreground = Instantiate(bg2);
+                canMakeSpecialBG = false;
+                foreground.GetComponent<SpriteRenderer>().sortingOrder = prevOrder + 1;
+            }
+            else
+            {
+                spawnCloud = true;
+                canMakeSpecialBG = true;
+            }
+            GameObject boringBackground = Instantiate(bg4);
+            boringBackground.GetComponent<SpriteRenderer>().sortingOrder = prevOrder - 1;
+            Vector3 temp1 = boringBackground.transform.position;
+            temp1.x = this.transform.position.x+10;
+            boringBackground.transform.position = temp1;
+            boringBackground.transform.parent = bgParent.transform;
+            if (foreground != null)
+            {
+                temp1 = foreground.transform.position;
+                temp1.x = this.transform.position.x+10;
+                foreground.transform.position = temp1;
+                foreground.transform.parent = bgParent.transform;
+            }
+
+        }
+        if (timeToSpawnGround < 0)
+        {
+            timeToSpawnGround = 2f;
+
+            //Spawn Floor
+            GameObject floor = Instantiate(floorPrefab);
+            Vector3 tempFloor = floor.transform.position;
+            tempFloor.x = this.transform.position.x;
+            floor.transform.position = tempFloor;
+            floor.transform.parent = floorParent.transform;
+            // Debug.Log("Spawned Floor");
+            //Spawn BG
+
+        }
+        if (spawnCloud && !inDebugMode)
+        {
+            spawnCloud = false;
+            if (Random.Range(0, 3) == 1)
+            {
+               
+                GameObject cloudtoSpawn = Instantiate(clouds[Random.Range(0, clouds.Length)]);
+                cloudtoSpawn.GetComponent<SpriteRenderer>().sortingOrder = prevOrder;
+                Vector3 temp = cloudtoSpawn.transform.position;
+                temp.x = this.transform.position.x + 10;
+                cloudtoSpawn.transform.position = temp;
+                cloudtoSpawn.transform.parent = bgParent.transform;
+            }
+            
+        }
+    }
 }
