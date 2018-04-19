@@ -18,10 +18,11 @@ public class GenericSectionSpawner : MonoBehaviour {
     public GameObject floorPrefab;
     public GameObject floorParent;
     public float timeToSpawnGround = 1f;
-    public float timeTillCloud = 2.5f;
+    public bool spawnCloud = false;
     public float timeTillBG = 1f;
     public bool spawnBG = true;
     public bool canMakeSpecialBG = true;
+    public bool inDebugMode = false;
     int prevOrder = -50;
     // Use this for initialization
     void Start () {
@@ -32,8 +33,8 @@ public class GenericSectionSpawner : MonoBehaviour {
 	void Update () {
         timeTillBG -= Time.deltaTime;
         timeToSpawnGround -= Time.deltaTime;
-        timeTillCloud -= Time.deltaTime;
-        if (spawnNextSection)
+       
+        if (spawnNextSection&&!inDebugMode)
         {
            
             int choice;
@@ -66,7 +67,7 @@ public class GenericSectionSpawner : MonoBehaviour {
             spawnNextSection = false;
         }
 
-        if (timeTillBG < 0 && spawnBG)
+        if (timeTillBG < 0 && spawnBG && !inDebugMode)
         {
             timeTillBG = 1f;
             float shouldSpawnForeground = Random.Range(0, 1f);
@@ -80,13 +81,13 @@ public class GenericSectionSpawner : MonoBehaviour {
             }
             else if (shouldSpawnForeground <= 0.3f && canMakeSpecialBG)
             {
-                Debug.Log("Spawn Playground");
                 foreground = Instantiate(bg2);
                 canMakeSpecialBG = false;
                 foreground.GetComponent<SpriteRenderer>().sortingOrder = prevOrder + 1;
             }
             else
             {
+                spawnCloud = true;
                 canMakeSpecialBG = true;
             }
             GameObject boringBackground = Instantiate(bg4);
@@ -118,15 +119,19 @@ public class GenericSectionSpawner : MonoBehaviour {
             //Spawn BG
 
         }
-        if (timeTillCloud < 0)
+        if (spawnCloud && !inDebugMode)
         {
-            timeTillCloud = 2.5f;
-            GameObject cloudtoSpawn =Instantiate(clouds[Random.Range(0, clouds.Length)]);
-            cloudtoSpawn.GetComponent<SpriteRenderer>().sortingOrder = prevOrder;
-            Vector3 temp = cloudtoSpawn.transform.position;
-            temp.x = this.transform.position.x + 10;
-            cloudtoSpawn.transform.position = temp;
-            cloudtoSpawn.transform.parent = bgParent.transform;
+            spawnCloud = false;
+            if (Random.Range(0, 3) == 1)
+            {
+               
+                GameObject cloudtoSpawn = Instantiate(clouds[Random.Range(0, clouds.Length)]);
+                cloudtoSpawn.GetComponent<SpriteRenderer>().sortingOrder = prevOrder;
+                Vector3 temp = cloudtoSpawn.transform.position;
+                temp.x = this.transform.position.x + 10;
+                cloudtoSpawn.transform.position = temp;
+                cloudtoSpawn.transform.parent = bgParent.transform;
+            }
             
         }
     }

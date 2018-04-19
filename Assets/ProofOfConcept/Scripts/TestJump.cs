@@ -231,14 +231,14 @@ public class TestJump : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collider)
     {
-		if (collider.gameObject.tag == "Furniture" && ProofGameController.Instance.life > 0 && inCoroutine == false&&canGetHit)
+        if (collider.gameObject.tag == "Furniture" && ProofGameController.Instance.life > 0 && inCoroutine == false && canGetHit)
         {
-			ProofGameController.Instance.life--;
+            ProofGameController.Instance.life--;
             inCoroutine = true;
             jumpOverride = true;
             canFloat = false;
             MakeBoxSmall();
-           // StartCoroutine(TakeDamage());
+            // StartCoroutine(TakeDamage());
             myAnimator.SetTrigger("Death");
             StartCoroutine(ReadyToDie());
             speedOverride = 0;
@@ -250,28 +250,20 @@ public class TestJump : MonoBehaviour
         if (collider.tag == "Text")
         {
             readyToMoveOn = true;
-			//ProofGameController.Instance.fadeToEnd = true;
-			speedOverride = 0;
-			mySprite.sprite = playerSprites [1];
-			//mySprite.flipX = true;
-			jumpOverride = true;
-			canFloat = false;
-			MakeBoxSmall ();
-           	myAnimator.SetTrigger("Death");
-//			StartCoroutine (ReadyToDie ());
-           // myAnimator.SetBool("ShouldRun", false);
-            
+            //ProofGameController.Instance.fadeToEnd = true;
+            speedOverride = 0;
+            mySprite.sprite = playerSprites[1];
+            //mySprite.flipX = true;
+            jumpOverride = true;
+            canFloat = false;
+            MakeBoxSmall();
+            myAnimator.SetTrigger("Death");
+            //			StartCoroutine (ReadyToDie ());
+            // myAnimator.SetBool("ShouldRun", false);
+
 
         }
-
-		if (collider.gameObject.tag == "TopChoice" && ProofGameController.Instance.questionsAnswered == 3)
-        {
-            SixLaneGameController.Instance.topChoiceMade = true;
-        }
-        if (collider.gameObject.tag == "BottomChoice" && SixLaneGameController.Instance.questionsAnswered == 3)
-        {
-            SixLaneGameController.Instance.bottomChoiceMade = true;
-        }
+       
     }
 
 

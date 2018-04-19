@@ -40,13 +40,6 @@ public class ProofGameController : MonoBehaviour {
         {
             gameOver = true;
         }
-       
-        if (moveToNextLevel)
-        {
-            questionsAnswered = 0;
-        }
- 
-      
     }
     void AddPickup()
     {
