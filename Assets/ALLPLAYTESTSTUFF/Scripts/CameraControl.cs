@@ -30,7 +30,6 @@ public class CameraControl : MonoBehaviour {
 		
 
 		if (ProofGameController.Instance.fadeToEnd) {
-            Debug.Log("Changing Shit");
             temporary = fadeToBlack.color;
             temporary.a = opacityBlack;
             fadeToBlack.color = temporary;
