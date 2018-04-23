@@ -71,7 +71,7 @@ public class FlipGravityScript : MonoBehaviour {
 
             if (Input.GetKeyDown(KeyCode.W)&&canFlip)
             {
-                SliderController.Instance.MoveSliderForward(0.1f);
+               
                 myRigidbody.gravityScale *= -1;
                 canFlip = false;
             }
