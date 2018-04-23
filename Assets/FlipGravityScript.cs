@@ -34,6 +34,7 @@ public class FlipGravityScript : MonoBehaviour {
     Animator myAnimator;
     public bool gravityOverride = false;
     public bool canGetHit;
+	public bool letsFlip = false;
     public bool readyToMoveOn = false;
     // Use this for initialization
     void Start()
@@ -75,6 +76,9 @@ public class FlipGravityScript : MonoBehaviour {
                 canFlip = false;
             }
         }
+		if (letsFlip) {
+			SwapGravity ();
+		}
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -195,6 +199,7 @@ public class FlipGravityScript : MonoBehaviour {
     }
     void SwapGravity()
     {
+		letsFlip = false;
         myRigidbody.gravityScale *= -1;
     }
 
