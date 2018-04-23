@@ -1528,7 +1528,6 @@ Camera:
   m_TargetEye: 3
   m_HDR: 1
   m_AllowMSAA: 1
-  m_AllowDynamicResolution: 0
   m_ForceIntoRT: 0
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
@@ -1673,9 +1672,8 @@ MonoBehaviour:
   - {fileID: 1136518253159082, guid: c8c836ff5802a034fb533a96eebc81a6, type: 2}
   hardSectionPrefabs:
   - {fileID: 1191576346044426, guid: 786c5a06e206703488b00fa88efda433, type: 2}
-  - {fileID: 1157825162509710, guid: ebdbecf8bfc58f4419c08ef12441bd09, type: 2}
-  - {fileID: 1032964379272206, guid: 4c19be12850de204282b8413e0f941a5, type: 2}
   - {fileID: 1007906080387530, guid: 86d546c9822b23047b8135e4ee3642a0, type: 2}
+  - {fileID: 1032964379272206, guid: 4c19be12850de204282b8413e0f941a5, type: 2}
   sectionsSpawned: 0
   spawnNextSection: 1
   difficultyIncreaseMultiplier: 1
@@ -1692,7 +1690,7 @@ MonoBehaviour:
     type: 2}
   floorParent: {fileID: 357376379}
   timeToSpawnGround: 1
-  timeTillCloud: 2.5
+  spawnCloud: 0
   timeTillBG: 1
   spawnBG: 1
   canMakeSpecialBG: 1
