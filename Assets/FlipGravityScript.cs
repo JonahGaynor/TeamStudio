@@ -19,6 +19,9 @@ public class FlipGravityScript : MonoBehaviour {
     public bool canGetUp = true;
     public bool jumpOverride = false;
     public bool canFlip=true;
+    public bool onGround = true;
+    public bool hitTheGround = false;
+    public bool onCeiling = false;
     //public int life = 5;
 
     bool hasFixed = false;
@@ -69,16 +72,41 @@ public class FlipGravityScript : MonoBehaviour {
             temp.x += (runSpeed * speedOverride);
             this.transform.position = temp;
 
-            if (Input.GetKeyDown(KeyCode.W)&&canFlip)
+            if (Input.GetKeyDown(KeyCode.W) && canFlip)
             {
                
+                myAnimator.SetTrigger("JumpUp");
+                myAnimator.SetBool("ShouldRun", false);
                 myRigidbody.gravityScale *= -1;
                 canFlip = false;
             }
         }
-		if (letsFlip) {
-			SwapGravity ();
-		}
+        if (letsFlip)
+        {
+            SwapGravity();
+           
+        }
+        RaycastHit2D hit = Physics2D.Raycast(this.transform.position, Vector2.zero);
+        if (onGround&&hitTheGround)
+        {
+             hit = Physics2D.Raycast(this.transform.position, this.transform.position+Vector3.up);
+            Debug.DrawLine(this.transform.position, this.transform.position + Vector3.up, Color.red);
+        }
+        else if (onCeiling&&hitTheGround)
+        {
+             hit = Physics2D.Raycast(this.transform.position, this.transform.position- Vector3.up);
+            Debug.DrawLine(this.transform.position, this.transform.position - Vector3.up, Color.red);
+
+        }
+        if (hit.collider != null)
+        {
+            Debug.Log(hit.transform.gameObject.name);
+            if (hit.transform.tag=="Floor" && !canFlip)
+            {
+                hitTheGround = false;
+                myAnimator.SetBool("FallJump", true);
+            }
+        }
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -149,7 +177,8 @@ public class FlipGravityScript : MonoBehaviour {
         }
         if (collider.tag == "Flipper")
         {
-         //   Debug.Log("Should Flip");
+            //   Debug.Log("Should Flip");
+            hitTheGround = true;
             bool canFlip = true;
             if (myRenderer.flipY && canFlip)
             {
@@ -162,6 +191,17 @@ public class FlipGravityScript : MonoBehaviour {
                 canFlip = false;
             }
             canFlip = true;
+
+            if (onGround)
+            {
+                onGround = false;
+                onCeiling = true;
+            }
+            else if (onCeiling)
+            {
+                onCeiling = false;
+                onGround = true;
+            }
 
         }
     }

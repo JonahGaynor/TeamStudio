@@ -16,6 +16,7 @@ public class GenericSectionSpawner : MonoBehaviour {
     public GameObject bg4;
     public GameObject bgParent;
     public GameObject floorPrefab;
+    public GameObject ceilingPrefab;
     public GameObject floorParent;
     public float timeToSpawnGround = 1f;
     public bool spawnCloud = false;
@@ -23,6 +24,8 @@ public class GenericSectionSpawner : MonoBehaviour {
     public bool spawnBG = true;
     public bool canMakeSpecialBG = true;
     public bool inDebugMode = false;
+
+    public bool canMakeCeiling = false;
     int prevOrder = -50;
     // Use this for initialization
     void Start () {
@@ -107,15 +110,31 @@ public class GenericSectionSpawner : MonoBehaviour {
         }
         if (timeToSpawnGround < 0)
         {
-            timeToSpawnGround = 2f;
 
+            if (!canMakeCeiling)
+            {
+                timeToSpawnGround = 2f;
+            }
             //Spawn Floor
             GameObject floor = Instantiate(floorPrefab);
             Vector3 tempFloor = floor.transform.position;
             tempFloor.x = this.transform.position.x;
             floor.transform.position = tempFloor;
             floor.transform.parent = floorParent.transform;
-            // Debug.Log("Spawned Floor");
+             Debug.Log("Spawned Floor");
+            //Spawn BG
+
+        }
+        if (timeToSpawnGround < 0&&canMakeCeiling)
+        {
+            timeToSpawnGround = 2f;
+            //Spawn Floor
+            GameObject floor = Instantiate(ceilingPrefab);
+            Vector3 tempFloor = floor.transform.position;
+            tempFloor.x = this.transform.position.x;
+            floor.transform.position = tempFloor;
+            floor.transform.parent = floorParent.transform;
+             Debug.Log("Spawned Ceiling");
             //Spawn BG
 
         }
