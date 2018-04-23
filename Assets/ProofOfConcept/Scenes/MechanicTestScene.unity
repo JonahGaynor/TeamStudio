@@ -4176,7 +4176,7 @@ MonoBehaviour:
     type: 2}
   floorParent: {fileID: 1429546127}
   timeToSpawnGround: 1
-  timeTillCloud: 2.5
+  spawnCloud: 0
   timeTillBG: 1
   spawnBG: 1
   canMakeSpecialBG: 1
@@ -7590,8 +7590,6 @@ GameObject:
   - component: {fileID: 2143324654}
   - component: {fileID: 2143324653}
   - component: {fileID: 2143324650}
-  - component: {fileID: 2143324651}
-  - component: {fileID: 2143324657}
   - component: {fileID: 2143324652}
   - component: {fileID: 2143324658}
   m_Layer: 9
@@ -7681,37 +7679,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 0
---- !u!114 &2143324651
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 2143324649}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a34db73993911c74ea6bf5cdb0b961d1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  runSpeed: 0.2
-  jumpingSprite: {fileID: 0}
-  myRigidbody: {fileID: 0}
-  playerSprites:
-  - {fileID: 21300000, guid: f1a938e3b17e7d948a6d7df531bbe0a1, type: 3}
-  mySprite: {fileID: 0}
-  myCollider: {fileID: 0}
-  canJump: 1
-  canGetUp: 1
-  jumpOverride: 0
-  lifeText: {fileID: 0}
-  choiceScript: {fileID: 0}
-  obsGenerator: {fileID: 0}
-  gravity: 0
-  staticGravity: 0
-  getHit: {fileID: 8300000, guid: e8886173dd9654e3fa7c4c36b91bf143, type: 3}
-  myRenderer: {fileID: 0}
-  gravityOverride: 0
-  canGetHit: 1
-  readyToMoveOn: 0
 --- !u!95 &2143324652
 Animator:
   serializedVersion: 3
@@ -7833,22 +7800,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2143324657
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 2143324649}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 979319447c0e3cc48b8186974f1f4402, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  dashLength: 0.5
-  dashing: 0
-  dashCooldown: 2
-  dashImageSprite: {fileID: 1578512388}
-  dashImage: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &2143324658
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7878,4 +7829,5 @@ MonoBehaviour:
   myRenderer: {fileID: 0}
   gravityOverride: 0
   canGetHit: 0
+  letsFlip: 0
   readyToMoveOn: 0
