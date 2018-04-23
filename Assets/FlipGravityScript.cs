@@ -18,7 +18,8 @@ public class FlipGravityScript : MonoBehaviour {
     public bool canJump = true;
     public bool canGetUp = true;
     public bool jumpOverride = false;
-    public bool canFlip=true;
+    public bool canFlip=false;
+    public bool flipOverride = true;
     public bool onGround = true;
     public bool hitTheGround = false;
     public bool onCeiling = false;
@@ -72,7 +73,7 @@ public class FlipGravityScript : MonoBehaviour {
             temp.x += (runSpeed * speedOverride);
             this.transform.position = temp;
 
-            if (Input.GetKeyDown(KeyCode.W) && canFlip)
+            if ((Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow)) && canFlip&&!flipOverride)
             {
                
                 myAnimator.SetTrigger("JumpUp");
@@ -100,7 +101,6 @@ public class FlipGravityScript : MonoBehaviour {
         }
         if (hit.collider != null)
         {
-            Debug.Log(hit.transform.gameObject.name);
             if (hit.transform.tag=="Floor" && !canFlip)
             {
                 hitTheGround = false;
@@ -125,6 +125,7 @@ public class FlipGravityScript : MonoBehaviour {
             canFlip = true;
 
         }
+      
 
 
     }
@@ -203,6 +204,11 @@ public class FlipGravityScript : MonoBehaviour {
                 onGround = true;
             }
 
+        }
+        if (collider.gameObject.tag == "AllowGenerator")
+        {
+            flipOverride = false;
+            this.transform.GetChild(0).GetComponent<GenericSectionSpawner>().enabled = true;
         }
     }
 
