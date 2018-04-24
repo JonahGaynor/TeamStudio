@@ -176,6 +176,16 @@ public class FlipGravityScript : MonoBehaviour {
 
 
         }
+       
+        if (collider.gameObject.tag == "AllowGenerator")
+        {
+            flipOverride = false;
+            this.transform.GetChild(0).GetComponent<GenericSectionSpawner>().enabled = true;
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D collider)
+    {
         if (collider.tag == "Flipper")
         {
             //   Debug.Log("Should Flip");
@@ -205,16 +215,12 @@ public class FlipGravityScript : MonoBehaviour {
             }
 
         }
-        if (collider.gameObject.tag == "AllowGenerator")
-        {
-            flipOverride = false;
-            this.transform.GetChild(0).GetComponent<GenericSectionSpawner>().enabled = true;
-        }
+
+
     }
 
 
-
-    IEnumerator TakeDamage()
+        IEnumerator TakeDamage()
     {
         myAudio.Play();
         mySprite.enabled = false;
