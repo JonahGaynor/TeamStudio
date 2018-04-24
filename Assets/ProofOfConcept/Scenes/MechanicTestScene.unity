@@ -7685,7 +7685,7 @@ Animator:
   m_GameObject: {fileID: 2143324649}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 8c9b61fe8fefce044b304a2079990454, type: 2}
+  m_Controller: {fileID: 9100000, guid: b076bcb529be7014795232e6f79cafe4, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -7829,6 +7829,6 @@ MonoBehaviour:
   getHit: {fileID: 0}
   myRenderer: {fileID: 0}
   gravityOverride: 0
-  canGetHit: 0
+  canGetHit: 1
   letsFlip: 0
   readyToMoveOn: 0
