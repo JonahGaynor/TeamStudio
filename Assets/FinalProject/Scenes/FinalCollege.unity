@@ -427,10 +427,10 @@ MonoBehaviour:
   clouds:
   - {fileID: 1812386067750734, guid: 91ce0a4995439b846854aee39750bd64, type: 2}
   - {fileID: 1442567779854800, guid: 69c4ab4f210e4e743a422bc8b081296f, type: 2}
-  bg: {fileID: 1949979758299848, guid: 27daf69be22b55d47a6fc4d0193bf2c4, type: 2}
+  bg: {fileID: 0}
   bg2: {fileID: 0}
   bg3: {fileID: 0}
-  bg4: {fileID: 0}
+  bg4: {fileID: 1949979758299848, guid: 27daf69be22b55d47a6fc4d0193bf2c4, type: 2}
   bgParent: {fileID: 1045095693}
   floorPrefab: {fileID: 1775257290774508, guid: 72eb95dc44ecd1d42a5153863c836361,
     type: 2}

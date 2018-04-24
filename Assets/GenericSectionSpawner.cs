@@ -91,7 +91,7 @@ public class GenericSectionSpawner : MonoBehaviour {
             else
             {
                 spawnCloud = true;
-                canMakeSpecialBG = true;
+              //  canMakeSpecialBG = true;
             }
             GameObject boringBackground = Instantiate(bg4);
             boringBackground.GetComponent<SpriteRenderer>().sortingOrder = prevOrder - 1;
@@ -136,7 +136,7 @@ public class GenericSectionSpawner : MonoBehaviour {
             //Spawn BG
 
         }
-        if (spawnCloud && !inDebugMode)
+        if (spawnCloud)
         {
             spawnCloud = false;
             if (Random.Range(0, 3) == 1)
