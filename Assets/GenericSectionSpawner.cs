@@ -139,7 +139,7 @@ public class GenericSectionSpawner : MonoBehaviour {
         if (spawnCloud)
         {
             spawnCloud = false;
-            if (Random.Range(0, 3) == 1)
+            if (Random.Range(0, 5) == 1)
             {
                
                 GameObject cloudtoSpawn = Instantiate(clouds[Random.Range(0, clouds.Length)]);
