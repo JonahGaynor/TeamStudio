@@ -21,6 +21,7 @@ TagManager:
   - Heart
   - Platform
   - Flipper
+  - AllowGenerator
   layers:
   - Default
   - TransparentFX
