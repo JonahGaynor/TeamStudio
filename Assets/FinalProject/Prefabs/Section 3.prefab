@@ -178,7 +178,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1749609390916694}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -7.2564335, y: 1.9423478, z: -0.04296875}
+  m_LocalPosition: {x: -7.2564335, y: 2.59, z: -0.04296875}
   m_LocalScale: {x: 0.39754426, y: 0.39754426, z: 0.39754426}
   m_Children: []
   m_Father: {fileID: 4432266677070580}
@@ -217,7 +217,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1602993623101546}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 13.1468315, y: 0.60234785, z: -0.04296875}
+  m_LocalPosition: {x: 13.1468315, y: 0.97, z: -0.04296875}
   m_LocalScale: {x: 0.39754426, y: 0.39754426, z: 0.39754426}
   m_Children: []
   m_Father: {fileID: 4432266677070580}
@@ -251,7 +251,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1264117454230598}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -7.4328117, y: 3.0337706, z: -0.04296875}
+  m_LocalPosition: {x: -7.4328117, y: 3.68, z: -0.04296875}
   m_LocalScale: {x: 0.87535685, y: 0.8753568, z: 0.8753568}
   m_Children: []
   m_Father: {fileID: 4432266677070580}
@@ -264,7 +264,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1566488237106002}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 12.880405, y: 2.4323478, z: -0.04296875}
+  m_LocalPosition: {x: 12.880405, y: 3.13, z: -0.04296875}
   m_LocalScale: {x: 0.62405115, y: 0.62405103, z: 0.62405103}
   m_Children: []
   m_Father: {fileID: 4432266677070580}
@@ -305,7 +305,7 @@ CircleCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0.013854622, y: -0.18000008}
@@ -345,7 +345,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0.3609681}
@@ -470,7 +470,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: -0.020619273, y: -0.3138106}
@@ -545,7 +545,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: -0.020619273, y: -0.3138106}
