@@ -15,7 +15,7 @@ public class MissingCeilingTileScript : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		playerVelocity = GameObject.Find ("Little Boy").GetComponent<Rigidbody2D> ().velocity;
-		if (Mathf.Abs (Vector2.Distance (transform.position, GameObject.Find ("Little Boy").GetComponent<Transform>().position)) <= 5f) {
+		if (Mathf.Abs (Vector2.Distance (transform.position, GameObject.Find ("Little Boy").GetComponent<Transform>().position)) <= 5f && ProofGameController.Instance.gameOver == false) {
 			myModifier += 0.02f;
 			GameObject.Find ("Little Boy").GetComponent<Rigidbody2D> ().velocity += Vector2.up * myModifier;
 			isOn = true;
