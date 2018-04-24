@@ -45,7 +45,7 @@ public class FlipGravityScript : MonoBehaviour {
     {
         myAnimator = this.GetComponent<Animator>();
         myRenderer = this.GetComponent<SpriteRenderer>();
-        myAudio = GetComponent<AudioSource>();
+        myAudio = this.GetComponent<AudioSource>();
         myRigidbody = this.GetComponent<Rigidbody2D>();
         mySprite = this.GetComponent<SpriteRenderer>();
         myCollider = this.GetComponent<BoxCollider2D>();
