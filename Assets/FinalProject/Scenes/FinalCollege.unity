@@ -404,7 +404,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 322142234}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4cb833c209221ec45ba8e58262f5539e, type: 3}
   m_Name: 
@@ -425,13 +425,12 @@ MonoBehaviour:
   spawnNextSection: 1
   difficultyIncreaseMultiplier: 1
   clouds:
-  - {fileID: 1499022057245398, guid: f0fa4f8858907984c824dd6aff6d6b31, type: 2}
-  - {fileID: 1128639289141978, guid: 2b5b6feefc7c84d4cac6011d21dd8087, type: 2}
-  - {fileID: 1360278494962012, guid: ca95dbaed245c854c8ae7205e086937e, type: 2}
-  bg: {fileID: 1380902971892596, guid: 6cee920b75370441dbcd7a5209f86b72, type: 2}
-  bg2: {fileID: 1380902971892596, guid: f16c0ef6a120e824b93af768607c054b, type: 2}
-  bg3: {fileID: 1380902971892596, guid: 3e9ff001b133140d796793ec17af35c9, type: 2}
-  bg4: {fileID: 1380902971892596, guid: 3e9ff001b133140d796793ec17af35c9, type: 2}
+  - {fileID: 1812386067750734, guid: 91ce0a4995439b846854aee39750bd64, type: 2}
+  - {fileID: 1442567779854800, guid: 69c4ab4f210e4e743a422bc8b081296f, type: 2}
+  bg: {fileID: 1949979758299848, guid: 27daf69be22b55d47a6fc4d0193bf2c4, type: 2}
+  bg2: {fileID: 0}
+  bg3: {fileID: 0}
+  bg4: {fileID: 0}
   bgParent: {fileID: 1045095693}
   floorPrefab: {fileID: 1775257290774508, guid: 72eb95dc44ecd1d42a5153863c836361,
     type: 2}
@@ -442,7 +441,7 @@ MonoBehaviour:
   spawnCloud: 0
   timeTillBG: 1
   spawnBG: 1
-  canMakeSpecialBG: 1
+  canMakeSpecialBG: 0
   inDebugMode: 1
   canMakeCeiling: 1
 --- !u!1 &333644694
@@ -1175,6 +1174,7 @@ MonoBehaviour:
   canGetUp: 1
   jumpOverride: 0
   canFlip: 1
+  flipOverride: 1
   onGround: 1
   hitTheGround: 0
   onCeiling: 0

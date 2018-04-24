@@ -70,7 +70,7 @@ public class GenericSectionSpawner : MonoBehaviour {
             spawnNextSection = false;
         }
 
-        if (timeTillBG < 0 && spawnBG && !inDebugMode)
+        if (timeTillBG < 0 && spawnBG)
         {
             timeTillBG = 1f;
             float shouldSpawnForeground = Random.Range(0, 1f);
