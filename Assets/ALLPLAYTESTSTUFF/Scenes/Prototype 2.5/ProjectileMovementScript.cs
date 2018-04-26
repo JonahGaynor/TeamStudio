@@ -12,7 +12,7 @@ public class ProjectileMovementScript : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
         Vector3 temp = this.transform.position;
-        temp.x -=speed;
+        temp.x -=speed*Time.timeScale;
         this.transform.position = temp;
 	}
 }
