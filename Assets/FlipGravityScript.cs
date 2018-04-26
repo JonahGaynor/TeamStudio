@@ -70,7 +70,7 @@ public class FlipGravityScript : MonoBehaviour {
             runSpeed = ProofGameController.Instance.standardMoveSpeed;
             //            Debug.Log(runSpeed);
             Vector3 temp = this.transform.position;
-            temp.x += (runSpeed * speedOverride);
+            temp.x += (runSpeed * speedOverride)*Time.timeScale;
             this.transform.position = temp;
 
             if ((Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow)) && canFlip&&!flipOverride)
@@ -144,6 +144,43 @@ public class FlipGravityScript : MonoBehaviour {
 
     private void OnTriggerEnter2D(Collider2D collider)
     {
+
+        if (collider.tag == "Flipper")
+        {
+            hitTheGround = true;
+
+            if (myRigidbody.velocity.y < 0)
+            {
+                //   Debug.Log("Should Flip");
+                
+                
+                    myRenderer.flipY = false;
+                    canFlip = false;
+                
+            }
+            if (myRigidbody.velocity.y > 0)
+            {
+               
+                    myRenderer.flipY = true;
+                    canFlip = false;
+                
+            }
+
+
+                if (onGround)
+                {
+                    onGround = false;
+                    onCeiling = true;
+                }
+                else if (onCeiling)
+                {
+                    onCeiling = false;
+                    onGround = true;
+                }
+
+            
+        }
+
         if (collider.gameObject.tag == "Furniture" && ProofGameController.Instance.life > 0 && inCoroutine == false && canGetHit)
         {
             ProofGameController.Instance.life--;
@@ -188,36 +225,28 @@ public class FlipGravityScript : MonoBehaviour {
     {
         if (collider.tag == "Flipper")
         {
-            //   Debug.Log("Should Flip");
             hitTheGround = true;
-            bool canFlip = true;
-            if (myRenderer.flipY && canFlip)
+
+            if (myRigidbody.velocity.y < 0)
             {
+                //   Debug.Log("Should Flip");
+
+
                 myRenderer.flipY = false;
                 canFlip = false;
+
             }
-            if (!myRenderer.flipY && canFlip)
+            if (myRigidbody.velocity.y > 0)
             {
+
                 myRenderer.flipY = true;
                 canFlip = false;
-            }
-            canFlip = true;
 
-            if (onGround)
-            {
-                onGround = false;
-                onCeiling = true;
             }
-            else if (onCeiling)
-            {
-                onCeiling = false;
-                onGround = true;
-            }
-
         }
 
 
-    }
+        }
 
 
         IEnumerator TakeDamage()
