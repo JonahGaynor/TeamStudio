@@ -6,7 +6,7 @@ public class CollegeCollectibleScript : MonoBehaviour {
 
 	public float collectibleValue = 1f;
 
-	void OnTriggerEnter2D (Collision2D col){
+	void OnTriggerEnter2D (Collider2D col){
 		if (col.gameObject.name == "Little Boy" && this.gameObject.tag == "badCollectible") {
 			GameObject.Find ("ProofGameController").GetComponent<HomeLifeManager> ().collectiblesGot += 1;
 			GameObject.Find ("ProofGameController").GetComponent<HomeLifeManager> ().stressLevel -= collectibleValue;
