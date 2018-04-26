@@ -24,6 +24,7 @@ public class GenericSectionSpawner : MonoBehaviour {
     public bool spawnBG = true;
     public bool canMakeSpecialBG = true;
     public bool inDebugMode = false;
+    public int sectionOffest = 0;
 
     public bool canMakeCeiling = false;
     int prevOrder = -50;
@@ -62,7 +63,7 @@ public class GenericSectionSpawner : MonoBehaviour {
             }
             GameObject placeSection = Instantiate(sectionToSpawn);
             Vector3 temp = placeSection.transform.position;
-            temp.x = this.transform.position.x;
+            temp.x = this.transform.position.x+ sectionOffest;
             placeSection.transform.position = temp;
             sectionsSpawned++;
 
