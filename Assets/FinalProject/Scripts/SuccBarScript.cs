@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class SuccBarScript : MonoBehaviour {
 
-	public float myProgress = 0f;
+	public float myProgress;
 	public float endSpot;
 	public float startSpot;
 
@@ -17,6 +17,6 @@ public class SuccBarScript : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		myProgress = (GameObject.Find ("ProofGameController").GetComponent<HomeLifeManager> ().stressLevel) / (GameObject.Find ("ProofGameController").GetComponent<HomeLifeManager> ().maxStress);
-		this.transform.position.x = (endSpot - startSpot) * myProgress;
+		this.transform.position = new Vector3 ((endSpot - startSpot) * myProgress), transform.position.y, 0f);
 	}
 }
