@@ -96,7 +96,13 @@ public class FinalSceneManager : MonoBehaviour {
 				sceneName = thisScene.name;
 				hasSwitched = true;
 				ProofGameController.Instance.moveToNextLevel = false;
-			}
+			} else if (sceneName == "FinalTruck")
+            {
+                hasSwitched = true;
+                SceneManager.LoadScene("FinalCredits");
+                ProofGameController.Instance.moveToNextLevel = false;
+
+            }
 
 		}
 		if (Input.GetKeyUp (KeyCode.I) && sceneName == "ProofStartScene") {
