@@ -17,6 +17,6 @@ public class SuccBarScript : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		myProgress = (GameObject.Find ("ProofGameController").GetComponent<HomeLifeManager> ().stressLevel) / (GameObject.Find ("ProofGameController").GetComponent<HomeLifeManager> ().maxStress);
-		this.transform.position = new Vector3 ((endSpot - startSpot) * myProgress), transform.position.y, 0f);
+		this.transform.position = new Vector3 (((endSpot - startSpot) * myProgress), transform.position.y, 0f);
 	}
 }
