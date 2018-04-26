@@ -12,6 +12,8 @@ public class SuccBarScript : MonoBehaviour {
 	void Start () {
 		startSpot = GameObject.Find ("StartSpot").GetComponent<Transform> ().position.x;
 		endSpot = GameObject.Find ("EndSpot").GetComponent<Transform> ().position.x;
+
+
 	}
 	
 	// Update is called once per frame
