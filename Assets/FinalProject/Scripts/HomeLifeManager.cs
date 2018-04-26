@@ -21,12 +21,17 @@ public class HomeLifeManager : MonoBehaviour {
 	void Start () {
 		myPlayer = GameObject.Find ("Little Boy");
 		myAnimator = myPlayer.GetComponent<Animator> ();
-		myAnimator = characterAnimators [0];
-	}
+        myAnimator.SetLayerWeight(1, 0);
+        myAnimator.SetLayerWeight(2, 0);
+        //myAnimator = characterAnimators [0];
+    }
 	
 	// Update is called once per frame
 	void Update () {
-		stressLevel += Time.deltaTime * stressMultiplier;
+        Debug.Log(myAnimator.GetLayerName(0));
+        Debug.Log(myAnimator.GetLayerName(1));
+        Debug.Log(myAnimator.GetLayerName(2));
+        stressLevel += Time.deltaTime * stressMultiplier;
 		myTimer += Time.deltaTime;
 
 		if (stressLevel >= maxStress && !secondCheckpointHit) {
@@ -42,14 +47,26 @@ public class HomeLifeManager : MonoBehaviour {
 			secondCheckpointHit = true;
 			secondCheckpointSwitch ();
 		}
-	}
+        if (Input.GetKeyDown(KeyCode.C))
+        {
+            firstCheckpointSwitch();
+        }
+        if (Input.GetKeyDown(KeyCode.X))
+        {
+            secondCheckpointSwitch();
+        }
+    }
 
 	void firstCheckpointSwitch () {
-		myAnimator = characterAnimators [1];
-	}
+        myAnimator.SetLayerWeight(0, 0);
+        myAnimator.SetLayerWeight(1, 100);
+        //myAnimator = characterAnimators [1];
+    }
 
 	void secondCheckpointSwitch () {
-		myAnimator = characterAnimators [2];
-	}
+        myAnimator.SetLayerWeight(1, 0);
+        myAnimator.SetLayerWeight(2, 100);
+        //	myAnimator = characterAnimators [2];
+    }
 
 }
