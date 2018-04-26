@@ -80,7 +80,7 @@ public class TestJump : MonoBehaviour
 			runSpeed = ProofGameController.Instance.standardMoveSpeed;
 //            Debug.Log(runSpeed);
             Vector3 temp = this.transform.position;
-            temp.x += (runSpeed*speedOverride);
+            temp.x += (runSpeed*speedOverride*Time.timeScale);
             this.transform.position = temp;
             //Debug.Log(canFloat);
 

@@ -16,7 +16,7 @@ public class StopForInstructionScript : MonoBehaviour {
 	void Update () {
         instuctionCanvas.enabled = false;
         timeSinceStarting += Time.deltaTime;
-        Debug.Log(Time.timeScale);
+       
         Time.timeScale = 1;
         if (timeSinceStarting >timeAtWhichToStop)
         {
