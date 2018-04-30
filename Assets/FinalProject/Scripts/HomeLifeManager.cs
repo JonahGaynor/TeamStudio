@@ -3,8 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class HomeLifeManager : MonoBehaviour {
-
-	public float stressLevel;
+    public static HomeLifeManager Instance = new HomeLifeManager();
+	public float stressLevel=0;
 	public float stressMultiplier = 0.25f;
 	public float maxStress = 30f;
 	public int collectiblesGot = 0;
@@ -19,6 +19,7 @@ public class HomeLifeManager : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+        Instance = this;
 		myPlayer = GameObject.Find ("Little Boy");
 		myAnimator = myPlayer.GetComponent<Animator> ();
         myAnimator.SetLayerWeight(1, 0);
@@ -28,9 +29,7 @@ public class HomeLifeManager : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        Debug.Log(myAnimator.GetLayerName(0));
-        Debug.Log(myAnimator.GetLayerName(1));
-        Debug.Log(myAnimator.GetLayerName(2));
+      
         stressLevel += Time.deltaTime * stressMultiplier;
 		myTimer += Time.deltaTime;
 
