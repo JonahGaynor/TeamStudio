@@ -10,13 +10,15 @@ public class SuccBarScript : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		startSpot = GameObject.Find ("StartSpot").GetComponent<Transform> ().position.x;
-		endSpot = GameObject.Find ("EndSpot").GetComponent<Transform> ().position.x;
+		startSpot = GameObject.Find ("StartSpot").GetComponent<Transform> ().position.y;
+		endSpot = GameObject.Find ("EndSpot").GetComponent<Transform> ().position.y;
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		myProgress = (GameObject.Find ("ProofGameController").GetComponent<HomeLifeManager> ().stressLevel) / (GameObject.Find ("ProofGameController").GetComponent<HomeLifeManager> ().maxStress);
-		this.transform.position = new Vector3 (((endSpot - startSpot) * myProgress), transform.position.y, 0f);
+
+        myProgress = (GameObject.Find ("ProofGameController").GetComponent<HomeLifeManager> ().stressLevel) / (GameObject.Find ("ProofGameController").GetComponent<HomeLifeManager> ().maxStress);
+     
+        this.transform.position = new Vector3 (transform.position.x,startSpot+((endSpot - startSpot) * myProgress), 0f);
 	}
 }

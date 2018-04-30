@@ -378,8 +378,6 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 37695044}
-  - component: {fileID: 37695045}
-  - component: {fileID: 37695046}
   m_Layer: 0
   m_Name: MovingFaceOnMeter
   m_TagString: Untagged
@@ -405,35 +403,6 @@ Transform:
   m_Father: {fileID: 96648975}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &37695045
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 37695043}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7e80292a3b0fe7a40824dee506769a60, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  movingFace: {fileID: 0}
-  bar: {fileID: 0}
-  destination: {fileID: 0}
-  distanceToTravel: 0.1
---- !u!114 &37695046
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 37695043}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 244c23caacbfe41179c6d6c8a575e1af, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  myProgress: 0
-  endSpot: 0
-  startSpot: 0
 --- !u!1 &96648971
 GameObject:
   m_ObjectHideFlags: 0
@@ -733,7 +702,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 282300662}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4d3ba388c6d99c64b8940afb3e69107d, type: 3}
+  m_Script: {fileID: 11500000, guid: 16aac7ff9ecc81f4a9b29f998984030f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   runSpeed: 0.2
@@ -745,20 +714,15 @@ MonoBehaviour:
   canJump: 1
   canGetUp: 1
   jumpOverride: 0
-  canFlip: 1
-  flipOverride: 1
-  onGround: 1
-  hitTheGround: 0
-  onCeiling: 0
+  lifeText: {fileID: 0}
   choiceScript: {fileID: 0}
   obsGenerator: {fileID: 0}
   gravity: 0
   staticGravity: 0
   getHit: {fileID: 0}
   myRenderer: {fileID: 0}
-  gravityOverride: 0
-  canGetHit: 1
-  letsFlip: 0
+  gravityOverride: 1
+  canGetHit: 0
   readyToMoveOn: 0
 --- !u!82 &282300664
 AudioSource:
@@ -1618,7 +1582,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 607736637}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 39.2, y: -36.1, z: 4.8444786}
+  m_LocalPosition: {x: 39.2, y: -34.7, z: 4.8444786}
   m_LocalScale: {x: 0.42053524, y: 0.42053524, z: 0.42053524}
   m_Children: []
   m_Father: {fileID: 37695044}
@@ -2100,7 +2064,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 882981173}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4cb833c209221ec45ba8e58262f5539e, type: 3}
   m_Name: 
@@ -2136,7 +2100,7 @@ MonoBehaviour:
   timeTillBG: 1
   spawnBG: 1
   canMakeSpecialBG: 0
-  inDebugMode: 0
+  inDebugMode: 1
   sectionOffest: 15
   canMakeCeiling: 1
 --- !u!1 &908152746
@@ -2285,6 +2249,7 @@ GameObject:
   - component: {fileID: 998246671}
   - component: {fileID: 998246673}
   - component: {fileID: 998246672}
+  - component: {fileID: 998246674}
   m_Layer: 5
   m_Name: Moving Face
   m_TagString: Untagged
@@ -2343,6 +2308,20 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 998246670}
+--- !u!114 &998246674
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 998246670}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 244c23caacbfe41179c6d6c8a575e1af, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  myProgress: 0
+  endSpot: 0
+  startSpot: 0
 --- !u!1 &1073977503
 GameObject:
   m_ObjectHideFlags: 0
@@ -2480,7 +2459,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1172626801}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 39.2, y: 140.7, z: 4.8444786}
+  m_LocalPosition: {x: 39.2, y: 147.3, z: 4.8444786}
   m_LocalScale: {x: 0.42053524, y: 0.42053524, z: 0.42053524}
   m_Children: []
   m_Father: {fileID: 37695044}
@@ -2539,14 +2518,14 @@ RectTransform:
   m_GameObject: {fileID: 1516486649}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 2.7418022}
-  m_LocalScale: {x: 0.16342999, y: 0.20428857, z: 0.16342999}
+  m_LocalScale: {x: 0.32094616, y: 0.23951338, z: 0.19160968}
   m_Children: []
   m_Father: {fileID: 37695044}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 40.1, y: 143.2}
+  m_AnchoredPosition: {x: 41.8, y: 147.3}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1516486651
@@ -2568,7 +2547,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: f5c6d7343cce52f4baa5343ebdddf10d, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 942d1ef60d964904f93b5d247add7a28, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
