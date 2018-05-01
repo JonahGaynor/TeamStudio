@@ -142,4 +142,11 @@ public class DashScript : MonoBehaviour {
         myCollider.offset = temp;
         return;
     }
+    public void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.transform.tag == "Platform"|| collision.transform.tag == "Floor")
+        {
+            canDash = true;
+        }   
+    }
 }
