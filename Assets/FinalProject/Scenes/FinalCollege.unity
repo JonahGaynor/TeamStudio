@@ -671,12 +671,17 @@ MonoBehaviour:
   easySectionPrefabs:
   - {fileID: 1471716371440230, guid: ed1af3aaf16944f6695a615ed5df88df, type: 2}
   - {fileID: 1107981836607636, guid: 5a85f90cdd68e574cbd27afaa0f04ce0, type: 2}
+  - {fileID: 1515780221836948, guid: e215818ded259460999ec60cf19606df, type: 2}
+  - {fileID: 1092751864696444, guid: 1879fb3e3254644ffa347a94c67d52ea, type: 2}
   mediumSectionPrefabs:
   - {fileID: 1849210342573374, guid: 59dbffabd20aa4a679fadd3125da09d3, type: 2}
   - {fileID: 1335864067880368, guid: 1dcb794a1daa2144b869eb1e817b497a, type: 2}
+  - {fileID: 1835444785286830, guid: f47c3678786a04b67b1a5f17c61e2dc0, type: 2}
   hardSectionPrefabs:
   - {fileID: 1449503293459878, guid: 1eade16eca0d44170a59b29f7e492208, type: 2}
   - {fileID: 1134417208773182, guid: 5009050d44e613549b655a04eea16e24, type: 2}
+  - {fileID: 1216044109989882, guid: eca04767bfef543fa9d4b33943130155, type: 2}
+  - {fileID: 1521732652270258, guid: 5c0eb9708f2c14a3887c2f79c346980f, type: 2}
   sectionsSpawned: 0
   spawnNextSection: 1
   difficultyIncreaseMultiplier: 1
@@ -2489,7 +2494,6 @@ Camera:
   m_TargetEye: 3
   m_HDR: 1
   m_AllowMSAA: 1
-  m_AllowDynamicResolution: 0
   m_ForceIntoRT: 0
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
