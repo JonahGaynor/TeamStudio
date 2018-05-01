@@ -22,6 +22,8 @@ TagManager:
   - Platform
   - Flipper
   - AllowGenerator
+  - Collectible
+  - badCollectible
   layers:
   - Default
   - TransparentFX
