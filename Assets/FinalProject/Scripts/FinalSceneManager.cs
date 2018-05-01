@@ -5,9 +5,9 @@ using UnityEngine.SceneManagement;
 
 public class FinalSceneManager : MonoBehaviour {
 
-	Scene thisScene;
-	string sceneName;
-	int scenesPast = 0;
+	public Scene thisScene;
+	public string sceneName;
+	public int scenesPast = 0;
 
 	// Use this for initialization
 	void Start () {
@@ -25,8 +25,8 @@ public class FinalSceneManager : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		thisScene = SceneManager.GetActiveScene();
-
-		bool hasSwitched = false;
+        sceneName = thisScene.name;
+        bool hasSwitched = false;
 		if (ProofGameController.Instance.moveToNextLevel&&!hasSwitched) {
 
 			if (sceneName == "ProofStartScene") {
