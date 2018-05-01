@@ -5,9 +5,9 @@ using UnityEngine.SceneManagement;
 
 public class FinalSceneManager : MonoBehaviour {
 
-	Scene thisScene;
-	string sceneName;
-	int scenesPast = 0;
+	public Scene thisScene;
+	public string sceneName;
+	public int scenesPast = 0;
 
 	// Use this for initialization
 	void Start () {
