@@ -25,6 +25,7 @@ public class FinalSceneManager : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		thisScene = SceneManager.GetActiveScene();
+		sceneName = thisScene.namee;
 
 		bool hasSwitched = false;
 		if (ProofGameController.Instance.moveToNextLevel&&!hasSwitched) {
@@ -105,6 +106,35 @@ public class FinalSceneManager : MonoBehaviour {
             }
 
 		}
+
+		if (ProofGameController.Instance.gameOver) {
+			if (sceneName == "ProofEKG") {
+				SceneManager.LoadScene ("ProofDeathScene");
+				sceneName = thisScene.name;
+				ProofGameController.Instance.gameOver = false;
+			} else if (sceneName == "ProofChildhood" || sceneName == "FinalCollege") {
+				SceneManager.LoadScene ("ProofDeadChild");
+				sceneName = thisScene.name;
+				ProofGameController.Instance.gameOver = false;
+			} 
+
+		}
+
+		if (Input.GetKeyUp (KeyCode.R)) {
+			if (sceneName == "ProofDeathScene") {
+				SceneManager.LoadScene ("ProofEKG");
+				sceneName = thisScene.name;
+
+			} else if (sceneName == "ProofDeadChild") {
+				SceneManager.LoadScene ("ProofChildhood");
+				sceneName = thisScene.name;
+			}
+
+		}
+		if (Input.GetKeyUp (KeyCode.Return) && sceneName == "Cutscene_HighSchool") {
+			ProofGameController.Instance.fadeToEnd = true;
+		}
+
 		if (Input.GetKeyUp (KeyCode.I) && sceneName == "ProofStartScene") {
 			SceneManager.LoadScene ("FinalCredits");
 			sceneName = thisScene.name;
