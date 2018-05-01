@@ -132,7 +132,7 @@ public class FinalSceneManager : MonoBehaviour {
 
 		}
 		if (Input.GetKeyUp (KeyCode.Return) && sceneName == "Cutscene_HighSchool") {
-			ProofGameController.Instance.moveToNextLevel = true;
+			ProofGameController.Instance.fadeToEnd = true;
 		}
 
 		if (Input.GetKeyUp (KeyCode.I) && sceneName == "ProofStartScene") {
