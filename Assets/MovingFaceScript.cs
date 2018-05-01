@@ -23,10 +23,10 @@ public class MovingFaceScript : MonoBehaviour {
             bar.SetActive(false);
             destination.SetActive(false);
         }
-        if (movingFace.transform.position.x >250)
+        if (movingFace.transform.position.x >850)
         {
             ProofGameController.Instance.fadeToEnd = true;
-            Debug.Log("You win!");
+           // Debug.Log("You win!");
         }
 	}
 }

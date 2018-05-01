@@ -25,7 +25,7 @@ public class FinalSceneManager : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		thisScene = SceneManager.GetActiveScene();
-		sceneName = thisScene.namee;
+		sceneName = thisScene.name;
 
 		bool hasSwitched = false;
 		if (ProofGameController.Instance.moveToNextLevel&&!hasSwitched) {
@@ -132,7 +132,7 @@ public class FinalSceneManager : MonoBehaviour {
 
 		}
 		if (Input.GetKeyUp (KeyCode.Return) && sceneName == "Cutscene_HighSchool") {
-			ProofGameController.Instance.fadeToEnd = true;
+			ProofGameController.Instance.moveToNextLevel = true;
 		}
 
 		if (Input.GetKeyUp (KeyCode.I) && sceneName == "ProofStartScene") {
