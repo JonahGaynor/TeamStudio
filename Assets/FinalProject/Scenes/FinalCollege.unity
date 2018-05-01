@@ -1499,7 +1499,7 @@ Prefab:
         type: 2}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: a3bf0ef169277d64795821225257e7e4,
+      objectReference: {fileID: 21300000, guid: d4eeefb57ec612f408cb180877d8bdf8,
         type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 3e9ff001b133140d796793ec17af35c9, type: 2}
@@ -2489,6 +2489,7 @@ Camera:
   m_TargetEye: 3
   m_HDR: 1
   m_AllowMSAA: 1
+  m_AllowDynamicResolution: 0
   m_ForceIntoRT: 0
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
@@ -3006,7 +3007,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4797123964863332, guid: 3e9ff001b133140d796793ec17af35c9, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 9.42
+      value: 9.54
       objectReference: {fileID: 0}
     - target: {fileID: 4797123964863332, guid: 3e9ff001b133140d796793ec17af35c9, type: 2}
       propertyPath: m_LocalPosition.z
@@ -3057,7 +3058,7 @@ Prefab:
         type: 2}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: 3f617c37e4d7dbc42adbd9be4dee392f,
+      objectReference: {fileID: 21300000, guid: 831544ad727a80845a5ed95b4e45c298,
         type: 3}
     - target: {fileID: 1380902971892596, guid: 3e9ff001b133140d796793ec17af35c9, type: 2}
       propertyPath: m_TagString
