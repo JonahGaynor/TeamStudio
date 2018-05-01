@@ -54,22 +54,22 @@ EditorBuildSettings:
     path: Assets/ALLPLAYTESTSTUFF/Scenes/Prototype 3/ScaryLoseScene.unity
     guid: 54dd55a45fc7f48428f17cce38df4c0f
   - enabled: 1
-    path: Assets/ProofOfConcept/Scenes/ProofTitle.unity
+    path: Assets/ProofOfConcept/Scenes/CutsceneScene.unity
     guid: da992eed792a24aad9bc35077e7c547e
   - enabled: 1
-    path: Assets/ProofOfConcept/Scenes/ProofStartScene.unity
+    path: Assets/FinalProject/Scenes/ProofStartScene.unity
     guid: 14abb3279a025488db50805cef0cc56e
   - enabled: 1
-    path: Assets/ProofOfConcept/Scenes/ProofEKG.unity
+    path: Assets/FinalProject/Scenes/ProofEKG.unity
     guid: 87d6d56b1c7874388a4393860e56c5f5
   - enabled: 1
-    path: Assets/ProofOfConcept/Scenes/ProofChildhood.unity
+    path: Assets/FinalProject/Scenes/ProofChildhood.unity
     guid: b0d32df6cc4a8448d98bc61e717e25aa
   - enabled: 1
-    path: Assets/ProofOfConcept/Scenes/ProofDeadChild.unity
+    path: Assets/FinalProject/Scenes/ProofDeadChild.unity
     guid: 92ef1ac60cfba49daa990bb5f36e4d88
   - enabled: 1
-    path: Assets/ProofOfConcept/Scenes/ProofDeathScene.unity
+    path: Assets/FinalProject/Scenes/ProofDeathScene.unity
     guid: fae01a2cb18bf43a4984a8847d7f2675
   - enabled: 1
     path: Assets/ProofOfConcept/Scenes/ProofVictoryScene.unity

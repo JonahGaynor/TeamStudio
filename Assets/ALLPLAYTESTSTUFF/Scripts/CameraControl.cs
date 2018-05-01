@@ -22,9 +22,12 @@ public class CameraControl : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        Vector3 temp = this.transform.position;
-        temp.x = player.transform.position.x-offset;
-        this.transform.position = temp;
+        if (player != null)
+        {
+            Vector3 temp = this.transform.position;
+            temp.x = player.transform.position.x - offset;
+            this.transform.position = temp;
+        }
 
 
 		

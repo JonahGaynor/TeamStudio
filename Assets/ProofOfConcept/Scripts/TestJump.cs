@@ -213,7 +213,7 @@ public class TestJump : MonoBehaviour
             myAnimator.SetTrigger("Death");
             StartCoroutine(ReadyToDie());
             speedOverride = 0;
-            ProofGameController.Instance.fadeToEnd = true;
+           // ProofGameController.Instance.fadeToEnd = true;
         }
 
 
