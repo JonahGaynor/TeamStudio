@@ -41,11 +41,13 @@ public class HomeLifeManager : MonoBehaviour {
 		if (myTimer >= firstCheckpoint) {
 			firstCheckpointHit = true;
 			firstCheckpointSwitch ();
+            stressLevel = 1;
 		}
 		if (myTimer >= secondCheckpoint && firstCheckpointHit) {
 			secondCheckpointHit = true;
 			secondCheckpointSwitch ();
-		}
+            stressLevel = 1;
+        }
         if (Input.GetKeyDown(KeyCode.C))
         {
             firstCheckpointSwitch();
