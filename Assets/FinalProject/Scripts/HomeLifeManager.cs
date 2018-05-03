@@ -29,7 +29,7 @@ public class HomeLifeManager : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-      
+        Debug.Log(stressLevel);
         stressLevel += Time.deltaTime * stressMultiplier;
 		myTimer += Time.deltaTime;
 

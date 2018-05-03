@@ -53,7 +53,7 @@ public class HomeLifeJumpScript : MonoBehaviour
         myRigidbody = this.GetComponent<Rigidbody2D>();
         mySprite = this.GetComponent<SpriteRenderer>();
         myCollider = this.GetComponent<BoxCollider2D>();
-        mySprite.sprite = playerSprites[0];
+       // mySprite.sprite = playerSprites[0];
         staticGravity = myRigidbody.gravityScale;
         gravity = staticGravity;
         canFloat = true;
@@ -104,7 +104,7 @@ public class HomeLifeJumpScript : MonoBehaviour
                     myRigidbody.velocity = Vector2.zero;
                     canJump = false;
                     myAnimator.SetBool("ShouldRun", false);
-                    myRenderer.sprite = jumpingSprite;
+                    myAnimator.SetTrigger("JumpUp");
                     if (HomeLifeManager.Instance.stressLevel > 1)
                     {
                         myRigidbody.AddForce((transform.up * jump) *( 1+((1-HomeLifeManager.Instance.stressLevel))/50));
@@ -245,20 +245,21 @@ public class HomeLifeJumpScript : MonoBehaviour
             MakeBoxSmall();
             myAnimator.SetTrigger("Death");
         }
+       
 
     }
 
+    
 
-
-    IEnumerator TakeDamage()
+    public IEnumerator TakeDamage()
     {
         myAudio.Play();
         mySprite.enabled = false;
-        yield return new WaitForSeconds(0.2f);
+        yield return new WaitForSeconds(0.1f);
         mySprite.enabled = true;
-        yield return new WaitForSeconds(0.2f);
+        yield return new WaitForSeconds(0.1f);
         mySprite.enabled = false;
-        yield return new WaitForSeconds(0.2f);
+        yield return new WaitForSeconds(0.1f);
         mySprite.enabled = true;
         inCoroutine = false;
     }
