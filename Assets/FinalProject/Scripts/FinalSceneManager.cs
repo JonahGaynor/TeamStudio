@@ -24,6 +24,7 @@ public class FinalSceneManager : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+		
 		thisScene = SceneManager.GetActiveScene();
 		sceneName = thisScene.name;
 
@@ -39,12 +40,14 @@ public class FinalSceneManager : MonoBehaviour {
 			} else if (sceneName == "ProofEKG" && !hasSwitched) {
 				if (scenesPast == 1) {
 					SceneManager.LoadScene ("ProofChildhood");
+					PlayerPrefs.SetInt ("hasSeenInstructions", 0);
 				} else if (scenesPast == 2) {
 					SceneManager.LoadScene ("Cutscene_HighSchool");
 				} else if (scenesPast == 3) {
 					SceneManager.LoadScene ("Cutscene_Job");
 				} else if (scenesPast == 4) {
 					SceneManager.LoadScene ("FinalReconnection");
+					PlayerPrefs.SetInt ("hasSeenInstructions", 0);
 				}
 				sceneName = thisScene.name;
 				hasSwitched = true;
@@ -62,6 +65,7 @@ public class FinalSceneManager : MonoBehaviour {
 				ProofGameController.Instance.moveToNextLevel = false;
 			} else if (sceneName == "Cutscene_HighSchool") {
 				SceneManager.LoadScene ("FinalCollege");
+				PlayerPrefs.SetInt ("hasSeenInstructions", 0);
 				sceneName = thisScene.name;
 				hasSwitched = true;
 				ProofGameController.Instance.moveToNextLevel = false;
@@ -73,6 +77,7 @@ public class FinalSceneManager : MonoBehaviour {
 				ProofGameController.Instance.moveToNextLevel = false;
 			} else if (sceneName == "Cutscene_Job") {
 				SceneManager.LoadScene ("FinalHomeLife");
+				PlayerPrefs.SetInt ("hasSeenInstructions", 0);
 				sceneName = thisScene.name;
 				hasSwitched = true;
 				ProofGameController.Instance.moveToNextLevel = false;

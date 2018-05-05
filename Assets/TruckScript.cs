@@ -9,10 +9,13 @@ public class TruckScript : MonoBehaviour {
 	public AudioClip CrashMe;
 	AudioSource mySource;
     bool shouldSlowDown = false;
+	Animator myAnimator;
 	// Use this for initialization
 	void Start () {
+		PlayerPrefs.SetInt ("hasSeenInstructions", 0);
 		speed = 0f;
 		mySource = this.GetComponent<AudioSource> ();
+		myAnimator = this.GetComponent<Animator> ();
 	}
 	
 	// Update is called once per frame
@@ -24,6 +27,11 @@ public class TruckScript : MonoBehaviour {
         Vector3 temp = this.transform.position;
         temp.x -= speed;
         this.transform.position = temp;
+		if (Input.GetKey (KeyCode.Return)) {
+			shouldSlowDown = false;
+			speed = Mathf.Lerp (speed, 2f, 0.025f);
+			myAnimator.enabled = true;
+		}
 	}
     void OnTriggerEnter2D(Collider2D collision)
     {
@@ -31,6 +39,7 @@ public class TruckScript : MonoBehaviour {
             Debug.Log("Should Slow Down");
             shouldSlowDown = true;
 			mySource.PlayOneShot (CrashMe, 1f);
+			myAnimator.enabled = false;
 		}
     }
 }
