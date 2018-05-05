@@ -117,11 +117,23 @@ public class FinalSceneManager : MonoBehaviour {
 				SceneManager.LoadScene ("ProofDeathScene");
 				sceneName = thisScene.name;
 				ProofGameController.Instance.gameOver = false;
-			} else if (sceneName == "ProofChildhood" || sceneName == "FinalCollege") {
+			} else if (sceneName == "ProofChildhood") {
 				SceneManager.LoadScene ("ProofDeadChild");
 				sceneName = thisScene.name;
 				ProofGameController.Instance.gameOver = false;
-			} 
+			} else if (sceneName == "FinalCollege") {
+				SceneManager.LoadScene ("DeadCollege");
+				sceneName = thisScene.name;
+				ProofGameController.Instance.gameOver = false;
+			} else if (sceneName == "FinalHomeLife") {
+				SceneManager.LoadScene ("DeadHomeLife");
+				sceneName = thisScene.name;
+				ProofGameController.Instance.gameOver = false;
+			} else if (sceneName == "FinalReconnection") {
+				SceneManager.LoadScene ("DeadReconnection");
+				sceneName = thisScene.name;
+				ProofGameController.Instance.gameOver = false;
+			}
 
 		}
 
@@ -132,6 +144,15 @@ public class FinalSceneManager : MonoBehaviour {
 
 			} else if (sceneName == "ProofDeadChild") {
 				SceneManager.LoadScene ("ProofChildhood");
+				sceneName = thisScene.name;
+			} else if (sceneName == "DeadCollege") {
+				SceneManager.LoadScene ("FinalCollege");
+				sceneName = thisScene.name;
+			} else if (sceneName == "DeadHomeLife") {
+				SceneManager.LoadScene ("FinalHomeLife");
+				sceneName = thisScene.name;
+			} else if (sceneName == "DeadReconnection") {
+				SceneManager.LoadScene ("FinalReconnection");
 				sceneName = thisScene.name;
 			}
 
