@@ -549,7 +549,7 @@ GameObject:
   - component: {fileID: 437080404}
   - component: {fileID: 437080403}
   m_Layer: 0
-  m_Name: Choice Generator
+  m_Name: Blips Generator
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -747,7 +747,7 @@ AudioSource:
   m_audioClip: {fileID: 8300000, guid: e8886173dd9654e3fa7c4c36b91bf143, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
-  m_Pitch: 1
+  m_Pitch: 3
   Loop: 0
   Mute: 0
   Spatialize: 0
@@ -951,7 +951,7 @@ MonoBehaviour:
   timeToSwitch: 0
   bumpyGen: {fileID: 0}
   dippyGen: {fileID: 0}
-  minutesToSwitch: 0.25
+  minutesToSwitch: 0.125
 --- !u!1 &1084780573
 GameObject:
   m_ObjectHideFlags: 0
@@ -1245,7 +1245,6 @@ Camera:
   m_TargetEye: 3
   m_HDR: 1
   m_AllowMSAA: 1
-  m_AllowDynamicResolution: 0
   m_ForceIntoRT: 0
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
@@ -1845,7 +1844,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timeSinceLevelBegan: 0
-  timeForLevel: 30
+  timeForLevel: 20
   levelEnded: 0
   camera: {fileID: 0}
 --- !u!4 &1879040679

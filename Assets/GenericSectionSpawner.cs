@@ -114,7 +114,7 @@ public class GenericSectionSpawner : MonoBehaviour {
 
             if (!canMakeCeiling)
             {
-                timeToSpawnGround = 2f;
+                timeToSpawnGround = 4.5f;
             }
             //Spawn Floor
             GameObject floor = Instantiate(floorPrefab);
@@ -127,7 +127,7 @@ public class GenericSectionSpawner : MonoBehaviour {
         }
         if (timeToSpawnGround < 0&&canMakeCeiling)
         {
-            timeToSpawnGround = 2f;
+            timeToSpawnGround = 4.5f;
             //Spawn Floor
             GameObject floor = Instantiate(ceilingPrefab);
             Vector3 tempFloor = floor.transform.position;
