@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class HomeLifeManager : MonoBehaviour {
     public static HomeLifeManager Instance = new HomeLifeManager();
@@ -16,20 +17,24 @@ public class HomeLifeManager : MonoBehaviour {
 	public Animator[] characterAnimators;
 	public GameObject myPlayer;
 	Animator myAnimator;
-
-	// Use this for initialization
-	void Start () {
+    public Canvas calendarCanvas;
+    Vector3 calendarStart;
+    public bool inCalendarCoroutine = false;
+    public bool canChangeAnim=false;
+    // Use this for initialization
+    void Start () {
         Instance = this;
 		myPlayer = GameObject.Find ("Little Boy");
 		myAnimator = myPlayer.GetComponent<Animator> ();
         myAnimator.SetLayerWeight(1, 0);
         myAnimator.SetLayerWeight(2, 0);
+        calendarStart = calendarCanvas.transform.GetChild(0).transform.position;
         //myAnimator = characterAnimators [0];
     }
 	
 	// Update is called once per frame
 	void Update () {
-        Debug.Log(stressLevel);
+       // Debug.Log(stressLevel);
         stressLevel += Time.deltaTime * stressMultiplier;
 		myTimer += Time.deltaTime;
 
@@ -38,15 +43,31 @@ public class HomeLifeManager : MonoBehaviour {
 		} else if (stressLevel >= maxStress && secondCheckpointHit) {
 			ProofGameController.Instance.moveToNextLevel = true;
 		}
-		if (myTimer >= firstCheckpoint) {
-			firstCheckpointHit = true;
-			firstCheckpointSwitch ();
-            stressLevel = 1;
+		if (myTimer >= firstCheckpoint && !firstCheckpointHit) {
+			
+            StartCoroutine(TimePasses());
+            if (canChangeAnim)
+            {
+                firstCheckpointSwitch();
+                canChangeAnim = false;
+                firstCheckpointHit = true;
+                stressLevel = 1;
+            }
+           
 		}
-		if (myTimer >= secondCheckpoint && firstCheckpointHit) {
-			secondCheckpointHit = true;
-			secondCheckpointSwitch ();
-            stressLevel = 1;
+		if (myTimer >= secondCheckpoint && firstCheckpointHit && !secondCheckpointHit) {
+			
+			
+            StartCoroutine(TimePasses());
+
+            if (canChangeAnim)
+            {
+                secondCheckpointSwitch();
+                canChangeAnim = false;
+                secondCheckpointHit = true;
+                stressLevel = 1;
+            }
+           
         }
         if (Input.GetKeyDown(KeyCode.C))
         {
@@ -68,6 +89,40 @@ public class HomeLifeManager : MonoBehaviour {
         myAnimator.SetLayerWeight(1, 0);
         myAnimator.SetLayerWeight(2, 100);
         //	myAnimator = characterAnimators [2];
+    }
+    IEnumerator TimePasses()
+    {
+        float timeToWipe = 5f;
+        if (!inCalendarCoroutine)
+        {
+            GameObject calendarImage = calendarCanvas.transform.GetChild(0).gameObject;
+            inCalendarCoroutine = true;
+            while (inCalendarCoroutine)
+            {
+                //Debug.Log("Wipe Screen");
+               
+                
+                Vector3 temp = calendarImage.transform.position;
+                temp.x -=16f;
+                temp.y -=8f;
+                timeToWipe -= Time.deltaTime;
+               
+                calendarImage.transform.position = temp;
+                if (timeToWipe < 0)
+                {
+                    
+                    inCalendarCoroutine = false;
+                    calendarImage.transform.position = calendarStart;
+                }
+                if (timeToWipe < 4f)
+                {
+                    canChangeAnim = true;
+                }
+                yield return new WaitForSeconds(1 / 60);
+            }
+        }
+        yield return new WaitForSeconds(1/60);
+
     }
 
 }
