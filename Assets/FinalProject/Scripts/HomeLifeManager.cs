@@ -99,9 +99,7 @@ public class HomeLifeManager : MonoBehaviour {
             inCalendarCoroutine = true;
             while (inCalendarCoroutine)
             {
-                //Debug.Log("Wipe Screen");
-               
-                
+                              
                 Vector3 temp = calendarImage.transform.position;
                 temp.x -=16f;
                 temp.y -=8f;
