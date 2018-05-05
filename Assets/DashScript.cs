@@ -15,7 +15,7 @@ public class DashScript : MonoBehaviour {
     float cameraOffestTimer=0.25f;
     float t = 0;
     public float dashCooldown = 2f;
-    bool canDash=true;
+	public bool canDash=true;
     public GameObject dashImageSprite;
     public Color dashImage;
      Animator myAnimator;
@@ -77,7 +77,7 @@ public class DashScript : MonoBehaviour {
         {
             canDash = false;
         }
-        if ((Input.GetKeyDown(KeyCode.D)|| Input.GetKeyDown(KeyCode.RightArrow))&&canDash)
+		if ((Input.GetKeyDown(KeyCode.D)|| Input.GetKeyDown(KeyCode.RightArrow))&&canDash && ProofGameController.Instance.life >=1)
         {
             SetDashCollider();
            // myAnimator.SetBool("ShouldRun", false);

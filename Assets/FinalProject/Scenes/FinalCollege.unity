@@ -204,7 +204,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 68680388}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 3.0192, y: 65.5, z: -4.5995}
+  m_LocalPosition: {x: 3.0192, y: 85.1, z: -4.5995}
   m_LocalScale: {x: 1.6775463, y: 1.6775463, z: 1.6775463}
   m_Children:
   - {fileID: 1823996732}
@@ -684,7 +684,7 @@ MonoBehaviour:
   - {fileID: 1521732652270258, guid: 5c0eb9708f2c14a3887c2f79c346980f, type: 2}
   sectionsSpawned: 0
   spawnNextSection: 1
-  difficultyIncreaseMultiplier: 1
+  difficultyIncreaseMultiplier: 0.5
   clouds:
   - {fileID: 1812386067750734, guid: 91ce0a4995439b846854aee39750bd64, type: 2}
   - {fileID: 1442567779854800, guid: 69c4ab4f210e4e743a422bc8b081296f, type: 2}
@@ -699,8 +699,8 @@ MonoBehaviour:
   ceilingPrefab: {fileID: 1316061358908086, guid: cd6f1073750825c40b0fe2ebf8efa44e,
     type: 2}
   floorParent: {fileID: 1737420951}
-  timeToSpawnGround: 1
-  spawnCloud: 1
+  timeToSpawnGround: 6
+  spawnCloud: 0
   timeTillBG: 1
   spawnBG: 1
   canMakeSpecialBG: 0
@@ -965,7 +965,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 164.4524, y: 73.473816}
+  m_AnchoredPosition: {x: 93, y: 73.473816}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &353630503
@@ -1141,7 +1141,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -144.7, y: 73.473816}
+  m_AnchoredPosition: {x: -95, y: 73.473816}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &487466346
@@ -1449,7 +1449,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4797123964863332, guid: 3e9ff001b133140d796793ec17af35c9, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -0.12
+      value: 0.01
       objectReference: {fileID: 0}
     - target: {fileID: 4797123964863332, guid: 3e9ff001b133140d796793ec17af35c9, type: 2}
       propertyPath: m_LocalPosition.y
@@ -1957,7 +1957,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 93c7b6df701015245873ce1382073600, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.8
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -2494,7 +2494,6 @@ Camera:
   m_TargetEye: 3
   m_HDR: 1
   m_AllowMSAA: 1
-  m_AllowDynamicResolution: 0
   m_ForceIntoRT: 0
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
@@ -2700,8 +2699,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 10.952393, y: 72.973816}
-  m_SizeDelta: {x: 100, y: 100}
+  m_AnchoredPosition: {x: 1.14, y: 72.973816}
+  m_SizeDelta: {x: 57.87, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1823996733
 MonoBehaviour:
@@ -3063,7 +3062,7 @@ Prefab:
         type: 2}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: 831544ad727a80845a5ed95b4e45c298,
+      objectReference: {fileID: 21300000, guid: 4855e71341dfe4e779c3ce2d9e7cc444,
         type: 3}
     - target: {fileID: 1380902971892596, guid: 3e9ff001b133140d796793ec17af35c9, type: 2}
       propertyPath: m_TagString

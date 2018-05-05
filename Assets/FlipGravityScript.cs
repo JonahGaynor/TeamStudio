@@ -50,6 +50,7 @@ public class FlipGravityScript : MonoBehaviour {
         mySprite = this.GetComponent<SpriteRenderer>();
         myCollider = this.GetComponent<BoxCollider2D>();
       
+		myRigidbody.gravityScale = 6f;
         staticGravity = myRigidbody.gravityScale;
         gravity = staticGravity;
         canFloat = true;
@@ -82,7 +83,7 @@ public class FlipGravityScript : MonoBehaviour {
                 canFlip = false;
             }
         }
-        if (letsFlip)
+		if (letsFlip && ProofGameController.Instance.life >= 1)
         {
             SwapGravity();
            
@@ -219,6 +220,13 @@ public class FlipGravityScript : MonoBehaviour {
             flipOverride = false;
             this.transform.GetChild(0).GetComponent<GenericSectionSpawner>().enabled = true;
         }
+//		if (collider.gameObject.tag == "Floor") {
+//			if (myRigidbody.gravityScale < 0) {
+//				myRigidbody.gravityScale = -1f;
+//			} else if (myRigidbody.gravityScale >= 0) {
+//				myRigidbody.gravityScale = 1f;
+//			}
+//		}
     }
 
     private void OnTriggerExit2D(Collider2D collider)
@@ -281,7 +289,7 @@ public class FlipGravityScript : MonoBehaviour {
     void SwapGravity()
     {
 		letsFlip = false;
-        myRigidbody.gravityScale *= -1;
+        myRigidbody.gravityScale *= -1f;
     }
 
 }

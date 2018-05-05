@@ -9,7 +9,7 @@ public class EKGGeneratorController : MonoBehaviour {
     public float minutesToSwitch=1;
 	// Use this for initialization
 	void Start () {
-        bumpyGen = transform.Find("Choice Generator").gameObject;
+        bumpyGen = transform.Find("Blips Generator").gameObject;
         dippyGen= transform.Find("HoleGenerator").gameObject;
     }
 	

@@ -57,4 +57,9 @@ public class BrokenWall : MonoBehaviour {
 		}
 
 	}
+
+	IEnumerator waitASecNow(){
+		yield return new WaitForSeconds (0.5f);
+		this.GetComponent<BoxCollider2D> ().enabled = false;
+	}
 }
