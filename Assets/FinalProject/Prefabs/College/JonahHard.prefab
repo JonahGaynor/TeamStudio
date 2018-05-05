@@ -241,7 +241,6 @@ GameObject:
   - component: {fileID: 212484989981551634}
   - component: {fileID: 95838750891066026}
   - component: {fileID: 61340808362772710}
-  - component: {fileID: 114898090304695394}
   m_Layer: 0
   m_Name: Air Vent
   m_TagString: Furniture
@@ -1742,18 +1741,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0c1edd9758cd142438d963d828f98944, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &114898090304695394
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1413990176840488}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3323f9866578c49a7a5ebba110498209, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playerVelocity: {x: 0, y: 0}
 --- !u!114 &114979969328700786
 MonoBehaviour:
   m_ObjectHideFlags: 1

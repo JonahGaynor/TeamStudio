@@ -12,6 +12,7 @@ public class MovingFaceScript : MonoBehaviour {
         movingFace = this.transform.GetChild(1).gameObject;
         bar = this.transform.GetChild(0).gameObject;
         destination = this.transform.GetChild(2).gameObject;
+		Debug.Log (destination.transform.position.x);
 	}
 	
 	// Update is called once per frame
@@ -23,7 +24,7 @@ public class MovingFaceScript : MonoBehaviour {
             bar.SetActive(false);
             destination.SetActive(false);
         }
-        if (movingFace.transform.position.x >850)
+        if (movingFace.transform.position.x >750)
         {
             ProofGameController.Instance.fadeToEnd = true;
            // Debug.Log("You win!");

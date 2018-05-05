@@ -233,14 +233,14 @@ RectTransform:
   m_GameObject: {fileID: 65193539}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.670812, y: 0.67081195, z: 0.67081195}
+  m_LocalScale: {x: 0.39225465, y: 0.39225462, z: 0.39225462}
   m_Children: []
   m_Father: {fileID: 737050229}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 188.47, y: -1.949173}
+  m_AnchoredPosition: {x: 123.1, y: -1.949173}
   m_SizeDelta: {x: 321.92, y: 98.95}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &65193541
@@ -585,7 +585,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: e8886173dd9654e3fa7c4c36b91bf143, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.8
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -877,7 +877,7 @@ RectTransform:
   m_GameObject: {fileID: 737050228}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.4104259, y: 0.4104259, z: 0.4104259}
+  m_LocalScale: {x: 0.67326945, y: 0.6732694, z: 0.6732694}
   m_Children:
   - {fileID: 65193540}
   m_Father: {fileID: 31882238}
@@ -1099,7 +1099,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -144.7, y: 73.473816}
+  m_AnchoredPosition: {x: -95.2, y: 73.473816}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1146435035
@@ -1186,7 +1186,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 174.2, y: 75.7}
+  m_AnchoredPosition: {x: 95.7, y: 75.7}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1285648228
@@ -1603,7 +1603,6 @@ Camera:
   m_TargetEye: 3
   m_HDR: 1
   m_AllowMSAA: 1
-  m_AllowDynamicResolution: 0
   m_ForceIntoRT: 0
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
@@ -1806,8 +1805,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 10.952393, y: 72.973816}
-  m_SizeDelta: {x: 100, y: 100}
+  m_AnchoredPosition: {x: 4.67, y: 72.973816}
+  m_SizeDelta: {x: 60.55, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1761015977
 MonoBehaviour:

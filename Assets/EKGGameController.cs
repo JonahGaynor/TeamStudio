@@ -24,7 +24,7 @@ public class EKGGameController : MonoBehaviour {
             GameObject[] shitToDelete = GameObject.FindGameObjectsWithTag("Furniture");
             foreach(GameObject blip in shitToDelete)
             {
-                Destroy(blip.gameObject);
+//                Destroy(blip.gameObject);
             }
 
         }
