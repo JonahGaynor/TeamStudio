@@ -20,18 +20,24 @@ public class StopForInstructionScript : MonoBehaviour {
         Time.timeScale = 1;
 		if (timeSinceStarting >timeAtWhichToStop && PlayerPrefs.GetInt ("hasSeenInstructions") != 1)
         {
+			Debug.Log ("step1");
             isStopped = true;
             timeAtWhichToStop = 5000000000000000000000000000000f;
         }
 		if (isStopped) {
-			GameObject.Find ("Little Boy").GetComponent<DashScript> ().canDash = false;
+			Debug.Log ("step2");
+			if (GameObject.Find ("Little Boy").GetComponent<DashScript> () != null) {
+				GameObject.Find ("Little Boy").GetComponent<DashScript> ().canDash = false;
+			}
 			instuctionCanvas.enabled = true;
 			Time.timeScale = 0;
                 
 		}
         if (Input.GetKeyDown(KeyCode.Space))
         {
-			GameObject.Find ("Little Boy").GetComponent<DashScript> ().canDash = true;
+			if (GameObject.Find ("Little Boy").GetComponent<DashScript> () != null) {
+				GameObject.Find ("Little Boy").GetComponent<DashScript> ().canDash = true;
+			}
             isStopped = false;
 			PlayerPrefs.SetInt ("hasSeenInstructions", 1);
         }
