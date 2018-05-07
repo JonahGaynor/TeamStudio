@@ -17,16 +17,24 @@ public class LoveMeterScript : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        placeToBe = RecconectController.Instance.love;
+           placeToBe = ReconnectionGameController.Instance.love+350;
         if (myFace.transform.position.x < placeToBe)
         {
             Vector3 temp = myFace.transform.position;
-            temp.x += 0.0001f;
+            temp.x += 0.5f;
+            myFace.transform.position = temp;
         }
         if (myFace.transform.position.x > placeToBe)
         {
             Vector3 temp = myFace.transform.position;
-            temp.x -= 0.0001f;
+            temp.x -= 0.5f;
+            myFace.transform.position = temp;
         }
+        if (placeToBe > 750)
+        {
+            Debug.Log("You Win The Level!");
+            ProofGameController.Instance.fadeToEnd = true;
+        }
+        
     }
 }

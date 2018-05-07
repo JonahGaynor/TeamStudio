@@ -25,7 +25,7 @@ public class GenericSectionSpawner : MonoBehaviour {
     public bool canMakeSpecialBG = true;
     public bool inDebugMode = false;
     public int sectionOffest = 0;
-
+    public int oddsOfPoster = 5;
     public bool canMakeCeiling = false;
     int prevOrder = -50;
     // Use this for initialization
@@ -140,7 +140,7 @@ public class GenericSectionSpawner : MonoBehaviour {
         if (spawnCloud)
         {
             spawnCloud = false;
-            if (Random.Range(0, 5) == 1)
+            if (Random.Range(0, oddsOfPoster) == 1)
             {
                
                 GameObject cloudtoSpawn = Instantiate(clouds[Random.Range(0, clouds.Length)]);
