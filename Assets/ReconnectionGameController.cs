@@ -11,7 +11,7 @@ public class ReconnectionGameController : MonoBehaviour {
     public KeyCode requiredKey;
     public string[] possibleKeys = { "A", "S", "D", "F", "W" };
     public GameObject stupidKid;
-  
+    public int sectionsPast = 0;
 	// Use this for initialization
 	void Start () {
         Instance = this;
@@ -23,6 +23,7 @@ public class ReconnectionGameController : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
         timeLeftTillEvent -= Time.deltaTime;
+        timeToEvent = 4 - (sectionsPast / 5);
         if (timeLeftTillEvent < 0)
         {
             timeLeftTillEvent = timeToEvent;
