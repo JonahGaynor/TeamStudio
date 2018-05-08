@@ -74,7 +74,7 @@ public class FlipGravityScript : MonoBehaviour {
             temp.x += (runSpeed * speedOverride)*Time.timeScale;
             this.transform.position = temp;
 
-            if ((Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow)) && canFlip&&!flipOverride)
+            if ((Input.GetKeyDown(KeyCode.W)) && canFlip&&!flipOverride)
             {
                
                 myAnimator.SetTrigger("JumpUp");

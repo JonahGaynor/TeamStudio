@@ -41,7 +41,6 @@ public class DashScript : MonoBehaviour {
 		if (timeSinceLevelBegan >= timeForLevel) {
 			ProofGameController.Instance.moveToNextLevel = true;
 		}*/
-		Debug.Log (1 / Time.deltaTime);
         if (!dashing) {
             
             myJumpScript.gravityOverride = false;
@@ -77,7 +76,7 @@ public class DashScript : MonoBehaviour {
         {
             canDash = false;
         }
-		if ((Input.GetKeyDown(KeyCode.D)|| Input.GetKeyDown(KeyCode.RightArrow))&&canDash && ProofGameController.Instance.life >=1)
+		if ((Input.GetKeyDown(KeyCode.D))&&canDash && ProofGameController.Instance.life >=1)
         {
             SetDashCollider();
            // myAnimator.SetBool("ShouldRun", false);
