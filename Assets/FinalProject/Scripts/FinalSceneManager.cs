@@ -159,6 +159,14 @@ public class FinalSceneManager : MonoBehaviour {
 		}
 		if (Input.GetKeyUp (KeyCode.Return) && sceneName == "Cutscene_HighSchool") {
 			ProofGameController.Instance.moveToNextLevel = true;
+		} else if (Input.GetKeyUp (KeyCode.Return) && sceneName == "Cutscene_Marriage") {
+			ProofGameController.Instance.moveToNextLevel = true;
+		} else if (Input.GetKeyUp (KeyCode.Return) && sceneName == "Cutscene_Job") {
+			ProofGameController.Instance.moveToNextLevel = true;
+		} else if (Input.GetKeyUp (KeyCode.Return) && sceneName == "Cutscene_Escape") {
+			ProofGameController.Instance.moveToNextLevel = true;
+		} else if (Input.GetKeyUp (KeyCode.Return) && sceneName == "Cutscene_ChildWaiting") {
+			ProofGameController.Instance.moveToNextLevel = true;
 		}
 
 		if (Input.GetKeyUp (KeyCode.I) && sceneName == "ProofStartScene") {
