@@ -970,7 +970,10 @@ MonoBehaviour:
   - F
   - W
   stupidKid: {fileID: 1828389393}
+  kidAnim: {fileID: 0}
   sectionsPast: 0
+  timeTillThrow: 0
+  maxTimeToThrow: 0
 --- !u!114 &795620258
 MonoBehaviour:
   m_ObjectHideFlags: 0
