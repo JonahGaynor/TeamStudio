@@ -78,4 +78,34 @@ public class ReconnectionGameController : MonoBehaviour {
         }
         return KeyCode.Return;
     }
+    public KeyCode[] DetermineKeysNotToPress(KeyCode key)
+    {
+        KeyCode[] stupid =new KeyCode[4];
+        if (key == KeyCode.A)
+        {
+            KeyCode[] returner = { KeyCode.S , KeyCode.D, KeyCode.F, KeyCode.W};
+            return returner;
+        }
+        if (key == KeyCode.S)
+        {
+            KeyCode[] returner = { KeyCode.A, KeyCode.D, KeyCode.F, KeyCode.W };
+            return returner;
+        }
+        if (key == KeyCode.D)
+        {
+            KeyCode[] returner = { KeyCode.S, KeyCode.A, KeyCode.F, KeyCode.W };
+            return returner;
+        }
+        if (key == KeyCode.F)
+        {
+            KeyCode[] returner = { KeyCode.S, KeyCode.D, KeyCode.A, KeyCode.W };
+            return returner;
+        }
+        if (key == KeyCode.W)
+        {
+            KeyCode[] returner = { KeyCode.S, KeyCode.D, KeyCode.F, KeyCode.A };
+            return returner;
+        }
+        return stupid;
+    }
 }
