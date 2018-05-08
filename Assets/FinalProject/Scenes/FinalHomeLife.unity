@@ -1445,17 +1445,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   easySectionPrefabs:
-  - {fileID: 1471716371440230, guid: ed1af3aaf16944f6695a615ed5df88df, type: 2}
-  - {fileID: 1107981836607636, guid: 5a85f90cdd68e574cbd27afaa0f04ce0, type: 2}
-  mediumSectionPrefabs:
-  - {fileID: 1849210342573374, guid: 59dbffabd20aa4a679fadd3125da09d3, type: 2}
-  - {fileID: 1335864067880368, guid: 1dcb794a1daa2144b869eb1e817b497a, type: 2}
-  hardSectionPrefabs:
-  - {fileID: 1449503293459878, guid: 1eade16eca0d44170a59b29f7e492208, type: 2}
-  - {fileID: 1134417208773182, guid: 5009050d44e613549b655a04eea16e24, type: 2}
+  - {fileID: 1932892386278612, guid: 5818e2e287382fb42a3c2c79061518aa, type: 2}
+  - {fileID: 1792162367257300, guid: 49533a97c581b0f409baa575186830a2, type: 2}
+  - {fileID: 1689492927427374, guid: 72b59d3570c0fd34c9cfb90a383d3869, type: 2}
+  - {fileID: 1789906828755238, guid: df2b6f692110783408756778a786d2d0, type: 2}
+  - {fileID: 1670779051667518, guid: 044e365137d2f4642adecacc7b55e7ec, type: 2}
+  - {fileID: 1453221857488838, guid: 84541d49f09364f0f8dacf86db5fc871, type: 2}
+  - {fileID: 1296405604850458, guid: 1d20deb691a5e41d7b178fec6d64c760, type: 2}
+  mediumSectionPrefabs: []
+  hardSectionPrefabs: []
   sectionsSpawned: 0
   spawnNextSection: 1
-  difficultyIncreaseMultiplier: 1
+  difficultyIncreaseMultiplier: 5
   clouds:
   - {fileID: 1222135337690736, guid: fc0ad9de00a44684cb31eb2ef9e1a099, type: 2}
   - {fileID: 1293992707734684, guid: 6b4f4b31ae1d6364899dd0e131854d58, type: 2}
@@ -1476,8 +1477,9 @@ MonoBehaviour:
   timeTillBG: 1
   spawnBG: 1
   canMakeSpecialBG: 0
-  inDebugMode: 1
+  inDebugMode: 0
   sectionOffest: 15
+  oddsOfPoster: 5
   canMakeCeiling: 0
 --- !u!4 &953423707 stripped
 Transform:

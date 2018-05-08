@@ -518,6 +518,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cutsceneCanvas: {fileID: 0}
   imageOn: 0
+  cutsceneLength: 7
   cutsceneImages:
   - {fileID: 0}
   - {fileID: 0}
@@ -924,7 +925,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: 1532205be558f17488cfbe6dc6f3acc3, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 1bc6339f210eaa04092fc13716bec61d, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
