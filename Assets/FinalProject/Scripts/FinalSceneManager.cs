@@ -93,7 +93,8 @@ public class FinalSceneManager : MonoBehaviour {
 				ProofGameController.Instance.moveToNextLevel = false;
 			} else if (sceneName == "Cutscene_ChildWaiting") {
 				SceneManager.LoadScene ("FinalReconnection");
-				scenesPast++;
+                PlayerPrefs.SetInt("hasSeenInstructions", 0);
+                scenesPast++;
 				sceneName = thisScene.name;
 				hasSwitched = true;
 				ProofGameController.Instance.moveToNextLevel = false;
