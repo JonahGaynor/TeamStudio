@@ -21,14 +21,15 @@ public class FlashingCavnasScript : MonoBehaviour {
 	IEnumerator flashy(){
 		haveStarted = true;
 		yield return new WaitForSeconds (2.3f);
+		this.transform.GetChild (4).GetComponent<Image> ().enabled = true;
 		this.transform.GetChild (0).GetComponent<Image> ().enabled = true;
-		yield return new WaitForSeconds (0.15f);
+		yield return new WaitForSeconds (0.25f);
 		this.transform.GetChild (1).GetComponent<Image> ().enabled = true;
-		yield return new WaitForSeconds (0.15f);
+		yield return new WaitForSeconds (0.25f);
 		this.transform.GetChild (2).GetComponent<Image> ().enabled = true;
-		yield return new WaitForSeconds (0.15f);
+		yield return new WaitForSeconds (0.25f);
 		this.transform.GetChild (3).GetComponent<Image> ().enabled = true;
-		yield return new WaitForSeconds (0.15f);
+		yield return new WaitForSeconds (0.25f);
 		this.transform.GetChild (0).GetComponent<Image> ().enabled = false;
 		this.transform.GetChild (1).GetComponent<Image> ().enabled = false;
 		this.transform.GetChild (2).GetComponent<Image> ().enabled = false;
