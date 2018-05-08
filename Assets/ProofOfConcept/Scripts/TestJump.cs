@@ -44,6 +44,7 @@ public class TestJump : MonoBehaviour
     public bool gravityOverride = false;
     public bool canGetHit;
     public bool readyToMoveOn = false;
+    public bool ohMyGodYouDied = false;
     // Use this for initialization
     void Start()
     {
@@ -206,6 +207,7 @@ public class TestJump : MonoBehaviour
             MakeBoxSmall();
             myAnimator.SetTrigger("Death");
             StartCoroutine(ReadyToDie());
+            ohMyGodYouDied = true;
             speedOverride = 0;
            // ProofGameController.Instance.fadeToEnd = true;
         }
