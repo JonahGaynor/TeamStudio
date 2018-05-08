@@ -1313,7 +1313,7 @@ GameObject:
   - component: {fileID: 556346415}
   - component: {fileID: 556346414}
   m_Layer: 5
-  m_Name: Canvas
+  m_Name: PReogress Bar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2495,6 +2495,7 @@ Camera:
   m_TargetEye: 3
   m_HDR: 1
   m_AllowMSAA: 1
+  m_AllowDynamicResolution: 0
   m_ForceIntoRT: 0
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
