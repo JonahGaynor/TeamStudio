@@ -16,6 +16,7 @@ public class ReconnectionGameController : MonoBehaviour {
     public float timeTillThrow;
     public float maxTimeToThrow;
     public GameObject lineExample;
+    public GameObject feckinSquare;
 	// Use this for initialization
 	void Start () {
         Instance = this;
@@ -29,7 +30,10 @@ public class ReconnectionGameController : MonoBehaviour {
 	void Update () {
         timeLeftTillEvent -= Time.deltaTime;
         timeTillThrow -= Time.deltaTime;
-        timeToEvent = 4 - (sectionsPast / 5);
+        if (timeToEvent > 2)
+        {
+            timeToEvent = 4 - (sectionsPast / 5);
+        }
         maxTimeToThrow = timeToEvent - 0.25f;
 
         if (timeTillThrow < 0)
@@ -60,6 +64,7 @@ public class ReconnectionGameController : MonoBehaviour {
             textMeshChild.GetComponent<TextMesh>().color = Color.red;
             textMeshChild.transform.localScale = new Vector3(0.14f, 0.14f, 1);
             textMeshChild.GetComponent<TextMesh>().fontSize = 100;
+            
             Vector3 temp = currentObstacle.transform.position;
             temp.y += 2.5f;
             temp.z = 20;
@@ -67,9 +72,20 @@ public class ReconnectionGameController : MonoBehaviour {
 
             textMeshChild.transform.localPosition = temp;
             textMeshChild.transform.localPosition += new Vector3(-0.63f, 4.75f, 0);
+            
             textMeshChild.transform.parent = currentObstacle.transform;
+            GameObject mySquare=Instantiate(feckinSquare, textMeshChild.transform.position, Quaternion.identity);
+            mySquare.transform.position -= new Vector3(-0.475f, 0.65f, 0);
+            mySquare.GetComponent<SpriteRenderer>().sortingOrder = 24;
+            if (textMeshChild.GetComponent<TextMesh>().text == "W")
+            {
+                Debug.Log("Its A W");
+                textMeshChild.transform.position += new Vector3(-0.20f, 0, 0);
+            }
+            mySquare.transform.parent = currentObstacle.transform;
             //  kidAnim.SetBool("ShouldRun", true);
             timeTillThrow = maxTimeToThrow;
+            
         }
 	}
 

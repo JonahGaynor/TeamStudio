@@ -10,6 +10,7 @@ public class FlashbackObjectScript : MonoBehaviour {
     bool failed = false;
     float loveToGive = 0;
     GameObject line;
+    GameObject FeckinSquare;
     public List<GameObject> lineList= new List<GameObject>();
     // Use this for initialization
     void Start () {
@@ -17,6 +18,7 @@ public class FlashbackObjectScript : MonoBehaviour {
         this.transform.localScale = myScale;
         player = GameObject.Find("Little Boy");
         line = ReconnectionGameController.Instance.lineExample;
+
     }
 	
 	// Update is called once per frame
@@ -37,7 +39,7 @@ public class FlashbackObjectScript : MonoBehaviour {
                 failed = true;
             }
         }
-        if (Mathf.Abs(this.transform.position.x - player.transform.position.x) < 5)
+        if (Mathf.Abs(this.transform.position.x - player.transform.position.x) < 4.5 && this.transform.position.x - player.transform.position.x > -4.35)
         {
             //Debug.Log("Close Enuogh");
             
@@ -46,8 +48,8 @@ public class FlashbackObjectScript : MonoBehaviour {
             if (Input.GetKey(ReconnectionGameController.Instance.DetermineKeyToPress(myKeyToPress)) && !satisfied && !failed)
             {
                 loveToGive++;
-                GameObject myCoolLine=Instantiate(line, new Vector3(GameObject.Find("Little Boy").transform.position.x, GameObject.Find("Little Boy").transform.position.y + 3.45f, GameObject.Find("Little Boy").transform.position.z), Quaternion.identity);
-                Debug.Log(myCoolLine);
+                GameObject myCoolLine=Instantiate(line, new Vector3(GameObject.Find("Little Boy").transform.position.x, GameObject.Find("Little Boy").transform.position.y + 2.95f, GameObject.Find("Little Boy").transform.position.z), Quaternion.identity);
+              //  Debug.Log(myCoolLine);
                 if (myCoolLine != null)
                 {
                     lineList.Add(myCoolLine);
@@ -55,10 +57,10 @@ public class FlashbackObjectScript : MonoBehaviour {
             }
           
         }
-        if(this.transform.position.x-player.transform.position.x<-3.25 && loveToGive==0)
+        if(this.transform.position.x-player.transform.position.x<-8 && loveToGive==0)
         {
             
-            ReconnectionGameController.Instance.sectionsPast++;
+
             if (ReconnectionGameController.Instance.love > 0)
             {
                 ReconnectionGameController.Instance.love -= 50;
@@ -67,7 +69,7 @@ public class FlashbackObjectScript : MonoBehaviour {
           
             Destroy(this.gameObject);
         }
-        if (this.transform.position.x - player.transform.position.x <-3.25 && loveToGive>0)        
+        if (this.transform.position.x - player.transform.position.x <-8 && loveToGive>0)        
         {
             
             ReconnectionGameController.Instance.sectionsPast++;
