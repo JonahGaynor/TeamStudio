@@ -46,7 +46,7 @@ public class FinalSceneManager : MonoBehaviour {
 				} else if (scenesPast == 3) {
 					SceneManager.LoadScene ("Cutscene_Job");
 				} else if (scenesPast == 4) {
-					SceneManager.LoadScene ("FinalReconnection");
+					SceneManager.LoadScene ("Cutscene_ChildWaiting");
 					PlayerPrefs.SetInt ("hasSeenInstructions", 0);
 				}
 				sceneName = thisScene.name;
@@ -87,12 +87,12 @@ public class FinalSceneManager : MonoBehaviour {
 				hasSwitched = true;
 				ProofGameController.Instance.moveToNextLevel = false;
 			} else if (sceneName == "Cutscene_Escape") {
-				SceneManager.LoadScene ("Cutscene_ChildWaiting");
+				SceneManager.LoadScene ("ProofEKG");
 				sceneName = thisScene.name;
 				hasSwitched = true;
 				ProofGameController.Instance.moveToNextLevel = false;
 			} else if (sceneName == "Cutscene_ChildWaiting") {
-				SceneManager.LoadScene ("ProofEKG");
+				SceneManager.LoadScene ("FinalReconnection");
 				scenesPast++;
 				sceneName = thisScene.name;
 				hasSwitched = true;
