@@ -12,12 +12,14 @@ public class MovingFaceScript : MonoBehaviour {
         movingFace = this.transform.GetChild(1).gameObject;
         bar = this.transform.GetChild(0).gameObject;
         destination = this.transform.GetChild(2).gameObject;
-		Debug.Log (destination.transform.position.x);
 	}
 	
 	// Update is called once per frame
 	void Update () {
-        movingFace.transform.position += new Vector3(distanceToTravel*Time.timeScale, 0, 0);
+        if (!ProofGameController.Instance.gameOver)
+        {
+            movingFace.transform.position += new Vector3(distanceToTravel * Time.timeScale, 0, 0);
+        }
        
         if(ProofGameController.Instance.fadeToEnd){
             movingFace.SetActive(false);

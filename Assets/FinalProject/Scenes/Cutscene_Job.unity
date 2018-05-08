@@ -518,6 +518,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cutsceneCanvas: {fileID: 0}
   imageOn: 0
+  cutsceneLength: 7
   cutsceneImages:
   - {fileID: 0}
   - {fileID: 0}

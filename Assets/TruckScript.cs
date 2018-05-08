@@ -36,7 +36,7 @@ public class TruckScript : MonoBehaviour {
     void OnTriggerEnter2D(Collider2D collision)
     {
 		if (collision.gameObject.tag == "Little Boy") {
-            Debug.Log("Should Slow Down");
+
             shouldSlowDown = true;
 			mySource.PlayOneShot (CrashMe, 1f);
 			myAnimator.enabled = false;
