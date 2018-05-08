@@ -41,7 +41,7 @@ public class DashScript : MonoBehaviour {
 		if (timeSinceLevelBegan >= timeForLevel) {
 			ProofGameController.Instance.moveToNextLevel = true;
 		}*/
-       
+		Debug.Log (1 / Time.deltaTime);
         if (!dashing) {
             
             myJumpScript.gravityOverride = false;
