@@ -39,8 +39,5 @@ public class StopForInstructionScript : MonoBehaviour {
             isStopped = false;
 			PlayerPrefs.SetInt ("hasSeenInstructions", 1);
         }
-		if (ProofGameController.Instance.moveToNextLevel) {
-			PlayerPrefs.SetInt ("hasSeenInstructions", 0);
-		}
     }
 }
