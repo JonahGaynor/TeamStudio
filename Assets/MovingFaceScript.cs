@@ -20,8 +20,13 @@ public class MovingFaceScript : MonoBehaviour {
         {
             movingFace.transform.position += new Vector3(distanceToTravel * Time.timeScale, 0, 0);
         }
-       
-        if(ProofGameController.Instance.fadeToEnd){
+        if (GameObject.Find("Little Boy").GetComponent<TestJump>() == null)
+        {
+            movingFace.transform.position += new Vector3(distanceToTravel * Time.timeScale, 0, 0);
+        }
+        
+
+        if (ProofGameController.Instance.fadeToEnd){
             movingFace.SetActive(false);
             bar.SetActive(false);
             destination.SetActive(false);
