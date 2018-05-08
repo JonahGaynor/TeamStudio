@@ -175,6 +175,9 @@ public class FinalSceneManager : MonoBehaviour {
 			ProofGameController.Instance.moveToNextLevel = true;
 		} else if (Input.GetKeyUp (KeyCode.Return) && sceneName == "Cutscene_ChildWaiting") {
 			ProofGameController.Instance.moveToNextLevel = true;
+		} else if (Input.GetKeyUp (KeyCode.Return) && sceneName == "FinalCredits") {
+			SceneManager.LoadScene ("FinalReconnection");
+			sceneName = thisScene.name;
 		}
 
 		if (Input.GetKeyUp (KeyCode.I) && sceneName == "ProofStartScene") {
