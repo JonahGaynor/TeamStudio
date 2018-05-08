@@ -7,6 +7,7 @@ public class FlashbackObjectScript : MonoBehaviour {
     float rateToInflate = 0.05f;
     GameObject player;
     bool satisfied = false;
+    bool failed = false;
     // Use this for initialization
     void Start () {
         myScale = new Vector3(0.1f, 0.1f, 0f);
@@ -22,22 +23,35 @@ public class FlashbackObjectScript : MonoBehaviour {
         {
             myScale += new Vector3(rateToInflate,rateToInflate, 0);
         }
-
+        string myKeyToPress = this.transform.GetChild(0).GetComponent<TextMesh>().text;
+        KeyCode[] keyToNotHit = ReconnectionGameController.Instance.DetermineKeysNotToPress(ReconnectionGameController.Instance.DetermineKeyToPress(myKeyToPress));
+        foreach (KeyCode key in keyToNotHit)
+        {
+            if (Input.GetKeyDown(key))
+            {
+                failed = true;
+            }
+        }
         if (Mathf.Abs(this.transform.position.x - player.transform.position.x) < 3)
         {
             //Debug.Log("Close Enuogh");
-            string myKeyToPress = this.transform.GetChild(0).GetComponent<TextMesh>().text;
+            
             this.transform.GetChild(0).GetComponent<TextMesh>().color = Color.green;
-            if (Input.GetKeyDown(ReconnectionGameController.Instance.DetermineKeyToPress(myKeyToPress)))
+           
+            if (Input.GetKeyDown(ReconnectionGameController.Instance.DetermineKeyToPress(myKeyToPress)) && !satisfied && !failed)
             {
                 satisfied = true;
                 ReconnectionGameController.Instance.love+=50;
             }
+          
         }
         if(this.transform.position.x-player.transform.position.x<-3.25 && !satisfied)
         {
             ReconnectionGameController.Instance.sectionsPast++;
-            ReconnectionGameController.Instance.love-=50;
+            if (ReconnectionGameController.Instance.love > 0)
+            {
+                ReconnectionGameController.Instance.love -= 50;
+            }
             Debug.Log("You Suck");
             Destroy(this.gameObject);
         }
