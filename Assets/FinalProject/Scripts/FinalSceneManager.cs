@@ -99,11 +99,18 @@ public class FinalSceneManager : MonoBehaviour {
 				hasSwitched = true;
 				ProofGameController.Instance.moveToNextLevel = false;
 			} else if (sceneName == "FinalReconnection") {
-				SceneManager.LoadScene ("FinalTruck");
+				SceneManager.LoadScene ("HugScene");
 				sceneName = thisScene.name;
 				hasSwitched = true;
 				ProofGameController.Instance.moveToNextLevel = false;
-			} else if (sceneName == "FinalTruck")
+            }
+            else if (sceneName == "HugScene")
+            {
+                SceneManager.LoadScene("FinalTruck");
+                sceneName = thisScene.name;
+                hasSwitched = true;
+                ProofGameController.Instance.moveToNextLevel = false;
+            } else if (sceneName == "FinalTruck")
             {
                 hasSwitched = true;
                 SceneManager.LoadScene("FinalCredits");
