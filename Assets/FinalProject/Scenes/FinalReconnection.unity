@@ -978,21 +978,17 @@ MonoBehaviour:
   timeToEvent: 5
   timeLeftTillEvent: 0
   flashBackImages:
-  - {fileID: 21300000, guid: 0303173291ac94efab1e760438a0347e, type: 3}
-  - {fileID: 21300000, guid: a21602b67ee66e84f9e744160c942113, type: 3}
-  - {fileID: 21300000, guid: 489b96b763ed0494aa83fafe889e664e, type: 3}
+  - {fileID: 21300000, guid: ee60c45e159dee045b10def0e730fd8e, type: 3}
+  - {fileID: 21300000, guid: 3084277e29285dd45aeb6ed1379f5f15, type: 3}
+  - {fileID: 21300000, guid: d6516060b2b9091429288f74d62fa467, type: 3}
   requiredKey: 93
-  possibleKeys:
-  - A
-  - S
-  - D
-  - F
-  - W
   stupidKid: {fileID: 1828389393}
   kidAnim: {fileID: 0}
   sectionsPast: 0
   timeTillThrow: 0
   maxTimeToThrow: 0
+  lineExample: {fileID: 1886473553800312, guid: 97c737a8ce536e8478c1d4842b014c2b,
+    type: 2}
 --- !u!114 &795620258
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1287,7 +1283,7 @@ MonoBehaviour:
   canMakeSpecialBG: 0
   inDebugMode: 1
   sectionOffest: 15
-  oddsOfPoster: 3
+  oddsOfPoster: 4
   canMakeCeiling: 0
 --- !u!4 &959091328 stripped
 Transform:

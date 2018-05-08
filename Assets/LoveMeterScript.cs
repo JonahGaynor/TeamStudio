@@ -17,7 +17,7 @@ public class LoveMeterScript : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-//        placeToBe = RecconectController.Instance.love;
+        placeToBe = ReconnectionGameController.Instance.love+350;
         if (myFace.transform.position.x < placeToBe)
         {
             Vector3 temp = myFace.transform.position;

@@ -8,18 +8,23 @@ public class FlashbackObjectScript : MonoBehaviour {
     GameObject player;
     bool satisfied = false;
     bool failed = false;
+    float loveToGive = 0;
+    GameObject line;
+    public List<GameObject> lineList= new List<GameObject>();
     // Use this for initialization
     void Start () {
         myScale = new Vector3(0.1f, 0.1f, 0f);
         this.transform.localScale = myScale;
         player = GameObject.Find("Little Boy");
+        line = ReconnectionGameController.Instance.lineExample;
     }
 	
 	// Update is called once per frame
 	void Update () {
+        
         this.transform.localScale = myScale;
         this.transform.position += new Vector3(0.0005f, 0, 0);
-        if (myScale.x < 0.75)
+        if (myScale.x < .9f)
         {
             myScale += new Vector3(rateToInflate,rateToInflate, 0);
         }
@@ -32,33 +37,50 @@ public class FlashbackObjectScript : MonoBehaviour {
                 failed = true;
             }
         }
-        if (Mathf.Abs(this.transform.position.x - player.transform.position.x) < 3)
+        if (Mathf.Abs(this.transform.position.x - player.transform.position.x) < 5)
         {
             //Debug.Log("Close Enuogh");
             
             this.transform.GetChild(0).GetComponent<TextMesh>().color = Color.green;
            
-            if (Input.GetKeyDown(ReconnectionGameController.Instance.DetermineKeyToPress(myKeyToPress)) && !satisfied && !failed)
+            if (Input.GetKey(ReconnectionGameController.Instance.DetermineKeyToPress(myKeyToPress)) && !satisfied && !failed)
             {
-                satisfied = true;
-                ReconnectionGameController.Instance.love+=50;
+                loveToGive++;
+                GameObject myCoolLine=Instantiate(line, new Vector3(GameObject.Find("Little Boy").transform.position.x, GameObject.Find("Little Boy").transform.position.y + 3.45f, GameObject.Find("Little Boy").transform.position.z), Quaternion.identity);
+                Debug.Log(myCoolLine);
+                if (myCoolLine != null)
+                {
+                    lineList.Add(myCoolLine);
+                }
             }
           
         }
-        if(this.transform.position.x-player.transform.position.x<-3.25 && !satisfied)
+        if(this.transform.position.x-player.transform.position.x<-3.25 && loveToGive==0)
         {
+            
             ReconnectionGameController.Instance.sectionsPast++;
             if (ReconnectionGameController.Instance.love > 0)
             {
                 ReconnectionGameController.Instance.love -= 50;
             }
             Debug.Log("You Suck");
+          
             Destroy(this.gameObject);
         }
-        if (this.transform.position.x - player.transform.position.x <-3.25 && satisfied)        
+        if (this.transform.position.x - player.transform.position.x <-3.25 && loveToGive>0)        
         {
+            
             ReconnectionGameController.Instance.sectionsPast++;
+            if (ReconnectionGameController.Instance.love < 415)
+            {
+                ReconnectionGameController.Instance.love += loveToGive;
+            }
             Debug.Log("Nailed It");
+            loveToGive = 0;
+            foreach (GameObject myLine in lineList)
+            {
+                Destroy(myLine.gameObject);
+            }
             Destroy(this.gameObject);
         }
     }
