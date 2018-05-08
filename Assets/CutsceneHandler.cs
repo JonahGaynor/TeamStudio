@@ -6,12 +6,14 @@ using UnityEngine.UI;
 public class CutsceneHandler : MonoBehaviour {
     public GameObject cutsceneCanvas;
     public bool imageOn=false;
-    public Image[] cutsceneImages= new Image[4];
+    public int cutsceneLength = 4;
+    public Image[] cutsceneImages;
     int imagesOn = 0;
 	// Use this for initialization
 	void Start () {
         cutsceneCanvas = GameObject.Find("CutsceneCanvas");
-        for(int i = 0; i < cutsceneCanvas.transform.childCount; i++)
+        cutsceneImages = new Image[cutsceneLength];
+        for (int i = 0; i < cutsceneCanvas.transform.childCount; i++)
         {
            // Debug.Log("Added Image");
             //Debug.Log(cutsceneCanvas.transform.GetChild(i).GetComponent<Image>());
