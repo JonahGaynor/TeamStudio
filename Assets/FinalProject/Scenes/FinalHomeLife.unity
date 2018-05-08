@@ -786,7 +786,6 @@ Camera:
   m_TargetEye: 3
   m_HDR: 1
   m_AllowMSAA: 1
-  m_AllowDynamicResolution: 0
   m_ForceIntoRT: 0
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
@@ -1458,10 +1457,9 @@ MonoBehaviour:
   spawnNextSection: 1
   difficultyIncreaseMultiplier: 5
   clouds:
-  - {fileID: 1222135337690736, guid: fc0ad9de00a44684cb31eb2ef9e1a099, type: 2}
+  - {fileID: 1850603774455630, guid: ca273bc32446470468056b1803e8af98, type: 2}
   - {fileID: 1293992707734684, guid: 6b4f4b31ae1d6364899dd0e131854d58, type: 2}
   - {fileID: 1080019979415180, guid: 42cfbdca2286fee46924927c86831953, type: 2}
-  - {fileID: 1850603774455630, guid: ca273bc32446470468056b1803e8af98, type: 2}
   bg: {fileID: 1214648982650286, guid: 3c4cc13b49cf740f08f708613b06ebc0, type: 2}
   bg2: {fileID: 1214648982650286, guid: 3c4cc13b49cf740f08f708613b06ebc0, type: 2}
   bg3: {fileID: 1214648982650286, guid: 3c4cc13b49cf740f08f708613b06ebc0, type: 2}
