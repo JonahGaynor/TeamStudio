@@ -16,7 +16,7 @@ public class MovingFaceScript : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        if (!ProofGameController.Instance.gameOver)
+        if (GameObject.Find("Little Boy").GetComponent<TestJump>()!=null && !GameObject.Find("Little Boy").GetComponent<TestJump>().ohMyGodYouDied)
         {
             movingFace.transform.position += new Vector3(distanceToTravel * Time.timeScale, 0, 0);
         }

@@ -6,15 +6,17 @@ using UnityEngine.UI;
 public class HomeLifeManager : MonoBehaviour {
     public static HomeLifeManager Instance = new HomeLifeManager();
 	public float stressLevel=0;
-	public float stressMultiplier = 0.25f;
+	public float stressMultiplier = 0.5f;
 	public float maxStress = 30f;
 	public int collectiblesGot = 0;
 	public float myTimer = 0f;
-	public static float firstCheckpoint = 20f;
-	public static float secondCheckpoint = 40f;
-	bool firstCheckpointHit = false;
+	public static float firstCheckpoint = 30f;
+	public static float secondCheckpoint = 60f;
+    public static float thirdCheckpoint = 80f;
+    bool firstCheckpointHit = false;
 	bool secondCheckpointHit = false;
-	public Animator[] characterAnimators;
+    bool thirdCheckpointHit = false;
+    public Animator[] characterAnimators;
 	public GameObject myPlayer;
 	Animator myAnimator;
     public Canvas calendarCanvas;
@@ -40,9 +42,15 @@ public class HomeLifeManager : MonoBehaviour {
 
 		if (stressLevel >= maxStress && !secondCheckpointHit) {
 			ProofGameController.Instance.gameOver = true;
+            myTimer = 0;
+           // Debug.Log("You Died");
+            GameObject.Find("Little Boy").GetComponent<Animator>().SetTrigger("Death");
 		} else if (stressLevel >= maxStress && secondCheckpointHit) {
 			ProofGameController.Instance.moveToNextLevel = true;
-		}
+            myTimer = 0;
+            Debug.Log("Moving On");
+            GameObject.Find("Little Boy").GetComponent<Animator>().SetTrigger("Death");
+        }
 		if (myTimer >= firstCheckpoint && !firstCheckpointHit) {
 			
             StartCoroutine(TimePasses());
@@ -68,6 +76,12 @@ public class HomeLifeManager : MonoBehaviour {
                 stressLevel = 1;
             }
            
+        }
+        if (myTimer >= thirdCheckpoint && firstCheckpointHit && secondCheckpointHit && !thirdCheckpointHit)
+        {
+            stressMultiplier *= 2;
+            thirdCheckpointHit = true;
+            Debug.Log("Getting Faster Now");
         }
         if (Input.GetKeyDown(KeyCode.C))
         {
