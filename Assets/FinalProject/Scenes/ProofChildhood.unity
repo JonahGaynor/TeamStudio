@@ -524,6 +524,7 @@ MonoBehaviour:
   dashLength: 0.5
   dashing: 0
   dashCooldown: 1.5
+  canDash: 1
   dashImageSprite: {fileID: 737050228}
   dashImage: {r: 0, g: 0, b: 0, a: 0}
 --- !u!95 &578459491
@@ -574,6 +575,7 @@ MonoBehaviour:
   gravityOverride: 0
   canGetHit: 1
   readyToMoveOn: 0
+  ohMyGodYouDied: 0
 --- !u!82 &578459493
 AudioSource:
   m_ObjectHideFlags: 0
@@ -1338,7 +1340,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: 9e8a57cd1da316549b74cacb7c9c9af7, type: 3}
+  m_Sprite: {fileID: 21300000, guid: fa04b9ce04f774739a331bbc03c3cc0f, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1772,6 +1774,7 @@ MonoBehaviour:
   canMakeSpecialBG: 1
   inDebugMode: 0
   sectionOffest: 0
+  oddsOfPoster: 5
   canMakeCeiling: 0
 --- !u!1 &1761015975
 GameObject:
