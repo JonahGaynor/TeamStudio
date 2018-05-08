@@ -77,7 +77,7 @@ public class HomeLifeJumpScript : MonoBehaviour
             Vector3 temp = this.transform.position;
             temp.x += (runSpeed * speedOverride * Time.timeScale);
             this.transform.position = temp;
-            if (Input.GetKeyUp(KeyCode.W) || Input.GetKeyUp(KeyCode.UpArrow))
+            if (Input.GetKeyUp(KeyCode.W))
             {
                 if (keyDownCounter <= 0.1f)
                 {
@@ -92,7 +92,7 @@ public class HomeLifeJumpScript : MonoBehaviour
                 floatTime = 0;
                 canFloat = false;
             }
-            if (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow))
+            if (Input.GetKeyDown(KeyCode.W))
             {
                 if (transform.position.y <= -3.7f && transform.position.y >= -3.83f)
                 {
@@ -161,7 +161,7 @@ public class HomeLifeJumpScript : MonoBehaviour
         }
 
 
-        if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow))
+        if (Input.GetKey(KeyCode.W))
         {
             if (canFloat)
             {

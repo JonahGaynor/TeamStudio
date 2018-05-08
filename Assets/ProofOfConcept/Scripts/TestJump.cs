@@ -70,51 +70,45 @@ public class TestJump : MonoBehaviour
         {
             myRigidbody.gravityScale = gravity;
         }     
-		if (!ProofGameController.Instance.gameOver)
-        {
+		if (!ProofGameController.Instance.gameOver) {
 
 			runSpeed = ProofGameController.Instance.standardMoveSpeed;
-            Vector3 temp = this.transform.position;
-            temp.x += (runSpeed*speedOverride*Time.timeScale);
-            this.transform.position = temp;
-            if (Input.GetKeyUp(KeyCode.W) || Input.GetKeyUp(KeyCode.UpArrow))
-            {
-                if (keyDownCounter <= 0.1f) {
-					myRigidbody.velocity = new Vector2 (myRigidbody.velocity.x, myRigidbody.velocity.y/2);
+			Vector3 temp = this.transform.position;
+			temp.x += (runSpeed * speedOverride * Time.timeScale);
+			this.transform.position = temp;
+			if (Input.GetKeyUp (KeyCode.W)) {
+				if (keyDownCounter <= 0.1f) {
+					myRigidbody.velocity = new Vector2 (myRigidbody.velocity.x, myRigidbody.velocity.y / 2);
 				}
 				keyDownCounter = 0f;
-                canFloat = false;
+				canFloat = false;
 				floatTime = 0;
-            }
-            if (floatTime > 14)
-            {
-                floatTime = 0;
-                canFloat = false;
-            }
-            if (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow))
-            {
-                if (transform.position.y <= -3.7f && transform.position.y >= -3.83f)
-                {
-                    jumpOnHit = false;
-                }
-                if (canJump && !jumpOverride)
-                {
-                    canFloat = true;
-                    myRigidbody.velocity = Vector2.zero;
-                    canJump = false;
-                    myAnimator.SetBool("ShouldRun", false);
-                    myRenderer.sprite = jumpingSprite;
-                    myRigidbody.AddForce(transform.up * jump);
-                }
-            }
-            if (readyToMoveOn)
-            {
-                if (Input.GetKeyDown(KeyCode.Return))
-                {
-                    ProofGameController.Instance.fadeToEnd = true;
-                }
-            }
-        }
+			}
+			if (floatTime > 14) {
+				floatTime = 0;
+				canFloat = false;
+			}
+			if (Input.GetKeyDown (KeyCode.W)) {
+				if (transform.position.y <= -3.7f && transform.position.y >= -3.83f) {
+					jumpOnHit = false;
+				}
+				if (canJump && !jumpOverride) {
+					canFloat = true;
+					myRigidbody.velocity = Vector2.zero;
+					canJump = false;
+					myAnimator.SetBool ("ShouldRun", false);
+					myRenderer.sprite = jumpingSprite;
+					myRigidbody.AddForce (transform.up * jump);
+				}
+			}
+			if (readyToMoveOn) {
+				if (Input.GetKeyDown (KeyCode.Return)) {
+					ProofGameController.Instance.fadeToEnd = true;
+				}
+			}
+		} else {
+			myAudio.enabled = false;
+		}
     }
 
 	void FixedUpdate(){
@@ -145,7 +139,7 @@ public class TestJump : MonoBehaviour
 		}
 
 		
-		if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow))
+		if (Input.GetKey(KeyCode.W))
 		{
 			if (canFloat)
 			{

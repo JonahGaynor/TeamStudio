@@ -31,5 +31,6 @@ public class EKGGameController : MonoBehaviour {
 		if (GameObject.Find ("Blocker").GetComponent<SpriteRenderer> ().material.color.a >= 0.9f && levelEnded && timeSinceLevelBegan > timeForLevel) {
 			ProofGameController.Instance.moveToNextLevel = true;
 		}
+
 	}
 }
