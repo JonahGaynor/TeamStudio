@@ -9,12 +9,13 @@ public class ReconnectionGameController : MonoBehaviour {
     public float timeLeftTillEvent;
     public Sprite[] flashBackImages;
     public KeyCode requiredKey;
-    public string[] possibleKeys = { "A", "S", "D", "F", "W" };
+    string[] possibleKeys = { "A", "S", "D", "W" };
     public GameObject stupidKid;
     public Animator kidAnim;
     public int sectionsPast = 0;
     public float timeTillThrow;
     public float maxTimeToThrow;
+    public GameObject lineExample;
 	// Use this for initialization
 	void Start () {
         Instance = this;
@@ -60,12 +61,12 @@ public class ReconnectionGameController : MonoBehaviour {
             textMeshChild.transform.localScale = new Vector3(0.14f, 0.14f, 1);
             textMeshChild.GetComponent<TextMesh>().fontSize = 100;
             Vector3 temp = currentObstacle.transform.position;
-            temp.y += 3;
+            temp.y += 2.5f;
             temp.z = 20;
             currentObstacle.transform.position = temp;
 
             textMeshChild.transform.localPosition = temp;
-            textMeshChild.transform.localPosition += new Vector3(-0.63f, 0.67f, 0);
+            textMeshChild.transform.localPosition += new Vector3(-0.63f, 4.75f, 0);
             textMeshChild.transform.parent = currentObstacle.transform;
             //  kidAnim.SetBool("ShouldRun", true);
             timeTillThrow = maxTimeToThrow;
@@ -87,10 +88,7 @@ public class ReconnectionGameController : MonoBehaviour {
         {
             return KeyCode.D;
         }
-        if (key == "F")
-        {
-            return KeyCode.F;
-        }
+       
         if (key == "W")
         {
             return KeyCode.W;
@@ -102,27 +100,23 @@ public class ReconnectionGameController : MonoBehaviour {
         KeyCode[] stupid =new KeyCode[4];
         if (key == KeyCode.A)
         {
-            KeyCode[] returner = { KeyCode.S , KeyCode.D, KeyCode.F, KeyCode.W};
+            KeyCode[] returner = { KeyCode.S , KeyCode.D, KeyCode.W};
             return returner;
         }
         if (key == KeyCode.S)
         {
-            KeyCode[] returner = { KeyCode.A, KeyCode.D, KeyCode.F, KeyCode.W };
+            KeyCode[] returner = { KeyCode.A, KeyCode.D, KeyCode.W };
             return returner;
         }
         if (key == KeyCode.D)
         {
-            KeyCode[] returner = { KeyCode.S, KeyCode.A, KeyCode.F, KeyCode.W };
+            KeyCode[] returner = { KeyCode.S, KeyCode.A,  KeyCode.W };
             return returner;
         }
-        if (key == KeyCode.F)
-        {
-            KeyCode[] returner = { KeyCode.S, KeyCode.D, KeyCode.A, KeyCode.W };
-            return returner;
-        }
+      
         if (key == KeyCode.W)
         {
-            KeyCode[] returner = { KeyCode.S, KeyCode.D, KeyCode.F, KeyCode.A };
+            KeyCode[] returner = { KeyCode.S, KeyCode.D, KeyCode.A };
             return returner;
         }
         return stupid;
