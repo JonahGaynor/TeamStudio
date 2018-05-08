@@ -40,6 +40,9 @@ public class ProofGameController : MonoBehaviour {
         {
             gameOver = true;
         }
+		if (moveToNextLevel) {
+			life = 50;
+		}
     }
     void AddPickup()
     {

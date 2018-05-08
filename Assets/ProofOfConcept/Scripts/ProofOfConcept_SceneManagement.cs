@@ -65,7 +65,7 @@ public class ProofOfConcept_SceneManagement : MonoBehaviour {
 
         }
 
-		if (ProofGameController.Instance.gameOver) {
+		if (ProofGameController.Instance.gameOver && !ProofGameController.Instance.moveToNextLevel) {
 			if (thisScene.name == "ProofEKG") {
 				SceneManager.LoadScene ("ProofDeathScene");
 				ProofGameController.Instance.gameOver = false;
