@@ -11,19 +11,37 @@ public class ReconnectionGameController : MonoBehaviour {
     public KeyCode requiredKey;
     public string[] possibleKeys = { "A", "S", "D", "F", "W" };
     public GameObject stupidKid;
+    public Animator kidAnim;
     public int sectionsPast = 0;
+    public float timeTillThrow;
+    public float maxTimeToThrow;
 	// Use this for initialization
 	void Start () {
         Instance = this;
         timeLeftTillEvent = timeToEvent;
-        
-
+        maxTimeToThrow = timeToEvent - 0.25f;
+        kidAnim = stupidKid.GetComponent<Animator>();
+        timeTillThrow = maxTimeToThrow;
 	}
 	
 	// Update is called once per frame
 	void Update () {
         timeLeftTillEvent -= Time.deltaTime;
+        timeTillThrow -= Time.deltaTime;
         timeToEvent = 4 - (sectionsPast / 5);
+        maxTimeToThrow = timeToEvent - 0.25f;
+
+        if (timeTillThrow < 0)
+        {
+            kidAnim.SetTrigger("ShouldThrow");
+            //kidAnim.SetBool("ShouldRun",false);
+            timeTillThrow = maxTimeToThrow;
+
+
+
+        }
+
+
         if (timeLeftTillEvent < 0)
         {
             timeLeftTillEvent = timeToEvent;
@@ -49,7 +67,8 @@ public class ReconnectionGameController : MonoBehaviour {
             textMeshChild.transform.localPosition = temp;
             textMeshChild.transform.localPosition += new Vector3(-0.63f, 0.67f, 0);
             textMeshChild.transform.parent = currentObstacle.transform;
-          
+            //  kidAnim.SetBool("ShouldRun", true);
+            timeTillThrow = maxTimeToThrow;
         }
 	}
 
