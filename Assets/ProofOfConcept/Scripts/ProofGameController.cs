@@ -23,6 +23,7 @@ public class ProofGameController : MonoBehaviour {
     // Use this for initialization
     private void Awake()
     {
+		Time.timeScale = 1.0f;
         moveToNextLevel = false;
     }
     void Start()
