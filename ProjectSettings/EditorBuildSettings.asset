@@ -80,3 +80,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/FinalProject/Scenes/FinalCollege.unity
     guid: 471958c4b919f48768b5fb08cca015b9
+  - enabled: 1
+    path: Assets/FinalProject/Scenes/Cutscene_Marriage.unity
+    guid: 81d8fb98160dd4fa398ac53c8af5e3f6
+  - enabled: 1
+    path: Assets/FinalProject/Scenes/Cutscene_Job.unity
+    guid: c65344b6973ba4acc96b91ee126a1436

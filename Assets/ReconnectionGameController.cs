@@ -37,7 +37,7 @@ public class ReconnectionGameController : MonoBehaviour {
            GameObject textMeshChild= new GameObject("Text Mesh Child");
             textMeshChild.AddComponent<TextMesh>();
             textMeshChild.GetComponent<TextMesh>().text = possibleKeys[Random.Range(0, possibleKeys.Length)];
-            textMeshChild.GetComponent<MeshRenderer>().sortingOrder = 12;
+            textMeshChild.GetComponent<MeshRenderer>().sortingOrder = 25;
             textMeshChild.GetComponent<TextMesh>().color = Color.red;
             textMeshChild.transform.localScale = new Vector3(0.14f, 0.14f, 1);
             textMeshChild.GetComponent<TextMesh>().fontSize = 100;

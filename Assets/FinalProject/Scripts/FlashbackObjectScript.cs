@@ -41,9 +41,9 @@ public class FlashbackObjectScript : MonoBehaviour {
             Debug.Log("You Suck");
             Destroy(this.gameObject);
         }
-        if (this.transform.position.x - player.transform.position.x <-3.25 && satisfied)
-            ReconnectionGameController.Instance.sectionsPast++;
+        if (this.transform.position.x - player.transform.position.x <-3.25 && satisfied)        
         {
+            ReconnectionGameController.Instance.sectionsPast++;
             Debug.Log("Nailed It");
             Destroy(this.gameObject);
         }
