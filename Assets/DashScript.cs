@@ -75,6 +75,8 @@ public class DashScript : MonoBehaviour {
         if (ProofGameController.Instance.fadeToEnd)
         {
             canDash = false;
+			this.GetComponent<TestJump> ().canGetHit = false;
+			GameObject.Find ("Image").GetComponent<Image> ().enabled = false;
         }
 		if ((Input.GetKeyDown(KeyCode.D))&&canDash && ProofGameController.Instance.life >=1)
         {
